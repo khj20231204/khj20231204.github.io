@@ -111,11 +111,10 @@ $youtube-color: #bb0000 !default;
 $xing-color: #006567 !default;
 
 /* links */
-$link-color: mix(#000, $info-color, 20%) !default;   /* $info-color: #3b9cba !default; */
-//$link-color-hover: mix(#000, $link-color, 25%) !default;
-$link-color-hover: rgb(204, 44, 33);
-// $link-color-visited: mix(#fff, $link-color, 15%) !default;
-$link-color-visited: rgb(110, 106, 106);
+// $link-color: mix(#000, $info-color, 20%) !default;
+$link-color: gray !default;
+$link-color-hover: mix(#000, $link-color, 25%) !default;
+$link-color-visited: mix(#fff, $link-color, 15%) !default;
 $masthead-link-color: $primary-color !default;
 $masthead-link-color-hover: mix(#000, $primary-color, 25%) !default;
 $navicon-link-color-hover: mix(#fff, $primary-color, 75%) !default;
