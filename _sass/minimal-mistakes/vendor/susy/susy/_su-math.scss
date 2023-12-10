@@ -90,7 +90,9 @@
   @if unitless($span-width) {
     $container-spread: su-valid-spread($container-spread);
     $container: _su-sum($columns, $gutters, $container-spread, $validate: false);
-    @return percentage($span-width / $container);
+    $a: calc($span-width / $container);
+    @return percentage($a);
+    //@return percentage($span-width / $container);
   }
 
   @return $span-width;
@@ -141,7 +143,9 @@
   }
 
   $container: _su-sum($columns, $gutters, $container-spread);
-  @return percentage($gutters / $container);
+  $b: calc($gutters / $container);
+  @return percentage($b);
+  //@return percentage($gutters / $container);
 }
 
 
