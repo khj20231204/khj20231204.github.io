@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "카테고리"
-    url: /categories/
+    url: /top_categories/
   - title: "태그"
     url: /tags/
 counts:
@@ -9,3 +9,33 @@ counts:
     use: true
   - title: "태그"
     use: true
+
+sidebar_category_list:
+  - title: 프로그래밍
+    children:
+      - title: "SQL"
+        url: /sql
+      - title: "SQL"
+        url: /sql
+      - title: "SQL"
+        url: /sql
+      - title: "SQL"
+        url: /sql
+  - title: 영어
+    children:
+      - title: "듣기"
+        url: /categories/raspberry_pi
+    children:
+      - title: "독해"
+        url: /categories/raspberry_pi
+    children:
+          - title: "문법"
+            url: /categories/raspberry_pi
+
+
+# 파일이름은 상관없다
+# 실행되면 navigation.yml에서 docs를 참조하는데 
+# url: /categories/sql_permalink
+# navigation.yml의 url은 기본적으로 _pages 디렉토리를 안에서 
+# 페르마링크가 categories/sql_permalink 인 것을 검색하지
+# 파일이름은 뭘해도 상관없다.

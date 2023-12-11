@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: archive
 title: 링크 텍스트 색깔 변경
 categories: GitBlog
 tag: []
