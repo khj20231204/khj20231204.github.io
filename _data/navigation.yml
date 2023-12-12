@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "소개"
+    url: /include/
   - title: "카테고리"
     url: /top_categories/
   - title: "태그"
@@ -7,13 +9,15 @@ main:
   - title: "검색"
     url: /search_in_pages/
 counts:
+  - title: "소개"
+    use: true
   - title: "카테고리"
     use: true
   - title: "태그"
     use: true
   - title: "검색"
     use: true
-
+  
 #sidebar list
 sidebar_category_list:
   - title: 프로그래밍

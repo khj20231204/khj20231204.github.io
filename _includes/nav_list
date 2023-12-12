@@ -1,12 +1,5 @@
 {% assign navigation = site.data.navigation[include.nav] %}
 
-
-<!-- {% for category in site.categories %}
-category[1].size:{{ category[1].size }}
-category[0] : {{ category[0] }}
-{% endfor %} -->
-
------- nav_list.md 시작 ------
 <nav class="nav__list">
   {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
@@ -25,8 +18,6 @@ category[0] : {{ category[0] }}
           
           {% for child in nav.children %}
             {% for category in site.categories %}
-              <!-- category[1].size:{{ category[1].size }}
-              category[0] : {{ category[0] }} -->
               {% if category[0] == child.title %}
                 <li>
                   <a href="{{ child.url | relative_url }}"{% if child.url == page.url %} class="active"{% endif %}>
@@ -43,4 +34,3 @@ category[0] : {{ category[0] }}
     {% endfor %}
   </ul>
 </nav>
------- nav_list.md 끝 ------

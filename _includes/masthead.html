@@ -14,7 +14,11 @@
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
-              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+              {% if link.title == "검색" %}
+              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}><i class="fas fa-search"></i></a>
+              {% else %}
+                <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+              {% endif %}
             </li>
           {%- endfor -%}
         </ul>
