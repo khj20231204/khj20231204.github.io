@@ -3,7 +3,6 @@ layout: single
 title: Entity(엔터티)
 categories: SQL
 tag:
-author_profile: false
 ---
 
 1. # 엔터티의 정의

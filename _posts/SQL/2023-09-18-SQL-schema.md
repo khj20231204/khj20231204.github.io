@@ -3,7 +3,6 @@ layout: single
 title: 스키마
 categories: SQL
 tag: [SCHEMA]
-author_profile: false
 ---
 
 1. # 데이터 독립성

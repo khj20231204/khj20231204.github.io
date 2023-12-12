@@ -1,0 +1,124 @@
+---
+layout: single
+title: List
+categories: CODINGTEST
+tag: [LinkedList]
+---
+
+1. # LinkedList 데이터 조작
+   ```java
+      List<Integer> list = new ArrayList<>();
+      /* add(element), add(idx, element) 반환값:boolean */
+      System.out.println(list.add(51)); //true
+      list.add(52);
+      list.add(53); 
+      list.add(3,54);
+
+      /* get(idx) 반환값:idx의 element */
+      System.out.println(list.get(3)); //51
+      //System.out.println(list.get(7)); idx범위를 넘어서면 error
+
+      /* 
+      contains(element)-해당 element가 있으면true 없으면false, 반환값:boolean 
+      element가 숫자이면 자동 언박싱이 되어서 Integer타입으로 넘어간다.
+      */
+      System.out.println(list.contains(52));//true
+      System.out.println(list.contains(59));//false
+
+      /* 
+      indexOf(element)-해당 element의 인덱스를 반환, 반환값:있으면idx 없으면 -1, 
+      element가 숫자이면 자동 언박싱이 되어서 Integer타입으로 넘어간다.
+      앞에서부터 element 검색
+      */
+      System.out.println(list.indexOf(52));//1
+      System.out.println(list.indexOf(59));//-1
+      /* lastIndexOf(element)-뒤에서부터 element 검색 */
+      System.out.println(list.lastIndexOf(52));//1
+      System.out.println(list.lastIndexOf(59));//-1
+   ```
+1. # remove
+   index와 element로 모두 삭제 가능
+   ```java
+      String[] strArr = {"1","2","3","4","5"};
+      List<String> strList = new ArrayList<>();
+      for(String s : strArr) strList.add(s);
+      strList.remove(2); //idx=2 삭제, 인덱스로 삭제
+      System.out.println(strList); //[1, 2, 4, 5]
+      strList.remove("2"); //element 2 삭제, 값으로 삭제
+      System.out.println(strList); //[1, 4, 5]
+      strList.remove(String.valueOf(5)); //element 5 삭제, String.valueOf(값):값을 String으로 변환
+      System.out.println(strList); //[1,4]
+
+      int[] intArr = {3,4,5,6};
+      List<Integer> intList = new LinkedList<Integer>();
+      for(int i : intArr) intList.add(i);
+      intList.remove(3); //idx=3 삭제, 인덱스로 삭제
+      System.out.println(intList); //[3, 4, 5]
+      intList.remove(Integer.valueOf(4)); //element 4, 값으로 삭제, Integer.valueOf(값):값을 Integer로 변환
+      System.out.println(intList); //[3, 5]
+   ```
+1. # toString(), equals() 오버라이드
+   ```java
+      //main
+      public class Linklist {
+      public static void main(String[] args){
+         LinkedList<MyData> list = new LinkedList<MyData>();
+         list.add(MyData.create(1));
+         list.add(MyData.create(2));
+         list.add(MyData.create(3));
+
+         System.out.println(list.toString()); //toString 오버라이딩해서 사용
+         System.out.println(MyData.create(2)); //value:2
+         System.out.println(list.contains(MyData.create(2))); //true, equals()메서드 오버라이딩 이용, 오버라이딩을 해서 객체가 아니라 value로 비교
+         System.out.println(list.indexOf(MyData.create(2))); //1, 처음부터 index를 검색, indexOf도 contains와 마찬가지로 equals()메서드 이용해서 인덱스를 찾음
+         System.out.println(list.lastIndexOf(MyData.create(2))); //1, 끝에서부터 index를 검색, contains와 마찬가지로 equals()메서드 이용해서 인덱스를 찾음
+         }
+      }
+
+      //MyData
+      public class MyData{
+         int value;
+         public MyData(int value){
+            this.value = value;
+         }
+         public static MyData create(int value){
+            //this.value = value; static메서드에선 인스턴스변수에 접근할 수 없다.
+            return new MyData(value);
+         }
+
+         @Override
+         public String toString() {
+            return "value:"+value;
+         }
+
+         @Override
+         public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            MyData myData = (MyData) o;
+            return value == myData.value; //value값이 같은지를 비교, contains메서드에서 사용
+         }
+      }
+   ```
+1. # List의 다형성  
+   LinkedList는 List<E>인터페이스를 구현한 것이고 List<E>인터페이스를 구현한 클래스 중 주로 사용하는 클래스에는 ArrayList와 Vector가 더 있습니다.
+   그렇기 때문에 
+   ```java
+      List<MyData> list = new LinkedList<>();
+      List<MyData> list = new ArrayList<>();
+      List<MyData> list = new Vector<>();
+   ```
+   다음과 같이 List는 LinkedList형, ArrayList형, Vector형으로도 표현가능한 다형성을 가지고 있습니다
+1. # ArrayList
+   ArrayList는 resizable이 가능한 배열입니다. 내부에 배열을 가지고 있는데 자동으로 크기가 늘어납니다. 처음엔 일정한 메모리 크기가 주어지고 더 많은 양의 데이터가 들어오면 더 큰 메모리 공간을 만들고 기존의 값들을 복사한 후 기존 메모리는 삭제하는 방식으로 데이터를 저장합니다.   
+   최초 메모리 크기를 정하기 위해서 ArrayList(int initialCapacity) capacity를 정해줄 수도 있습니다.
+   ```java
+      List<MyData> list = new ArrayList<>(10); //capacity에 10을 할당
+   ```
+1. # Vector
+   Vector는 growable이 가능한 배열입니다. 위에 ArrayList와 같이 resizble하다는 의미입니다. 벡터는
+   Vector(int initialCapacity) Capacity로 초기 크기를 정할 수도 있고, Vector(int initialCapacity, int capacityIncrement) capacityIncrement 증가하는 크기도 정할 수가 있습니다. 사용방법은 ArrayList와 동일합니다. 단, Vector는 synchronized를 지원하고 ArrayList는 지원하지 않기 때문에 스레드 사용시엔 Vector를 권장합니다.   
+1. # 정리   
+   가변적인 데이터 저장 공간이 필요하다 - LinkedList, ArrayList, Vector   
+   인덱스로 빠른 검색이 필요하다 - ArrayList, Vector   
+   멀티 스레드에서 이용한다 - Vector   

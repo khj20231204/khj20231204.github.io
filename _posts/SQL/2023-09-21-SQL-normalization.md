@@ -3,7 +3,6 @@ layout: single
 title: 정규화
 categories: SQL
 tag: []
-author_profile: false
 ---
 
 1. # 정규화(Normalization)   

@@ -436,3 +436,6 @@ tag: [명령어, 사용자, 그룹, user, group]
    2. ### less
       파일을 한 번에 한 화면씩 나타내는 명령어   
       기능적으로 more을 확장한 것으로 상하좌우로 이동가능   
+<br>
+
+[이기적 리눅스마스터 2급](https://www.aladin.co.kr/m/mproduct.aspx?ItemId=288584917) 

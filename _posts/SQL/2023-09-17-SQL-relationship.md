@@ -3,7 +3,6 @@ layout: single
 title: Relationship(관계)
 categories: SQL
 tag:
-author_profile: false
 ---
 
 1. # 관계와 페어링

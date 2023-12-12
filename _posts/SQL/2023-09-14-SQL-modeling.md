@@ -3,8 +3,8 @@ layout: single
 title: 모델링
 categories: SQL
 tag: [modeling]
-author_profile: false
 ---
+
 
 1. # 모델링이란?
   

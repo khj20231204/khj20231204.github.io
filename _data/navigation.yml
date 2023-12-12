@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "소개"
-    url: /include/
+    url: /introduce/
   - title: "카테고리"
     url: /top_categories/
   - title: "태그"
@@ -20,26 +20,42 @@ counts:
   
 #sidebar list
 sidebar_category_list:
-  - title: 프로그래밍
+  - title: "프로그래밍"
     children:
       - title: "SQL"
         url: /sql
+      - title: "CODINTEST"
+        url: /codingtest
+      - title: "JAVA"
+        url: /java
+      - title: "CSS"
+        url: /css
+      - title: "js"
+        url: /js
+  - title: "그리고 또"
+    children:
+      - title: CentOS
+        url: /centos
       - title: "Ubuntu"
-        url: /Ubuntu
-      - title: "GitBlog"
-        url: /GitBlog
-      - title: "Docker"
-        url: /Docker
-  - title: 영어
+        url: /ubuntu
+      - title: Docker
+        url: /docker
+      - title: Git
+        url: /git
+      - title: Network
+        url: /network
+      - title: 정규표현식
+        url: /regular_expression
+  - title: "영어"
     children:
       - title: "듣기"
-        url: /categories/raspberry_pi
-    children:
+        url: /listen
       - title: "독해"
-        url: /categories/raspberry_pi
-    children:
+        url: /reading
       - title: "문법"
-        url: /categories/raspberry_pi
+        url: /grammer
+      - title: "단어"
+        url: /word
 
 
 # 파일이름은 상관없다

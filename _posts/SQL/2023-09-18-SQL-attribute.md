@@ -3,7 +3,6 @@ layout: single
 title: Attribute(속성)
 categories: SQL
 tag:
-author_profile: false
 ---
 
 1. # 속성의 정의

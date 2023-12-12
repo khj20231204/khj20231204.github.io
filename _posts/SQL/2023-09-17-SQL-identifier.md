@@ -3,7 +3,6 @@ layout: single
 title: 식별자
 categories: SQL
 tag: [식별자, 비식별자]
-author_profile: false
 ---
 
 1. # 식별자의 분류   
