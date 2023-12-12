@@ -26,17 +26,18 @@
   $unit: unit($value);
 
   $a : 16px;
+  $b : 12pt;
   @if $unit == 'px' {
     @return ($value / $a) * 1em;
   }
   @else if $unit == '%' {
-    @return calc($value / 100%) * 1em;
+    @return ($value / 100%) * 1em;
   }
   @else if $unit == 'em' {
     @return $value;
   }
   @else if $unit == 'pt' {
-    @return calc($value / 12pt) * 1em;
+    @return ($value / $b) * 1em;
   }
   @else {
     @return $value;
