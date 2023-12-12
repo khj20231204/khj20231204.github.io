@@ -3,6 +3,7 @@ layout: single
 title: Jekyll목록 사이드바 만들기
 categories: GitBlog
 tag: []
+author_profile: false
 ---
 
 1. # 블로그 생성부터 우분투에 연결까지

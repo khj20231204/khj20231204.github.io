@@ -3,6 +3,7 @@ layout: single
 title: Jekyll-링크 텍스트 색깔 변경
 categories: GitBlog
 tag: []
+author_profile: false
 ---
 
 1. # 링크가 걸려있는 텍스트

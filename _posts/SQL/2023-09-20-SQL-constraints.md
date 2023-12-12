@@ -3,6 +3,7 @@ layout: single
 title: 제약 조건
 categories: SQL
 tag: [무결성, 이상현상]
+author_profile: false
 ---
 
 1. # 성능 데이터 모델링 진행 순서
