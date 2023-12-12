@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 title: Jekyll-링크 텍스트 색깔 변경
 categories: GitBlog
 tag: []

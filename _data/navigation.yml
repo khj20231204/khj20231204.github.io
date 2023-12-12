@@ -15,12 +15,12 @@ sidebar_category_list:
     children:
       - title: "SQL"
         url: /sql
-      - title: "SQL"
-        url: /sql
-      - title: "SQL"
-        url: /sql
-      - title: "SQL"
-        url: /sql
+      - title: "Ubuntu"
+        url: /Ubuntu
+      - title: "Network"
+        url: /Network
+      - title: "Docker"
+        url: /Docker
   - title: 영어
     children:
       - title: "듣기"
@@ -29,8 +29,8 @@ sidebar_category_list:
       - title: "독해"
         url: /categories/raspberry_pi
     children:
-          - title: "문법"
-            url: /categories/raspberry_pi
+      - title: "문법"
+        url: /categories/raspberry_pi
 
 
 # 파일이름은 상관없다

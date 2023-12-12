@@ -8,8 +8,6 @@ layout: archive
 {% for category in site.categories %}
   {% if category[1].size > categories_max %}
     {% assign categories_max = category[1].size %}
-    -=-------------------------------------
-    {{ site.categories }}
   {% endif %}
 {% endfor %}
 
