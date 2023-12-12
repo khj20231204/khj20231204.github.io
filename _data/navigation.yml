@@ -19,18 +19,19 @@ counts:
     use: true
   
 #sidebar list
+#children의 title과 _posts md파일의 categories 이름이 같아야 한다.
 sidebar_category_list:
   - title: "프로그래밍"
     children:
-      - title: "SQL"
+      - title: "SQL" 
         url: /sql
-      - title: "CODINTEST"
+      - title: "CODINGTEST"
         url: /codingtest
       - title: "JAVA"
         url: /java
       - title: "CSS"
         url: /css
-      - title: "js"
+      - title: "JS"
         url: /js
   - title: "그리고 또"
     children:
@@ -44,17 +45,17 @@ sidebar_category_list:
         url: /git
       - title: Network
         url: /network
-      - title: 정규표현식
-        url: /regular_expression
+      - title: RegularExpression
+        url: /regularexpression
   - title: "영어"
     children:
-      - title: "듣기"
+      - title: "LISTEN" 
         url: /listen
-      - title: "독해"
+      - title: "READING"
         url: /reading
-      - title: "문법"
+      - title: "GRAMMER"
         url: /grammer
-      - title: "단어"
+      - title: "WORD"
         url: /word
 
 
