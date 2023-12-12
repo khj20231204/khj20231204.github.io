@@ -71,7 +71,7 @@
   $b: 587;
   $c: 114;
   $d: 1000;
-  $yiq: (($red*$a) + ($green*$b) + ($blue*$c))/$d;
+  $yiq: (($red * $a) + ($green * $b) + ($blue * $c)) / $d;
 
   @if $yiq-debug { @debug $yiq, $threshold; }
 

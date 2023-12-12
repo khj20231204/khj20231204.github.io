@@ -86,11 +86,13 @@
   }
 
   $span-width: _su-sum($span, $gutters, $spread, $validate: false);
+  
+  $a: $span-width;
 
   @if unitless($span-width) {
     $container-spread: su-valid-spread($container-spread);
     $container: _su-sum($columns, $gutters, $container-spread, $validate: false);
-    @return percentage($span-width / $container);
+    @return percentage($a / $container);
   }
 
   @return $span-width;
@@ -141,7 +143,7 @@
   }
 
   $container: _su-sum($columns, $gutters, $container-spread);
-  @return percentage(calc($gutters / $container));
+  @return percentage($gutters / $container);
 }
 
 // Su Slice
