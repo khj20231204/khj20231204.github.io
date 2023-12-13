@@ -158,8 +158,8 @@ tag: [라이프 사이클, 컨테이너 네트워크, 컨테이너 백그라운�
    ```   
    2. 옵션   
 
-   |       옵션     |            설명          |
-   |:--------------:|:-----------------------:|
+   |       옵션      |            설명          |
+   |:---------------:|:------------------------:|
    | --add-host=[호스트명:IP 주소] | 컨테이너의 /etc/hosts에 호스트명과 IP주소를 정의|
    | --dns=[IP주소] | 컨터이너용 DNS서버의 IP주소 지정 |
    |--expose | 지정한 범위의 포트 번호를 할당 |
@@ -183,9 +183,9 @@ tag: [라이프 사이클, 컨테이너 네트워크, 컨테이너 백그라운�
 
    2. MAC Address 지정   
    ```s
-      root@ubuntudesk:/home/ubuntu-desk# docker container run -d --mac-address="92:34:a3:d1:33:f2" nginx ☜nginx 컨테이너에 mac주소 지정
-      97cda27e4cb7a37f8eb244f4586335a46ef598634faa70ca970311600e8a5a4a
+      root@ubuntudesk:/home/ubuntu-desk# docker container run -d --mac-address="92:34:a4:d3:3e:ff" nginx ☜nginx 컨테이너에 mac주소 지정
+      97cda27e4cb7a37f8eb244f4586335a46ef59863
 
-      root@ubuntudesk:/home/ubuntu-desk# docker container inspect --format="{{ .Config.MacAddress }}" 97cda27 ☜97cda27의 백그라운드 컨테이너의 mac 주소 확인
-      92:34:a3:d1:33:f2       
+      root@ubuntudesk:/home/ubuntu-desk# docker container inspect --format="{ Config MacAddress }" 97cda27 ☜97cda27의 백그라운드 컨테이너의 mac 주소 확인
+      92:34:a4:d3:3e:ff
    ```    

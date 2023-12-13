@@ -31,7 +31,7 @@ $mfp-iframe-max-width:                900px;                      // Maximum wid
 //$mfp-iframe-ratio:                    calc(9/16);                       // Ratio of iframe (9/16 = widescreen, 3/4 = standard, etc.)
 $a: 9;
 $b: 16; 
-$mfp-iframe-ratio:                    $a / $b !default;
+$mfp-iframe-ratio:                    (9 / 16) !default;
 
 // Image-type options
 $mfp-include-image-type:              true;                       // Enable Image-type popups
