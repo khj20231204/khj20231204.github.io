@@ -21,7 +21,7 @@
               {% if category[0] == child.title %}
                 <li>
                   <a href="{{ child.url | relative_url }}"{% if child.url == page.url %} class="active"{% endif %}>
-                  {{ child.title }}<span class="taxonomy__count" style="font-size: 18px;">({{ category[1].size }})</span>
+                  {{ child.title }}<span class="taxonomy__count" style="font-size: 15px;">({{ category[1].size }})</span>
                   </a>
                 </li>
               {% endif %}

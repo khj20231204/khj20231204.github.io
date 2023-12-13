@@ -3,7 +3,7 @@ main:
   - title: "소개"
     url: /introduce/
   - title: "카테고리"
-    url: /top_categories/
+    url: /categories/
   - title: "태그"
     url: /tags/
   - title: "검색"
@@ -47,6 +47,8 @@ sidebar_category_list:
         url: /network
       - title: RegularExpression
         url: /regularexpression
+      - title: JekyllBlog
+        url: /jekyllblog
   - title: "영어"
     children:
       - title: "LISTEN" 
