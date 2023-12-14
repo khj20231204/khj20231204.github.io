@@ -22,7 +22,7 @@ tag: [array, list]
 
 
       //선언 시 초기화
-      int[] arr4 = new int[]{1,2,3,4,5};
+      int[] arr4 = new int[]{1,2,3,4,5};E8F5FF
       //int[] arr4 = new int[5]{1,2,3,4,5}; 선언 시 초기화 할 땐 배열크기를 명시하면 error
 
       int[] arr3 = {1,2,3,4,5}; //바로 초기화 시 new int[] 생략가능
