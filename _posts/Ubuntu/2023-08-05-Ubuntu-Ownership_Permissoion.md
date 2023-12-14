@@ -101,7 +101,16 @@ tag: [permission,umask]
       chmod u+w file   'file의 사용자에게 w권한 부여'
       chmod g-rx file   'group의 rx권한 해제'
       chmod go+rwx file   'group와 other에 rwx권한 할당.
-   ``````
+   ``````   
+
+   하위 디렉토리에 모두 적용
+   ```
+      chmod [옵션] [파일이름]
+
+      chmod -R ex_dir
+   ```   
+   
+
 
 1. # 권한-옥텟(8진수) 모드
    0~7까지 숫자로 설정   
