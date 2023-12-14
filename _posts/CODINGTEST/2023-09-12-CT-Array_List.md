@@ -14,7 +14,7 @@ tag: [array, list]
    6) 값은 index로 접근합니다.   
 
 1. # 배열 선언과 초기화
-   ```
+   ```java
       //선언과 생성
       int[] arr; //배열 선언(배열을 다루기 위한 참조 변수 arr선언)        
       arr = new int[5]; //배열 생성(실제 저장 공간을 생성)
@@ -48,13 +48,13 @@ tag: [array, list]
 
    ```
 1. # 출력
-   ```
+   ```java
       System.out.println(arr); //I@b4c966a : 시작 주소 출력
       System.out.println(Arrays.toString(arr)); //[1, 2, 3, 4, 5] : Arrays함수 이용
       System.out.println(arr[0]) //인덱스로 출력
    ```
 1. # 디폴트 값
-   ```
+   ```java
       int[] arr = new int[5];   //int 배열
       System.out.println(Arrays.toString(arr)); //[0, 0, 0, 0, 0] : int형 초기값 0
       String[] strArray = new String[3];   //String 배열
@@ -66,4 +66,5 @@ tag: [array, list]
    2) 메모리상에 연속되지 않아도 됩니다.   
    3) 미리 공간을 확보해 놓지 않아도 됩니다.   
    4) 필요에 따라 데이터가 늘어나거나 줄어듭니다.   
-   5) 첫 번째 위치로 부터 index로 목표위치를 알려면 한 칸씩 이동하면서 찾아야 합니다.   
+   5) 첫 번째 위치로부터 index로 목표위치를 알려면 한 칸씩 이동하면서 찾아야 합니다.   
+
