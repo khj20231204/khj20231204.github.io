@@ -53,6 +53,7 @@ author_profile: false
    여기까지 준비, 이제 사이드바 생성   
 
 1. # 사이드바 생성 
+   pages에 md파일 만들기 
    _pages란 디렉토를 생성하고 그 안에 SQL과 Ubuntu의 목차를 생성할 md파일을 만듭니다. jekyll은 posts의 md 파일 안에 YAML Front Matter에 의해서 범주가 갈리기 때문에 디렉토리 위치와 파일이름은 상관 없습니다.   
    <img src="../../imgs/JekyllBlog/sidebar_make_pages.png" style="border:3px solid black;border-radius:9px;width:500px">    
 

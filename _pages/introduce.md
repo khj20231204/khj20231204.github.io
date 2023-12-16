@@ -17,8 +17,16 @@ author_profile: true
  <br>
    남자   
    
-   유튜브, 블로그 여기저기 보면서 공부한 거 잊어버릴 거 같아서 만듦   
+   유튜브, 블로그 여기저기 보면서 공부g한 거 잊어버릴 거 같아서 만듦   
 
-   기술 블로그 아니고, 그냥 공부 한 거 정리한 블로그   
+   공부 한 거 정리한 블로그   
+
+
+
+
+
+
+   [Network 유튜브 주소](https://www.youtube.com/@ddarahakit "따라하면서 배우는 IT")
+   [SQL 유튜브 주소](https://www.youtube.com/@ProfNKim "김남규 교수님")
 
     
