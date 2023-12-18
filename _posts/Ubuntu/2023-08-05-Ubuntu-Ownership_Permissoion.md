@@ -87,6 +87,9 @@ tag: [permission,umask]
    실행 : cd(해당 디렉토리로 이동할 수 있는 권한)   
 
 1. # 권한-심볼릭 모드
+
+   __기호 모드__   
+
    chmod [augo] [+-=] [rwx] [파일명]   
    a : 전체   
    u : 사용자   
@@ -101,17 +104,28 @@ tag: [permission,umask]
       chmod u+w file   'file의 사용자에게 w권한 부여'
       chmod g-rx file   'group의 rx권한 해제'
       chmod go+rwx file   'group와 other에 rwx권한 할당.
-   ``````   
-
-   하위 디렉토리에 모두 적용
-   ```
-      chmod [옵션] [파일이름]
-
-      chmod -R ex_dir
    ```   
+
+   __수치 모드__   
+
+   ```
+      chmod [8진수 값] [파일명]
+   ```   
+   8진수 값 : 소유자 그룹 기타사용자 순서   
+
+   | 의미  | 숫자 |
+   |:----:|:----:|
+   |읽기(r)|  4  |
+   |쓰기(w)|  2  |
+   |실행(x)|  1  |
+
+   ```s
+      chmod 755 file.txt  #rwxr-xr-x 
+   ```   
+   소유자:rwx      
+   그룹:rx   
+   기타사용자:rx   
    
-
-
 1. # 권한-옥텟(8진수) 모드
    0~7까지 숫자로 설정   
    

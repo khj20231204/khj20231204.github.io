@@ -22,7 +22,7 @@ tag: [LinkedList]
       contains(element)-해당 element가 있으면true 없으면false, 반환값:boolean 
       element가 숫자이면 자동 언박싱이 되어서 Integer타입으로 넘어간다.
       */
-      System.out.println(list.contains(52));//true
+      System.out.println(list. (52));//true
       System.out.println(list.contains(59));//false
 
       /* 

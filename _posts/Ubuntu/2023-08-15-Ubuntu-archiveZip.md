@@ -2,7 +2,7 @@
 layout: single
 title: 압축
 categories: Ubuntu
-tag: [아카이브, gzip]
+tag: [아카이브, gzip, rar]
 ---
 
 1. # 아카이브
@@ -169,6 +169,18 @@ tag: [아카이브, gzip]
          fruits.tar.bz2  home    'home안에 apple, banana, tomato 해제됨'
       ```   
       *bj
+
+   2. rar압축 풀기   
+   ```s
+      sudo apt-get install unrar
+   ```   
+   압축 풀 패키지 unrar을 다운 받습니다.
+   
+   ```s
+      sudo unrar e [압축파일.rar]
+
+      unrar e VMware_Full_17.rar
+   ```   
 
 1. # 정리
 

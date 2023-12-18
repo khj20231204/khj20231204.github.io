@@ -27,10 +27,10 @@ tag: [ssh, scp]
 
 1. # .bundle 설치
    ```s
-      chmod +x 파일이름.bundle #.bundle 파일을 실행 가능하도록 만들어야 합니다
+      chmod u +x 파일이름.bundle #.bundle 파일을 실행 가능하도록 만들어야 합니다
       ./파일이름.bundle
-   ```
-
+   ```   
+   
 1. # deb파일 설치
    
    dpkg 버전 확인   

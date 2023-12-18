@@ -80,4 +80,4 @@ Since Git might read the same configuration variable value from more than one fi
 $ git config --show-origin rerere.autoUpdate
 file:/home/johndoe/.gitconfig	false
 
-(사이트)[https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup]
+[https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup "git doc")

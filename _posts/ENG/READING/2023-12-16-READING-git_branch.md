@@ -195,4 +195,4 @@ Only list branches of the given object.
 --format <format>
 A string that interpolates %(fieldname) from a branch ref being shown and the object it points at. The format is the same as that of git-for-each-ref[1].
 
-[사이트](https://git-scm.com/docs/git-branch "git doc")
+[https://git-scm.com/docs/git-branch](https://git-scm.com/docs/git-branch "git doc")
