@@ -1,7 +1,7 @@
 ---
 layout: single
 title: static
-categories: CODINGTEST
+categories: JAVA
 tag: [static, 정적 멤버]
 ---
 

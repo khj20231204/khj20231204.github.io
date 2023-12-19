@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Stream
-categories: CODINGTEST
+categories: JAVA
 tag: [stream]
 ---
 
