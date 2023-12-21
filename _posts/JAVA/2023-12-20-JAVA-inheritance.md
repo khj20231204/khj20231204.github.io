@@ -14,17 +14,17 @@ tag: [static, 정적 멤버]
    구현 형태는 다음과 같습니다.   
    ```java
       class Child extends Parent{
-         ...
+      ...
    ```   
    extends 뒤에 오는 클래스는 단 하나의 클래스만 올 수 있습니다.   
    여러개의 클래스가 올 경우 모호성이 발생할 수 있기 때문에 하나의 클래스로 제한을 했습니다. 단 인터페이스는 다중 상속이 가능합니다.   
 
-1. # private인 경우 상속
-   Customer클래스에 id를 private두고 VIPCustomer클래스에서 상속 받습니다.
+1. # 접근 제한자와 상속
+   -private는 상속이 되지않습니다.
    ```java
       public class Customer {
 
-         private String id;
+         private String id; // ☜ private로 선언
          public double bonus;
       } 
 
@@ -36,10 +36,12 @@ tag: [static, 정적 멤버]
          }
       }
    ```   
-   VIPCustomer클래스에서 this 연산자로 접근가능한 변수는 bonus만 허용이 됩니다.
-   private 접근 제한자를 사용할 경우 상속받은 클래스에서 접근이 제한됩니다.   
-   상속을 하는 경우 접근을 완전 막는 private 대신 외부 클래스에선 접근할 수 없지만, 하위 클래스는 접근 할 수 있는 protected를 사용하면 됩니다.
-   부모 크래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한를 갖는 필드와 메소드도 상속 대상에서 제외됩니다.   
+   private 접근 제한자를 사용할 경우 상속받은 클래스에서 접근이 제한됩니다. VIPCustomer클래스에서 this 연산자로 접근가능한 변수는 bonus만 허용이 됩니다.   
+   상속을 하는 경우 접근을 완전 막는 private 대신 외부 클래스에선 접근할 수 없지만, 하위 클래스는 접근 할 수 있는 protected를 사용하면 됩니다.   
+   ```java
+      protected String id;
+   ```   
+   부모 클래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한를 갖는 필드와 메소드도 상속 대상에서 제외됩니다.   
 
 1. # 부모 클래스의 생성자 값이 상속받은 자식 클래스에 적용
    ```java
@@ -103,42 +105,99 @@ tag: [static, 정적 멤버]
    super()란 키워드를 입력해 놓습니다.
 
 1. # 상속에서 super()
-   부모 클래스를 자식 클래스가 상속받을 때 컴파일러가 자식 클래스에 super()를 암묵적으로 입력을 합니다. 이 super()는 __반드시 자식 생성자 첫 줄__ 에 위치해야 되며 __부모의 기본 생성자__ 를 호출하게 됩니다. 만약 부모 클래스에 기본 생성자가 없다면 에러가 발생합니다.   
+   상속을 받은 자식 클래스에선 무조건 super()를 호출 해야 합니다. 만약 명시적으로 super()를 적지않으면 컴파일러가 대신 작성을 합니다.   
    ```java
-      class Customer{  // ☜ 부모 클래스
-      public Customer(String grade, double rate) {  // ☜ 기본 생성자 아님
-            customerGrade = grade;  
-            bonusRatio = rate;
-            
-            System.out.println("Customer() 생성자 호출");
-         }
-      }
-
       class VIPCustomer extends Customer{
          public VIPCustomer() {
-               super(); // ☜ error 발생
-               customerGrade = "VIP";
-               bonusRatio = 0.05;
-               
-               System.out.println("VIPCustomer() 생성자 호출");
+               super(); // 컴파일러가 삽입
          }
-      }
    ```   
-
-   이런 경우 보통 VIPCustomer에서 값을 입력 받습니다.   
+   이렇게 암묵적으로 super()를 사용하기 위해서 부모 클래스에 public의 기본 생성자가 존재해야합니다.
    ```java
-      class VIPCustomer extends Customer{
-         public VIPCustomer(String grade, double rate) {
-               super(grade, rate); // ☜ super로 인수를 넘김
-               customerGrade = "VIP";
-               bonusRatio = 0.05;
-               
-               System.out.println("VIPCustomer() 생성자 호출");
+      class Customer{
+         public Customer(){
+            ...
          }
       }
    ```   
+   부모 클래스에 생성자가 오버로딩되어 기본 생성자가 없으면 에러가 발생합니다
+   ```java
+      class Customer{
+         public Customer(String str){  // 기본 생성자가 없음
+            ...
+         }
+      }
+   ```   
+   이런 경우 부모 클래스에 기본 생성자를 만들어주거나 같은 형태의 생성자로 자식 클래스에서 똑같이 사용하면 됩니다.   
+    ```java
+      class VIPCustomer extends Customer{
+         public VIPCustomer(String str) {
+               super(str); // super를 명시적으로 삽입
+         }
+   ```   
+   만약 부모 클래스가 다른 패키지이면서 생성자의 접근 제한자가 default나 private이면 error가 발생합니다.   
+   ```java
+      //------------------ A패키지 ------------------
+      public class Parents {
 
-   super() 이용해서 부모 클래스 값에 접근 할 수 있습니다.
+         Parents(){
+            System.out.println("parents defalut");
+         }
+
+         public Parents(int i){
+            System.out.println("parents public");
+         }
+
+         protected Parents(String str){
+            System.out.println("parents protected");
+         }
+
+         private Parents(int i, String str){
+            System.out.println("parents private");
+         }
+      }
+
+      //------------------ B패키지 ------------------
+      class Child extends Parents {
+
+         public Child(){
+            //super();  ☜ 부모생성자 - default ,error 발생 
+         }
+
+         public Child(int i) {
+            super(i);  // 부모생성자 - public
+         }
+
+         public Child(String str){
+            super(str);  // 부모생성자 - protected
+         }
+
+         public Child(int i, String str){
+            //super(i, str);  ☜ 부모생성자 - private ,error 발생 
+         }
+      }
+   ```
+   이 경우, 부모 클래스에 기본 생성자를 public이나 protected로 생성하거나, super를 강제적으로 사용해야 하기 때문에 꼼수긴 하지만 자식 클래스가 부모 클래스에서 public인 생성자를 사용하면 됩니다.   
+   ```java
+      public class Parents {
+
+         pubilc Parents(){
+            System.out.println("parents defalut");
+         }
+      }
+
+      //또는
+       class Child extends Parents {
+
+         public Child(){
+            super(3);  //☜ 부모 생성자  public Child(int i) 사용
+         }
+       }
+   ```
+
+   super()는 __반드시 자식 생성자 첫 줄__ 에 위치해야 합니다.   
+
+   super() 이용해서 부모 클래스 값에 접근 할 수 있습니다.   
    ```java
       super.bonusPoint;
       super.name;
@@ -146,9 +205,3 @@ tag: [static, 정적 멤버]
    ```   
    super.bonusPoint와 super.name과 super.id는 부모 클래스에 존재하는 값들입니다.   
 
-
-1. # 부모 변수와 메소드에 접근 방법
-
-
-
-1. # 메소드 기능이 약간 다른 경우 

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: HashMap
-categories: CODINGTEST
+categories: JAVA
 tag: [HashMap]
 ---
 
