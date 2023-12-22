@@ -15,18 +15,14 @@ author_profile: true
     <img class="circle_2" src="/imgs/man_comic.png">
    </div>
  <br>
-   남자   
-   
-   유튜브, 블로그 여기저기 보면서 공부g한 거 잊어버릴 거 같아서 만듦   
+   남자.   
+	안녕하세요!   
 
-   공부 한 거 정리한 블로그   
-
-
-
+   유튜브, 책 여기저기 보면서 공부한 거 정리한 블로그입니다.   
 
 
 
    [Network 유튜브 주소](https://www.youtube.com/@ddarahakit "따라하면서 배우는 IT")   
    [SQL 유튜브 주소](https://www.youtube.com/@ProfNKim "김남규 교수님")   
-   자바 - 자바의 정석    
+   자바 - 자바의 정석   
     

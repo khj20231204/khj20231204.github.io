@@ -1,8 +1,8 @@
 ---
 layout: single
-title: static
+title: 상속
 categories: JAVA
-tag: [static, 정적 멤버]
+tag: [오버로딩, 오버라이딩]
 ---
 
 1. # 상속
@@ -88,6 +88,7 @@ tag: [static, 정적 멤버]
       }
    }
    ```   
+    <img src="../../imgs/java/inheritance_1.png" style="border:3px solid black;border-radius:9px;width:500px">   
    main에서 VIPCustomer vip = new VIPCustomer(); 를 호출하면   
    Customer() 생성자 호출
    VIPCustomer() 생성자 호출   
@@ -105,17 +106,17 @@ tag: [static, 정적 멤버]
    super()란 키워드를 입력해 놓습니다.
 
 1. # 상속에서 super()
-   상속을 받은 자식 클래스에선 무조건 super()를 호출 해야 합니다. 만약 명시적으로 super()를 적지않으면 컴파일러가 대신 작성을 합니다.   
+   상속을 받은 자식 클래스에선 무조건 super()를 호출 해야합니다. 만약 명시적으로 super()를 적지않으면 컴파일러가 대신 작성을 합니다.   
    ```java
       class VIPCustomer extends Customer{
          public VIPCustomer() {
                super(); // 컴파일러가 삽입
          }
    ```   
-   이렇게 암묵적으로 super()를 사용하기 위해서 부모 클래스에 public의 기본 생성자가 존재해야합니다.
+   이렇게 암묵적으로 super()를 사용하기 위해서는 부모 클래스에 public의 기본 생성자가 존재해야합니다.
    ```java
       class Customer{
-         public Customer(){
+         public Customer(){  // 기본 생성자
             ...
          }
       }
@@ -128,7 +129,21 @@ tag: [static, 정적 멤버]
          }
       }
    ```   
-   이런 경우 부모 클래스에 기본 생성자를 만들어주거나 같은 형태의 생성자로 자식 클래스에서 똑같이 사용하면 됩니다.   
+   이런 경우 부모 클래스에 기본 생성자를 만들어주거나 
+     ```java
+      class Customer{
+
+         public Customer(){ // 기본 생성자를 만듦
+            ..
+         }
+
+         public Customer(String str){ 
+            ...
+         }
+      }
+   ``` 
+   
+   같은 형태의 생성자로 자식 클래스에서 똑같이 사용하면 됩니다.   
     ```java
       class VIPCustomer extends Customer{
          public VIPCustomer(String str) {
@@ -177,11 +192,11 @@ tag: [static, 정적 멤버]
          }
       }
    ```
-   이 경우, 부모 클래스에 기본 생성자를 public이나 protected로 생성하거나, super를 강제적으로 사용해야 하기 때문에 꼼수긴 하지만 자식 클래스가 부모 클래스에서 public인 생성자를 사용하면 됩니다.   
+   이 경우, 부모 클래스에 기본 생성자를 public이나 protected로 생성하거나, 자식 클래스가 부모 클래스에서 public인 생성자를 사용하면 됩니다.   
    ```java
       public class Parents {
 
-         pubilc Parents(){
+         pubilc Parents(){  //public을 사용
             System.out.println("parents defalut");
          }
       }
@@ -205,3 +220,94 @@ tag: [static, 정적 멤버]
    ```   
    super.bonusPoint와 super.name과 super.id는 부모 클래스에 존재하는 값들입니다.   
 
+1. # 오버로딩 : new   
+   - 오버로딩   
+   다양한 데이터를 이용해서 처리하기 위해 한 클래스 내에 생성자나 메서드의 __매개변수 타입__ 을 달리하여 새로운 생성자나 메서드를 생성하는 것을 말합니다.   
+   ```java
+      class A{
+
+         //생성자 오버로딩
+         A(){
+            ...
+         }
+
+         A(int i){  //생성자 오버로딩
+            ...
+         }
+
+         A(int i, int j){  //생성자 오버로딩
+            ...
+         }
+
+         A(String str){  //생성자 오버로딩
+            ...
+         }
+
+         //메서드 오버로딩
+         int plus(int i, int j){  //메서드 오버로딩
+            ...
+         }
+
+         double plus(double i, double j){  //메서드 오버로딩
+            ...
+         }
+      }
+   ```   
+
+   - 주의   
+   매개변수 인자 이름만 변경하는 경우는 오버로딩이 아닙니다.   
+   ```java
+      A(int i){  //매개변수 인자 이름이 i
+            ...
+      }
+
+      A(int j){  //매개변수 인자 이름이 j ☞ 오버로딩이 아님, error 발생
+            ...
+      }
+   ```   
+   리턴 타입만 다른 경우 오버로딩이 아닙니다.   
+   ```java
+      int plus(int i, int j){  
+            ...
+      }
+
+      double plus(int a, int b){  // 리턴 타입만 int에서 doubld로 변경 ☞ 오버로딩이 아님, error 발생
+            ...
+      }
+   ```   
+
+1. # 오버라이딩 : modify   
+   - 오버라이딩   
+   상속을 받은 경우 기존의 부모 메소드와 일치하는 외형을 가지지만 내용만 다르게 해서 부모 클래스에 있는 메소드를 자식 클래스에서 수정한 것을 말합니다. 자식 클래스의 메소드는 부모 메소드와 다음 3가지가 같아야합니다.   
+   1.이름   
+   2.매개변수   
+   3.반환타입   
+
+   ```java
+      class A{
+
+         void A_method(){
+
+         }
+
+         String A_method2(int i){
+
+         }
+      }
+
+      class B extends A{
+
+         void A_method(){  //부모 메서드와 이름, 매개변수, 반환타입이 일치해야 합니다.
+
+         }
+
+         String A_method2(int i){  //부모 메서드와 이름, 매개변수, 반환타입이 일치해야 합니다.
+
+         }
+      }
+   ```   
+
+   - 주의   
+   1. 접근 제어자는 조상 클래스의 메서드보다 좁은 범위로 설정할 수 없다.   
+   public > protected > default > private 순서입니다.   
+   1. 조상 클래스의 메서드보다 많은 수의 예외를 선언할 수 없다.   
