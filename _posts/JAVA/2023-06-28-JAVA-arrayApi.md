@@ -23,11 +23,11 @@ tag: [Arrays,배열,sort,copyOf,copyOfRange]
 
       int[] arr2 = new int[5];
    ```
-   배열의 선언은 단지 참조변수를 선언한 것뿐입니다.   
-   배열의 선언 - 타입[] 변수이름;   
+   배열의 선언은 단지 참조변수를 선언한 것 뿐입니다.   
+   배열의 선언 → 타입[] 변수이름;   
    
    배열을 생성해야 값을 저장하기 위한 공간이 메모리에 할당됩니다.   
-   배열의 생성 - 변수이름 = new 타입[크기]   
+   배열의 생성 → 변수이름 = new 타입[크기]   
    
    보통 선언과 생성을 한꺼번에 작성합니다.   
    타입[] 변수이름 = new 타입[크기];   
@@ -37,14 +37,14 @@ tag: [Arrays,배열,sort,copyOf,copyOfRange]
    ```java
       //선언, 생성과 동시 초기화
       int[] arr = new int[]{1,2,3,4};
-         String[] str = new String[]{"a","b","c"};
+      String[] str = new String[]{"a","b","c"};
 
       //바로 초기화 시 new int[] 생략 가능
       int[] arr3 = {1,2,3,4,5}; 
 
       //null 대입 한 이후 다음에 초기화 가능
       //단, 선언 이후 초기화시 new int[] 생략 불가
-         int[] arr3 = null; 
+      int[] arr3 = null; 
       arr3 = new int[]{1,2,3,4}; 
    ```   
 
@@ -53,8 +53,8 @@ tag: [Arrays,배열,sort,copyOf,copyOfRange]
       //선언 시 초기화 할 때 배열크기를 명시하면 error
       int[] arr = new int[5]{1,2,3,4,5};  //☜error 
 
-    //선언 시 초기화 할 땐 배열크기를 명시하면 
-    String[] str = new String[3]{"a","b","c"};  //☜error
+      //선언 시 초기화 할 땐 배열크기를 명시하면 
+      String[] str = new String[3]{"a","b","c"};  //☜error
 
       //배열을 선언한 후 다른 실행문에서 중괄호를 사용한 배열생성은 에러가 발생됩니다.
       int[] arr = new int[5];
@@ -97,7 +97,7 @@ tag: [Arrays,배열,sort,copyOf,copyOfRange]
 1. # 디폴트 값
    ```java
       int[] arr = new int[5];   //int 배열
-      System.out.println(Arrays.toString(arr)); //[0, 0, 0, 0, 0] : int형 초기값 0
+      System.out.println(Arrays.to String(arr)); //[0, 0, 0, 0, 0] : int형 초기값 0
       String[] strArray = new String[3];   //String 배열
       System.out.println(Arrays.toString(strArray)); //[null, null, null] : String형 초기값 null
    ```   
