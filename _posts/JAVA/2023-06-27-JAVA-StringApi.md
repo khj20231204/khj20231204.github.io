@@ -8,13 +8,14 @@ tag: [문자열 리터럴,String클래스,charAt,replace,subString,concat,contai
 java의 정석 교재에 있는 예제입니다.
 
 1. ## 문자열 생성 방법 2가지
-   1. ### 문자열 리터럴을 지정
-   * &#34; &#34;로 묶어 문자열 리터럴로 만듭니다.
+   - ### 문자열 리터럴을 지정   
+   &#34; &#34;로 묶어 문자열 리터럴로 만듭니다.   
    ```java
       String str = "Hello";
-   ```
-   1. ### String클래스 사용
-   * 주어진 문자열을 String인스턴스로 생성합니다.   
+   ```   
+
+   - ### String클래스 사용   
+   주어진 문자열을 String인스턴스로 생성합니다.   
    ```java   
       String s1 = new String("hello");
       System.out.println(s1); //hello   
@@ -58,7 +59,25 @@ java의 정석 교재에 있는 예제입니다.
       System.out.println(result); //true
    ```
 1. ## boolean equals(Object obj)
-   * 문자열을 비교합니다. obj가 String이 아니거나 문자열이 다르면 false를 반환합니다.
+
+   2. equals와 "==" 연산자
+   String클래스가 Object의 equals메서드를 재정의 했기 때문에 번지(주소 값) 비교가 아닌 문자열 비교를 합니다.   
+   하지만 "==" 연산자는 그래로 번지(주소 값)을 비교합니다.   
+   ```java
+      String str1 = new String("abc");
+      String str2 = new String("abc");
+      String str3 = "abc";
+      
+      System.out.println(str1.equals(str2)); //true. str1과 str2의 값을 비교  
+      System.out.println(str1 == str2); //false. str1과 str2 각 변수에 저장된 주소 값을 비교
+
+      System.out.println(str1.equals(str3)); //true. "abc"라는 값을 비교
+      System.out.println(str1 == str3); //false. str1과 strl3 각 변수에 저장된 주소 값을 비교
+   ```
+   str_1과 str_2의 문자열값이 "abc"로 같기 때문에 equals메서드는 true를 리턴합니다. 하지만 연산자 "=="는 재정의(override) 하지 않았기 때문에 주소값을 비교하고 false를 리턴합니다.
+   
+   2. 문자열 직접 비교   
+   obj가 String이 아니거나 문자열이 다르면 false를 반환합니다.   
    ```java
       String str1 = "Hello";
       char[] c = {'H','e','l','l','o'};
@@ -66,8 +85,20 @@ java의 정석 교재에 있는 예제입니다.
       System.out.println(str1.equals("hello")); //false
       System.out.println(str1.equals("Hello")); //true
    ```
+
+   __문자열 리터럴__   
+   + 자바에서 문자 리터럴(데이터)은 클래스 파일 안에 리터럴 목록이 따로 존재합니다. 이 목록이 클래스 로더에 의해 메모리에 올라갈 때 JVM에 의해 Runtim Data Area(JVM 메모리영역)내부의 메소드 영역인 constant pool에 저장이 됩니다.   
+   + constant pool에는 "abc"란 문자열이 하나가 있고 이 주소값이 "abc"를 저장하는 모든 객체변수에 저장이 됩니다.   
+   ```java
+      String str1 = "abc";
+      String str2 = "abc";
+      System.out.println(str1.equals(str2)); //true
+      System.out.println(str1 == str2); //true
+   ```   
+   str1과 str2이는 constant pool에 있는 1개의 "abc" 같은 주소값을 할당 받습니다.   
+
 1. ## int indexOf(char c), int indexOf(char c, int start), int indexOf(String str)   
-   * 문자나 문자열을 검색하여 찾으면 최초 발견한 index값을, 없으면 -1을 반환합니다.
+   * 문자나 문자열을 검색하여 찾으면 최초 발견한 index값을, 없으면 -1을 반환합니다.   
    ```java
       String str = "HelloWorld";
       System.out.println(str.indexOf('o')); //4 index 4에서
@@ -77,7 +108,7 @@ java의 정석 교재에 있는 예제입니다.
       System.out.println(str.indexOf("oWo")); //4
    ```
 1. ## int lastIndexOf(char c), int lastIndexOf(char c, int start), int lastIndexOf(String str)
-   * 문자나 문자열을 끝에서부터 오른쪽으로 검색하여 찾으면 최초 발견한 index값을, 없으면 -1을 반환합니다.
+   * 문자나 문자열을 끝에서부터 오른쪽으로 검색하여 찾으면 최초 발견한 index값을, 없으면 -1을 반환합니다.   
    ```java
       String str = "HelloWorld";
       System.out.println(str.lastIndexOf('o')); //6 ← 방향으로 검색하여 최초 'o'발견 index
