@@ -136,12 +136,12 @@ tag:
       int val2 = obj + 10;  //자동 언박싱
    ```
 
-   1. # == 와 equal
-      "==" 연산자는 비교 값들의 주소 값을 비교하고, 래퍼 클래스에서 사용하는 equal는 값 자체를 비교하도록 오버라이딩 되어있습니다. 일반적으로 주소 값을 비교하는 일은 드물고 값을 비교하기 때문에 == 보단 equal을 사용해야합니다.   
-      ```java
-         Integer val1 = 300;
-         Integer val2 = 300;
+1. # == 와 equal
+   "==" 연산자는 비교 값들의 주소 값을 비교하고, 래퍼 클래스에서 사용하는 equal는 값 자체를 비교하도록 오버라이딩 되어있습니다. 일반적으로 주소 값을 비교하는 일은 드물고 값을 비교하기 때문에 == 보단 equal을 사용해야합니다.   
+   ```java
+      Integer val1 = 300;
+      Integer val2 = 300;
 
-         System.out.println(val1 == val2);  //false
-         System.out.println(val1.equals(val2));  //true
-      ```
+      System.out.println(val1 == val2);  //false
+      System.out.println(val1.equals(val2));  //true
+   ```
