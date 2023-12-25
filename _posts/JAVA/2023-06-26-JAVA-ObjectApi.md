@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Object클래스_equals
+title: Object클래스
 categories: JAVA
 tag: [object,equals, toString]
 ---

@@ -5,7 +5,8 @@ categories: JAVA
 tag: [문자열 리터럴,String클래스,charAt,replace,subString,concat,contains,equals,indexOf,lastIndexOf,split]
 ---
 
-java의 정석 교재에 있는 예제입니다.
+1. ## String클래스
+   java.lang 패키지 내에 있는 String클래스는 문자열을 다루는데 필요한 여러가지 기능을 가지고 있습니다. 문자열을 추출, 비교, 변환, 탐색, 분리 등의 작업을 할 수 있는 메소드들을 제공합니다.
 
 1. ## 문자열 생성 방법 2가지
    - ### 문자열 리터럴을 지정   
@@ -22,6 +23,35 @@ java의 정석 교재에 있는 예제입니다.
       String s2 = new String(new char[] {'h','e','l','l','o'});
       System.out.println(s2); //hello
    ```   
+
+1. ## 바이트 배열을 문자열로 변환
+   네트워크에서 주로 주고 받는 파일 단위가 바이트기 때문에 바이트를 문자열로 변환합니다.   
+
+   다양한 방법으로 문자열 객체를 생성할 수 있습니다.   
+   ```java
+      String()
+      String(byte[] bytes)
+      String(byte[] bytes, Charset charset)
+      String(byte[] ascii, int hibyte)
+      String(byte[] bytes, int offset, int length)
+      String(byte[] bytes, int offset, int length, Charset charset)
+      String(byte[] ascii, int hibyte, int offset, int count)
+      String(byte[] bytes, int offset, int length, String charsetName)
+      String(byte[] bytes, String charsetName)
+      String(char[] value)
+      String(char[] value, int offset, int count)
+      String(int[] codePoints, int offset, int count)
+      String(String original)
+      String(StringBuffer buffer)
+      String(StringBuilder builder)
+   ```   
+   
+   바이트를 받는 예제   
+   ```java
+      byte[] byteData = {98,121,116,101,68,97,116,97}  //아스키코드
+
+   ```
+
 1. ## charAt(int index)      
    * index에 있는 문자를 알려줍니다.   
    ```java   
