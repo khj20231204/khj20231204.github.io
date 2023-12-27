@@ -50,7 +50,7 @@ tag:
    Integer(int)' is deprecated since version 9 and marked for remova.      
    It is rarely appropriate to use this constructor. The static factory valueOf(int) is generally a better choice, as it is likely to yield significantly better space and time performance.   
 
-   new 생성자를 이용해 래퍼 클래스를 생성하기 보단 valueOf 메서드를 사용할 것을 권장하고 있습니다.  
+   new 생성자를 이용해 래퍼 클래스를 생성하기 보단 valueOf 메소드를 사용할 것을 권장하고 있습니다.  
    ```java
       
       //박싱 예제
@@ -76,9 +76,9 @@ tag:
       Character c_fix = 'c';
       Character c2_fix = Character.valueOf('c');
    ```   
-   vlueOf메서드는 인자로 문자열을 받습니다.   
+   vlueOf메소드는 인자로 문자열을 받습니다.   
    
-   vlueOf메서드는 10진수 뿐만 아니라 다른 진법의 숫자일 때도 변환이 가능합니다.   
+   vlueOf메소드는 10진수 뿐만 아니라 다른 진법의 숫자일 때도 변환이 가능합니다.   
    ```java
       Integer idx_i4 = Integer.valueOf("100",2); //4
       Integer idx_i5 = Integer.valueOf("100",8); //64

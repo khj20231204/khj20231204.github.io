@@ -32,7 +32,7 @@ tag: [LinkedList]
         }
     ```
 1. # comparable인터페이스 상속
-    java에서 binarySearch는 Collections클래스에 정의 되어있습니다. Collections클래스를 사용하기 위해선 Comparable<T> 인터페이스를 상속받아서 compareTo 메서드를 재정의 해줘야 Collections.sort(), Collections.binarySearch() 메서드 등을 사용할 수 있습니다.   
+    java에서 binarySearch는 Collections클래스에 정의 되어있습니다. Collections클래스를 사용하기 위해선 Comparable<T> 인터페이스를 상속받아서 compareTo 메소드를 재정의 해줘야 Collections.sort(), Collections.binarySearch() 메소드 등을 사용할 수 있습니다.   
     ●MyClass에서 Comparable인터페이스 상속받아서 compareTo재정의 하기●   
     ```java
         class MyData implements Comparable<MyData>{ //<-- Comparable<T> 상속받기, 재너릭타입에는 정렬할 클래스 타입을 넣습니다
@@ -48,7 +48,7 @@ tag: [LinkedList]
             }
             
             @Override
-            public int compareTo(MyData o) { //<-- Comparable인터페이스의 추상 메서드
+            public int compareTo(MyData o) { //<-- Comparable인터페이스의 추상 메소드
                 /*
                 1 == 1 : 1 - 1 == 0 (빼서 0이면 같다)
                 a ? b : (a과 b의 대소관계비교)

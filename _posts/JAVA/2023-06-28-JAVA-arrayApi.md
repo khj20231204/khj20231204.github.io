@@ -76,7 +76,7 @@ tag: [Arrays,배열,sort,copyOf,copyOfRange]
    ```   
 
    1. # 배열의 크기
-   length는 메서드가 아니라 속성값이라 lenght()이렇게 사용하지 않습니다.   
+   length는 메소드가 아니라 속성값이라 lenght()이렇게 사용하지 않습니다.   
    ```java
       int[] arr = new arr[5];
       int len = arr.length; //length
@@ -102,7 +102,7 @@ tag: [Arrays,배열,sort,copyOf,copyOfRange]
       System.out.println(Arrays.toString(strArray)); //[null, null, null] : String형 초기값 null
    ```   
 
-1. # 배열에 사용되는 메서드들
+1. # 배열에 사용되는 메소드들
    ```java
       /** fill-배열 초기화 **/
       Arrays.fill(arrInt,6);

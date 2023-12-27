@@ -19,7 +19,7 @@ tag: [객체확장표현식]
       const prop = 2;
       const obj = {prop} //객체이름을 변수이름과 같이 prop으로 설정. {prop:2}와 같습니다.
    ```
-1. ## 메서드 정의의 약식 표기
+1. ## 메소드 정의의 약식 표기
    객체의 프로퍼티 값으로 함수를 지정할 때 function을 생략하고 다음과 같이 나타낼 수 있습니다.
    ```javascript
       const person = { 

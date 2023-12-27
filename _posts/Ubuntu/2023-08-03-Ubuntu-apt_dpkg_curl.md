@@ -45,7 +45,7 @@ tag: [apt, dpkg, curl]
    -s 또는 --silent: 진행 상황이나 메시지를 표시하지 않습니다.   
    -S 또는 --show-error: 에러 메시지를 표시합니다.   
    -L 또는 --location: 리다이렉션을 따라갑니다.   
-   -X 또는 --request: HTTP 요청 메서드를 설정합니다. 예를 들어 -X GET은 GET 요청을 보내는 것을 의미합니다.   
+   -X 또는 --request: HTTP 요청 메소드를 설정합니다. 예를 들어 -X GET은 GET 요청을 보내는 것을 의미합니다.   
    -H 또는 --header: HTTP 요청 헤더를 설정합니다. 예를 들어 -H "Content-Type: application/json"은 Content-Type 헤더를 설정하는 것입니다.   
    -d 또는 --data: POST 요청의 데이터를 설정합니다. 예를 들어 -d 'name=John&age=25'는 name과 age라는 파라미터를 가진 데이터를 POST 요청으로 보내는 것입니다.   
    -i 또는 --include: 응답 헤더를 출력합니다.   

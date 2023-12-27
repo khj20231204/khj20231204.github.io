@@ -23,10 +23,10 @@ java의 정석 교재에 있는 예제입니다.
    ```
    sb1과 sb2는 같은 문자열 "abc"의 주소를 할당 받았기 때문에 "abc" 문자열에 " def"를 추가했을 때 같은 값이 출력됩니다.   
    하지만 String변수인 str1은 str1 += "def"를 했을 때 메모리에 새로운 문자열 주소를 할당 받고 그 주소에 "abc def"란 문자열을 입력하게 됩니다. 그리고  str2는 str1의 기존의 주소를 그대로 참조하고 있기 때문에 서로 값이 다르게 나오게 됩니다.
-1. ## equals()메서드와 toString()메서드
+1. ## equals()메소드와 toString()메소드
    String클래스는 equals를 오버라이딩해서 == 와 다른 결과를 가지고 옵니다. equals는 문자열 값 비교, ==(등가비교연사자)는 객체가 참조하고 있는 주소를 비교.  
    StringBuffer클래스의 equals는 오버라이딩하지 않았기 때문에 ==와 같은 결과를 가지고 옵니다.
-   toString()메서드는 String클래스와 StringBuffer클래스 모두 오버라이딩했기 때문에 문자열을 가지고 옵니다.
+   toString()메소드는 String클래스와 StringBuffer클래스 모두 오버라이딩했기 때문에 문자열을 가지고 옵니다.
    ```java
       String str1 = new String("abc"); 
       String str2 = new String("abc");
@@ -42,7 +42,7 @@ java의 정석 교재에 있는 예제입니다.
    ```
 1. ## 기본 버퍼의 크기
    SringBuffer의 기본 char[idx]의 크기는 idx=16으로 16개의 문자를 저장할 수 있습니다. 16개의 문자 길이를 넘으면 내부적으로 버퍼의 크기를 증가시키고 이전 배열의 값을 복사합니다.
-1. ## StringBuffer클래스의 메서드들
+1. ## StringBuffer클래스의 메소드들
    1. ### charAt(int index)
       index 위치에 있는 문자를 반환합니다.
       ```java

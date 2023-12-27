@@ -34,7 +34,7 @@ tag: [stream]
 		
    ```
    배열은 Arrays.sort()를 이용해서 정렬하고 컬렉션은 Collection.sort()를 이용해서 정렬해야 하며, 컬렉션의 경우 iterator를 사용해야 했습니다.
-   이러한 불편함을 줄이고 재사용성을 높이기 위해서 데이터를 자주 다루는 메서드들을 정의하고 데이터 소스를 추상화하여 하나로 묶은 클래스가 Stream입니다.
+   이러한 불편함을 줄이고 재사용성을 높이기 위해서 데이터를 자주 다루는 메소드들을 정의하고 데이터 소스를 추상화하여 하나로 묶은 클래스가 Stream입니다.
    ```java
       String[] strArr = {"aaa","bbb","ccc","abe"};
 		List<String> strList = Arrays.asList(strArr); //Arrays를 List로
@@ -70,7 +70,7 @@ tag: [stream]
             List<String> list2 = streamArr.sorted().collect(Collections.toList()); 
          ```
       2. __스트림은 작업을 내부 반복으로 처리합니다.__   
-         forEach()와 같은 메서드를 사용하게 되면 내부적으로 메서드 안에선 for문 사용하게 됩니다.   
+         forEach()와 같은 메소드를 사용하게 되면 내부적으로 메소드 안에선 for문 사용하게 됩니다.   
 1. # Stream의 연산
    중간 연산과 최종 연산으로 분류할 수 있습니다. 모든 중간 연산의 결과는 스트림으로 반환하기 때문에 연산을 계속 수행할 수 있습니다. 
    반면 최종 연산은 스트림의 요소를 소모하여 연산을 수행하기 때문에 스트림의 일회성으로 인해 한번만 연산이 가능합니다.
@@ -113,7 +113,7 @@ tag: [stream]
       스트림의 요소를 수집합니다.   
    <br>
 1. # 컬렉션에서 스트림 생성하기   
-   Collection에 stream()이 정의되어 있습니다. Collection의 자손인 List, Set등 Collection으로 구현한 클래스들은 모두 stream()메서드로 스트림을 생성할 수 있습니다
+   Collection에 stream()이 정의되어 있습니다. Collection의 자손인 List, Set등 Collection으로 구현한 클래스들은 모두 stream()메소드로 스트림을 생성할 수 있습니다
    ```java
       List<Integer> list = new ArrayList<>();
       list.add(3);

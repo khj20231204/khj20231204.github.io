@@ -12,7 +12,7 @@ tag: [object,equals, toString]
 
    Object는 모든 클래스들의 최상위 클래스이기 때문에 매개 타입이 Object로 되어있다는 건 모든 객체가 매개값으로 대입될 수 있다는 것을 뜻합니다. 
 
-   - equals는 객체를 비교하는 메서드입니다.   
+   - equals는 객체를 비교하는 메소드입니다.   
    - 비교연산자인 ==과 동일한 결과를 리턴합니다.   
    - 객체의 참조변수를 받아서 __주소값__ 을 비교합니다.   
 
@@ -44,7 +44,7 @@ tag: [object,equals, toString]
    변수 c는 선언은 클래스A로 선언했지만, 대입된 객체의 주소값이 b이기 때문에 true를 리턴합니다.   
 
 1. # equals override
-   재정의하지 않은 equals메서드는 == 연산자와 같이 해당 값들의 주소값을 비교하기 때문에 일반적으로 해당 값들이 가지고 있는 "값"을 비교하도록 재정의하여 사용합니다.   
+   재정의하지 않은 equals메소드는 == 연산자와 같이 해당 값들의 주소값을 비교하기 때문에 일반적으로 해당 값들이 가지고 있는 "값"을 비교하도록 재정의하여 사용합니다.   
 
    *자주 사용하는 String클래스는 equals 메소드가 값들을 비교하도록 이미 재정의 되어있습니다.   
 
@@ -94,7 +94,7 @@ tag: [object,equals, toString]
       Date date = new Date();
       System.out.println(date.toString()); //Mon Jun 26 23:15:06 KST 2023
    ```
-   1. 보통 toString()메서드는 바로 사용하지 않고 <span style="color:red"> __override__ 를 해서 사용한다.</span>
+   1. 보통 toString()메소드는 바로 사용하지 않고 <span style="color:red"> __override__ 를 해서 사용한다.</span>
 
    
    

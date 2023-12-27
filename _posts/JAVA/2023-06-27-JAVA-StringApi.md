@@ -158,7 +158,7 @@ tag: [문자열 리터럴,String클래스,charAt,replace,subString,concat,contai
       1. ## boolean equals(Object obj)
 
          2. equals와 "==" 연산자
-         String클래스가 Object의 equals메서드를 재정의 했기 때문에 번지(주소 값) 비교가 아닌 문자열 비교를 합니다.   
+         String클래스가 Object의 equals메소드를 재정의 했기 때문에 번지(주소 값) 비교가 아닌 문자열 비교를 합니다.   
          하지만 "==" 연산자는 그래로 번지(주소 값)을 비교합니다.   
          ```java
             String str1 = new String("abc");
@@ -171,7 +171,7 @@ tag: [문자열 리터럴,String클래스,charAt,replace,subString,concat,contai
             System.out.println(str1.equals(str3)); //true. "abc"라는 값을 비교
             System.out.println(str1 == str3); //false. str1과 strl3 각 변수에 저장된 주소 값을 비교
          ```
-         str_1과 str_2의 문자열값이 "abc"로 같기 때문에 equals메서드는 true를 리턴합니다. 하지만 연산자 "=="는 재정의(override) 하지 않았기 때문에 주소값을 비교하고 false를 리턴합니다.
+         str_1과 str_2의 문자열값이 "abc"로 같기 때문에 equals메소드는 true를 리턴합니다. 하지만 연산자 "=="는 재정의(override) 하지 않았기 때문에 주소값을 비교하고 false를 리턴합니다.
          
          2. 문자열 직접 비교   
          obj가 String이 아니거나 문자열이 다르면 false를 반환합니다.   
