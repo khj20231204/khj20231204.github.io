@@ -14,6 +14,7 @@ tag: [문자열 리터럴,String클래스,charAt,replace,subString,concat,contai
    ```java
       String str = "Hello";
    ```   
+   "Hello"란 문자열은 상수 풀이란 메모리 공간에 생기게 되고 그 주소를 str이 가리키게 됩니다.   
 
    - ### String클래스 사용   
    주어진 문자열을 String인스턴스로 생성합니다.   
@@ -23,6 +24,27 @@ tag: [문자열 리터럴,String클래스,charAt,replace,subString,concat,contai
       String s2 = new String(new char[] {'h','e','l','l','o'});
       System.out.println(s2); //hello
    ```   
+   new연산자로 생성시 힙 메모리 공간을 차지하게 됩니다.   
+
+   - ### 문자열과 String클래스   
+   ```java
+      String s1 = new String("hello");  //--㉠ 
+      String s2 = new String("hello");  //--㉠ 
+      System.out.println(s1 == s2);  //false
+      System.out.println("s1 hashCode : "+System.identityHashCode(s1)); //s1 hashCode : 1325547227
+      System.out.println("s2 hashCode : "+System.identityHashCode(s2)); //s2 hashCode : 980546781
+
+      String str1 = "hello";  //--㉡
+      String str2 = "hello";  //--㉡
+      System.out.println(str1 == str2);  //true
+      System.out.println("str1 hashCode : "+System.identityHashCode(str1)); //str1 hashCode : 2061475679
+      System.out.println("str2 hashCode : "+System.identityHashCode(str2)); //str2 hashCode : 2061475679
+   ```   
+   ㉠은 서로 다른 힙 메모리 공간을 차지하기 때문에 다른 주소값을 나타냅니다.   
+   ㉡는 상수 풀에 |h|e|l|l|o|란 문자열이 만들어지고 str1과 str2가 전부 이 주소를 가리키게 됩니다.   
+
+   - ### 문제점   
+   이런 경우 힙 공간이든 상수 풀 공간이든 한번 생성된 String은 불변의 값을 가지게 됩니다. String로 선언해서 문자열을 생성한 경우 메모리 낭비가 발생할 수도 있게 됩니다. 따라서 String클래스를 사용하기 보단 StringBuilder나 StringBuffer를 사용하면 메모리 낭비를 줄일 수 있습니다.   
 
 # 변환
    1. ## 바이트 배열을 문자열로 변환
