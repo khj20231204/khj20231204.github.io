@@ -137,6 +137,83 @@ tag: []
    ```
 
 1. # 클래스 상속과 인터페이스 구현 함께 쓰기
+   인터페이스로 기능 함수 설계   
+   상속 받은 클래스에선 함수 내용 설계
+
+   예)도서관에 책을 반납하는 선반이 있는데 책을 먼저 꽂은 순서대로 먼저 처리가 되는 선반이 있다.   
+   인터페이스(Queue) - 책 입력 함수, 처리 후 책 삭제 함수, 현재 처리할 남은 책 수   
+   클래스(Shelf) - 책 입력받을 기능 구현, 삭제할 기능 구현, 남은 책 권수 리턴 기능 구현   
    
+   클래스와 인터페이스를 상속 받을 BookShelf클래스 설계
+
+   ```java
+      //Queue 인터페이스
+      public interface Queue {
+         void enQueue(String title);  //책을 입력받음
+         String deQueue();  //책을 처리함
+         int getSize();  //현재 남은 책 수
+      }
+
+      //Shelf 클래스
+      public class Shelf {
+
+         private ArrayList<String> shelf;
+
+         public Shelf(){
+            shelf = new ArrayList<String>(); 
+         }
+
+         public void addShelf(String title){  //책 추가
+            shelf.add(title);
+         }
+
+         public String deleteShelf(){  //책 반납처리(삭제)
+            String str = "";
+
+            if(shelf.size()>0)
+               str = shelf.remove(0);
+
+            return str;
+         }
+
+         public int getCount(){  //남은 책 수
+               return shelf.size();
+         }
+      }
+
+      //Queue인터페이스와 Shelf클래스를 상속받는 BookShelf클래스
+      public class BookShelf extends Shelf implements Queue{
+         @Override
+         public void enQueue(String title) {  //함수는 인터페이스
+            addShelf(title);  //기능은 상속받은 클래스
+         }
+
+         @Override
+         public String deQueue() {  //함수는 인터페이스
+            return deleteShelf();  //기능은 상속받은 클래스
+         } 
+
+         @Override
+         public int getSize() {  //함수는 인터페이스
+            return getCount();  //기능은 상속받은 클래스
+         }
+      }
+
+      //Main
+      public static void main(String[] args){
+         Queue bookQueue = new BookShelf();
+
+         bookQueue.enQueue("magician of oz 1");
+         bookQueue.enQueue("magician of oz 2");
+       
+         System.out.println(bookQueue.getSize());  //2
+
+         System.out.println(bookQueue.deQueue());  //magician of oz 1
+         System.out.println(bookQueue.deQueue());  //magician of oz 2
+         System.out.println(bookQueue.deQueue());  //""
+
+         System.out.println(bookQueue.getSize());  //0
+      }
+   ```
    
    

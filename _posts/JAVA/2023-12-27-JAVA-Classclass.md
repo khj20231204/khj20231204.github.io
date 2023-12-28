@@ -21,5 +21,83 @@ tag: []
       Class cla = 참조변수.getClass();
    ```
 
-1. # 사용 예
-     
+1. # 클래스 가져오기
+   ```java
+      //ClassExample클래스
+      public class ClassExample {
+
+         //생성자 3개
+         public ClassExample(){System.out.println("basic construct");}
+         public ClassExample(int i){System.out.println("int construct");}
+         public ClassExample(String s){System.out.println("string construct");}
+
+         //메소드 3개
+         public void ex1(){System.out.println("ex1");}
+         public void ex2(int i){System.out.println("ex2");}
+         public void ex3(String s){System.out.println("ex3");}
+      }
+
+      //Main
+      public static void main(String[] args) throws ClassNotFoundException {
+
+         Class forname_val2 = Class.forName("classApi.ex.ClassExample");
+         Class class_val2 = ClassExample.class;
+         ClassExample ce = new ClassExample();
+         Class getClass_val2 = ce.getClass();
+
+         String result2 =
+            " forname_val2:" + forname_val2 +
+            ", \n class_val2:" + class_val2 +
+            ", \n getClass_val2:" + getClass_val2;
+
+         System.out.println(result2);
+         
+
+         출력 결과:
+         forname_val2:class classApi.ex.ClassExample, 
+         class_val2:class classApi.ex.ClassExample, 
+         getClass_val2:class classApi.ex.ClassExample
+      }
+   ```   
+   클래스 자체를 가져올 수 있습니다.
+   클래스 위치   
+   Class.forName("classApi.ex.ClassExample")안에 들어갈 위치는 다음과 같습니다.   
+    <img style="border: 3px solid black;border-radius:9px;width:400px;" src="../../imgs/java/class_directory.png">   
+    src내부부터 경로를 설정하면 됩니다.   
+
+1. # 생성자 가져오기
+   ```java
+      Constructor[] cons = forname_val2.getConstructors();
+        for(Constructor c :  cons){
+            System.out.println(c);
+        }
+
+      출력 결과:
+      public classApi.ex.ClassExample(java.lang.String)
+      public classApi.ex.ClassExample(int)
+      public classApi.ex.ClassExample()   
+   ```
+
+1. # 메소드 가져오기
+   ```java
+      Method[] mth = forname_val2.getMethods();  //메소드
+         for(Method m : mth){
+            System.out.println(m);
+         }   
+
+
+      출력 결과:
+      public void classApi.ex.ClassExample.ex1()
+      public void classApi.ex.ClassExample.ex2(int)
+      public void classApi.ex.ClassExample.ex3(java.lang.String)
+      public boolean java.lang.Object.equals(java.lang.Object)
+      public java.lang.String java.lang.Object.toString()
+      public native int java.lang.Object.hashCode()
+      public final native java.lang.Class java.lang.Object.getClass()
+      public final native void java.lang.Object.notify()
+      public final native void java.lang.Object.notifyAll()
+      public final void java.lang.Object.wait(long) throws java.lang.InterruptedException
+      public final void java.lang.Object.wait(long,int) throws java.lang.InterruptedException
+      public final void java.lang.Object.wait() throws java.lang.InterruptedException
+   ```   
+   ex1, ex2, ex3 뿐만 아니라 상속받은 모든 메소드들이 출력 됩니다.   
