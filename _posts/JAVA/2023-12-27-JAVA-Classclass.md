@@ -101,3 +101,16 @@ tag: []
       public final void java.lang.Object.wait() throws java.lang.InterruptedException
    ```   
    ex1, ex2, ex3 뿐만 아니라 상속받은 모든 메소드들이 출력 됩니다.   
+
+
+1. # 오버라이딩 생성자 값으로 가져오기
+   ```java
+      //create instacne for basic construct
+      Class makeClass1 = Class.forName("classApi.ex.ClassExample");
+      ClassExample makeObj1 = (ClassExample) makeClass1.newInstance();
+
+      //create instacne for string construct
+      Class makeClass3 = Class.forName("classApi.ex.ClassExample");
+      Constructor con3 = makeClass3.getDeclaredConstructor(new Class[]{String.class});
+      ClassExample makeObj3 = (ClassExample)con3.newInstance("String Parameter");
+   ```
