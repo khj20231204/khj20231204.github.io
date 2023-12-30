@@ -43,7 +43,7 @@ tag: []
    이런 코드가 가능합니다.   
    userInfoDao란 인터페이스 타입을 생성 후 받는 값에 따라 "UserInfoOracleDao" Oracle을 수행하는 코드를 가진 클래스를 대입할 수 있고, "UserInfoMySqlDao" MySql을 수행하는 코드를 가진 클래스를 대입할 수 있습니다.   
     
-   또는
+   또는 A클래스가 interface_1과 interface_2와 interface_3을 다중상속 받은 경우   
    ```java
       interface_1 변수 = new A클래스();
       interface_2 변수 = new A클래스();
@@ -215,5 +215,4 @@ tag: []
          System.out.println(bookQueue.getSize());  //0
       }
    ```
-   
    
