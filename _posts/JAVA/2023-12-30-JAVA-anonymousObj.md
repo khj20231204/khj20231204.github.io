@@ -6,7 +6,7 @@ tag: []
 ---
 
 1. # 익명 객체
-   클래스나 인터페이스를 상속받는 자식 클래스나 구현 클래스를 만들지 않고 부모 클래스나 인터페이스를 가져와서 바로 자식 객체나 구현 개체를 생성할 수 있습니다.   
+   클래스나 인터페이스를 상속받는 자식 클래스나 구현 클래스를 만들지 않고 부모 클래스나 인터페이스를 가져와서 바로 자식 객체나 구현 개체를 생성할 수 있습니다. 선언과 객체의 생성을 동시에 하기 때문에 한번만 사용될 수 있고, 오직 하나의 객체만 생성할 수 있습니다.   
    오버라이딩과 기타 사용 방법은 동일하며 부모 클래스와 인터페이스 이후에 바로 객체를 생성하는 방법입니다.   
 
    일반적으로
@@ -40,8 +40,8 @@ tag: []
    A a = new A(){...} 란
    A a = new A()는 "new연산자를 이용해서 A클래스로 a객체를 생성하라"란 명령어입니다.   
    하지만 뒤에 { }로 해당 내용을 구현할 수 있는 중괄호가 놓이게 되면   
-   "A클래스를 __상속__ 받아 new연산자로 { } 안에 내용으로 __a란 객체를__ A클래스 타입으로 __생성__ 하라"란 명령어가 됩니다.   
-   이 때 a객체는 필드 변수가 됩니다.   
+   "A클래스를 __상속__ 받아 new연산자로 { } 안에 내용으로 a란 객체를 __A클래스 타입으로 생성__ 하라"란 명령어가 됩니다.   
+   위의 예에서 a객체는 필드 변수가 됩니다.   
 
    main에서 호출을 할 땐
    ```java
@@ -138,7 +138,7 @@ tag: []
         AnonymousObj ao = new AnonymousObj();
       
         //매개변수로 전달할 익명 객체
-        ao.methodParamObj(new Person(){
+        ao.methodParamObj(new Person(){  //Person클래스를 상속받아 구현
                 void paramAnonymousObj(){
                     System.out.println("매개변수로 전달되는 익명 객체");
                 }
@@ -150,8 +150,8 @@ tag: []
             }
         );
    ```   
-   ao.methodParamObj(new Person(){ ... }); person클래스의 익명 객체를 바로 정의하면서 methodParamObj 매개값으로 넘겨주게 됩니다.   
-   methodParamObj가 정의된 AnonymousObj클래스에선 Person클래스 타입으로 값을 받기 때문에 익명 객체에서 정의된 paramAnonymousObj메소드에 바로 접근을 할 수 없습니다.   
+   ao.methodParamObj(new Person(){ ... }); person클래스를 상속받아 새로운 메소드를 만들 수도 있고, 기존 메소드를 재정의 할 수도 있습니다. 익명 객체를 바로 정의하면서 methodParamObj메소드의 매개값으로 넘겨주게 됩니다.   
+   methodParamObj메소드가 정의된 AnonymousObj클래스에선 Person클래스 타입으로 값을 받기 때문에 익명 객체에서 정의된 paramAnonymousObj메소드에 바로 접근을 할 수 없습니다.   
    그렇기 때문에 
    ```java
       void methodParamObj(Person p){
