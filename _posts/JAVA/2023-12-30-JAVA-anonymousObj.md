@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 익명 객체
+title: 익명 객체 / 익명 구현 객체
 categories: JAVA
 tag: []
 ---
@@ -160,3 +160,81 @@ tag: []
    ```   
    p.wake()로 전달받은 매개변수 값인 Person클래스에 있는 wake메소드를 호출하게 됩니다.   
    
+
+1. # 구현 객체
+   인터페이스를 선언 후 클래스에서 상속받아 해당 클래스로 구현 객체를 생성해서 사용하는 것이 일반적인 방식이지만 일회성으로 바로 인터페이스를 사용할 수도 있습니다. 익명 객체에서 사용했던과 같은 방식으로 필드에서 정의, 메소드 안에서 변수로 정의, 메소드의 매개변수로 정의. 이렇게 3가지로 인터페이스의 구현 객체를 바로 정의해서 사용할 수 있습니다.   
+
+   RemoteControl이란 인터페이스를 선언합니다.   
+   ```java
+      public interface RemoteControl {
+         public void turnOn();
+         public void turnOff();
+      }
+   ```   
+
+   Anonymous에서 인터페이스를 implement하지 않고 바로 구현 객체를 생성합니다.   
+   ```java
+      public class Anonymous {
+         //필드에서 정의
+         RemoteControl rcField = new RemoteControl() {  
+            @Override
+            public void turnOn() {
+                  System.out.println("TV On");
+            }
+
+            @Override
+            public void turnOff() {
+                  System.out.println("TV Off");
+            }
+         };
+
+         //메소드 내에서 변수로 정의
+         void method(){
+            RemoteControl rcLocalVar = new RemoteControl() {
+                  @Override
+                  public void turnOn() {
+                     System.out.println("Audio On");
+                  }
+
+                  @Override
+                  public void turnOff() {
+                     System.out.println("Audio Off");
+                  }
+            };
+
+            rc  
+         }
+
+         //메소드의 매개변수로 정의
+         void method2(RemoteControl rcParam){
+            rcParam.turnOn();
+         }
+      }
+   ```
+
+   main에서 호출 시
+   ```java
+      public static void main(String[] str){
+
+        Anonymous anony = new Anonymous();  //anony란 객체를 생성
+        anony.rcField.turnOn();  //필드로 인터페이스의 구현 객체 호출
+        anony.rcField.turnOff();  //필드로 인터페이스의 구현 객체 호출
+
+        anony.method();  //메소드로 method메소드 안에 구현된 객체 호출
+
+        RemoteControl rc = new RemoteControl() {  //main에서 바로 구현객체 생성
+            @Override
+            public void turnOn() {
+                  ...
+            }
+
+            @Override
+            public void turnOff() {
+                  ...
+            }
+        };
+
+        anony.method2(rc);  //anony객체 메소드의 매개변수로 전달
+        rc.turnOff();  //바로 오버라이딩된 메소드 호출
+    }
+   ```
