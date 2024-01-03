@@ -54,6 +54,17 @@ tag: [static, 정적 멤버]
    ```   
    정적 메소드에서 인스턴스 멤버를 사용 못 합니다. 컴파일시 선언되는 정적 메소드보다 런타임시 선언되는 인스턴스 멤버가 더 늦게 정의되기 때문에 먼저 메모리에 적재되는 정적 메소드에서 나중에 메모리에 적재되는 인스턴스 멤버를 참조할 수 없기 때문입니다. 하지만 __객체를 먼저 생성하고 참조 변수로 접근__ 하면 가능합니다.   
 
+   ```java
+      class StaticMember{
+         public static void staticMethod(int param){
+
+            StaticMember sm = new StaticMember();  //자신 클래스의 객체 생성
+
+            sm.instanceMember = param;  //객체로 인스턴스 필드 접근
+            sm.instanceMethod(44);  //객체로 인스턴스 메소드 접근
+         }
+      }
+   ```
    정적 클래스에 일반 필드, 일반 메소드 사용 가능?
    인스턴스 객체에서 정적 필드, 정적 메소드 사용 가능?
    정적 메소드에서 인스턴스 객체 사용 가능?
