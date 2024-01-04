@@ -5,7 +5,23 @@ categories: JAVA
 tag: [comparable, comparator]
 ---
 
-1. # 
+1. # Comparable과 Comparator 인터페이스
+   객체의 정렬을 위해 사용하는 인터페이스입니다. 두 객체를 비교하여 오름차순 또는 내림차순으로 정렬하는데 Comparable에서는 compare과 Comparator에서는 compareTo 메소드를 제공합니다.   
+
+   Comparator - java.util
+   ```java
+      public interface Comparator{
+         int compare(T o1, T o2)
+      }
+   ```
+
+   Comparable - java.lang   
+   ```java
+      public interface Compareable{
+         int compareTo(T o)
+      }
+   ```   
+   기본정렬(오름차순) 기준으로 구현되어 있습니다.
 
 1. # Comparable과 Comparator 비교
    comparable의 compareTo와 comparator의 compare를 오버라이딩하는 소스입니다.
