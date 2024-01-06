@@ -6,27 +6,44 @@ tag: [comparable, comparator]
 ---
 
 1. # Comparable과 Comparator 인터페이스
-   객체의 정렬을 위해 사용하는 인터페이스입니다. 두 객체를 비교하여 오름차순 또는 내림차순으로 정렬하는데 Comparable에서는 compare과 Comparator에서는 compareTo 메소드를 제공합니다.   
+   객체의 정렬을 위해 사용하는 인터페이스입니다. 두 객체를 비교하여 오름차순 또는 내림차순으로 정렬하는데 Comparable 인터페이스에서는 compare 추상 메소드를, Comparator 인터페이스에서는 compareTo 추상 메소드를 제공합니다. 실제 사용시엔 추상 메소드를 구현해줘야 합니다.   
 
-   Comparator - java.util
+   __Comparator__ - java.util
    ```java
       public interface Comparator{
          int compare(T o1, T o2)
       }
-   ```
+   ```   
+   o1과 o2를 비교합니다.   
+   compare의 결과로 양수, 0, 음수를 리턴하는데    
 
-   Comparable - java.lang   
+   | 부호  |   결과 값   |
+   |:-----:|:----------:|
+   | 양수  | 왼쪽이 크다 |
+   |   0   |    같다    |   
+   | 음수  |오른쪽이 크다|     
+
+   와 같은 결과를 가져옵니다.   
+
+   __Comparable__ - java.lang   
    ```java
       public interface Compareable{
          int compareTo(T o)
       }
    ```   
+   자기 자신과 o를 비교합니다.
    기본정렬(오름차순) 기준으로 구현되어 있습니다.
+ 
+1. # String에서 Sort
+   Stirng클래스에서 Sort시 이용되는 기본 비교 인터페이스는 compareTo 추상 메소드를 이용한 정렬로 오름차순(사전순)입니다.   
+   ```java
+               
+   
+   ```
 
 1. # Comparable과 Comparator 비교
-   comparable의 compareTo와 comparator의 compare를 오버라이딩하는 소스입니다.
+   comparable의 compareTo와 comparator의 compare를 오버라이딩합니다.   
    ```java
-      
       import java.util.Comparator;
 
       public class ComparableComparator implements Comparable<ComparableComparator>, Comparator<ComparableComparator>{
@@ -82,3 +99,4 @@ tag: [comparable, comparator]
          }
       }
    ```
+

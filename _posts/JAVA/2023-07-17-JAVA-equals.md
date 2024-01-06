@@ -6,7 +6,8 @@ tag: [equals]
 ---
 
 1. # "=="    
-   int,float,long,double 와 같은 primitive 타입에서 "=="의 사용법과 클래스, 배열과 같은 refrece타입에서 "==" 사용법은 다릅니다.
+   int,float,long,double 와 같은 primitive 타입에서 "=="의 사용법과 클래스, 배열과 같은 refrece타입에서 "==" 사용법은 다릅니다.   
+
 1. # primitive타입 사이에서의 "==" 사용
    두 변수의 __값__ 이 같은지 비교합니다.
    ```java

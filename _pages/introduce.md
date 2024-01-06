@@ -24,5 +24,5 @@ author_profile: true
 
    [Network 유튜브 주소](https://www.youtube.com/@ddarahakit "따라하면서 배우는 IT")   
    [SQL 유튜브 주소](https://www.youtube.com/@ProfNKim "김남규 교수님")   
-   자바 - 자바의 정석   
+   자바 - 자바의 정석(남궁성 저)   
     

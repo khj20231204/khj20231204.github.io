@@ -127,7 +127,7 @@ tag: []
 
    아래와 같이 체크를 해야 합니다.   
    ```java
-      if(b_typeCh instanceof B) {
+       if(b_typeCh instanceof B) {
          B b_typeCh = (B)b;  //강제 타입 변환
       }
    ```
