@@ -36,10 +36,22 @@ tag: [comparable, comparator]
  
 1. # String에서 Sort
    Stirng클래스에서 Sort시 이용되는 기본 비교 인터페이스는 compareTo 추상 메소드를 이용한 정렬로 오름차순(사전순)입니다.   
-   ```java
-               
-   
-   ```
+   ```java              
+      Arrays.sort(strArry, new Decending());
+
+      class Decending implements Comparator{
+         public int compare(Object o1, Object o2){
+            if(o1 instanceof Comparable && o2 instanceof Comparable){
+               Comparable c1 = (Comparable)o1;
+               Comparable c2 = (Comparable)o2;
+
+               return c1.compareTo(c2) * (-1)
+            }
+         }
+      }
+   ```   
+   Arrays의 sort메소드 정의는 sort(T[] a, Comparator<? super T> c) 다음과 같습니다. 두 번째 인자로 Comparator 인터페이스를 넣으면 Comparator의 추상 메소드 compare를 재정의한 부분이 실행됩니다. String과 rapper클래스들은 전부 Comparable 인터페이스를 상속 받았기 때문에 형변환이 가능합니다. 따라서 Comparable c1 = (Comparable)o1; 이런 변환이 가능합니다.   
+   c1.compareTo(c2) * (-1) : compareTo로 나온 결과에 -1를 곱하므로써 오름차순이 아니라 내림차순으로 정렬되게 됩니다.   
 
 1. # Comparable과 Comparator 비교
    comparable의 compareTo와 comparator의 compare를 오버라이딩합니다.   
