@@ -119,3 +119,51 @@ tag: [lamda,익명클래스,함수형인터페이스]
    ```   
    list2.sort( 이 부분 ) 에서 new 연산자로 Comparator를 구현한 부분(①) 이    
    (o1,o2) -> o1.compareTo(o2); 단 한줄로 표현(②) 됩니다.   
+
+1. # 매개변수로 함수형 인터페이스 사용
+   함수형 인터페이스는 람다식을 다루기 위한 특별한 인터페이스고 이 인터페이스에 포함된 추상 메소드의 구현이 람다식의 구현입니다. 이렇듯 함수형 인터페이스와 람다식은 밀접한 관계를 가지기 때문에 매개변수로 함수형 인터페이스를 사용하는 건 매개변수로 람다식을 입력받겠다는 뜻이 됩니다. 람다식을 입력받겠다는 건 추상 메소드의 구현 방식을 입력받겠다는 뜻이 됩니다. 결과값이 아니라 메소드 구현 방식이 됩니다.   
+   __추상 메소드의 구현 = 람다식__
+
+   함수형 인터페이스 생성   
+   ```java
+      public interface FunctionalInterface {
+         public int methodOfLamda(int a, int b);
+      }
+   ```   
+
+   main에서 실행
+   ```java
+      public static void main(String[] str){
+         //매개변수로 함수형 인터페이스를 사용
+        FunctionalInterface fiPlus = (int a, int b) -> a+b;
+
+        int x = 6, y = 3;
+
+        int result = functionalMethod(fiPlus,x,y); //매개변수로 함수형 인터페이스 참조변수를 할당
+        System.out.println("result:"+result);
+
+        result = functionalMethod((int a, int b) -> a - b, x, y); //매개변수로 람다식 할당
+        System.out.println("result:"+result);
+      }
+
+      static int functionalMethod(FunctionalInterface fi, int x, int y){
+         return fi.methodOfLamda(x,y);
+      }
+   ```   
+   functionalMethod(fiPlus,x,y) fiPlus는 함수형인터페이스의 참조변수입니다. fiPlus를 매개변수 값으로 넘겨주는 건 funcionMethod 메소드안에서 실행하게되는 fi.methodOfLamda(x,y)인 __메소드의 정의__ 를 넘겨주는 것이 됩니다. 일반적인 메소드의 매개변수는 값을 받아와서 그것을 이용하는 방식인데, 람다식으로 넘겨받은 매개변수는 메소드 정의가 됩니다. 이 정의를 메소드 안에서 사용하게 됩니다.   
+   functionalMethod((int a, int b) -> a - b, x, y) 직접 람다식을 매개변수로 넘겨줄 수도 있습니다.   
+
+1. # 리턴타입으로 함수형 인터페이스 사용
+   매개변수와 마찬가지로 __메소드의 정의__ 를 리턴값으로 넘기게 됩니다.   
+   ```java
+      public static void main(String[] str){
+         //리턴값으로 함수형 인터페이스를 사용
+        FunctionalInterface fi = returnFI();
+        fi.methodOfLamda(9,4);         
+      }
+
+      static FunctionalInterface returnFI(){ //☜ 리턴타입이 함수형 인터페이스
+         return (int a, int b) -> a-b; //☜ 람다식을 리턴
+      }
+   ```   
+   함수형 인터페이스를 리턴타입으로 선언하고 람다식을 리턴했습니다. FunctionalInterface인 함수형 인터페이스 안에 있는 추상 메소드 methodOfLamda를 람다식으로 정의해서 리턴한 것이 됩니다. __람다식은 추상 메소드의 구현__ 이기 때문입니다.

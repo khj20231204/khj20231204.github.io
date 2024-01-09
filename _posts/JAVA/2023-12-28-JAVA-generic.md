@@ -7,8 +7,16 @@ tag: []
  
 1. # Generic
    클래스 내에 다양한 필드와 메소드가 존재하는데 필드와 메소드의 기능은 동일하지만 타입만 바꿔서 사용해야하는 경우가 있습니다. 예를 들면 프린터기에 카트리지 종류를 잉크로 하는 경우와 토너로 해야하는 경우 프린터기의 기능은 같지만 장착하는 재료만 다른 경우, 클래스를 새로 만들 수도 있지만 그렇게 되면 메모리 낭비와 오버스택이 발생할 수 있습니다. 제네릭은 하나의 클래스에 여러 타입을 받아들일 수 있는 기능을 제공합니다.   
-   자바 v.5 이전에는 모든 클래스의 최상위 클래스인 Object를 이용하여 이러한 기능을 수행했는데, 타입을 변형 할 때마다 타입체크와 형변환을 해줘야했습니다. 제네릭은 이런 불편함을 없애고 타입 안전성을 제공합니다.    
+   JDK1.5 이전에는 모든 클래스의 최상위 클래스인 Object를 이용하여 이러한 기능을 수행했는데, 타입을 변형 할 때마다 타입체크와 형변환을 해줘야했습니다. 제네릭은 이런 불편함을 없애고 타입 안전성을 제공합니다.    
 
+   ```java
+      Box<T> b = new Box<>();
+   ```   
+   Box는 클래스나 인터페이스. 
+   Box가 클래스인 경우 - "Box라는 클래스 내부에서 필드와 생성자에 타입T를 사용하겠다"   
+   Box가 인터페이스인 경우 - "Box라를 인터페이스 내부에서 추상 메소드의 매개변수와 리턴타입으로 타입T를 사용하겠다"
+
+   사용 예)   
    ```java
       public class GenericTypeVal <A,B,C> { //class 필드와 생성자에서 사용되는 타입변수 A,B,C 선언
          A a;
@@ -32,7 +40,7 @@ tag: []
             System.out.println("Generic Type - Static Method :"+ r);
          }
 
-         public <Q> void func2(Q q){}  ////generic class와 generic method는 서로 관여를 하지 않습니다.
+         public <Q> void func2(Q q){}  //generic class와 generic method는 서로 관여를 하지 않습니다.
 
          public String toString(){
             return "a="+ a.toString() + " , b=" + b.toString();
