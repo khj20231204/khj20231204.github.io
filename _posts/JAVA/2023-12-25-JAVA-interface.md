@@ -1,9 +1,11 @@
 ---
 layout: single
-title: 인터페이스 다형성
+title: 인터페이스 사용 이유와 다형성
 categories: JAVA
 tag: []
 ---
+
+1. # 인터페이스의 사용 이유
 
 1. # 인터페이스의 다형성
    개발 코드와 객체가 서로 통신하는 접점 역할을 합니다. 인터페이스를 두므로써 기존 개발 코드를 수정하지 않고 사용하고 있는 개체를 변경할 수 있습니다.   
@@ -63,6 +65,53 @@ tag: []
       seller.order();
    ```   
    이런 식으로 인터페이스에 클래스를 대입 후 인터페이스에서 제공하는 메소드들 호출할 수 있습니다.   
+
+1. # 메소드에서 사용
+   __*선언은 인터페이스, 실제 사용에서 넘겨 줄 땐 구현 클래스의 인스턴스__  
+
+   1) 매개변수로 인터페이스 사용   
+   ```java
+      public class Television implements RemoteControl{..} //RemoteControl인터페이스를 상속 받은 Television클래스   
+      public class Audio implements RemoteControl{ .. } //RemoteControl인터페이스를 상속 받은 Audion클래스
+
+      Main(){
+         Television tv = new Television(); //RemoteControl의 구현 클래스인 Television의 인스턴스 tv생성
+         Audio audio = new Audio(); //RemoteControl의 구현 클래스인 Audio의 인스턴스 audion생성
+
+         paramInterface(tv); //메소드의 매개변수로 Television의 인스턴스 tv 를 넘김
+         paramInterface(audio); //메소드의 매개변수로 Audio의 인스턴스 audio를 넘김
+
+         //또는
+
+         paramInterface(new Television()); //메소드의 매개변수로 구현 클래스 Television을 바로 넘김
+         paramInterface(new Audio()); //메소드의 매개변수로 구현 클래스 Audio를 바로 넘김
+      }
+
+      public void paramInterface(RemoteControl rc){ .. } //RemoteControl를 매개변수로 받는 메소드 정의
+   ```  
+   메소드의 매개변수로 인터페이스를 선언하면 실제 사용 시 이 인터페이스를 상속받아 구현된 구현 클래스의 인스턴스를 넘겨주면 됩니다. 그럼 다형성에 의해 하나의 메소드에 다양한 인스턴스를 넘겨주는 것이 가능합니다.   
+
+   2) 리턴 값으로 인터페이스 사용    
+   ```java
+      public class Television implements RemoteControl{..}
+      public class Audio implements RemoteControl{ .. }
+
+      Main(){
+         returnInterface();
+      }
+
+      public RemoteControl returnInterface(){ //리턴 타입으로 RemoteControl 인터페이스를 사용
+        Television tv = new Television();
+        Audio audio = new Audio();
+
+        return tv; 또는 audio; //리턴 값으로 구현 객체의 인스턴스를 넘겨주게 됩니다.
+
+        //또는
+
+        return new Television(); 또는 new Audio();
+      }
+   ```   
+   리턴 타입 값이 RemoteControl이기 때문에 다형성에 의해 반환 값으로 tv와 audio 모두 반환하는 것이 가능합니다.   
 
 1. # 인터페이스의 다중 상속
    구현 객체가 있어 상속시 모호성을 가지는 클래스 상속과는 다르게 구현 객체가 없기 때문에 인터페이스는 다중 상속이 가능합니다. 상속시 상수 필드는 인터페이스로 바로 접근을 하게 되고, 추상 메소드는 내부 내용을 기술하여 실체 메소드로 만들고, default 메소드는 부모 인터페이스의 default 메소드를 사용하거나 오버라이딩을 하게 됩니다.   

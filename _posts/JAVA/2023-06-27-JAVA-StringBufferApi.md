@@ -130,7 +130,7 @@ tag: [StringBuffer,equals,toString,charAt,replace,subString]
       System.out.println(str instanceof String); //true
    ```
 1. ## StringBuffer와 StringBuilder
-StringBuffer에서 쓰레드의 동기화 기능만 뺀 것이 StringBuilder입니다. 그외 기능은 완전 동일하기 때문에 위에 예제들에서 StringBuffer를 StringBuilder로만 바꿔서 사용하시면 됩니다. 멀티 쓰레드에서 동기화 기능을 사용하기 위해선 StringBuffer를, 싱글 쓰레드에서 사용하기 위해선 StringBuilder를 사용하시면 됩니다.
+   StringBuffer에서 쓰레드의 동기화 기능만 뺀 것이 StringBuilder입니다. 그외 기능은 완전 동일하기 때문에 위에 예제들에서 StringBuffer를 StringBuilder로만 바꿔서 사용하시면 됩니다. 멀티 쓰레드에서 동기화 기능을 사용하기 위해선 StringBuffer를, 싱글 쓰레드에서 사용하기 위해선 StringBuilder를 사용하시면 됩니다.
 
 
 
