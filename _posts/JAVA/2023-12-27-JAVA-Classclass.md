@@ -10,13 +10,13 @@ tag: []
 
 1. # Class 객체 얻기   
 
-   ### 클래스로부터 얻기   
+   __클래스로부터 얻기__   
    ```java
       Class cla = 클래스이름.class
       Class cla = Class.forName("패키지..클래스 이름")
    ```   
 
-   ### 객체로부터 얻기   
+   __객체로부터 얻기__   
    ```java
       Class cla = 참조변수.getClass();
    ```
