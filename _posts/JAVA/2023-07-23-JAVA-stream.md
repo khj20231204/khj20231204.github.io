@@ -83,7 +83,7 @@ tag: [stream]
       strStream2.distinct().limit(4).sorted().forEach(System.out::println); //ab da ef eg
    ```   
    중간연산 시 순서가 달라도 연산은 되지만 결과가 같지는 않습니다.   
-   첫번째 건 4개로 제한 하고 정렬 후 중복을 제거 했기 때문에 결과가 "ab ef eg" 3개의 문자열 출력되지만, 두번째 건 중복을 먼저 제거 후 4개로 제한했기 때문에 결과가 "ab da ef eg" 4개의 문자열이 출력됩니다.   
+   첫번째 예는 4개로 제한 하고 정렬 후 중복을 제거 했기 때문에 결과가 "ab ef eg" 3개의 문자열 출력되지만, 두번째 예는 중복을 먼저 제거 후 4개로 제한했기 때문에 결과가 "ab da ef eg" 4개의 문자열이 출력됩니다.   
    연속적인 연산의 흐름을 다음과 같이 하나씩 실행 할 수 있습니다.   
    ```java
       String[] strArray = new String[]{"ef","ab","eg","ab","da","de"}; //배열 생성
@@ -115,7 +115,8 @@ tag: [stream]
 
       streamArr = Arrays.stream(strArr); //재생성
       List<String> list2 = streamArr.sorted().collect(Collections.toList()); 
-   ```
+   ```   
+
    3) 지연된 연산
    스트림은 중간 연산을 하나씩 실행하는 것이 아니라 최종 연산이 수행되어서야 전체 요소들의 중간 연산을 포함해 한번에 최종 연산까지 수행을 합니다. 따라서 최종 연산을 수행하기 전까지 중간 연산은 선언만 할 뿐 실행되지는 않기 때문에 중간 연산을 지연된 연산이라 합니다.   
    ```java
@@ -198,9 +199,9 @@ tag: [stream]
    T값엔 객체가 들어가게 됩니다.   
    ```java
       Interface Stream<T>{
-         static <T> Stream<T>	of(T... values)
+         static <T> Stream<T> of(T... values)
          //Returns a sequential ordered stream whose elements are the specified values.
-         static <T> Stream<T>	of(T t)
+         static <T> Stream<T> of(T t)
          //Returns a sequential Stream containing a single element
       }
    ```   
@@ -209,27 +210,27 @@ tag: [stream]
    ```java
       public interface IntStream extends BaseStream<Integer,IntStream>{
          ...
-         static IntStream	of(int... values)
+         static IntStream of(int... values)
          //Returns a sequential ordered stream whose elements are the specified values.
-         static IntStream	of(int t)
+         static IntStream of(int t)
          //Returns a sequential IntStream containing a single element.
          ...
       }
  
       public interface LongStream extends BaseStream<Long,LongStream>{
          ...
-         static LongStream	of(long... values)
+         static LongStream of(long... values)
          //Returns a sequential ordered stream whose elements are the specified values.
-         static LongStream	of(long t)
+         static LongStream of(long t)
          //Returns a sequential LongStream containing a single element.
          ...
       }
 
       public interface DoubleStream extends BaseStream<Double,DoubleStream>{
          ...
-         static DoubleStream	of(double... values)
+         static DoubleStream of(double... values)
          //Returns a sequential ordered stream whose elements are the specified values.
-         static DoubleStream	of(double t)
+         static DoubleStream of(double t)
          //Returns a sequential DoubleStream containing a single element.
          ...
       }
@@ -288,6 +289,25 @@ tag: [stream]
       Stream<Integer> randomStream = Stream.generate(Math::random);
    ```   
    generate는 초기 값인 씨드 값을 사용하지 않습니다.   
+
+1. # 중간 연산자
+   자르기 - skip(), limit()   
+   걸러내기 - filter(), distinct()   
+   정렬 - sorted()   
+   변환 - map() : 원하는 필드만 뽑아내거나 특정 형태로 변환      
+   예)   
+   ```java
+      스트림명.map(s->s.subsdtring(s.indexOfl('.')+1))
+      스트림명.map(String::toUpperCase)
+   ```   
+   기본타입변환 - mapToInt(),mapToLong(),mapToDouble()   
+   예)
+   ```java
+      Stream<String> → IntStream 으로 변환 : mapToInt(Integer::parseInt)
+      Stream<Integer> → IntStream 으로 변환 : mapToInt(Integer::intValue)
+   ```
+   조회 - peek()
+   
 
 
    

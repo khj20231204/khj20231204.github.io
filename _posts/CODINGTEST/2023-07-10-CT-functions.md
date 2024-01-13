@@ -5,10 +5,10 @@ categories: CODINGTEST
 tag: [wapper, primitive]
 ---
 
-1. # char ch=ch-32 와 char ch+=32; 차이
+1. # char ch=ch-32 와 char ch-=32; 차이
    ```java
       char ch1 = 'a'; 
-      //ch1 = ch1 -32; error발생 -- ㉠
+      //ch1 = ch1-32; error발생 -- ㉠
         
       char ch2 = 'a'; 
       ch2 -= 32; //가능 -- ㉡
