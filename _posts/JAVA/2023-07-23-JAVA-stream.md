@@ -307,6 +307,11 @@ tag: [stream]
       Stream<Integer> → IntStream 으로 변환 : mapToInt(Integer::intValue)
    ```
    조회 - peek()
+
+1. # Collect
+   collect - Stream의 최종 연산자   
+   Collector - 인터페이스   
+   Collectors - 클래스
    
 
 
