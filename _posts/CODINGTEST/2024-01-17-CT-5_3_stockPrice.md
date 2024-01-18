@@ -26,7 +26,7 @@ tag: []
    5초 시점의 ₩3은 0초간 가격이 떨어지지 않았습니다.
    
 1. # 풀이
-   ```java
+    ```java
       public int[] solution(int[] prices) {
         int[] answer = {};
         
@@ -41,25 +41,82 @@ tag: []
             boolean check = true;
             for(int j=i+1 ; j<prices.length ; j++){
                 int b = prices[j];
-                if(a<=b){ //자신보다 크거나 같으면 count++
-                    
-                    count++;
-                    System.out.println("count:"+count);
+                if(a<=b){ //자신보다 크거나 같으면 count++  
+                    count++; //자신보다 큰 경우라는 조건에서 count++를 하게 되는데 이 조건이 밖에 나갈 수도 있다
                 }else{ //자신보다 작으면 count입력
                     stack.push(count);
-                    count = 1;
                     check = false;
                     break;
                 }
             }
-            
             //핵심! 가격이 떨어져서 break를 해도 이쪽으로 나오고, 끝까지 더 증가 해서 안쪽 for문이 끝나도 이쪽으로 나온다
             if(check) stack.push(count);
-        }
-       
+        }       
         stack.push(0);
-        System.out.println(stack);
         
         return answer;
     }
-   ```
+    ```   
+    이 문제 핵심은 [1,2,3,2,3]에서 1→2 1이 2가 될 때도 1이 증가, 3→2 3이 2가 될 때도 1이 증가한다는 조건입니다. "값이 커져도 증가, 값이 작아져도 증가"하는 부분인데 이걸 코딩하면   
+    ```java
+    for(int i=0 ; i<prices.length-1 ; i++){ 
+            int count = 0; // ☜ ㉠
+            ...
+            for(int j=i+1 ; j<prices.length ; j++){
+                int b = prices[j];
+                if(a<=b){ 
+                    count++;
+                }else{ 
+                    stack.push(count);
+                    ...
+                    break;
+                }
+            }
+        ... 
+    ```   
+    ㉠ 이 부분을 count=0으로 하면 [1,2,3,2,3]에서 1,2,2 인 부분에서 1씩 부족한 결과가 나오게 되고,
+    count=1로 하게되면 3→2인 부분에서 1이 더 증가한 결과가 발생하게 됩니다.   
+    문제 조건을 보면 "앞에 수보다 뒤에 수가 더 크면 증가를 하게 된다"란 조건이 나오게 됩니다. 1을 예로 들면 1 → 2 일 때 1증가, 1 → 3 또 1증가, 1 → 2 또 1증가, 1 → 3 또 1증가. 그렇기 때문에 조건식 안에서 count를 증가시키 코드를 작성하게 됩니다.   
+    ```java
+    for(int i=0 ; i<prices.length-1 ; i++){ 
+        ...
+        for(int j=i+1 ; j<prices.length ; j++){
+            if(a<=b){  // ← b가 더 큰 경우에
+                count++;  //count증가
+            }else{ ... }
+        ... 
+    ```   
+    하지만 이렇게 a<=b란 조건과 a>b란 조건으로 나뉘게 되면 올바른 결과를 얻을 수 없습니다.   
+    조건을 나눠서 증가를 시킨다는 생각을 바꿔야 합니다. 값이 작아져도 1이 증가, 값이 커져도 1이 증가 한다는 말을 다른 뜻으로 생각해보면 "값이 1 증가하고 시작한다"가 됩니다. 이것은 최초 count를 1로 선언하는 것과 다른 의미가 됩니다.    
+    ```java
+        for(int i=0 ; i<prices.length-1 ; i++){ 
+        ...
+
+        for(int j=i+1 ; j<prices.leng   th ; j++){
+            count++;  //count증가
+            if(a<=b){  // ← b가 더 큰
+            }else{ 
+        ... 
+    ```   
+    if문 앞에서 count를 증가 시키고, if(a<=b)일 때 count++를 증가시키지 않기 때문에 원하는 값을 얻을 수가 있습니다.   
+
+    수정된 전체 소스 입니다.   
+    ```java
+        public int[] solution(int[] prices) {
+        int[] answer = {};
+        
+        Stack<Integer> stack = new Stack<>();
+        
+        for(int i=0 ; i<prices.length ; i++){ 
+            int a = prices[i];
+            int count = 0; //<- 0을 해야 가장 마지막 요소값에 0 입력 됨
+            for(int j=i+1 ; j<prices.length ; j++){
+                int b = prices[j];
+                count++;
+                if(a>b) break;
+            }
+            stack.push(count);
+        }
+       return stack.stream().mapToInt(Integer::intValue).toArray();
+    }
+    ```
