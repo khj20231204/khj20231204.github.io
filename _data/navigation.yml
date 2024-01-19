@@ -55,8 +55,8 @@ sidebar_category_list:
         url: /listen
       - title: "READING"
         url: /reading
-      - title: "GRAMMER"
-        url: /grammer
+      - title: "SUMMARY"
+        url: /summary
       - title: "WORD"
         url: /word
 

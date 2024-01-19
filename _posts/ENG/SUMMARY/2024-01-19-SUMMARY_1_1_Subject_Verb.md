@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 주어/동사
-categories: GRAMMER
+categories: SUMMARY
 tag: []
 ---
 

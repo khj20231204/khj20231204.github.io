@@ -1,14 +1,14 @@
 ---
-title: "문법"
+title: "요약"
 layout: archive
-permalink: /grammer
+permalink: /SUMMARY
 author_profile: true
 types: posts
 sidebar:
   nav: "sidebar_category_list"
 ---
 
-{% assign posts = site.categories['GRAMMER']%}
+{% assign posts = site.categories['SUMMARY']%}
 {% for post in posts %}
   {% include archive-single.html type=page.entries_layout %}
 {% endfor %}
