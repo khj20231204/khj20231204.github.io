@@ -27,7 +27,6 @@ tag: []
    
 1. # 풀이
     ```java
-      public int[] solution(int[] prices) {
         int[] answer = {};
         
         //List<Integer> pricesList = Arrays.stream(prices).boxed().collect(Collectors.toList());
@@ -53,9 +52,6 @@ tag: []
             if(check) stack.push(count);
         }       
         stack.push(0);
-        
-        return answer;
-    }
     ```   
     이 문제 핵심은 [1,2,3,2,3]에서 1→2 1이 2가 될 때도 1이 증가, 3→2 3이 2가 될 때도 1이 증가한다는 조건입니다. "값이 커져도 증가, 값이 작아져도 증가"하는 부분인데 이걸 코딩하면   
     ```java

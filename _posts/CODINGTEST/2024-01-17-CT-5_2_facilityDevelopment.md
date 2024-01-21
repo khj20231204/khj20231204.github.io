@@ -40,83 +40,77 @@ tag: []
 
 1. # 풀이 - ArrayList이용
    ```java
-      public int[] solution(int[] progresses, int[] speeds) {
-        //1.(100-progress / speeds)를 올림한 결과 list
-        //2.계산 결과 list를 배포하는 list
-        //3.배포 list를 배열로 변경
+      //1.(100-progress / speeds)를 올림한 결과 list
+      //2.계산 결과 list를 배포하는 list
+      //3.배포 list를 배열로 변경
 
-        //1. (100-progress / speeds)를 올림한 결과 calList
-        List<Integer> calList = new ArrayList<>();
-        int cnt = 0;
-        for(int i : progresses){
-            float a = ((float)(100-i)/(float)speeds[cnt++]);
-            //(float)(100-i)/speeds[cnt++]; 또는 (100-i)/(float)speeds[cnt++];
-            //제수와 피제수 중 하나만 float으로 변환해도 결과는 float가 됨.
-            int b = (int)Math.ceil(a);
-            //System.out.println(b);
-            calList.add(b);
-        }
-        
-        //2. 배포 List 생성 - resultList
-        //앞에서 수(head)가 더 크면 count를 증가 시키고, 더 작으면 count를 list에 입력 후 현재 값(next)을 head에 입력
-        List<Integer> resultList = new ArrayList<>();
-        int count = 1;
-        int head = calList.remove(0); //최초 비교할 값 입력
-        
-        Iterator iter = calList.iterator();
-        while(iter.hasNext()){
-            int next = (int)iter.next();
-            if(head >= next){ //앞에 수가 더 크면 count++;
-                count++;
-            }else{
-                resultList.add(count);
-                count = 1;
-                head = next;
-            }
-        }
-        resultList.add(count);
-
-        //3. resultList를 배열로 변경
-        return resultList.stream().mapToInt(Integer::intValue).toArray();
+      //1. (100-progress / speeds)를 올림한 결과 calList
+      List<Integer> calList = new ArrayList<>();
+      int cnt = 0;
+      for(int i : progresses){
+         float a = ((float)(100-i)/(float)speeds[cnt++]);
+         //(float)(100-i)/speeds[cnt++]; 또는 (100-i)/(float)speeds[cnt++];
+         //제수와 피제수 중 하나만 float으로 변환해도 결과는 float가 됨.
+         int b = (int)Math.ceil(a);
+         //System.out.println(b);
+         calList.add(b);
       }
+
+      //2. 배포 List 생성 - resultList
+      //앞에서 수(head)가 더 크면 count를 증가 시키고, 더 작으면 count를 list에 입력 후 현재 값(next)을 head에 입력
+      List<Integer> resultList = new ArrayList<>();
+      int count = 1;
+      int head = calList.remove(0); //최초 비교할 값 입력
+
+      Iterator iter = calList.iterator();
+      while(iter.hasNext()){
+         int next = (int)iter.next();
+         if(head >= next){ //앞에 수가 더 크면 count++;
+            count++;
+         }else{
+            resultList.add(count);
+            count = 1;
+            head = next;
+         }
+      }
+      resultList.add(count);
+
+      //3. resultList를 배열로 변경
+      return resultList.stream().mapToInt(Integer::intValue).toArray();
    ```   
    float a = ((float)(100-i)/(float)speeds[cnt++]);   
    결과를 float으로 받아야 솟수점 숫자가 남게 되고 올림이 가능해집니다. 만약 (100-i)/speeds[cnt++]; 제수나 피제수를 float으로 변화하지 않으면 결과가 3.333이 나오더라도 /(나머지 연사자)가 자동 int형으로 변환해서 3이 나오게 됩니다. 즉, 나눠주는 값들을 float으로 변환하지 않으면 대입한 결과 a는 float형이기 때문에 3.333의 올림 값으로 3.0이란 값이란 잘못된 값이 나오게 됩니다..
 
 1. # 풀이 - Queue이용
    ```java
-      public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = {};
-        
-        //완료 날 계산
-        Queue<Integer> queue = new LinkedList<>(); 
-        int idx = 0;
-        for(int i : progresses){
-            float remainDayF = (100-i)/(float)speeds[idx++];
-            queue.offer((int)Math.ceil(remainDayF));
-        }
-       
-        //배포 날 카운트
-        Queue<Integer> distriQueue = new LinkedList<>();
-        int head = queue.poll();
-        int count = 1;
-        int max = queue.size();
-        while(!queue.isEmpty()){
-            int rear = queue.poll();
-            
-            if(head < rear){ //입력
-                distriQueue.offer(count);
-                count = 1;
-                head = rear;
-            }else {  //카운트 증가
-                count++;
-            }
-        }
-        distriQueue.offer(count);
-       
-        //리스트의 배포 날을 배열로 변환 후 리턴 
-        return distriQueue.stream().mapToInt(Integer::intValue).toArray();
-    }
+      //완료 날 계산
+      Queue<Integer> queue = new LinkedList<>(); 
+      int idx = 0;
+      for(int i : progresses){
+         float remainDayF = (100-i)/(float)speeds[idx++];
+         queue.offer((int)Math.ceil(remainDayF));
+      }
+
+      //배포 날 카운트
+      Queue<Integer> distriQueue = new LinkedList<>();
+      int head = queue.poll();
+      int count = 1;
+      int max = queue.size();
+      while(!queue.isEmpty()){
+         int rear = queue.poll();
+         
+         if(head < rear){ //입력
+               distriQueue.offer(count);
+               count = 1;
+               head = rear;
+         }else {  //카운트 증가
+               count++;
+         }
+      }
+      distriQueue.offer(count);
+
+      //리스트의 배포 날을 배열로 변환 후 리턴 
+      return distriQueue.stream().mapToInt(Integer::intValue).toArray();
    ```   
    List를 이용했을 때와 마찬가지로 똑같이 3단계로 생각합니다. Queue는 List와 다르게 값을 꺼내면 자체 size가 줄어들기 때문에 iterator를 생성하지 않고 바로 isEmpty()로 while문을 사용합니다. 하지만 전체 알고리즘은 똑같습니다.   
    Queue역시 List처럼 Collelctions인터페이스를 상속받았기 때문에 isEmpty(), size(), clear(), contains() 등 컬렉션 프레임워크의 대부분 메소드가 사용가능합니다. iterator()역시 사용가능합니다.   

@@ -22,9 +22,11 @@ tag: []
    p.60   
    be responsive to : <span style="color:#E8F5FF">즉각 반응,대응 하는</span>   
    ex)We should be responseive to changes in the market.   
+
    *be responsible for : <span style="color:#E8F5FF">~에 책임을지는</span>   
 
    be advantageous for : <span style="color:#E8F5FF">~에 이롭다</span>   
+
    be honored for : <span style="color:#E8F5FF">~으로 상을 받다</span>   
    ex)Ms.Conn was honored for breaking the sales record in the last year.
 
@@ -32,4 +34,23 @@ tag: []
    ex)Our new model is comparable to any top European brand.   
 
    p.61   
+   sales presentative : <span style="color:#E8F5FF">영업 직원</span>
+
+   09.(A) Only one entry per categroy may be submitted.   
+   <span style="color:#E8F5FF">범주당 1개의 출품작만 제출할 수 있습니다.</span>   
+   *entry : <span style="color:#E8F5FF">출품작, 응모</span>
+
+   p.64   
+   03.distinct dishes :<span style="color:#E8F5FF">독특한 요리</span>   
+
+   06.The concert is open to the public, and people will be seated __in the order__ they arrive.   
+   *in the order : <span style="color:#E8F5FF">순서대로</span>   
+
+   08.KitchenArt appliances are popular because of their easy to grip handles.   
+   *appliances : <span style="color:#E8F5FF">가전 제품</span>   
+
+   *annual leave : <span style="color:#E8F5FF">연차</span>   
+   monthly leave :<span style="color:#E8F5FF">월차</span>   
+    
+   
    
