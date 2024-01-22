@@ -36,4 +36,88 @@ tag: []
    - "AECB": 가능한 스킬트리입니다.   
    - "BDA": B 스킬을 배우기 전에 C 스킬을 먼저 배워야 합니다. 불가능한 스킬트리입니다.   
 
-1. # 풀이
+1. # 풀이 1
+   skill_trees에서 skill만 남기도 모두 제거 후 skill_trees가 skill로 시작하는지 찾는 것과 같은 문제입니다.   
+   skill_trees에서 skill 이외 문자를 모두 지웁니다.   
+   BACDE → BCD   
+   CBADF → CBD   
+   AECB → CB   
+   BDA → BD   
+   
+   CBD를 BCD, CBD, CB, BD로 시작하는지 확인하면 됩니다.   
+
+   이때 String클래스의 startsWith와 replaceAll이 사용됩니다.   
+
+   startsWith는 주어진 문자열로 시작하는지 확인 하는 메소드입니다.   
+
+   replace와 replaceAll가 있는데, 이 두 개의 차이점은 replace는 변환할 문자를 넣게되는데 replaceAll은 정규표현식을 사용할 수 있습니다.   
+   ```java
+      String s1 = "abcd";
+      s1.replace("[ab]",""); //abcd
+      s1.replaceAll("[ab]",""); //cd
+   ```   
+   replace는 문자나 문자열만 가능하지만 replaceAll은 "[ab]"와 같은 정규표현식이 가능합니다.   
+
+1. # 풀이 1
+   ```java
+      for(String s : skill_trees){
+         String str = s.replaceAll("[^"+skill+"]","");
+         if(skill.startsWith(str)) answer++;
+      }
+   ```   
+   replaceAll로 skill을 제외한 문자들을 "" 공백 처리 후 startsWith로 시작하는지 확인합니다. replaceAll과 startsWith를 사용하면 상당히 간단해 집니다.   
+
+1. # 풀이 2
+   replaceAll만 사용한 경우 남은 문자열들과 skill의 문자열들 순서가 일치하는지 비교해서 구할 수 있습니다.   
+   ```java
+      for(int i=0 ; i<skill_trees.length ; i++){
+            skill_trees[i] = skill_trees[i].replaceAll("[^"+skill+"]","");
+        }
+
+        char[] charSkill = skill.toCharArray();
+        int answer = 0;
+        for(String s : skill_trees){
+            int cnt = 0;
+            boolean chk = true;
+            for(char c : s.toCharArray()){ //skill문자열 이외를 제거한 skill_trees의 횟수만큼 반복문을 돌면서 skill의 값들과 비교를 합니다.
+                if(c != charSkill[cnt]){ 
+                    chk = false;
+                    break;
+                }
+                cnt++;
+            }
+            if(chk) answer++;
+        }
+        return answer;
+   ```   
+   skill문자열 이외를 제거한 skill_trees의 문자열은 skill의 문자열보다 같거나 작기 때문에 c != charSkill[cnt] 이러한 비교가 가능합니다.   
+   c : skill문자열 이외를 제거한 skill_trees   
+   charSkill : skill의 문자 배열 값   
+
+1. # 풀이 3
+   replaceAll와 startsWith를 사용하지 않고, 
+   skill_trees에서 skill 문자의 갯수와 skill_trees에서 skill의 순서에 맡게 빠져나온 갯수가 일치하면 올바른 skill사용법이 됩니다.   
+   ```java
+      for(int i=0 ; i<skill_trees.length ; i++){
+            int sCount = 0; //skill_trees에 속해있는 skill 갯수
+            for(char c : skill_trees[i].toCharArray()){
+                if(queue.contains(c)) ++sCount;
+            }
+
+            int count = 0; //skill에서 순서대로 빠져나온 갯수
+            for(char c : skill_trees[i].toCharArray()){
+                if(!queue.isEmpty()){ //CBD가 다 빠졌을 때 queue.peek()자체가 에러발생하는데 이를 방지
+                    if(c == queue.peek()) {
+                        queue.poll();
+                        count++;
+                    }
+                }
+            }
+
+            if(sCount == count) answer++;
+
+            queueMake(queue,skill); //남아있는 queue를 비우고 다시 채움
+        }
+        return answer;
+   ```   
+   
