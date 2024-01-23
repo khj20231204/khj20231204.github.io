@@ -1,7 +1,7 @@
 ---
 title: "요약"
 layout: archive
-permalink: /SUMMARY
+permalink: /summary
 author_profile: true
 types: posts
 sidebar:
