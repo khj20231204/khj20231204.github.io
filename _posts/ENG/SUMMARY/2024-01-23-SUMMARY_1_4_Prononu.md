@@ -89,7 +89,7 @@ tag: []
    *contingency : <span style="color:#E8F5FF">우연, 뜻밖의 사고</span>   
 
    p.103   
-   07.Emporio's funiture is handcrafted and can be tailored to suit any office.   
+   - 07.Emporio's funiture is handcrafted and can be tailored to suit any office.   
    *tailored : <span style="color:#E8F5FF">잘 맞추어진</span>
 
    p.105   
