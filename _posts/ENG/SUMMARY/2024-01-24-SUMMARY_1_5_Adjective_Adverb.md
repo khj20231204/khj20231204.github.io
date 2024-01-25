@@ -61,9 +61,37 @@ tag: []
    |near|<span style="color:#E8F5FF">가까이에</span>|-|nearly|<span style="color:#E8F5FF">거의</span>|
 
    - 09.(D)Your financial insight has been constructive.   
-   <span style="color:#E8F5FF">당신의 자금에 대한 통찰력은 건설적입니다.</span>
+   <span style="color:#E8F5FF">당신의 자금에 대한 통찰력은 건설적입니다.</span>   
+   
+   p.116   
+   - prospective employee : <span style="color:#E8F5FF">지원자</span>   
+   Prospective employee must fill out an application.   
+
+   - in the foreseeable future : <span style="color:#E8F5FF">가까운 미래</span>   
+   The economy will not improve in the __foreseeable future__.   
+
+   p.118   
+   - For whom is the notice __most likely__ intended?   
+   <span style="color:#E8F5FF">누구를 위하여, 그 공고는 필시 의도되었나요?</span>   
+   *most likely : <span style="color:#E8F5FF">필시, 아마</span>   
+
+   p.119   
+   - (A) They will __be followed__ by  group discussions.   
+   A follow B : <span style="color:#E8F5FF">A가 따른다.</span>   
+   A be followedll by B : <span style="color:#E8F5FF">B가 따른다, 
+   B가 뒤에 온다</span>   
+   *follow는 주어가 따른다   
+   be followed는 목적어가 따른다   
+
+   p.121   
+   - 05.(B)A real estate agent should __be present__ when __closing a contract__.   
+   present : <span style="color:#E8F5FF">ad.참석한,현재의,존재하는 v.보여주다,수여하다,발표하다,주다, n.선물</span>   
+   close a contract : <span style="color:#E8F5FF">계약을 체결하다</span>   
    
    
+   
+
+
 
 
 
