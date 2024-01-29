@@ -5,7 +5,7 @@ categories: SUMMARY
 tag: []
 ---
 
-1. # 요약
+1. # 해커스
    명사는 주로 __관사, 소유격, 형용사__ 뒤에 온다.
 
    - __The__ (gorw, growth) of the ~ : 관사the 뒤에 명사 growth   
@@ -89,5 +89,17 @@ tag: []
    <span style="color:#E8F5FF">우리는 알리기를 바란다 우리의 소중한 고객들에게 모리슨사가 20주년 기념일을 축하하게 될 것임을</span>   
    *mark : <span style="color:#E8F5FF">축하하다,기념하다, 표시하다</span>
 
+1. # 그래머
+   p.67   
+   틀린 곳 찾기   
+   - 02.Railorad develop has helped fuel the nation's economic boom.   
+   정답 : <span style="color:#E8F5FF">develop → development</span>   
+   __*help__   
+   help + n   
+   help + to R   
+   help + R   
 
-   
+   - 03.Karl's new job presented an excellence opportunity.   
+   정답 : <span style="color:#E8F5FF">excellence → excellent</span>   
+   *presented : 제공했다   
+
