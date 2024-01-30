@@ -65,7 +65,7 @@ tag: []
    <span style="color:#E8F5FF">그러므로, 가능한 완벽히(꼼꼼히) 해주세요</span>   
 
    p.78   
-   - take advantage of : <span style="color:#E8F5FF">~을 이용하다</span>   
+   - take advantage of : <span style="color:#E 8F5FF">~을 이용하다</span>   
    Shoppers should take advantage of the special promotion.   
 
    p.79   
@@ -103,3 +103,31 @@ tag: []
    정답 : <span style="color:#E8F5FF">excellence → excellent</span>   
    *presented : 제공했다   
 
+   p.78   
+   - 03.A few <u>(A)provision</u> of the Constitution <u>(B)had to</u> be removed before all the <u>(C)states</u> would <u>(D)accept it</u>.   
+   정답 : <span style="color:#E8F5FF">a few에 의해서 provision→provisions</span>   
+
+   - 04.Thomas Alva Edison, one of <u>(A)the most</u> prolific <u>(B)inventor</u> ever, <u>(C)held</u> 1,093 <u>(D)patents</u>.   
+   정답 : <span style="color:#E8F5FF">one of the 복수 명사 + 단수 동사, inventor→inventors</span>   
+   <span style="color:#E8F5FF">에디슨은 가장 많은 다작을 낸 발명가 중 한명으로 1093개의 특허를 가지고 있었다.</span>   
+
+   - 09.In 1970, <u>as few as</u> <u>nine millions</u> Americans were enrolled in degree granting institutions.   
+   *as many as : 수가 많음을 강조 '무려, ~씩이나' ex)무려 30명, 30명 씩이나   
+   *as few as : 수가 적음을 강조 '겨우, 고작' ex)고작 30명   
+   *as much as : 양이 많음을 강조 '무려, ~씩이나' ex)무려 10달러, 10달러 씩이나   
+   *as little as : 양이 적음을 강조 '겨우, 고작' ex)고작 10달러   
+   *수량 표현   
+   dozen(12), score(20), hundred, thousand, million,..   
+   1.구체적 숫자 뒤에 s 생략   
+   two dozen roses / three hundred dollars    
+   2.막연한 수 뒤에 s   
+   dozens of pencils 펜 수십개/ hundreds of scientists 과학자 수백명   
+
+   - 11.The cloning of sheep and other animal remainsf a very controversial issue.   
+   정답 : <span style="color:#E8F5FF">other + 복수 명사</span>   
+
+   - 17.In the United States, a five-years-old child will experience formal education for the first time.   
+   정답 : <span style="color:#E8F5FF">하이픈'-'이 있으면 형용사가 되어서 단,복수 개념이 없어진다</span>   
+
+   - 18.Researchers have found thousand of inspect species on the Canary Islands.   
+   정답 : <span style="color:#E8F5FF">thousand는 막연한 수 앞에 's'를 붙인다, thousand→thousands</span>

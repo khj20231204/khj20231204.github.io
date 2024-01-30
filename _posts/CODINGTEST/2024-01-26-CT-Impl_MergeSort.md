@@ -101,8 +101,7 @@ tag: []
          int idxLeft2 = mid+1;
 
          /*
-         메소드끼리 주고 받는 배열은 array이기 때문에 array를 이동 시켜서 결과값을 가져오기 위해 현
-         재 array에 있는 값을 arrayCopy에 복사를 해서 arrayCopy에서 비교 후 array에 집어넣는다.
+         메소드끼리 주고 받는 배열은 array이기 때문에 array를 이동 시켜서 결과값을 가져오기 위해 현재 array에 있는 값을 arrayCopy에 복사를 해서 arrayCopy에서 비교 후 array에 집어넣는다.
          */
          for(int i=left ; i<=right ; i++) arrayCopy[i] = array[i];
 
