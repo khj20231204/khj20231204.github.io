@@ -5,7 +5,7 @@ categories: SUMMARY
 tag: []
 ---
 
-1. # 요약
+1. # 해커스
    1) 인칭대명사
       - 주격 : I / we / you / he / she / it / them   
       - 소유격 + __n__ : my / our / your / his / her / its / their   
@@ -102,4 +102,34 @@ tag: []
    - By forwarding documents by e-mail.   
    *forward : <span style="color:#E8F5FF">v.보내다, ad.앞으로</span>   
 
+1. # 그래머
+   p.142   
+   
+   틀린 부분 찾기   
 
+   - 05.By examining its tracks, Edmund Hillalry attempted to determine if Himalayan abominable snowmen existed.   
+   정답 : <span style="color:#E8F5FF">its는 snowmen을 가리키다. snowmen은 복수기 때문에 its→their</span>   
+   해석 : <span style="color:#E8F5FF">설인의 발자국을 조사하면서, 에드문드 힐러리는 단정짓기 위해 시도했다. 히말리야에 혐오스러운 설인지 존재에 대해</span>   
+
+   - 06.Sigmund Freud distinguished him with theories that regarded sexual trauma as responsible for all neuroses.   
+   정답 : <span style="color:#E8F5FF">Sigmund Freud는 distinguished하게 만들었다 그 자신을, him은 distinguised의 목적어로 himself가 되야한다. 여기서 distinguished는 동사.</span>   
+   해석 : <span style="color:#E8F5FF">Sigmund Freud 유명하게 만들었다 자기 자신을, 성적인 충동은 모든 신경에 원인이 있다고 간주한 이론으로</span>   
+   *distinguish : <span style="color:#E8F5FF">구별하다, 식별하다</span>   
+   *distinguished : <span style="color:#E8F5FF">유명한, 저명한</span>   
+   *responsible for ~: <span style="color:#E8F5FF">~ 에 원인이 있다, 책임이 있다</span>   
+   *regard A as B : <span style="color:#E8F5FF">A를 B로 간주하다</span>   
+   *trauma : <span style="color:#E8F5FF">정신적 충격</span>   
+
+   - 08.Pharmacological and behavioral treatments are used with substance abusers to help themselves.   
+   정답 : <span style="color:#E8F5FF">재귀는 주어와 목적어가 같을 때 사용, 주어는 treatments, help의 목적어는 abusers, themselves→them</span>   
+   해석 : <span style="color:#E8F5FF">약물과 행동 치료는 사용되어진다 약물중독자에게 그들을 돕기 위해서</span>   
+
+   *nuisance plant : 쓸모없는 식물   
+   *bison : 들소   
+
+   - 18.Alexander Hemilton was a great financier, but he died with virtually no money to him name.   
+   정답 : <span style="color:#E8F5FF">him name→his name</span>   
+   해석 : <span style="color:#E8F5FF">money:재산, 그는 죽었다 사실상 그의 이름으로된 재산이 하나도 없이</span>   
+
+   
+   
