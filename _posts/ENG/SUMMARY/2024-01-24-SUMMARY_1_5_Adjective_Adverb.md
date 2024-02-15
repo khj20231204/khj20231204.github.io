@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 형용사/부사
+title: 1-5.형용사/부사
 categories: SUMMARY
 tag: []
 ---

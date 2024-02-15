@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 대명사
+title: 1-4.대명사
 categories: SUMMARY
 tag: []
 ---

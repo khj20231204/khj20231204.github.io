@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 접속사
+title: 2-2.접속사
 categories: SUMMARY
 tag: []
 ---

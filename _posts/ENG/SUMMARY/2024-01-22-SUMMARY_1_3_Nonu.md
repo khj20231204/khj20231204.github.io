@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 명사
+title: 1-3.명사
 categories: SUMMARY
 tag: []
 ---

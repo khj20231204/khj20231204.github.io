@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 전치사
+title: 2-1.전치사
 categories: SUMMARY
 tag: []
 ---

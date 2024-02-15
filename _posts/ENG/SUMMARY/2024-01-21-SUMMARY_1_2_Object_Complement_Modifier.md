@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 목적어/보어/수식어
+title: 1-2.목적어/보어/수식어
 categories: SUMMARY
 tag: []
 ---
