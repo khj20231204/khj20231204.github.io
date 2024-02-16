@@ -86,13 +86,13 @@ tag: []
    p.121   
    - 05.(B)A real estate agent should __be present__ when __closing a contract__.   
    present : <span style="color:#E8F5FF">ad.참석한,현재의,존재하는 v.보여주다,수여하다,발표하다,주다, n.선물</span>   
-   close a contract : <span style="color:#E8F5FF">계약을 체결하다</span>   
-      
-      
+   close a contract : <span style="color:#E8F5FF">계약을 체결하다</span>
+   <br>
+   <br>   
 1. # 그래머
    p.114   
    - 01.We found the summer heat overwhelming.   
-   정답 : <span style="color:#E8F5FF">틀린 곳 없음, heat은 명사, hot은 형용사인데 summer heat은 "여름 더위"란 명사고 overwhelming이 "압도적인"인 이라는 명사로 사용됨</span>   
+   정답 : <span style="color:#E8F5FF">틀린 곳 없음, heat은 명사, hot은 형용사인데 summer heat은 "여름 더위"란 명사고 overwhelming이 "압도적인"인 이라는 형용사로 사용됨</span>   
    해석 : <span style="color:#E8F5FF">우리는 알았다 여름더위가 심하다는 것을</span>   
 
    - 06.scare : 형용사, scary : 명사   
@@ -109,7 +109,7 @@ tag: []
    |  likely  |    형용사, 부사    | 가능성이 있는(*명사 수식으로만 사용), 예상되는 / (very, most 앞에 붙어) 아마(probably)  |   
    | unlikely |   형용사, 부사     |  가능성 없는, 있을 것 같지 않은(*명사 수식으로만 사용) / ~있을 것 같지 않게 |
    
-   <span style="color:red">* <b>be</b> likely to do 할 것 같다<br>
+   <span style="color:red">*<b>be</b> likely to do 할 것 같다<br>
    *<b>be</b> unlikely to do ~할 것 같지 않다<br>
    *alike = likewise 마찬가지로, 똑같이   
    </span>   
