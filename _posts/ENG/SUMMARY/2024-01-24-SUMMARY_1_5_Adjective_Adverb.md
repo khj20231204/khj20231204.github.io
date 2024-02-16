@@ -5,7 +5,7 @@ categories: SUMMARY
 tag: []
 ---
 
-1. # 요약
+1. # 해커스
    p.111   
    - 04.The apllicants __were presented__ with specific information __on what to submit__.
    presnet : <span style="color:#E8F5FF">제출하다</span>   
@@ -87,10 +87,51 @@ tag: []
    - 05.(B)A real estate agent should __be present__ when __closing a contract__.   
    present : <span style="color:#E8F5FF">ad.참석한,현재의,존재하는 v.보여주다,수여하다,발표하다,주다, n.선물</span>   
    close a contract : <span style="color:#E8F5FF">계약을 체결하다</span>   
-   
-   
-   
+      
+      
+1. # 그래머
+   p.114   
+   - 01.We found the summer heat overwhelming.   
+   정답 : <span style="color:#E8F5FF">틀린 곳 없음, heat은 명사, hot은 형용사인데 summer heat은 "여름 더위"란 명사고 overwhelming이 "압도적인"인 이라는 명사로 사용됨</span>   
+   해석 : <span style="color:#E8F5FF">우리는 알았다 여름더위가 심하다는 것을</span>   
 
+   - 06.scare : 형용사, scary : 명사   
+
+   p.115   
+   - 형용사 : lovely, lively, friednly, costly, deadly, timely, leisurely, likely, elderly, daily   
+   - 원래 형용사 : silly, lonely   
+
+   |   단어    |     품사     |                     뜻                      | 
+   |:---------:|:------------:|:---------------------------------------------------------:|
+   |   like   |    전치사    |                ~와 같은                     | 
+   |  unlike  | 전치사, 형용사 |     ~와 다른  /  같지 않은, 서로 다른 (*보어로만 사용)        |
+   |  alike   | 형용사, 부사 |     비슷한(*보어로만 사용) / 비슷하게, 똑같이    |  
+   |  likely  |    형용사, 부사    | 가능성이 있는(*명사 수식으로만 사용), 예상되는 / (very, most 앞에 붙어) 아마(probably)  |   
+   | unlikely |   형용사, 부사     |  가능성 없는, 있을 것 같지 않은(*명사 수식으로만 사용) / ~있을 것 같지 않게 |
+   
+   <span style="color:red">* <b>be</b> likely to do 할 것 같다<br>
+   *<b>be</b> unlikely to do ~할 것 같지 않다<br>
+   *alike = likewise 마찬가지로, 똑같이   
+   </span>   
+
+   - 형용사와 부사가 같이 있는 단어   
+
+   |  단어   | 형용사 |   부사  |
+   |:-------:|:-----:|:-------:|
+   |  early |  이른  |  일찍    |
+   |  fast  |  빠른  |  빠르게  | 
+   |  hard  | 단단한 |  열심히  |
+   |  high  |  높은  |   높게  |
+   |  late  |  늦은  |   늦게  |
+   |  long  |  오랜  |   오래  |
+   |  wide  |  넓은  |   넓게  |
+   |  right |  옳은, 정확한 | 바로, 정확히 |
+   |   far  |  먼   |   멀리   |
+   | close  |  가까운, 닫은 | 정밀히 |
+      
+   p.117   
+   - 05.The businessman ran (fast/fastly) to catch the approaching train.   
+   정답 : <span style="color:#E8F5FF">fast에 부사의 뜻을 가지고 있다.</span>
 
 
 
