@@ -131,7 +131,55 @@ tag: []
       
    p.117   
    - 05.The businessman ran (fast/fastly) to catch the approaching train.   
-   정답 : <span style="color:#E8F5FF">fast에 부사의 뜻을 가지고 있다.</span>
+   정답 : <span style="color:#E8F5FF">fast에 부사의 뜻을 가지고 있다.</span>   
+
+   p.118   
+   - such   
+   such 명사   
+   such a 형 명   
+   such A as B = A such as B : B와 같은 A   
+
+   - very   
+   a very 형 명   
+   아주 ~한(하게) 라는 뜻으로 형용사 부사 강조   
+   최상급 수식   
+   *비교급 수식은 much   
+   
+   - so   
+   so 형/부   
+   so 형/부 + that절   
+   so 형 a 명   
+   
+   p.121   
+   - 01.The student was very confused that he left the classroom.   
+   정답 : <span style="color:#E8F5FF">very와 such 뒤에는 명사가 와야한다. that과 짝을 이루는 so가 와야 한다.</span>   
+
+   - 04.He was paying so little attention to see the light change.   
+   정답 : <span style="color:#E8F5FF">so 뒤엔 명사가 오면 안된다. such나 very뒤에 명사 가능</span>   
+
+   - 08.The restaurant served such food that steamed snails and frog's legs.   
+   정답 : <span style="color:#E8F5FF">음식인데 찐 달팽이와 개구리 다리 같은 음식이기 때문에 such ~ as가 되야 한다. so ~ that은 될 수 없는 것이 해석 때문이기도 하지만 so 뒤엔 food란 명사가 못 온다.</span>    
+
+   p.124   
+   - 01.limner : <span style="color:#E8F5FF">초상화가</span>   
+   awkward : <span style="color:#E8F5FF">어색한, 불편한, 곤란한</span>   
+
+   - 02.Great figures in Latin literature shch Cicero and Lucretius emerged during the late Roman Republic.   
+   정답 : <span style="color:#E8F5FF">such as Cicero and Lucerius</span>   
+
+   - 04.The artwork of Picasso, unusual provocative in his lifetime, is now considered some of the greatest ever.   
+   정답 : <span style="color:#E8F5FF">unusual provocative 매우 도발적인, unusual도 형용사  provocative도 형용사, 따라서 unusual -> unusually</span>   
+   해석 : <span style="color:#E8F5FF">그의 생애에서 가장 도발적인 피카소의 작품이 지금은 여겨진다 가장 훌륭한 작품들의 일부로</span>   
+   *unusual : 특이한   
+   unusually : 대단히, 몹시   
+
+   - 05.Vaccinations make use of alive, altered, or killed antigens to stimulate the body to produce antibodies.   
+   정답 : <span style="color:#E8F5FF">alive -> lieve</span>   
+   해석 : <span style="color:#E8F5FF">live, altered, killed 모두 antigens를 꾸며준다. 백신은 이용한다 살았거나, 변경되었거나, 죽은 항원을 신체를 자극하기 위해서 항원을 생성하기 위해서</span>   
+   *make use of : ~을 이용하다   
+   antigen : 항원   
+
+   
 
 
 
