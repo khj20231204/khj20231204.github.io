@@ -179,6 +179,14 @@ tag: []
    *make use of : ~을 이용하다   
    antigen : 항원   
 
+   - 07.The gravitation pull of a balck hole is very intense to allow anything, includeing light, to escape.   
+   정답 : <span style="color:#E8F5FF">해석상 very -> too, 너무 강렬해서 허용하지 않는다 모든것이 탈출하는 것은</span>   
+
+   - 08.Many species of mammals __were often unawareness of the dangers__ __posed__ by early hunters.   
+   정답 : <span style="color:#E8F5FF">were 뒤에 명사가 오는 경우는 equal(동등)관계 일때 가능하다. 지금은 포유류의 상태를 나타내기 때문에 형용사가 와야한다. unawareness -> unaware</span>   
+   *be 형용사 of the 명사 : 형용사의 구체적 설명이 명사   
+   *pose : (문제등을)제기하다, 자세를 취하다   
+   
    
 
 
