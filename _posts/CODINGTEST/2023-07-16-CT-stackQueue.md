@@ -91,6 +91,9 @@ tag: [stack, queue]
 		 
 		 System.out.println(queue.poll()); //1
 		 System.out.println(queue.poll()); //queue에 값이 없으면 null반환
+       System.out.println(queue.peek()); //null 반환
+
+       queue.isEmpty(); //true, false반환
    ```
 1. # stack 
    stack은 클래스로 제공되며 Vector를 상속받았습니다.
@@ -123,7 +126,25 @@ tag: [stack, queue]
 		
 		System.out.println(stack.pop()); //1
 		System.out.println(stack.pop()); //error, stack에 값이 없는데 pop를 하면 error발생
-   ```
+      System.out.println(stack.peek()); //error 발생
+
+      stack.empty(); //true, false반환
+   ```   
+
+1. # stack과 queue비교
+   ```java
+      Stack<Integer> stack = new Stack<>();
+
+      Queue<Integer> queue = new Queue<>();
+   ```   
+   stack은 비었을 때 peek()나 pop()를 하면 error 발생   
+   queue는 비었을 때 peek()나 poll()을 하면 null 반환   
+
+   stack은 peek()나 pop() 사용 전에 비었는지 체크   
+
+   stack는 empty() 사용   
+   queue는 isEmtpy() 사용   
+
 1. # Deque
    queue와 stack 방식을 합쳐놓은 자료구조입니다. 가장 먼저 들어온 값을 꺼내면서 가장 나중에 들어온 값도 꺼내야 할 때 사용합니다. 
    인터페이스로만 제공됩니다. Deque를 상속받은 클래스는 ArrayDeque, ConcurrentLinkedDeque, LinkedList 등이 있습니다.   

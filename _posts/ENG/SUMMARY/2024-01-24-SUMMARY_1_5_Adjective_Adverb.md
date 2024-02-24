@@ -186,9 +186,29 @@ tag: []
    정답 : <span style="color:#E8F5FF">were 뒤에 명사가 오는 경우는 equal(동등)관계 일때 가능하다. 지금은 포유류의 상태를 나타내기 때문에 형용사가 와야한다. unawareness -> unaware</span>   
    *be 형용사 of the 명사 : 형용사의 구체적 설명이 명사   
    *pose : (문제등을)제기하다, 자세를 취하다   
-   
-   
 
+   - 11.plane[플레인] : 비행기, 면, 평평한   
+   plain[플레인] : 분명한, 평지, 평원   
+   plan[플랜] : 계획, 계획을 세우다   
+   
+   - 14.one : 단수 한 개 - 앞에 명사를 받는다   
+   ones : 복수 여러개 - 앞에 명사를 받는다   
+
+   - 15.Nitroglycerin is so volatile to be handled without specialized containers.   
+   정답 : <span style="color:#E8F5FF">so -> too, 매우 휘발성이 커서 특별한 용기없이 다룰 수 없다. 너무 ~해서 할 수 없다로 해석됨.</span>   
+   *volatile : 휘발성의, 변덕스러운   
+
+   - 17.pivotal : 주축의, 중심의   
+   pivot : 중심, 회전하다   
+
+   - 21.Althought it is not likeliness that a comet from outer space will hit the Earth, the possibility is being examined by scientists.   
+   정답 : <span style="color:#E8F5FF">likeliness -> likely, likeliness는 명사, likely는 형용사, be동사 뒤에  형용사가 와야한다.</span>
+   해석 : <span style="color:#E8F5FF">비록 우주에서 온 혜성이 지구와 충돌할 것 같지 않지만, 과학자들에 의해 가능성은 조사되고있다.</span>
+   *likeliness = likelihood : 가능성   
+   likeness : 유사성, 닮음   
+   liken : 비유하다.   
+
+   - 25.ailment : (심하지 않은)질병   
 
 
 
