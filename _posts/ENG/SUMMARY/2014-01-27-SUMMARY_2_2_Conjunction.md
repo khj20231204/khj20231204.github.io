@@ -27,7 +27,7 @@ tag: []
       |                    선행사               |   부사  |
       |:---------------------------------------:|:------:|
       |시간(date, September 25th, the 1990's,..)|  when  |
-      |   장소(place, librarym, city, room,..)  |  where |
+      |   장소(place, library, city, room,..)  |  where |
       |               이유(the reason)          |   why  |
       |               방법(the way)             |   how  |
 
