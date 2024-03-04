@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 1-1.주어/동사
+title: 1-1                                 .주어/동사
 categories: SUMMARY
 tag: []
 ---
