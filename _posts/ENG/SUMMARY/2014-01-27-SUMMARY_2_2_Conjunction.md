@@ -64,5 +64,31 @@ tag: []
    - 02.Luc Industries accelerated its production __in response__ to high demand.   
    <span style="color:#E8F5FF">in response : ~에 대응하여</span>   
 
+   p.155   
+   - ferry : <span style="color:#E8F5FF">유람선</span>   
+   - It is free to use and runs at 15minute intervals from 6 A.M until 11 P.M   
+   <span style="color:#E8F5FF">그것은 무료로 이용할 수 있고 오전 6시부터 오후 11시까지 15분 간격으로 운행한다.</span>   
+
+   p.156   
+   - 04.We are seeking applicants who have acquired broad experience in the hospitality industry.   
+   <span style="color:#E8F5FF">우리는 지원자를 찾고 있다. 서비스업에서 광범위한 경험을 가지고 있는</span>   
+
+   - 06.across the country = nationally   
+   <span style="color:#E8F5FF">전국적으로</span>   
+
+   - 08.around the clock   
+   <span style="color:#E8F5FF">24시간 내내</span>   
+
+   p.158   
+   09.   
+   - ticket inspector : <span style="color:#E8F5FF">티켓 승무원</span>   
+   - if you are unable to locate personnel : <span style="color:#E8F5FF">만약 니가 직원을 찾을 수 없다면</span>   
+
+   p.159   
+   - 11.(A)He founded a business three decades age.   
+   <span style="color:#E8F5FF">그는 30년 전에 사업채를 설립했다</span>   
+
+   
+
    
    
