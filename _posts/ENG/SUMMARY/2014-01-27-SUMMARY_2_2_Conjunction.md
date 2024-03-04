@@ -87,8 +87,3 @@ tag: []
    p.159   
    - 11.(A)He founded a business three decades age.   
    <span style="color:#E8F5FF">그는 30년 전에 사업채를 설립했다</span>   
-
-   
-
-   
-   
