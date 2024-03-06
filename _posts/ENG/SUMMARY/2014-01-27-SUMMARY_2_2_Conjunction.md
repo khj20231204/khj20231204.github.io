@@ -5,7 +5,7 @@ categories: SUMMARY
 tag: []
 ---
 
-1. # 요약   
+1. # 해커스   
    1)등위 접속사 - and, or ,but   
 
    2)상관 접속사 - both A and B, neither A nor B   
@@ -72,7 +72,7 @@ tag: []
    p.156   
    - 04.We are seeking applicants who have acquired broad experience in the hospitality industry.   
    <span style="color:#E8F5FF">우리는 지원자를 찾고 있다. 서비스업에서 광범위한 경험을 가지고 있는</span>   
-
+ㅜㄷㅍㄷㄱ소디
    - 06.across the country = nationally   
    <span style="color:#E8F5FF">전국적으로</span>   
 
@@ -87,3 +87,16 @@ tag: []
    p.159   
    - 11.(A)He founded a business three decades age.   
    <span style="color:#E8F5FF">그는 30년 전에 사업채를 설립했다</span>   
+
+1. # 그래머
+   
+   접속부사   
+   however, yet 하지만   
+   besides 그밖에도   
+   moreover/futhermore 게다가   
+   then 그러면   
+   thus/therefore 그러므로   
+   nevertheless/still 그럼에도 불구하고   
+
+   접속부사는 부사이므로 문장 내에서 절과 절을 연결하는 접속사의 기능을 할 수 없다.   
+   __접속사는 ,뒤 / 접속부사는 . 나 ; 뒤 에 사용된다__

@@ -104,7 +104,6 @@ tag: [stack, queue]
    push(E item) - Pushes an item onto the top of this stack.   
    
    ```java
-      
 		Stack<Integer> stack = new Stack<Integer>();
 		
 		/* push(e)-stack에 값을 입력 */
@@ -131,7 +130,7 @@ tag: [stack, queue]
       stack.empty(); //true, false반환
    ```   
 
-1. # stack과 queue비교
+1. # stack과 queue 비교
    ```java
       Stack<Integer> stack = new Stack<>();
 
@@ -142,8 +141,24 @@ tag: [stack, queue]
 
    stack은 peek()나 pop() 사용 전에 비었는지 체크   
 
-   stack는 empty() 사용   
+   stack는 empty(), isEmpty() 사용   
    queue는 isEmtpy() 사용   
+
+1. # stack 정렬
+   ```java
+      Stack<Integer> s = new Stack<>();
+        s.push(12);
+        s.push(6);
+        s.push(14);
+        s.push(8);
+
+        Collections.sort(s); //[6, 8, 12, 14] 오름차순 정렬
+        s.pop(); //14
+
+        Collections.sort(s, Collections.reverseOrder()); //[12, 8, 6] 내림차순 정렬
+        s.pop(); //6
+   ```   
+   오름차순 정렬이든 내림차순 정렬이든 pop를 하게 되면 항상 마지막에 위치한 값이 출력됩니다.   
 
 1. # Deque
    queue와 stack 방식을 합쳐놓은 자료구조입니다. 가장 먼저 들어온 값을 꺼내면서 가장 나중에 들어온 값도 꺼내야 할 때 사용합니다. 

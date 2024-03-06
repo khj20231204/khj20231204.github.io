@@ -1,12 +1,11 @@
 ---
 layout: single
-title: 1-1                                 .주어/동사
+title: 1-1.주어/동사
 categories: SUMMARY
 tag: []
 ---
 
 1. # 해커스
-
    P.41  
    - 05.The conference __will conclude__ with a speech by the company's president.   
    <span style="color:#E8F5FF">마무리 짓다. 끝날 것이다. 그 회사의 회장 연설로</span>
