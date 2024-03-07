@@ -101,4 +101,22 @@ tag: []
    접속부사는 부사이므로 문장 내에서 절과 절을 연결하는 접속사의 기능을 할 수 없다.   
    __접속사는 ,뒤 / 접속부사는 . 나 ; 뒤 에 사용된다__   
 
+   and then 그리고 나서   
+   and yet 그런데도, 그럼에도 불구하고(=but yet)   
    
+   yet은 등위접속사, 접속부사로도 쓰인다.   
+   I am allergic to dogs, yet I like them.(등위접속사 yet)   
+   I am allergic to dogs. Yet, I like them.(접속부사 yet)   
+
+   p.180   
+   - 03.He ran out of time (while / which) he was answering the last question.   
+   정답 : <span style="color:#E8F5FF">while</span>   
+   해석 : <span style="color:#E8F5FF">그는 시간을 모두 소비했다. 그가  마지막 질문에 답변을 하는 동안</span>
+
+   - misplace : 잘못된 장소에 두다(그래서 못 찾다)   
+
+   p.186   
+   - 04.keep/stop/prevent/prohibit/ban/discourage A from B : A가 B하는 것을 막다   
+
+   - 09.He narrowed his job prospects to two or three choices.   
+   그는 좁혔다 그의 전망있는 직업을 2개또는 3개의 선택으로   
