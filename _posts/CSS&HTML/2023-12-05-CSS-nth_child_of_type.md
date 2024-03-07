@@ -1,7 +1,7 @@
 ---
 layout: single
-title: nth_child / nth_of_type
-categories: CSS
+title: (CSS)nth_child / nth_of_type
+categories: CSS&HTML
 tag: []
 ---
 

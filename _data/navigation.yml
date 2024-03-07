@@ -29,8 +29,8 @@ sidebar_category_list:
         url: /codingtest
       - title: "JAVA"
         url: /java
-      - title: "CSS"
-        url: /css
+      - title: "CSS&HTML"
+        url: /css&html
       - title: "JS"
         url: /js
   - title: "그리고 또"

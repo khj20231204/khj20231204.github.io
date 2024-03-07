@@ -72,7 +72,7 @@ tag: []
    p.156   
    - 04.We are seeking applicants who have acquired broad experience in the hospitality industry.   
    <span style="color:#E8F5FF">우리는 지원자를 찾고 있다. 서비스업에서 광범위한 경험을 가지고 있는</span>   
-ㅜㄷㅍㄷㄱ소디
+
    - 06.across the country = nationally   
    <span style="color:#E8F5FF">전국적으로</span>   
 
@@ -119,4 +119,48 @@ tag: []
    - 04.keep/stop/prevent/prohibit/ban/discourage A from B : A가 B하는 것을 막다   
 
    - 09.He narrowed his job prospects to two or three choices.   
-   그는 좁혔다 그의 전망있는 직업을 2개또는 3개의 선택으로   
+   해석 : <span style="color:#E8F5FF">그는 좁혔다 그의 전망있는 직업을 2개 또는 3개의 선택으로</span>   
+
+   p.187   
+   - intervene : 개입하다, 끼어들다   
+   - John Brown gained sympathy not for his anti-slavery beliefs and for his dignified conduct.   
+   정답 : <span style="color:#E8F5FF">not A but B 따라서 and -> but</span>
+   해석 : <span style="color:#E8F5FF">John Brown은 얻었다 동점을 노예제도에 반대하는 그의 신념 때문이 아니라 그의 고귀한 행동 때문에<span>   
+
+   - Because John Butler could not prevent massacres under his command, so patriots despised him.   
+   정답 : <span style="color:#E8F5FF">so patriots -> patriots</span>   
+   해석 : <span style="color:#E8F5FF">John Butler는 막을 수 없었다 그의 명령 아래에서 대량학살을, 그래서 애국자들은 그를 경멸했다.</span>   
+
+   p.190   
+   - 01.The effects of second-hand smoke are known, ____ many smoke near others.   
+   ⒜and yet   
+   ⒝and so   
+   ⒞if not   
+   ⒟except for   
+   정답 : <span style="color:#E8F5FF">and yet</span>   
+   *and yet : <span style="color:#E8F5FF">그럼에도 불구하고</span>   
+   and so : <span style="color:#E8F5FF">그래서</span>   
+
+   - 02.Although raindrops fall randomly, but some collide to produce larger rain drops.   
+   정답 : <span style="color:#E8F5FF">한 문장에 2개의 접속사 although와 but이 나왔다. but 생략</span>   
+   해석 : <span style="color:#E8F5FF">비록 빗방울이 불규칙하게 떨어지지만, 몇몇은 충돌한다 그 결과, 더 큰 빗방울을 만든다.</span>   
+
+   - 08.Since food is weightless in space, therefore space food systems were improved to make it edible.   
+   정답 : <span style="color:#E8F5FF">therefore 생략</span>   
+   해석 : <span style="color:#E8F5FF">음식은 우주 공간에서 무중력 상태기 때문에, 우주에서 음식 시스템은 개선되어졌다 그것을 먹을 수 있도록</span>   
+
+   - 09.A large ship is able to float due to water displacement, and it is actually less likely to sink than a smaller vessel.   
+   displace : <span style="color:#E8F5FF">대신하다, 대체하다, 쫓아내다</span>   
+   displacement : <span style="color:#E8F5FF">(쫓겨난)이동, 배수량</span>   
+
+   - 14.Not Richard Nixon but his successor Gerald Ford suffered an electoral defeat as a result of the Watergate Scandal.   
+   해석 : <span style="color:#E8F5FF">Ricard Nixon이 아니라 그의 후계자 Gerald Ford가 워터게이트의 스캔들의 결과로 선거에서 패배를 겪었다.</span>   
+
+   - 19.Before Charles Darwin, biologists did not know ______ species evolved or were created in their present form.   
+   ⒜while   
+   ⒝as   
+   ⒞and if   
+   ⒟if   
+   정답 : <span style="color:#E8F5FF">know의 목적어로 명사절은 if 뿐이다</span>   
+   해석 : <span style="color:#E8F5FF">Charles Darwin 이전의 생물학자들은 종이 진화했는지 아니면 그들의 현재 모습으로 창조되었는지 알지 못 했다</span>   
+
