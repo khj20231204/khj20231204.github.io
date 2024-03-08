@@ -36,4 +36,25 @@ tag:
    모든 음식의 스코빌 지수가 7 이상이 되었고 이때 섞은 횟수는 2회입니다.
 
 1. # 풀이
-   
+   스코빌 지수 연산 후 저장된 값들을 재정렬해야할 필요가 있기 때문에 PriorityQueue를 이용해서 정렬이된 상태를 가져옵니다.   
+
+   ```java
+      public int solutionPriorityQueue(int[] scoville, int K) {
+         PriorityQueue<Integer> q = new PriorityQueue<>();
+         for(int s : scoville) q.offer(s);
+
+         int answer = 0;
+         while(q.peek() < K && q.size() >= 2){
+            int s1 = q.poll();
+            int s2 = q.poll();
+            int s3 = s1 + s2*2;
+            q.offer(s3);
+            answer++;
+         }
+
+         if(q.peek() < K) return -1;
+
+         return answer;
+      }
+   ```   
+   while문은 조건을 만족하는 동안 루프를 순회하도록 합니다.

@@ -111,7 +111,7 @@ tag: []
    p.180   
    - 03.He ran out of time (while / which) he was answering the last question.   
    정답 : <span style="color:#E8F5FF">while</span>   
-   해석 : <span style="color:#E8F5FF">그는 시간을 모두 소비했다. 그가  마지막 질문에 답변을 하는 동안</span>
+   해석 : <span style="color:#E8F5FF">그는 시간을 모두 소비했다. 그가  마지막 질문에 답변을 하는 동안</span>   
 
    - misplace : 잘못된 장소에 두다(그래서 못 찾다)   
 
@@ -124,7 +124,7 @@ tag: []
    p.187   
    - intervene : 개입하다, 끼어들다   
    - John Brown gained sympathy not for his anti-slavery beliefs and for his dignified conduct.   
-   정답 : <span style="color:#E8F5FF">not A but B 따라서 and -> but</span>
+   정답 : <span style="color:#E8F5FF">not A but B 따라서 and -> but</span>   
    해석 : <span style="color:#E8F5FF">John Brown은 얻었다 동점을 노예제도에 반대하는 그의 신념 때문이 아니라 그의 고귀한 행동 때문에<span>   
 
    - Because John Butler could not prevent massacres under his command, so patriots despised him.   
