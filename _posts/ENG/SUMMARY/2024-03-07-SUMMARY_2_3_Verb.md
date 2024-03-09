@@ -45,7 +45,6 @@ tag: []
    - 02.The client (objected, opposed) to the changes in the new contract.   
    - 03.Staff members (speak, approach) their supervisors when they have questions.   
    - 04.Larry Burke will (accompany, accompany with) Mr.Rogers to the negotiations.   
-
    <span style="color:#E8F5FF">
    01.care fo   
    02.objected   
@@ -84,16 +83,39 @@ tag: []
    *press release : <span style="color:#E8F5FF">보도 자료</span>   
    *corporate Web site : <span style="color:#E8F5FF">기업 웹사이트</span>   
 
-  - 07.We want to remind all our customers that the Credit Car division requires all subscribers to __report changes__ to their address and telephone number.   
-  해석 : <span style="color:#E8F5FF">우리는 원한다 모든 우리의 고객들에게 상기시키는 것을, 신용카드 부서는 요구한다 모든 가입자들이 보고하도록 변화를 그들의 주소와 전화번호에 관한</span>   
+   - 07-09)   
+   We want to remind all our customers that the Credit Car division requires all subscribers to __report changes__ to their address and telephone number.   
+   해석 : <span style="color:#E8F5FF">우리는 원한다 모든 우리의 고객들에게 상기시키는 것을, 신용카드 부서는 요구한다 모든 가입자들이 보고하도록 변화를 그들의 주소와 전화번호에 관한</span>   
 
-  - 09.(C)Your statement is now available for viewing.   
-  해석 : <span style="color:#E8F5FF">당신의 임출금 내역서는 지금 이용가능하다 열람하기 위해</span>   
-  (D)Please make sure to report any changes immediately.   
-  해석 : <span style="color:#E8F5FF">제발 확실히하라. 작은 변화에도 보고를 즉시</span>   
+   - 09.(C)Your statement is now available for viewing.   
+   해석 : <span style="color:#E8F5FF">당신의 임출금 내역서는 지금 이용가능하다 열람하기 위해</span>   
+   (D)Please make sure to report any changes immediately.   
+   해석 : <span style="color:#E8F5FF">제발 확실히하라. 작은 변화에도 보고를 즉시</span>   
 
+   p.171   
+   - Aside from running and hiking shoes,~   
+   Aside from : <span style="color:#E8F5FF">이 외에도</span>   
 
+   p.172   
+   - 01.As requested, the swimming pool will __remain open__ for three extra hours.   
+   해석 : <span style="color:#E8F5FF">요청대로, 그 수영장은 열려 있을 것이다. 추가 세시간 동안</span>   
 
-   
+   - 05.(B)A ban of indenfinite duration has been placed on this film.   
+   해석 : <span style="color:#E8F5FF">무기한 상영 금지가 내려졌다 이 영화에</span>   
+
+   - 07.(B)A service disruption is expected while our system is being updated.   
+   *disrupstion : <span style="color:#E8F5FF">방해, 중단, 혼란, 붕괴</span>   
+   *disrupt : <span style="color:#E8F5FF">방해하다, 지장을 주다</span>   
+
+   - 08.A $50 nonrefundable deposit is required to make a reservation at our hotel.   
+   *nonrefundable : <span style="color:#E8F5FF">환불되지 않는</span>   
+   *deposit : <span style="color:#E8F5FF">보증금, 계약금</span>   
+
+   p.175 11-12)   
+   - Employees are required to __practice caution__ to protect themselves and the researchers they work with.   
+   practice caution : <span style="color:#E8F5FF">주의를 실행하다</span>   
+
+   - *malfunction : <span style="color:#E8F5FF">제대로 작동하지 않다</span>   
+   *decontaminate : <span style="color:#E8F5FF">소독, 정화</span>
 
 
