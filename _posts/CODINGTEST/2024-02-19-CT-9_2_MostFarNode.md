@@ -69,7 +69,7 @@ tag: [Tree]
                   Node node = q.poll();
        
                   for(Node m : node.line){
-                     if(m.visited) continue;
+                     if(m.visited) continue;  //<-- 탐색을 하는 부분에서 visited를 확인한다
                      
                      m.visited = true;   
                      m.depth = node.depth+1;  
