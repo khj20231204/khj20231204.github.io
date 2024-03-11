@@ -118,4 +118,89 @@ tag: []
    - *malfunction : <span style="color:#E8F5FF">제대로 작동하지 않다</span>   
    *decontaminate : <span style="color:#E8F5FF">소독, 정화</span>
 
+1. # 그래머
+
+   - 1형식   
+
+   |         뜻         |                  단어                     |
+   |:-----------------:| :----------------------------------------:|
+   |      나타나다     | <span style="color:#E8F5FF">appear</span>  |
+   |        죽다       |   <span style="color:#E8F5FF">die</span>   |
+   |      존재하다     |  <span style="color:#E8F5FF">exist</span>  |
+   | 보급하다, 압도하다 | <span style="color:#E8F5FF">prevail</span> |
+   |        서다       |  <span style="color:#E8F5FF">stand</span>  |
+   |        있다       |    <span style="color:#E8F5FF">be</span>   |
+   |        살다       |  <span style="color:#E8F5FF">dwell</span>  |
+   |        가다       |    <span style="color:#E8F5FF">go</span>   |
+   |      일어나다     |   <span style="color:#E8F5FF">rise</span>  |
+   |       머물다      |   <span style="color:#E8F5FF">stay</span>  |
+   |        오다       |   <span style="color:#E8F5FF">come</span>  |
+   |      나타나다     |  <span style="color:#E8F5FF">emerge</span> |
+   |        눕다       |    <span style="color:#E8F5FF">lie</span>  |
+   |        앉다       |   <span style="color:#E8F5FF">sit</span>   |
+   |      번성하다     |  <span style="color:#E8F5FF">thrive</span> |
+
+   - 전치사와 함께 1형식   
+
+   |         뜻          |                        단어                       |
+   |:-------------------:| :-----------------------------------------------:|
+   |     ~에 적용되다     |  <span style="color:#E8F5FF">apply to</span>     |
+   |   ~와 다르다 | <span style="color:#E8F5FF">differ from/vary from</span> |
+   |        ~을 듣다      |   <span style="color:#E8F5FF">listen to</span>   |
+   |      ~에 반응하다    |    <span style="color:#E8F5FF">react to</span>   |
+   |   ~의 결과로 발생하다 |  <span style="color:#E8F5FF">result from</span> | 
+   |      ~에 대답하다    |  <span style="color:#E8F5FF">respond to</span>   |
+   |      ~을 전공하다    | <span style="color:#E8F5FF">specialize in</span> |
+   |       구성하다      |  <span style="color:#E8F5FF">consist of</span>   |
+   |  ~라는 점에서 다르다 |   <span style="color:#E8F5FF">differ in</span>  |
+   |    ~로 부터 생기다  | <span style="color:#E8F5FF">originate from</span>|
+   |~을 나타내다, ~에 적용되다|  <span style="color:#E8F5FF">refer to</span> |
+   |      ~로 끝나다     |    <span style="color:#E8F5FF">result in</span>  |
+   |     ~을 보고 웃다   |    <span style="color:#E8F5FF">smile at</span>   |
+   |   ~의 역할을 하다   |    <span style="color:#E8F5FF">serve as</span>   |
+
+   - 2형식   
+
+   |         뜻       |                      단어                  |
+   |:----------------:|:-----------------------------------------:|
+   |   ~이다/ ~이 되다 |    <span style="color:#E8F5FF">be</span>  |
+   |  ~한 느낌이 들다  |   <span style="color:#E8F5FF">feel</span> |
+   |    ~인 것 같다    |   <span style="color:#E8F5FF">seem</span> |
+   |   ~인 듯 보이다   | <span style="color:#E8F5FF">appear</span> |
+   |   ~하게 보이다    |  <span style="color:#E8F5FF">look</span>  |
+   |    ~하게 보이다   |  <span style="color:#E8F5FF">show</span>  |
+   |~이 되다/~하게 되다| <span style="color:#E8F5FF">become</span> |
+   |   여진히 ~이다   |  <span style="color:#E8F5FF">remain</span> |
+   |  ~한 냄새가 나다 |  <span style="color:#E8F5FF">smell</span>  |
+
+   - 3형식   
+
+   |        뜻       |                      단어                  |
+   |:---------------:|:-----------------------------------------:|
+   | ~에게 대답하다  | <span style="color:#E8F5FF">answer</span>  |
+   |   ~을 토론하다  | <span style="color:#E8F5FF">discuss</span> |
+   |   ~을 형성하다  |   <span style="color:#E8F5FF">form</span>  |
+   |     ~을 놓다    |   <span style="color:#E8F5FF">lay</span>   |
+   |   ~을 일으키다  |  <span style="color:#E8F5FF">raise</span>  |
+   |   ~을 후회하다  | <span style="color:#E8F5FF">regret</span>  |
+   |   ~을 감사하다 |<span style="color:#E8F5FF">appreciate</span>|
+   |   ~로 들어가다 |   <span style="color:#E8F5FF">enter</span>  |
+   |    ~을 듣다    |   <span style="color:#E8F5FF">hear</span>   |
+   |  ~을 언급하다  | <span style="color:#E8F5FF">mention</span>  |
+   | ~에게 연락하다 |  <span style="color:#E8F5FF">reach</span>   |
+
+   - 사람 목적어 감정 동사   
+
+   |        뜻      |                        단어                     |
+   |:--------------:|:-----------------------------------------------:|
+   | ~을 놀라게 하다 |<span style="color:#E8F5FF">amaze/surprise</span>|
+   |~을 지루하게 하다|     <span style="color:#E8F5FF">bore</span>     |
+   |  ~을 실망시키다 |  <span style="color:#E8F5FF">disappoint</span>  |
+   |  ~을 흥분시키다 |    <span style="color:#E8F5FF">excite</span>    |
+   |  ~을 감동시키다 |     <span style="color:#E8F5FF">move</span>     |
+   | ~을 즐겁게 하다 |     <span style="color:#E8F5FF">amuse</span>    |
+   | ~을 기쁘게 하다 |    <span style="color:#E8F5FF">delight</span>   |
+   |~을 당화하게 하다|   <span style="color:#E8F5FF">embarrass</span>  |
+   | ~의 흥미를 끌다 |    <span style="color:#E8F5FF">interest</span>  |
+   |  ~을 만족시키다 |    <span style="color:#E8F5FF">satisfy</span>   |
 
