@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (HTML)1.meta,pre,b와strong,첨자,버튼 비활성화,테이블
+title: (HTML)meta,pre,b와strong,첨자,버튼 비활성화,테이블
 categories: CSS&HTML
 tag: []
 ---
