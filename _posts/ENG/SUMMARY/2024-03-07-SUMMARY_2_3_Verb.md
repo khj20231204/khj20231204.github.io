@@ -120,148 +120,117 @@ tag: []
 
 1. # 그래머
 
-   - 1형식   
+   1) 1형식   
 
-   |         뜻         |                  단어                     |
-   |:-----------------:| :----------------------------------------:|
-   |      나타나다     | <span style="color:#E8F5FF">appear</span>  |
-   |        죽다       |   <span style="color:#E8F5FF">die</span>   |
-   |      존재하다     |  <span style="color:#E8F5FF">exist</span>  |
-   | 보급하다, 압도하다 | <span style="color:#E8F5FF">prevail</span> |
-   |        서다       |  <span style="color:#E8F5FF">stand</span>  |
-   |        있다       |    <span style="color:#E8F5FF">be</span>   |
-   |        살다       |  <span style="color:#E8F5FF">dwell</span>  |
-   |        가다       |    <span style="color:#E8F5FF">go</span>   |
-   |      일어나다     |   <span style="color:#E8F5FF">rise</span>  |
-   |       머물다      |   <span style="color:#E8F5FF">stay</span>  |
-   |        오다       |   <span style="color:#E8F5FF">come</span>  |
-   |      나타나다     |  <span style="color:#E8F5FF">emerge</span> |
-   |        눕다       |    <span style="color:#E8F5FF">lie</span>  |
-   |        앉다       |   <span style="color:#E8F5FF">sit</span>   |
+   |         뜻         |                  단어                     |         뜻         |                  단어                     |
+   |-------------------|:-----------------------------------------:|-------------------|:-----------------------------------------:|
+   |      나타나다     | <span style="color:#E8F5FF">appear</span>  |        죽다       |   <span style="color:#E8F5FF">die</span>   |
+   |      존재하다     |  <span style="color:#E8F5FF">exist</span>  | 보급하다<br>압도하다 | <span style="color:#E8F5FF">prevail</span> |
+   |        서다       |  <span style="color:#E8F5FF">stand</span>  |        있다       |    <span style="color:#E8F5FF">be</span>   |
+   |        살다       |  <span style="color:#E8F5FF">dwell</span>  |        가다       |    <span style="color:#E8F5FF">go</span>   |
+   |      일어나다     |   <span style="color:#E8F5FF">rise</span>  |       머물다      |   <span style="color:#E8F5FF">stay</span>  |
+   |        오다       |   <span style="color:#E8F5FF">come</span>  |      나타나다     |  <span style="color:#E8F5FF">emerge</span> |
+   |        눕다       |    <span style="color:#E8F5FF">lie</span>  |        앉다       |   <span style="color:#E8F5FF">sit</span>   |
    |      번성하다     |  <span style="color:#E8F5FF">thrive</span> |
    
-   - 전치사와 함께 1형식   
+   <br>
+   2) 전치사와 함께 1형식   
 
-   |         뜻          |                        단어                       |
-   |:-------------------:| :-----------------------------------------------:|
-   |     ~에 적용되다     |  <span style="color:#E8F5FF">apply to</span>     |
-   |   ~와 다르다 | <span style="color:#E8F5FF">differ from/vary from</span> |
-   |        ~을 듣다      |   <span style="color:#E8F5FF">listen to</span>   |
-   |      ~에 반응하다    |    <span style="color:#E8F5FF">react to</span>   |
-   |   ~의 결과로 발생하다 |  <span style="color:#E8F5FF">result from</span> | 
-   |      ~에 대답하다    |  <span style="color:#E8F5FF">respond to</span>   |
-   |      ~을 전공하다    | <span style="color:#E8F5FF">specialize in</span> |
-   |       구성하다      |  <span style="color:#E8F5FF">consist of</span>   |
-   |  ~라는 점에서 다르다 |   <span style="color:#E8F5FF">differ in</span>  |
-   |    ~로 부터 생기다  | <span style="color:#E8F5FF">originate from</span>|
-   |~을 나타내다, ~에 적용되다|  <span style="color:#E8F5FF">refer to</span> |
-   |      ~로 끝나다     |    <span style="color:#E8F5FF">result in</span>  |
-   |     ~을 보고 웃다   |    <span style="color:#E8F5FF">smile at</span>   |
-   |   ~의 역할을 하다   |    <span style="color:#E8F5FF">serve as</span>   |
+   |         뜻          |                        단어                       |         뜻          |                        단어                       |
+   |---------------------| :-----------------------------------------------:|---------------------| :-----------------------------------------------:|
+   |     ~에 적용되다     |  <span style="color:#E8F5FF">apply to</span>     |   ~와 다르다 | <span style="color:#E8F5FF">differ from/vary from</span> |
+   |        ~을 듣다      |   <span style="color:#E8F5FF">listen to</span>   |     ~에 반응하다    |    <span style="color:#E8F5FF">react to</span>   |
+   |   ~의 결과로 발생하다 |  <span style="color:#E8F5FF">result from</span> |      ~에 대답하다    |  <span style="color:#E8F5FF">respond to</span>   |
+   |      ~을 전공하다    | <span style="color:#E8F5FF">specialize in</span> |      ~을 구성하다      |  <span style="color:#E8F5FF">consist of</span>   |
+   |  ~라는 점에서 다르다 |   <span style="color:#E8F5FF">differ in</span>  |    ~로 부터 생기다  | <span style="color:#E8F5FF">originate from</span>|
+   |~을 나타내다, ~에 적용되다|  <span style="color:#E8F5FF">refer to</span> |      ~로 끝나다     |    <span style="color:#E8F5FF">result in</span>  |
+   |     ~을 보고 웃다   |    <span style="color:#E8F5FF">smile at</span>   |   ~의 역할을 하다   |    <span style="color:#E8F5FF">serve as</span>   |
 
-   - 2형식   
+   <br>
+   3) 2형식   
 
-   |         뜻       |                      단어                  |
-   |:----------------:|:-----------------------------------------:|
-   |   ~이다/ ~이 되다 |    <span style="color:#E8F5FF">be</span>  |
-   |  ~한 느낌이 들다  |   <span style="color:#E8F5FF">feel</span> |
-   |    ~인 것 같다    |   <span style="color:#E8F5FF">seem</span> |
-   |   ~인 듯 보이다   | <span style="color:#E8F5FF">appear</span> |
-   |   ~하게 보이다    |  <span style="color:#E8F5FF">look</span>  |
-   |    ~하게 보이다   |  <span style="color:#E8F5FF">show</span>  |
-   |~이 되다/~하게 되다| <span style="color:#E8F5FF">become</span> |
-   |   여진히 ~이다   |  <span style="color:#E8F5FF">remain</span> |
+   |         뜻       |                      단어                  |         뜻       |                     단어                  |
+   |------------------|:-----------------------------------------:|------------------|:-----------------------------------------:|
+   |   ~이다/ ~이 되다 |    <span style="color:#E8F5FF">be</span>  |  ~한 느낌이 들다  |   <span style="color:#E8F5FF">feel</span> |
+   |    ~인 것 같다    |   <span style="color:#E8F5FF">seem</span> |   ~인 듯 보이다   | <span style="color:#E8F5FF">appear</span> |
+   |   ~하게 보이다    |  <span style="color:#E8F5FF">look</span>  |    ~하게 보이다   |  <span style="color:#E8F5FF">show</span>  |
+   |~이 되다/~하게 되다| <span style="color:#E8F5FF">become</span> |   여진히 ~이다   |  <span style="color:#E8F5FF">remain</span> |
    |  ~한 냄새가 나다 |  <span style="color:#E8F5FF">smell</span>  |
 
-   - 3형식   
+   <br>
+   4) 3형식   
 
-   |        뜻       |                      단어                  |
-   |:---------------:|:-----------------------------------------:|
-   | ~에게 대답하다  | <span style="color:#E8F5FF">answer</span>  |
-   |   ~을 토론하다  | <span style="color:#E8F5FF">discuss</span> |
-   |   ~을 형성하다  |   <span style="color:#E8F5FF">form</span>  |
-   |     ~을 놓다    |   <span style="color:#E8F5FF">lay</span>   |
-   |   ~을 일으키다  |  <span style="color:#E8F5FF">raise</span>  |
-   |   ~을 후회하다  | <span style="color:#E8F5FF">regret</span>  |
-   |   ~을 감사하다 |<span style="color:#E8F5FF">appreciate</span>|
-   |   ~로 들어가다 |   <span style="color:#E8F5FF">enter</span>  |
-   |    ~을 듣다    |   <span style="color:#E8F5FF">hear</span>   |
-   |  ~을 언급하다  | <span style="color:#E8F5FF">mention</span>  |
+   |        뜻       |                      단어                  |        뜻       |                      단어                  |
+   |-----------------|:-----------------------------------------:|-----------------|:-----------------------------------------:|
+   | ~에게 대답하다  | <span style="color:#E8F5FF">answer</span>  |   ~을 토론하다  | <span style="color:#E8F5FF">discuss</span> |
+   |   ~을 형성하다  |   <span style="color:#E8F5FF">form</span>  |     ~을 놓다    |   <span style="color:#E8F5FF">lay</span>   |
+   |   ~을 일으키다  |  <span style="color:#E8F5FF">raise</span>  |   ~을 후회하다  | <span style="color:#E8F5FF">regret</span>  |
+   |   ~을 감사하다 |<span style="color:#E8F5FF">appreciate</span>|   ~로 들어가다 |   <span style="color:#E8F5FF">enter</span>  |
+   |    ~을 듣다    |   <span style="color:#E8F5FF">hear</span>   |  ~을 언급하다  | <span style="color:#E8F5FF">mention</span>  |
    | ~에게 연락하다 |  <span style="color:#E8F5FF">reach</span>   |
 
-   - 사람 목적어 감정 동사   
+   <br>
+   5) 사람 목적어 감정 동사   
 
-   |        뜻      |                        단어                     |
-   |:--------------:|:-----------------------------------------------:|
-   | ~을 놀라게 하다 |<span style="color:#E8F5FF">amaze/surprise</span>|
-   |~을 지루하게 하다|     <span style="color:#E8F5FF">bore</span>     |
-   |  ~을 실망시키다 |  <span style="color:#E8F5FF">disappoint</span>  |
-   |  ~을 흥분시키다 |    <span style="color:#E8F5FF">excite</span>    |
-   |  ~을 감동시키다 |     <span style="color:#E8F5FF">move</span>     |
-   | ~을 즐겁게 하다 |     <span style="color:#E8F5FF">amuse</span>    |
-   | ~을 기쁘게 하다 |    <span style="color:#E8F5FF">delight</span>   |
-   |~을 당화하게 하다|   <span style="color:#E8F5FF">embarrass</span>  |
-   | ~의 흥미를 끌다 |    <span style="color:#E8F5FF">interest</span>  |
-   |  ~을 만족시키다 |    <span style="color:#E8F5FF">satisfy</span>   |
+   |        뜻      |                        단어                     |        뜻      |                        단어                     |
+   |----------------|:-----------------------------------------------:|----------------|:-----------------------------------------------:|
+   | ~을 놀라게 하다 |<span style="color:#E8F5FF">amaze/surprise</span>|~을 지루하게 하다|     <span style="color:#E8F5FF">bore</span>     |
+   |  ~을 실망시키다 |  <span style="color:#E8F5FF">disappoint</span>  |  ~을 흥분시키다 |    <span style="color:#E8F5FF">excite</span>    |
+   |  ~을 감동시키다 |     <span style="color:#E8F5FF">move</span>     | ~을 즐겁게 하다 |     <span style="color:#E8F5FF">amuse</span>    |
+   | ~을 기쁘게 하다 |    <span style="color:#E8F5FF">delight</span>   |~을 당화하게 하다|   <span style="color:#E8F5FF">embarrass</span>  |
+   | ~의 흥미를 끌다 |    <span style="color:#E8F5FF">interest</span>  |  ~을 만족시키다 |    <span style="color:#E8F5FF">satisfy</span>   |
 
-   - 4형식
 
-   |           뜻         |                 단어                     |
-   |:--------------------:|:----------------------------------------:|
-   | ~에게 ~을 가져다 주다 | <span style="color:#E8F5FF">bring</span> |
-   | ~에게 비용이 ~가 들다 | <span style="color:#E8F5FF">cost</span>  |
-   |   ~에게 ~을 빌려주다  | <span style="color:#E8F5FF">lend</span>  |
-   |   ~에게 ~을 보여주다  | <span style="color:#E8F5FF">show</span>  |
-   |   ~에게 ~을 말해주다  | <span style="color:#E8F5FF">tell</span>  |
-   |   ~에게 ~을 사주다    | <span style="color:#E8F5FF">buy</span>   |
-   |    ~에게 ~을 주다     | <span style="color:#E8F5FF">give</span>  |
-   |   ~에게 ~을 보내다    | <span style="color:#E8F5FF">send</span>  |
+   <br>
+   6) 4형식
+
+   |           뜻         |                 단어                     |           뜻         |                 단어                     |
+   |----------------------|:----------------------------------------:|----------------------|:----------------------------------------:|
+   | ~에게 ~을 가져다 주다 | <span style="color:#E8F5FF">bring</span> | ~에게 비용이 ~가 들다 | <span style="color:#E8F5FF">cost</span>  |
+   |   ~에게 ~을 빌려주다  | <span style="color:#E8F5FF">lend</span>  |   ~에게 ~을 보여주다  | <span style="color:#E8F5FF">show</span>  |
+   |   ~에게 ~을 말해주다  | <span style="color:#E8F5FF">tell</span>  |   ~에게 ~을 사주다    | <span style="color:#E8F5FF">buy</span>   |
+   |    ~에게 ~을 주다     | <span style="color:#E8F5FF">give</span>  |   ~에게 ~을 보내다    | <span style="color:#E8F5FF">send</span>  |
    |  ~에게 ~을 가르치다   | <span style="color:#E8F5FF">teach</span> |
 
-   - 5형식
+   <br>
+   7) 5형식
 
    |           뜻        |                   단어                     |
-   |:-------------------:|:------------------------------------------:|
+   |---------------------|:------------------------------------------:|
    |  ~을 ~라고 생각하다  | <span style="color:#E8F5FF">believe</span> |
    |  ~을 ~라고 여기다    |<span style="color:#E8F5FF">consider</span> |
    |    ~가 ~임을 알다    |   <span style="color:#E8F5FF">find</span>  |
    |   ~을 ~라고 부르다   |   <span style="color:#E8F5FF">call</span>  |
    |   ~을 ~로 선출하다   |  <span style="color:#E8F5FF">elect</span>  |
 
-   - 목적격 보어 앞에 as 사용하는 5형식   
+   <br>
+   8) 목적격 보어 앞에 as 사용하는 5형식   
 
    |         뜻        |                    단어                         |
-   |:-----------------:|:-----------------------------------------------:|
+   |-------------------|:-----------------------------------------------:|
    |  ~을 ~로 정의하다  | <span style="color:#E8F5FF">define ~ as</span>  |
    | ~을 ~라고 확인하다 |<span style="color:#E8F5FF">identify ~ as</span> |
    |  ~을 ~로 묘사하다  |<span style="color:#E8F5FF">describe ~ as </span>|
    |   ~을 ~로 여기다   | <span style="color:#E8F5FF">regard ~ as</span>  |
 
-   - 타동사로 혼동하기 쉬운 자동사   
+   <br>
+   9) 타동사로 혼동하기 쉬운 자동사   
 
-   |         뜻       |                      단어                         |
-   |:----------------:|:-------------------------------------------------:|
-   |    ~을 설명하다   |   <span style="color:#E8F5FF">account for</span>  |
-   | ~에 대해 불평하다 |<span style="color:#E8F5FF">complain about/of</span>|
-   |    ~을 졸업하다   | <span style="color:#E8F5FF">graduate from</span>  |
-   |    ~에 대답하다   |    <span style="color:#E8F5FF">reply to</span>    |
-   |    ~을 기다리다   |    <span style="color:#E8F5FF">wait for</span>    |
-   |    ~에 도착하다   |  <span style="color:#E8F5FF">arrive in/at</span>  |
-   |~을 승낙하다, ~에 동의하다|<span style="color:#E8F5FF">consent to</span>|
-   |    ~을 방해하다   | <span style="color:#E8F5FF">interfere with</span> |
+   |         뜻       |                      단어                         |         뜻       |                      단어                         |
+   |------------------|:-------------------------------------------------:|------------------|:-------------------------------------------------:|
+   |    ~을 설명하다   |   <span style="color:#E8F5FF">account for</span>  | ~에 대해 불평하다 |<span style="color:#E8F5FF">complain about/of</span>|
+   |    ~을 졸업하다   | <span style="color:#E8F5FF">graduate from</span>  |    ~에 대답하다   |    <span style="color:#E8F5FF">reply to</span>    |
+   |    ~을 기다리다   |    <span style="color:#E8F5FF">wait for</span>    |    ~에 도착하다   |  <span style="color:#E8F5FF">arrive in/at</span>  |
+   |~을 승낙하다, ~에 동의하다|<span style="color:#E8F5FF">consent to</span>|    ~을 방해하다   | <span style="color:#E8F5FF">interfere with</span> |
    |    ~가 생각나다   |     <span style="color:#E8F5FF">think of</span>   |
 
-   - 자동사로 혼동하기 쉬운 타동사
+   <br>
+   10) 자동사로 혼동하기 쉬운 타동사
 
-   |         뜻        |                      단어                  |
-   |:-----------------:|:-------------------------------------------:|
-   |    ~에 대답하다    |  <span style="color:#E8F5FF">answer</span>  |
-   |    ~에 참석하다    |  <span style="color:#E8F5FF">attend</span>  |
-   |  ~에 대해 토론하다 | <span style="color:#E8F5FF">discuss</span>  |
-   |  ~에 대해 설명하다 |  <span style="color:#E8F5FF">explain</span> |
-   |     ~와 결혼하다   |   <span style="color:#E8F5FF">marry</span>  |
-   |    ~에 다가가다    | <span style="color:#E8F5FF">approach</span> |
-   |  ~에 대해 묘사하다 | <span style="color:#E8F5FF">describe</span> |
-   |     ~에 들어가다   |   <span style="color:#E8F5FF">enter</span>  |
-   | ~에 관하여 언급하다 | <span style="color:#E8F5FF">mention</span>  |
-   |      ~와 닮다      | <span style="color:#E8F5FF">resemble</span> |
+   |         뜻        |                      단어                    |          뜻        |                      단어                  |
+   |-------------------|:-------------------------------------------:|-------------------|:-------------------------------------------:|
+   |    ~에 대답하다    |  <span style="color:#E8F5FF">answer</span>  |   ~에 참석하다    |  <span style="color:#E8F5FF">attend</span>  |
+   |  ~에 대해 토론하다 | <span style="color:#E8F5FF">discuss</span>  |  ~에 대해 설명하다 |  <span style="color:#E8F5FF">explain</span> |
+   |     ~와 결혼하다   |   <span style="color:#E8F5FF">marry</span>  |   ~에 다가가다    | <span style="color:#E8F5FF">approach</span> |
+   |  ~에 대해 묘사하다 | <span style="color:#E8F5FF">describe</span> |    ~에 들어가다   |   <span style="color:#E8F5FF">enter</span>  |
+   | ~에 관하여 언급하다 | <span style="color:#E8F5FF">mention</span> |     ~와 닮다      | <span style="color:#E8F5FF">resemble</span> |

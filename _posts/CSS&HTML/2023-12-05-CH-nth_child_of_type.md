@@ -88,7 +88,7 @@ tag: []
 
    .fruit bb:nth-child(2) color:red;  
    furit요소를 가진 클래스의 두번째 자식요소 bb에 빨간색이 나타나도록 작성.   
-   <img src="../../imgs/css/nth_child(2).png" style="border:3px solid black;border-radius:9px;width:300px">   
+   <img src="../../imgs/CH/nth_child(2).png" style="border:3px solid black;border-radius:9px;width:300px">   
    fruit클래스인 div가 부모   
    aa는 첫번째 자식   
    bb는 두번째 자식   
@@ -101,7 +101,7 @@ tag: []
       }
    ```
    nth-child를 1로 바꾸면   
-   <img src="../../imgs/css/nth_child(1).png" style="border:3px solid black;border-radius:9px;width:300px">  
+   <img src="../../imgs/CH/nth_child(1).png" style="border:3px solid black;border-radius:9px;width:300px">  
    빨간색이 나옵니다.   
    .fruit bb:nth-child(1)란 말은 
    fruit란 부모 클래스 안에 첫번째 자식이 bb이면 적용   
