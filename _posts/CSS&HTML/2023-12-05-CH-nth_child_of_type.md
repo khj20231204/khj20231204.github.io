@@ -77,15 +77,6 @@ tag: []
           </aa> 
       </div>
    ```   
-   
-      <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wvNbdqY" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-      <span>See the Pen <a href="https://codepen.io/khj99/pen/wvNbdqY">
-      Untitled</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-      </p>
-      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-
    .fruit bb:nth-child(2) color:red;  
    furit요소를 가진 클래스의 두번째 자식요소 bb에 빨간색이 나타나도록 작성.   
    <img src="../../imgs/CH/nth_child(2).png" style="border:3px solid black;border-radius:9px;width:300px">   

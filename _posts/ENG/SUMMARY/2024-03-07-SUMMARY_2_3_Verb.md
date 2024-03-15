@@ -234,3 +234,11 @@ tag: []
    |     ~와 결혼하다   |   <span style="color:#E8F5FF">marry</span>  |   ~에 다가가다    | <span style="color:#E8F5FF">approach</span> |
    |  ~에 대해 묘사하다 | <span style="color:#E8F5FF">describe</span> |    ~에 들어가다   |   <span style="color:#E8F5FF">enter</span>  |
    | ~에 관하여 언급하다 | <span style="color:#E8F5FF">mention</span> |     ~와 닮다      | <span style="color:#E8F5FF">resemble</span> |
+      
+   p.91   
+   vi : listen, speak, talk   
+   vit : heard, say, tell   
+
+   - 10.The visitors were asked to (stay / stay house) until after the others had left.   
+   정답 : <span style="color:#E8F5FF">stay. stay는 자동사</span>    
+   
