@@ -10,8 +10,6 @@ tag: []
 
    nth-of-type은 해당 선택자의 부모 요소 안에서 특정 유형의 요소 중에서 n번째 요소를 선택하는데 사용되는 CSS 선택자입니다. 이것은 요소의 유형에 따라 선택됩니다.   
 
-   nth-child는 모든 자식 요소를 대상으로 하지만 nth-of-type은 특정 유형의 요소만을 대상으로 합니다. 예를 들어, div 태그 중에서 3번째 요소를 선택하려면 nth-child(3)를 사용하고, div 태그 중에서 3번째 div 요소를 선택하려면 nth-of-type(3)을 사용합니다.   
-
    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="abxJYvm" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
    <span>See the Pen <a href="https://codepen.io/khj99/pen/abxJYvm">
    nthchild_nthColn </a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
