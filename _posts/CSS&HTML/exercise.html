@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Position연습</title>
+
+   <style>
+      .relativeEx{
+
+         background-color: yellow;
+
+         position:relative;
+         top:500px;
+         left:200px;
+      }
+
+      .parent{
+         position:static;
+         background-color: darkmagenta;
+         width: 500px;
+         height: 400px; 
+      }
+
+      .absoluteEx{
+         background-color: aqua;
+         position:absolute;
+         bottom:150px;
+         right:300px;
+      }
+
+      .fixedEx{
+         background-color: gray;
+         position:fixed;
+         bottom:200px;
+         right:350px;
+      }
+
+      .parent1{
+         background-color:yellow;
+         position:static;
+         width:200px;
+         height:200px;
+         }
+
+         .child1{
+         background-color:lightgray;
+         position:absolute;
+         top:100px;
+         left:60px;
+         }
+
+     
+   </style>
+</head>
+<body>
+   <div class="parent1">
+      parent1
+      <span class="child1">child1</span>
+   </div>
+   <div class="relativeEx">relative</div>
+   <div class="parent">aaa
+      <div class="absoluteEx">absolute</div>
+   </div>
+   <div class="fixedEx">fixed</div>
+</body>
+</html>
