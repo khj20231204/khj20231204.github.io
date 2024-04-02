@@ -1,0 +1,7 @@
+{
+   "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+   "workbench.settings.enableNaturalLanguageSearch": false,
+   "html.hover.documentation": false,
+	"html.hover.references": false,
+   "editor.codeLens": false
+}

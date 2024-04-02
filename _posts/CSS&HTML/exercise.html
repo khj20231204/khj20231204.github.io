@@ -7,27 +7,14 @@
 
    <style>
       .relativeEx{
-
          background-color: yellow;
-
-         position:relative;
-         top:500px;
-         left:200px;
-      }
-
-      .parent{
-         position:static;
-         background-color: darkmagenta;
-         width: 500px;
-         height: 400px; 
-      }
-
-      .absoluteEx{
-         background-color: aqua;
          position:absolute;
-         bottom:150px;
-         right:300px;
+         top:10px;
+         left:400px;
+         width: 500px;
+         height:500px;
       }
+
 
       .fixedEx{
          background-color: gray;
@@ -36,32 +23,49 @@
          right:350px;
       }
 
-      .parent1{
-         background-color:yellow;
-         position:static;
-         width:200px;
-         height:200px;
-         }
+      .absoluteParent{
+         /* position:static; 부모의 position이 static이면 자식의 absolute가 제대로 작동하지 않음 */
+         /* position: relative; */
+         position: relative;
+         background-color: darkmagenta;
+         width: 300px;
+         height: 300px; 
+      }
 
-         .child1{
-         background-color:lightgray;
+      .absoluteChild{
          position:absolute;
-         top:100px;
-         left:60px;
-         }
+         background-color: aqua;
+         bottom:150px;
+         right:80px;
+      }
 
+      .relativeParent {
+         position: relative;
+         background-color: green;
+         width: 500px;
+         height: 400px; 
+      }
+
+      .relativeChild {
+         position:relative;
+         background-color: aqua;
+         bottom:150px;
+         left:100px;
+      }
      
    </style>
 </head>
 <body>
-   <div class="parent1">
-      parent1
-      <span class="child1">child1</span>
+   
+   <div class="relativeEx">relativeEx</div>
+   <div class="fixedEx">fixedEx</div>
+   <div class="absoluteParent">absoluteParent
+      <div class="absoluteChild">absoluteChild</div>
    </div>
-   <div class="relativeEx">relative</div>
-   <div class="parent">aaa
-      <div class="absoluteEx">absolute</div>
+   <div class="relativeParent">relativeParent
+      <div class="relativeChild">relativeChild</div>
    </div>
-   <div class="fixedEx">fixed</div>
+   
+
 </body>
 </html>
