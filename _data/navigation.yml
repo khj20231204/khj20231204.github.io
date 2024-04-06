@@ -27,6 +27,8 @@ sidebar_category_list:
         url: /sql
       - title: "CODINGTEST"
         url: /codingtest
+      - title: "DB_CODINGTEST"
+        url: /db_codingtest
       - title: "JAVA"
         url: /java
       - title: "CSS&HTML"

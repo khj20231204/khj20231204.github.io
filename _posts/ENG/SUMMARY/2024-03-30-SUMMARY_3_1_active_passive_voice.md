@@ -101,4 +101,30 @@ tag: []
    - Exercise __has long been thought of as a way__ to maintain physical fitness.   
    <span style="color:red">think of A as B -> A been thought of as B</span>   
 
-   p.48
+   p.48   
+   - 01.The marketing campaigns targeting pre-teens by  fast-food restaurants have been revealed __thanks to__ a report in the goverment's inquiry into privay laws.   
+   *thanks to : <span style="color:#E8F5FF">~덕분에</span>   
+
+   - 02.*anemia : <span style="color:#E8F5FF">빈혈</span>   
+   *blood disorder : <span style="color:#E8F5FF">혈액 장애</span>   
+
+   - 03.In the best-researched example, participation in music [seems / is seemed] to do mysterious but wonderful things for the human brain.   
+   정답 : <span style="color:#E8F5FF">seem은 자동사로 is seemed 자체가 안 됨</span>   
+   해석 : <span style="color:#E8F5FF">가장 잘 연구된 예에서, 음악에 참여가 뇌에 미스터리한 것을 하는 것 처럼 보인다. 그러나 훌륭한 것</span>   
+
+   - 04.their parents are obligated to check thirty minutes later.   
+   *be obligated to<span style="color:#E8F5FF">~할 의무가 있다</span>   
+   *obligate<span style="color:#E8F5FF">~의무를 지우다</span>   
+
+   - 06.My friend who had lost all his money [laid / lay] bleeding to death on the street.   
+   *laid : 타동사로 뒤에 bleeding이 목적어가 되어 "피흘리는 것을 눕히다" 의미가 된다.   
+   *lay : 자동사로 "누워있었다, 피를 흘리는 채로" 뒤에 bleeding은 상태를 나타내는 분사구문이된다.   
+
+   - 07.Unemployments has [risen / been risen] due to the economic crisis.   
+   정답 : <span style="color:#E8F5FF">risen은 자동사로 been risen 자체가 안 됨</span>   
+
+   - 09.The percentage of Amerians who  felt bad about their personal finances in 2009 [remained / was remained] unchanged from 2008.   
+   정답 : <span style="color:#E8F5FF">remain은 자동사로 was remained 자체가 안 됨</span>   
+
+
+
