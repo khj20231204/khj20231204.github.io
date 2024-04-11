@@ -33,8 +33,8 @@ tag: []
 
       |               뜻              |                   단어                |
       |-------------------------------|:------------------------------------:|
-      |~에 놀라다|<span style="color:#E8F5FF">be dedicated to</span>|
-      |~에 충격을 받다|<span style="color:#E8F5FF">be shocked to</span>|
+      |~에 놀라다|<span style="color:#E8F5FF">be surprised at</span>|
+      |~에 충격을 받다|<span style="color:#E8F5FF">be shocked at</span>|
       |~에 놀라다|<span style="color:#E8F5FF">be frightened at</span>|
 
    <br>
@@ -58,7 +58,7 @@ tag: []
    - See the attached tracking number.   
    해석 : <span style="color:#E8F5FF">부착된 추적 번호를 확인해봐라</span>   
 
-   - Pleas consider this alternate arrangement.   
+   - Please, consider this alternate arrangement.   
    <span style="color:#E8F5FF">제발 고려해달라. 이 교체된 계획을</span>   
    
 1. # 일리
