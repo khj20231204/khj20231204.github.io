@@ -38,4 +38,11 @@ tag: []
    ex)If John should call me, I will take a message for you.   
    → (if생략) Should John call me, I will take a message for you.   
 
+   p.238   
+   - acquisition :  <span style="color:#E8F5FF">인수, 매입</span>   
+   ex)Magnum Logistics announced the acquisition of two new warehouses.   
 
+   - troubleshooting : <span style="color:#E8F5FF">고장수리</span>   
+
+   p.244   
+   - inventory : <span style="color:#E8F5FF">재고, 물품목록</span>   
