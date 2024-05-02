@@ -81,19 +81,19 @@ tag: []
    (A)verifying (B)verified (C)verify (D)to verify   
    <span style="color:#E8F5FF">(D)to verify</span>   
 
-   Renovation work __(07)__ the appearance of the lobby will be performed from June 5 to 8. On these dates, the building's main entrance will be blocked off, and employees will access the office through the door at the back of the building. Security personnel will be positioned at this entrance. __(08)__. If you are meeting clients during this period, please ask them __(09)__ this door as well.
+   17.Renovation work __(07)__ the appearance of the lobby will be performed from June 5 to 8. On these dates, the building's main entrance will be blocked off, and employees will access the office through the door at the back of the building. Security personnel will be positioned at this entrance. __(08)__. If you are meeting clients during this period, please ask them __(09)__ this door as well.
 
-   07.(A)will improve (B)improves (C)to improve (D)improved
+   (07).(A)will improve (B)improves (C)to improve (D)improved
    <span style="color:#E8F5FF">(C)to imporve</span>
 
-   08.
+   (08).
    (A)It will be accessible to only a fewemployees
    (B)They will prevent anyone from entering thebuilding.
    (C)Let me know if you can provide assistance
    (D)You should show them your staff ID.
    <span style="color:#E8F5FF">(D)</span>
 
-   09.(A)using (B)to use (C)is using (D)use
+   (09).(A)using (B)to use (C)is using (D)use
    <span style="color:#E8F5FF">(B)to use</span>
 
 

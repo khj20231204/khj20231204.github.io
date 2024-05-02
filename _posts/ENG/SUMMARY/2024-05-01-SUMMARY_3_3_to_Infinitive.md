@@ -31,18 +31,18 @@ tag: []
    
    - 동사 + to부정사 : 3형식 미래 의지 소망 기대   
 
-         |     뜻  |                 단어                 |     뜻  |                 단어                 |
-         |:-------:|:-----------------------------------:|:-------:|:-----------------------------------:|
-         |바라다|<span style="color:#E8F5FF">wish</span>|필요하다|<span style="color:#E8F5FF">need</span>|
-         |동의하다|<span style="color:#E8F5FF">agree</span>|기대하다|<span style="color:#E8F5FF">expect</span>|
-         |선택하다|<span style="color:#E8F5FF">choose</span>|요구하다|<span style="color:#E8F5FF">ask</span>|
-         |결심하다|<span style="color:#E8F5FF">decide</span>|의도하다|<span style="color:#E8F5FF">intend</span>|
-         |실패하다|<span style="color:#E8F5FF">fail</span>|원하다|<span style="color:#E8F5FF">want</span>|
-         |희망하다|<span style="color:#E8F5FF">hope</span>|거부하다|<span style="color:#E8F5FF">refuse</span>|
-         |배우다|<span style="color:#E8F5FF">learn</span>|제안하다|<span style="color:#E8F5FF">propose</span>|
-         |제안하다|<span style="color:#E8F5FF">offer</span>|약속하다|<span style="color:#E8F5FF">promise</span>|
-         |관리하다|<span style="color:#E8F5FF">manage</span>|계획하다|<span style="color:#E8F5FF">plan</span>|
-         |~할 여유가 있다|<span style="color:#E8F5FF">afford</span>|
+      |     뜻   |                 단어                   |    뜻   |                 단어                 |
+      |:--------:|:--------------------------------------:|:-------:|:-----------------------------------:|
+      |  바라다  | <span style="color:#E8F5FF">wish</span> |~처럼 보이다|<span style="color:#E8F5FF">seem</span>|
+      | 동의하다 |<span style="color:#E8F5FF">agree</span> |기대하다|<span style="color:#E8F5FF">expect</span>|
+      | 선택하다 |<span style="color:#E8F5FF">choose</span>|필요하다|<span style="color:#E8F5FF">need</span>|
+      | 결심하다 |<span style="color:#E8F5FF">decide</span>|의도하다|<span style="color:#E8F5FF">intend</span>|
+      | 실패하다 | <span style="color:#E8F5FF">fail</span> | 원하다 |<span style="color:#E8F5FF">want</span>|
+      | 희망하다 | <span style="color:#E8F5FF">hope</span> |거부하다|<span style="color:#E8F5FF">refuse</span>|
+      |  배우다  | <span style="color:#E8F5FF">learn</span>|제안하다|<span style="color:#E8F5FF">propose</span>|
+      | 제안하다 | <span style="color:#E8F5FF">offer</span>|약속하다|<span style="color:#E8F5FF">promise</span>|
+      | 관리하다 |<span style="color:#E8F5FF">manage</span>|계획하다|<span style="color:#E8F5FF">plan</span>|
+      |~할 여유가 있다|<span style="color:#E8F5FF">afford</span>|요구하다|<span style="color:#E8F5FF">ask</span>|
 
       The congressmen __agreed__ <span style="color:red">to aid</span> small enterprises.   
       Some people __refuse__ <span style="color:red">to pay</span> their income taxes.   
