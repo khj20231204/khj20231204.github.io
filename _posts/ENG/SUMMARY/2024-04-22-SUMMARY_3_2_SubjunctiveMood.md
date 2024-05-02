@@ -162,3 +162,25 @@ tag: []
       |      It's time      |          <span style="color:#E8F5FF">~할 시간이다</span>          |
       | with/without(=But for)|      <span style="color:#E8F5FF">~이 있다면/~이 없다면</span>     |
      
+   p.153   
+   - 01. I see so many middle-aged men who have injured themselves because they did not stop running or playing basketball __long after__ they [should have stoped/should stop] and found other forms of physical activity.   
+   <span style="color:#E8F5FF">
+   해석 : 나는 본다 많은 중년의 남자들을 부상을 당한 왜냐하면 그들은 멈추지 않았다 달리기나 농구 하는 이후에도 오랫동안 그들이 멈추지 않았다, 다른 형태의 물리적 활동을 찾아야 했는데   
+   A long after B : B 이후에 오랜 후 A하다
+   </span>   
+
+   - 03. College is totally different from high school because you are __on your own__. I [ __cannot__ / may not] __stress too much__ about the idea of learning independence.   
+   <span style="color:#E8F5FF">
+   on your own : 스스로   
+   can not stress too much : 아무리 강조해도 지나치지 않다   
+   </span>
+   
+   - 04. If I were in charge of developing a modern version of the phrase, I would probably [ have picked / pick ] "remember your imperfections" or maybe "remember your irrationality.   
+
+   - 05. What I decided to do was write a letter to my grandmother in New York,|as if the marathon [ had come and gone / came and went ] and Ihad happily completed it.   
+
+   - 06. Two men who recently spent five days on a coral island wished they [ have / had ] stayed there longer.   
+   가정법 뒤엔 have p.p가 없다   
+
+   - 07. The report also recommends that it is time the police [ getting / got ] tough with the parents of youngsters   
+   
