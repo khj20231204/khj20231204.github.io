@@ -1,7 +1,7 @@
 ---
 layout: single
 title: JAVA Spring
-categories: JekyllBlog
+categories: Interview
 tag: []
 ---
 

@@ -51,6 +51,8 @@ sidebar_category_list:
         url: /regularexpression
       - title: JekyllBlog
         url: /jekyllblog
+      - title: Interview
+        url: /interview
   - title: "영어"
     children:
       - title: "LISTEN" 
