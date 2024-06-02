@@ -28,3 +28,17 @@ tag: [kolourpaint]
    Rufus설정
    <img src="../../imgs/ubuntu/Format_02(rufus).png" style="border:3px solid black;border-radius:9px;width:800px">
    usb셋팅에 2~3 걸립니다.
+
+
+
+
+
+
+
+
+
+
+
+    리눅스를 새로 설치하면  root 암호를 최초 1회 설정할 수 있다
+      sudo passwd root
+

@@ -5,7 +5,7 @@ categories: Git
 tag: [github, 폴더]
 ---
 
-1. # window에서 수행합니다.   
+1. # window에서 수행   
    
    2. ## clone
       해당 디렉토리로 이동 후   
@@ -37,3 +37,16 @@ tag: [github, 폴더]
       <img src="../../imgs/git/GitToPc_4.png" style="border:3px solid black;border-radius:9px;width:600px">    
 
    
+1. # Linux에서 수행
+   Windows 설치 후에 우분투에서 clone 하지 않고 D드라이브에 있는 블로그 파일로 리눅스에서 깃허브에 연결
+
+   2. git설치   
+   ```s
+      sudo apt install git
+   ```   
+
+   2. branch와 origin은 이미 설정되어 있다
+
+   2. ssh 발급 받은 후 github deploy keys에 추가
+
+   2. 
