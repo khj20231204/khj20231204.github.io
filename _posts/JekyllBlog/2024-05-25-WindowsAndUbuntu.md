@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Window_Ubunut에서 jekyll실행
+title: Window와 Ubunut에서 jekyll실행
 categories: JekyllBlog
 tag: []
 author_profile: false
