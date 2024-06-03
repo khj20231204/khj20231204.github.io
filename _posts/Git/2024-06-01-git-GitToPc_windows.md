@@ -47,6 +47,11 @@ tag: [github, 폴더]
 
    2. branch와 origin은 이미 설정되어 있다
 
-   2. ssh 발급 받은 후 github deploy keys에 추가
+   2. config 설정    
+   *--global 옵션 주의 : 앞에 -- 두개   
 
-   2. 
+   2. ssh 발급 받은 후 github deploy keys에 추가
+   *ssh 발급 받고 deploy keys로 add 해주면 윈도우와 우분투 2군데에서 접근 가능
+
+   2. add → commit → push
+   
