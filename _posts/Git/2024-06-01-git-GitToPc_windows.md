@@ -8,13 +8,15 @@ tag: [github, 폴더]
 1. # window에서 수행   
    
    2. ## clone
-      해당 디렉토리로 이동 후   
-      <img src="../../imgs/git/GitToPc_1.png" style="border:3px solid black;border-radius:9px;width:600px">    
-      ```s
+      ````s
          git clone <깃허브 ssh주소>
-      ```
-      ssh주소의 도메인 주소명으로 디렉토리가 생기면서 그 안에 다운을 받음   
-
+      ```   
+      깃허브에서 ssh주소를 가져온다
+      <img src="../../imgs/git/pc_window_ssh.png" style="border:3px solid black;border-radius:9px;width:600px">    
+      
+      clone을 하면 해당 깃허브 주소 이름으로 폴더가 생긴다. 
+      <img src="../../imgs/git/GitToPc_1.png" style="border:3px solid black;border-radius:9px;width:600px">    
+      
       clone만 해도 init, branch, origin까지 설정되어 있고 add, commit까지는 가능
 
    2. ## config가 설정되어 있지 않으면 config 설정
