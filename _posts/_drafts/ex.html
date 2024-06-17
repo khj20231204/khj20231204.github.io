@@ -1,46 +1,46 @@
-<style>
-.fruit aa:nth-child(1){ 
-   color : blueviolet;
-   font-weight: 900;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-.fruit bb:nth-child(1){ 
-   color : red;
-   font-weight: 900;
-}
-</style>
+    <style>
 
-<div class="fruit">
-   <aa> aa
-      <bb>bb</bb>
-    </aa> 
-</div>
+        .flex_container{
+            display: flex;
+            flex-direction:column;
+        } 
 
-<!-- 
-<style>
-   .fruit div:nth-child(2){    
-       color : yellow
-   }
+        .flex_items {
+            border: 2px solid black;
+            background-color: green;
+        }
 
-   .fruit span:nth-child(1){ 
-       color : red
-   }
+                
+        @media (min-width:700px) {
+            .flex_container{
+            display: flex;
 
-   .fruit h3:nth-child(5){ 
-       color : blue;
-       font-size: 20px;
-   }
-   
-   .fruit p:nth-of-type(2){ 
-       color: pink;
-   }
+            flex-direction:row;
 
-</style>
+            }    
 
-<div class="fruit">
-    <span>딸기</span> 
-    <p>수박</p>       
-    <div>오렌지</div> 
-    <p>망고</p>       
-    <h3>사과</h3>     
-</div> -->
+            .flex_items {
+                flex:1;
+            }
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <div class="flex_items">AAAAAAAAAA</div>
+        <div class="flex_items">BBBBBBBBBBBBBBBBB</div>
+        <div class="flex_items">CCCCC</div>
+    </div>
+</body>
+</html>
