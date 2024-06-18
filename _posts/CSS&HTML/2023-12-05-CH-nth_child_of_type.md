@@ -25,7 +25,7 @@ tag: []
    인지 아니면   
 
    fruit란 부모 클래스에 div요소 중 두번째 자식에 적용   
-   <span style="color:red;font-style:bold">①</span>.fruit <span style="color:red;font-style:bold">②</span>bb:<span style="color:red;font-style:bold">③</span>nth-child(2)   
+   <span style="color:red;font-style:bold">①</span>.fruit <span style="color:red;font-style:bold">②</span>div:<span style="color:red;font-style:bold">③</span>nth-child(2)   
 
    인지 아니면
    fruit란 부모 클래스 전체 범위 안에서 모든 두번째 자식이 div이면 적용   
