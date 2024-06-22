@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (CSS)Ch05.01-배치(flex_container)
+title: (CSS)배치(flex_container)
 categories: CSS&HTML
 tag: []
 ---

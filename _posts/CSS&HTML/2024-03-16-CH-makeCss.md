@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (CSS)Ch04.01~02-스타일 시트 개요와 만들기
+title: (CSS)스타일 시트 개요와 만들기
 categories: CSS&HTML
 tag: []
 ---

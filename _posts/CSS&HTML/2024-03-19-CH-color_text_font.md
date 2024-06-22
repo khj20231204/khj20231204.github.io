@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (CSS)Ch04.04-색과 텍스트와 폰트
+title: (CSS)색과 텍스트와 폰트
 categories: CSS&HTML
 tag: []
 ---   

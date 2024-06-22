@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (CSS)Ch04.05-박스 모델
+title: (CSS)박스 모델
 categories: CSS&HTML
 tag: []
 ---

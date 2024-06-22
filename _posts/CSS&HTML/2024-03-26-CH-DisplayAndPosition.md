@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (CSS)Ch05.01-배치(display, position)
+title: (CSS)display와 position
 categories: CSS&HTML
 tag: []
 ---

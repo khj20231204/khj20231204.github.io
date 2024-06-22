@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (HTML)Ch02.02~practice
+title: (HTML)기초 practice
 categories: CSS&HTML
 tag: []
 ---

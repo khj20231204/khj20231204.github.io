@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (HTML)Ch03.02-웹 폼
+title: (HTML)웹 폼
 categories: CSS&HTML
 tag: []
 ---

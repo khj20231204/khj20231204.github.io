@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (HTML)Ch03.01-문서 구조화
+title: (HTML)문서 구조화
 categories: CSS&HTML
 tag: []
 ---

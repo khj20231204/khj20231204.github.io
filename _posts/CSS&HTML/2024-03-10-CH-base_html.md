@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (HTML)Ch01~ch02.01
+title: (HTML)기본태그
 categories: CSS&HTML
 tag: []
 ---

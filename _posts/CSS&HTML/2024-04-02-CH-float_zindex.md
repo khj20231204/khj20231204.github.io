@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (CSS)Ch05.02-float,z-index,visibility,overflow
+title: (CSS)float,z-index,visibility,overflow
 categories: CSS&HTML
 tag: []
 ---

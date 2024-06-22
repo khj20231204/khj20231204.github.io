@@ -1,6 +1,6 @@
 ---
 layout: single
-title: (CSS)Ch04.03-셀렉터
+title: (CSS)셀렉터
 categories: CSS&HTML
 tag: []
 ---   
