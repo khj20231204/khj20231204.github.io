@@ -30,6 +30,39 @@ tag: []
    BBBBBBBBBB를 보면 flex-basis를 100px를 둔 경우 넓이가 BBBBBBBBBB 보다 작아도 크기가 BBBBBBBBBB의 크기에 맞춰집니다.   
    하지만 width를 100px를 둔 경우 넓이가 BBBBBBBBBB 보다 작기 때문에 작은 그 상태로 그대로 출력됩니다.   
 
+1. # flex-basis의 content/auto/숫자/0
+
+   2. content   
+   ```cs
+      flex-basis: content;
+   ```   
+   아이템 안의 공간(여백)이 없어지고 글자(content)의 크기에 맞춰집니다.   
+
+   2. AUTO   
+   ```cs
+      flex-basis: auto;
+   ```   
+   기존에 부모 컨테이너에 의한 크기든 브라우저에 제공되는 크기든 기존의 크기에 따릅니다.   
+      
+   2. 숫자   
+   ```cs
+      flex-basis: 100px;
+   ```   
+   width가 100px가 되는데, 글자(content)의 길이가 100px 보다 긴 경우 content에 맞춰집니다.   
+
+   2. 0   
+   ```cs
+      flex-basis: 0;
+   ```   
+   아이템 안의 공간(여백)이 없어지는데 기존 auto 값에서 여백이 없었던 경우 기존 그 값이 그대로 유지됩니다.   
+      
+   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wvbjzgm" data-pen-title="flex_basis_auto_zero" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <span>See the Pen <a href="https://codepen.io/khj99/pen/wvbjzgm">
+   flex_basis_auto_zero</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
+   on <a href="https://codepen.io">CodePen</a>.</span>
+   </p>
+   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
 1. # flex-Item속성 : flex-grow   
    __container 안에 여백을 적절히 나눠서 여백이 없도록 늘리는 기능__   
    글자를 제외한 여백의 공간을 "유연하게 늘리기" 기능 입니다. flex-grow는 아이템이 flex-basis의 값보다 커질 수 있는지를 결정하는 속성입니다. flex-grow에는 숫자값이 들어가는데, 몇이든 일단 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(flexible) 박스로 변하고 원래의 크기보다 커지면 빈 공간을 메우게 됩니다. 기본값이 0이기 때문에, 따로 적용하기 전까지는 아이템이 늘어나지 않았습니다.   
@@ -122,7 +155,6 @@ tag: []
       /* flex-grow:1; flex-shrink:1; flex-basis:500px; */
    ```   
    주의 할 점은 flex:1;인 경우 flex-basis는 0%가 됩니다.   
-
 
 1. # flex-Item속성 : order
    flex item의 순서를 설정합니다. 기본값은 0이고, 숫자가 작을수록 먼저 왼쪽에 위치하게 됩니다.   
