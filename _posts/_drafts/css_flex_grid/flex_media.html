@@ -1,0 +1,72 @@
+<style>
+
+  .container{
+    display:flex;
+    flex-direction: column; 
+    /* direction이 column일 때 flex-grow를 하면 세로로 꽉 채운다*/
+    
+    /* height:100vh; */
+    min-height:100vh;
+    /* vh(viewport height) 화면에 보여지는 부분 */
+    /* item들이 늘어날 자리가 있어야 늘어나지 공간도 없는데 item들을 flex-grow로 늘인다고 늘어나지 않는다 */ 
+    /* height는 딱 그만큼 100vh 만큼 사용이 되기 때문에 브라우저를 스크롤하면 안 나오는 영역이 생기기 때문에
+      min-height로 최소한의 세로 크기를 설정하면 스크롤을 해도 짤리는 부분이 없다 */
+  }
+
+  .container div{
+    /* 기본 설정 */
+    border: 2px solid black;
+    background: #fcb001; 
+  }
+
+  /*
+  1)차지하는 영역을 100%로 잡아서 flex-wrap:wrap;으로 설정해서 밑으로 떨어지게 할 수 있다
+  2)flex-direction:column;으로 축을 변경할 수 있다
+  */
+
+  .item1{
+    flex:1 auto;
+    /* flex:1; auto를 생략하면 flex-basis:0;이 돼버리기 때문에 auto를 해줘야 한다 */ 
+  }
+
+  @media (min-width:600px){
+
+		.container{
+			flex-direction: row;
+			flex-wrap:wrap;
+		}
+
+		.item1{
+			width: 49.5%;
+			/* flex: 0 auto; */
+			/* flex-basis: 45%; */
+			/* flex:0 45%; */
+		}
+  }
+
+  @media (min-width:2000px){
+    .item1{
+        width:30%;
+      }
+  }
+
+</style>
+
+<div class="container">
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+ </div>
+ 
