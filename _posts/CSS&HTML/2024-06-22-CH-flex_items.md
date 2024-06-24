@@ -64,8 +64,8 @@ tag: []
    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 1. # flex-Item속성 : flex-grow   
-   __container 안에 여백을 적절히 나눠서 여백이 없도록 늘리는 기능__   
-   글자를 제외한 여백의 공간을 "유연하게 늘리기" 기능 입니다. flex-grow는 아이템이 flex-basis의 값보다 커질 수 있는지를 결정하는 속성입니다. flex-grow에는 숫자값이 들어가는데, 몇이든 일단 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(flexible) 박스로 변하고 원래의 크기보다 커지면 빈 공간을 메우게 됩니다. 기본값이 0이기 때문에, 따로 적용하기 전까지는 아이템이 늘어나지 않았습니다.   
+   __container와 item 사이에 공간(여백)이 있는 경우 item 내부의 content(글자)를 제외한 공간을 늘려 container와 item들 사이의 공간을 없애는 기능__   
+   item들을 container에 가득 채우기 위해 item 내부의 글자를 제외한 여백의 공간을 "유연하게 늘리기" 위한 기능입니다. flex-grow는 아이템이 flex-basis의 값보다 커질 수 있는지를 결정하는 속성입니다. flex-grow에는 숫자값이 들어가는데, 몇이든 일단 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(flexible) 박스로 변하고 원래의 크기보다 커지면 빈 공간을 메우게 됩니다. 기본값이 0이기 때문에, 따로 적용하기 전까지는 아이템이 늘어나지 않았습니다.   
    
    ```cs
       .item1{
@@ -85,10 +85,10 @@ tag: []
    flex-grow 값은 아이템의 __글자를 제외한__ 공백부분의 비율이 됩니다.   
    .item1의 첫번째, 두번째, 세번째 각각의 아이템의 flex-grow 값이 0.5, 0.5, 1 인데 이것은 1:1:2로 0.1,0.1,0.2 든 0.3,0.3,0.6 이든 10,10,20이든 숫자 값은 상관없이 각각의 비율에 따라 공백이 결정됩니다.   
 
-   item1은 글자 제외 공백이 1:1:2로 적용   
-   item2는 글자 제외 공백이 1:3:2로 적용   
-   item3은 flex-grow:1;로 공백 제외 1:1:1로 여백이 적용됩니다.   
-   
+   가장 상단은 item들이 container에 가득 차지 않아서 container 여백인 skyblue 색상이 보입니다. 이를 flex-grow 속성으로 각각 item들의 contetnt를 제외한 공간부분을 늘여 item들이 container에 가득차게 할 수 있습니다.   
+   item2에서 첫번째와 세번째 item의 content를 길게 했을 경우 content를 제외한 여백의 비율을 전부 1:1:1:1로 맞추기 위해서 item의 길이는 전부 상이하게 됩니다.   
+   item3에서도 item2와 마찬가지로 flex-gorw:1;로 설정했습니다. item2와 비교했을 때 content 글자의 길이가 비슷하기 때문에 item의 길이도 비슷하게 설정되었습니다.   
+
 1. # flex-shrink   
    __container의 레이아웃을 아이템이 너무 커서 넘친 경우 이를 적절히 나눠서 줄이는 기능__   
    __flex-wrap:nowrap;으로 설정해야 적용!__   
@@ -100,7 +100,7 @@ tag: []
       }
    ```    
 
-   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="BaererB" data-pen-title="flex_item_shrink" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="BaererB" data-pen-title="flex_item_shrink" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
    <span>See the Pen <a href="https://codepen.io/khj99/pen/BaererB">
    flex_item_shrink</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
    on <a href="https://codepen.io">CodePen</a>.</span>
@@ -146,7 +146,7 @@ tag: []
       /* flex-grow, flex-shrink, flex-basis 순으로 작성 */
 
       flex: 1;
-      /* flex-grow:1; flex-shrink:1; flex-basis:0%; */
+      /* flex-grow:1; flex-shrink:1; flex-basis:0; */
 
       flex: 1 1 auto;
       /* flex-grow:1; flex-shrink:1; flex-basis:auto; */
@@ -154,7 +154,10 @@ tag: []
       flex: 1 500px;
       /* flex-grow:1; flex-shrink:1; flex-basis:500px; */
    ```   
-   주의 할 점은 flex:1;인 경우 flex-basis는 0%가 됩니다.   
+   주의 할 점은 flex:1;인 경우 flex-basis는 0이 됩니다.   
+   flex-grow는 Item들이 container의 크기에 비해 부족한 경우 더 늘여주고,   
+   flex-shrink는 item들이 container의 크기에 비해 더 큰 경우 줄여서   
+   container와 item들의 크기를 맞추게 됩니다.   
 
 1. # flex-Item속성 : order
    flex item의 순서를 설정합니다. 기본값은 0이고, 숫자가 작을수록 먼저 왼쪽에 위치하게 됩니다.   
