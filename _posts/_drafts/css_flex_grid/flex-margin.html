@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .flex_container{
+            display: flex;
+            justify-content: space-evenly;
+            background-color: royalblue;
+            width: 600px;
+            margin: auto;
+        }
+
+        .flex_items{
+            border: 2px solid black;
+            background-color: greenyellow;
+            /* flex-basis: content; */
+            width:150px;
+        }
+
+        .flex_container .flex_items:last-child{
+            margin-left: auto;
+            /* 
+            margin auto는 남아있는 margin을 전부 소모한다 
+            
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <div class="flex_items">A</div>
+        <div class="flex_items">B</div>
+        <div class="flex_items">C</div>
+    </div>
+</body>
+</html>

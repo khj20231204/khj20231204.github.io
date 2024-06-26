@@ -1,0 +1,54 @@
+<style>
+
+.container {
+  display: flex;
+  flex-direction:column;
+  border: 2px solid red;
+}
+
+.item1{
+  height: 80px;
+  border: 1px solid gray;
+  background-color: darkseagreen;
+  flex: 1 auto;
+}
+
+@media (min-width:600px){
+  .container{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .item1{
+    flex-basis:40%;
+    flex-grow: 1;
+  }
+}
+
+@media (min-width:1200px){
+  .item1{
+    flex-basis: 31.3%;
+  }
+}
+
+
+</style>
+
+<div class="container">
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+   <div class="item1">AAAA  </div>
+   <div class="item1">BBBBBBBBBB</div>
+   <div class="item1">CCCCCC</div>
+ </div>
+ 
