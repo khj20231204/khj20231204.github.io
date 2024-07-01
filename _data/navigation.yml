@@ -21,6 +21,10 @@ counts:
 #sidebar list
 #children의 title과 _posts md파일의 categories 이름이 같아야 한다.
 sidebar_category_list:
+  - title: "수업"
+    children:
+      - title: "JAVA"
+        url: /java(lesson)
   - title: "프로그래밍"
     children:
       - title: "SQL" 

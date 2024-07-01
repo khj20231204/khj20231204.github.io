@@ -5,7 +5,9 @@ categories: Git
 tag: [github, 폴더]
 ---
 
-window에서 수행합니다.   
+1. window에서 수행합니다.   
+
+
 
 1. # cmd창에서 command명령어로 추가
    C:\programming\javaTeamProject_src를 github에 추가해 보겠습니다.   
