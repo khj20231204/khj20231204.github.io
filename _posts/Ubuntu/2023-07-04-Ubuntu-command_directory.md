@@ -173,7 +173,7 @@ tag: [명령어, 사용자, 그룹, user, group]
       |-f|묻지 않고 강제로 덮어쓰기|   
       |-v|파일이 옮겨지는 과정 표시|
 
-      ```
+      ```cs
          [root@localhost khj2]# ls -R   'a/a.txt b/b.txt c/c.txt 각각 들어있음'
          .:
          a  b  c
@@ -186,14 +186,17 @@ tag: [명령어, 사용자, 그룹, user, group]
 
          ./c:
          c.txt
+
          [root@localhost khj2]# ls
          a  b  c
-     
+
          [root@localhost khj2]# mv a temp  'temp란 디렉토리가 없기 때문에 이름변경이 됨'
+
          [root@localhost khj2]# ls
          temp b  c  
 
          [root@localhost khj2]# mv b c  'c란 디렉토리가 있기 때문에 b가 c로 이동'
+
          [root@localhost khj2]# ls -R
          .:
          c  temp
@@ -206,8 +209,22 @@ tag: [명령어, 사용자, 그룹, user, group]
 
          ./temp:
          a.txt
-      ```
+      ```   
 
+      또 다른 예시   
+      ```cs         
+         sudo mv A B/
+         A란 디렉토리나 파일을 B디렉토리 안으로 이동
+
+         sudo mv A /
+         A란 디렉토리나 파일을 /(루트)로 이동
+
+         sudo mv A B/Achange
+         A란 디렉토리나 파일을 B디렉토리에 Achange란 이름으로 변경되어 이동
+
+         sudo mv Achange A
+         Achange란 디렉토리나 파일을 A란 이름으로 변경
+      ```        
    2. ### rm
 
       rm 옵션 [대상] : 파일 삭제   
@@ -219,7 +236,7 @@ tag: [명령어, 사용자, 그룹, user, group]
       |-i|사용자에게 질의|   
       |-r|하위 디렉토리를 포함하여 모든 디렉토리 삭제|
 
-      ```
+      ```cs
          [nati@localhost ~]$ rmdir test
          rmdir: failed to remove ‘test’: Directory not empty
 
@@ -312,7 +329,7 @@ tag: [명령어, 사용자, 그룹, user, group]
 
       <br>
 
-      ```
+      ```cs
          'passwd파일에서 bash 검색'
          [nati@localhost ~]$ grep bash passwd   
          root:x:0:0:root:/root:/bin/bash
