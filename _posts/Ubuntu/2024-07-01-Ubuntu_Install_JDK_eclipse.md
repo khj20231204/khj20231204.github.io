@@ -63,7 +63,7 @@ tag:
    ```cs
       ubuntu22@ubuntu22:~/다운로드$ sudo tar -zxvf eclipse-inst-jre-linux64.tar.gz
    ```
-   <img src="../../imgs/ubuntu/eclipse_down.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/ubuntu/eclipse_tar_error.png" style="border:3px solid black;border-radius:9px;width:800px">   
    압축을 해제하면 "확장 헤더 키워드 무시"란 경고 메세지가 뜨는데 이건 맥에서 tar로 압축한 파일을 리눅스에서 압축 해제할 때 발생하는 것으로 무시하고 그냥 진행하시면 됩니다.   
 
    압축을 해제 후 eclipse-installer로 이동해서 ecilpse-inst를 실행하면 됩니다.   
@@ -85,7 +85,9 @@ tag:
       
    인스톨러가 실행됩니다.   
    <img src="../../imgs/ubuntu/eclipse_installer.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   JSP와 스프링을 사용하기 위해서 Eclipse IDE for Enterprise Java and Web Developers를 실행합니다   
 
-
+   간단한 선택을 한 후 다음과 같이 설치를 시작합니다.   
+   <img src="../../imgs/ubuntu/eclipse_install.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
    
