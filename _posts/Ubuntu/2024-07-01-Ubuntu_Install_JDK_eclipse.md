@@ -89,3 +89,5 @@ tag:
 
    간단한 선택을 한 후 다음과 같이 설치를 시작합니다.   
    <img src="../../imgs/ubuntu/eclipse_install.png" style="border:3px solid black;border-radius:9px;width:800px">   
+
+   
