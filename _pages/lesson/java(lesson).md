@@ -1,7 +1,7 @@
 ---
 title: "JAVA(Lesson)"
 layout: archive
-permalink: /JAVA(Lesson)
+permalink: /java(lesson)
 author_profile: true
 types: posts
 sidebar:
