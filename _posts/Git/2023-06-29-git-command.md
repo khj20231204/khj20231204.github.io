@@ -36,7 +36,7 @@ tag: [git]
       git remote add origin git@github.com:khj20231204/khj20231204.github.io.git
    ```   
    origin 설정. push할 때 연결될 github 주소를 설정합니다.   
-   <img src="../../imgs/git/git_first4.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/git/pc_window_ssh.png" style="border:3px solid black;border-radius:9px;width:800px">   
    주소 확인 방법   
    *Support for password authentication was removed on August 13, 2021.   
    2021년 8월 이후 패스워드 인증 지원이 종료되었기 때문에 http가 아니라 ssh로 origin을 설정해 줘야 합니다.   
@@ -46,8 +46,7 @@ tag: [git]
       git branch -M master
    ```   
    github에 push할 branch 설정   
-   <img src="../../imgs/git/git_first5.png" style="border:3px solid black;border-radius:9px;width:800px">   
-   *2020년 6월 인종차별과 주종 관계의 의미를 담은 용어를 제거하는 취지에서 기본 브랜치가 master에서 main으로 변경되었습니다. 하지만 git init를 하면 기본으로 설정되는 브랜치가 mater입니다. 그렇기 때문에 git branch -M main 명령으로 branch를 main으로 바꿔줘야합니다. 
+   *2020년 6월 인종차별과 주종 관계의 의미를 담은 용어를 제거하는 취지에서 __기본 브랜치가 master에서 main__ 으로 변경되었습니다. 하지만 git init를 하면 기본으로 설정되는 브랜치가 mater입니다. 그렇기 때문에 git branch -M main 명령으로 branch를 main으로 바꿔줘야합니다. 
    
    5. 
    ```s
