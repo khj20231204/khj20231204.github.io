@@ -15,6 +15,23 @@ tag: [github, 폴더]
    1. Git Directory   
       커밋 후 영구적으로 저장되는 스냅샷 공간
 
+1. # origin
+   초기 github를 생성시 init명령을 하게 되면   
+   ```
+      Initialized empty Git repository in C:/programming/source
+   ```   
+   이렇게 로컬의 repository가 설정됩니다. 
+   
+   이후 
+   ```
+      git remote add origin "https://github.com/nati/java.git"
+   ```   
+   이렇게 origin 이후에 깃허브 주소를 입력하게 됩니다.   
+   
+   이때 C:/programming/source인 C드라이브의 디렉토리가 로컬의 저장소인 repository가 되고, 
+   
+   깃허브 위치인 "https://github.com/nati/java.git"가 깃의 저장소가 되며 다른 말로 origin이 됩니다. 즉 origin은 깃의 온라인 저장소입니다.   
+
 1. # add
    작업 중인 파일을 Working Directory에서 Staging Area로 파일 복사.   
    '복사'기 때문에 Working Directory에 있는 파일을 수정해도 Staing Area에 있는 파일은 영향을 받지 않습니다. 그렇기 때문에 파일을 수정하면 다시 add를 해줘야 합니다.
@@ -38,4 +55,18 @@ tag: [github, 폴더]
    
 1. # pull
    pull = fetch + mrege   
+   
+1. # upstream과 downstream
+   origin(깃허브 저장소) - upstream   
+   local(로컬 저장소) - downstream   
+
+   origin → local : pull   
+   local → origin : push
+
+   origin(상위개념) - upstream   
+              ↓   
+   local(하위개념) - downstream   
+
+1. # Fork
+   협업이나 오픈소스 프로젝트에 참여할 때 다른 사람의 repository 파일을 자신의 깃허브로 복사는 일   
    
