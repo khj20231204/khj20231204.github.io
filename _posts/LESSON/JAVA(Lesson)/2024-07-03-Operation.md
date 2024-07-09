@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 연산자(lesson)
+title: 07_03.연산자(lesson)
 categories: JAVA(Lesson)
 tag: []
 ---
