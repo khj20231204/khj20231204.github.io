@@ -5,9 +5,6 @@ categories: Git
 tag: [github, 폴더]
 ---
 
-1. # 전체 순서
-   Git Repository로 깃허브 프로젝트 가져오기 → 
-
 1. # Git 복제   
    Cline a Git Repostitory를 선택합니다.   
    <img src="../../imgs/git/git_to_eclip_1.png" style="border:3px solid black;border-radius:9px;width:600px">   
