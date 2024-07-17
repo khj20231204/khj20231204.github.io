@@ -9,6 +9,7 @@ author_profile: false
 1. # 다형성
    ```java
       class Vehicle{				      //부모 클래스
+         String name = "vehicle";
          public void run() {
             System.out.println("차량이 달립니다.");
          }
@@ -17,10 +18,15 @@ author_profile: false
       class Drive{		
          public void drive(Vehicle vehicle) {	//매개변수의 다형성
             vehicle.run();
+            System.out.println(vehicle.name+"가 달린다");
          }
       }
 
       class Bus extends Vehicle{    //자식 클래스
+         public Bus(){
+            super.name = "bus";
+         }
+
          @Override
          public void run() {
             System.out.println("버스가 달립니다");
@@ -28,6 +34,10 @@ author_profile: false
       }
 
       class Taxi extends Vehicle{	//자식 클래스
+         public Taxi(){
+            super.name = "taxi";
+         }
+
          @Override
          public void run() {
             System.out.println("택시가 달립니다");

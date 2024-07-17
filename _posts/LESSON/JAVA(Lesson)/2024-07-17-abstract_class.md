@@ -38,8 +38,9 @@ author_profile: false
    6)추상 클래스도 단일 상속만 가능하다(클래스의 다중 상속을 허용하지 않는다)   
 
 1. # 추상 클래스가 추상 클래스를 상속
-   미들 클래스에서 오버라이딩하든 마지막 클래스에서 오버라이딩하든 최소 한군데에선 오버라이딩을 해야한다
+   미들 클래스에서 오버라이딩하든 마지막 클래스에서 오버라이딩하든 최소 한군데에선 오버라이딩을 해야한다   
 
+   미들 클래스에서 오버라이딩을 하는 경우   
    ```JAVA
       abstract class AbstractClass{				//추상 클래스
          abstract void Method01();				//추상 메소드
@@ -64,9 +65,10 @@ author_profile: false
 
    ```
 
+   최종 클래스에서 오버라이딩을 하는 경우   
    ```java
       abstract class AbstractClass{				//추상 클래스
-      abstract void Method01();				//추상 메소드
+      abstract void Method01();				   //추상 메소드
             void Method02() {						//일반 메소드
                System.out.println("Method02 : 추상 클래스에서 구현"); 
             }
