@@ -56,7 +56,52 @@ author_profile: false
             driver.drive(taxi);	//Vehicle vehicle = new taxi(); 업캐스팅
          }
       }
-   ```
+   ```   
+
+1. # Parent p = new Child()
+   ```java
+      class Parent{
+         int a = 10;
+
+         void method() {
+            System.out.println("Parent");
+         }
+      }
+
+      class Child extends Parent{
+         int a = 20;
+         
+         @Override
+         void method() {
+            System.out.println("Child");
+         }
+
+         void method1() {
+            System.out.println("Child Method_1");
+         }
+      }
+
+      public class Polymorphism {
+
+         public static void main(String[] args) {
+            Parent p = new Child();
+            Child c = new Child();
+            
+            System.out.println(p.a); 	//10
+            p.method();					//child
+            //p.method1();				//error
+            
+            System.out.println(c.a);	//20
+            c.method();					//child
+            c.method1();				//자식 메소드 호출
+         }
+      }
+   ```   
+   Parent p = new Child();   
+   __필드__ : 부모P의 필드를 호출   
+   __상속 한 메소드__ : 자식 메소드를 호출   
+   __자식에게만 있는 메소드__ : 접근 못 함   
+   p.method()는 자식에서 오버라이딩한 메소드가 출력되지만, method1()은 자식에게만 있기 때문에 부모에서 접근 불가   
 
 1. # final
    1. final이 멤버변수(필드)에 사용될 경우   
