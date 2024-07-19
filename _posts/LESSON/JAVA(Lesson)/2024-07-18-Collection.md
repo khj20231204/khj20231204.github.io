@@ -19,4 +19,12 @@ author_profile: false
    키 중복 저장 안됨   
    ex)HashMap, HashTable, TreeMap, Properties   
 
+   Queue   
+   offer : 주어진 값을 삽입   
+   poll : 값을 가져오면서 제거   
+   peek : 다음 나올 값을 조회   
 
+   Stack   
+   push : 주이진 값을 삽입   
+   pop : 값을 자져오면서 제거   
+   peek : 가장 마지막에 들어간 값이 조회   
