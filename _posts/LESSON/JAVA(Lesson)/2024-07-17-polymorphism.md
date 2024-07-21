@@ -122,92 +122,53 @@ author_profile: false
 
    ```java   
       class Product{
-         String name = "product";
-         int price = 1111;
+         int price=0;
          
-         void printPrice() {
-            System.out.println("name:"+ name+ ", price:"+price);
+         void print() {
+            System.out.println("Product price:"+price);
          }
       }
 
       class Computer extends Product{
-         String name = "Computer";
-         int price = 300;
+         int price = 200;
          
-         @Override
-         void printPrice() {
-            System.out.println("Computer에서 name:"+ name+ ", price:"+price);
-         }
-         
-         void ComputerMethod() {
-            System.out.println("Computer의 Method");
-         }
-      }
-
-      class LastComputer extends Computer{
-         String name = "LastComputer";
-         int price = 100000;
-         
-         @Override
-         void printPrice() {
-            System.out.println("LastComputer에서 name:"+ name+ ", price:"+price);
-         }
-         
-         void lastComputerMethod() {
-            System.out.println("LastComputer의 Method");
+         void print(){
+            System.out.println("Computer price:"+price);
          }
       }
 
       class Buyer{
-         
-         void buyerPrice(Product p) {
-            //필드는 타입의 필드값을 가져온다
-            System.out.println("Product변수:" + p.name + " ,"+ p.price);
-            //메소드는 인스턴스에서 오버로딩된 메소드를 가져온다
-            p.printPrice();  
+         public Buyer(Product p) {
+            p.print();     //오버라이딩된 메소드 호출
+            System.out.println("price:"+p.price);  //각각의 해당 멤버변수 호출
          }
       }
 
-      public class PrductEx {
+      public class ProductExample {
 
          public static void main(String[] args) {
-            //타입 참조변수 = new연산자 인스턴스
-            Product computer = new Computer();
-            Computer computer2 = new Computer();
+            // TODO Auto-generated method stub
+            Product p1 = new Product();
+            Product p2 = new Computer();
             
-            Buyer buyer = new Buyer();
-            buyer.buyerPrice(computer);   //computer는 Product로 업캐스팅
-            buyer.buyerPrice(computer2);  //computer2는 Product로 업캐스팅
-            
+            Buyer buyer = new Buyer(p1);
             System.out.println();
-            
-            Product lastComputer = new LastComputer();
-            LastComputer lastComputer2 = new LastComputer();
-            
-            buyer.buyerPrice(lastComputer);  //lastComputer는 Product로 업캐스팅
-            buyer.buyerPrice(lastComputer2); //lastComputer2는 Product로 업캐스팅
+            buyer = new Buyer(p2);
          }
       }
 
-      결과값
-      Product변수:product ,1111
-      Computer에서 name:Computer, price:300
-      Product변수:product ,1111
-      Computer에서 name:Computer, price:300
+      출력값
+      Product price:0
+      price:0
 
-      Product변수:product ,1111
-      LastComputer에서 name:LastComputer, price:100000
-      Product변수:product ,1111
-      LastComputer에서 name:LastComputer, price:100000
+      Computer price:200
+      price:0
    ```   
-   buyer.buyerPrice(computer);   
-   buyer.buyerPrice(computer2);   
-   buyerPrice의 매개변수 Product의해 computer와 computer2는 Product로 업캐스팅된 상태에서 전달됩니다.   
-   
-   System.out.println("Product변수:" + p.name + " ,"+ p.price);   
-   멤버변수 name, price는 Product의 name과 price   
-   p.printPrice();   
-   printPrice는 상속받은 자식의 메소드 호출   
+   __멤버변수는 각각__   
+   __메소드는 오버라이딩된 자식__   
+   Product p2 = new Computer();   
+   메소드는 오버라이딩된 자식 인스턴스의 메소드를 호출하기 때문에 Buyer클래스에서 p.print();를 호출하면 자식 Computer의 메소드가 호출됨.   
+   멤버변수는 Product를 호출하기 때문에 System.out.println("price:"+p.price);에서 p.price는 product의 price를 호출.   
 
 1. # final
    1. final이 멤버변수(필드)에 사용될 경우   
