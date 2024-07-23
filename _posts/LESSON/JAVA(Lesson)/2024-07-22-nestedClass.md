@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 07_22.예외처리
+title: 07_22.중첩 클래스
 categories: JAVA(Lesson)
 tag: []
 author_profile: false
