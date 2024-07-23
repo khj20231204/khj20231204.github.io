@@ -1,0 +1,40 @@
+---
+layout: single
+title: dockerfile WORKDIR
+categories: Docker
+tag: []
+---
+
+1. # WORKDIR
+   Dockerfile에서 정의한 명령을 실행하기 위한 작업용 디렉토리를 지정하기 위해 WORKDIR 명령 설정   
+
+   ```S
+      WORKDIR  [작업 디렉토리 경로]
+   ```
+
+   WORKDIR 명령은 Dockerfile에 쓰여 있는 다음과 같은 명령을 실행하기 위한 작업용 디렉토리를 지정합니다.   
+
+   2. RUN 명령   
+   2. CMD 명령   
+   2. ENTRYPOINT 명령   
+   2. COPY 명령   
+   2. ADD 명령   
+   
+   만일 지정한 디렉토리가 존재하지 않으면 새로 작성합니다. 또한 WORKDIR 명령은 Dockerfile 안에서 여러 번 사용할 수 있습니다. 상대 경로를 지정한 경우는 이전 WORKDIR 명령의 경로에 대한 상대 경로가 됩니다.   
+
+   ```s
+      WORKDIR /first
+      WORKDIR second
+      WORKDIR third   
+   ```   
+   /first/second/third가 WORKDIR의 디렉토리가 됩니다.   
+
+   ENV에서 지정한 변수로 WORKDIR를 설정할 수 있습니다.   
+   ```s
+      ENV DIRPATH /first
+      ENV DIRNAME second
+
+      WORKDIR $DIRPATH/$DIRNAME
+   ```   
+   WORKDIR의 작업경로는 /first/second가 됩니다.   
+
