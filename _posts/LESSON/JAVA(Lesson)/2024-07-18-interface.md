@@ -12,17 +12,17 @@ author_profile: false
    
    ```java
       interface interfaceEx{
-      public static final int a =14;
-      public int e = 33;	//public static final int e = 33;
-      static int c = 54;	//public static final int c = 54;
-      final int d = 1;	   //public static final int d = 1;
-      int b = 12;			   //public static final int b = 12;
-      
-      public abstract void method();   
-      public void method2();           //public abstract void method2();
-      abstract void method3();         //public abstract void method3();
-      void method4();                  //public abstract void method4();
-   }
+         public static final int a =14;
+         public int e = 33;	//public static final int e = 33;
+         static int c = 54;	//public static final int c = 54;
+         final int d = 1;	   //public static final int d = 1;
+         int b = 12;			   //public static final int b = 12;
+         
+         public abstract void method();   
+         public void method2();           //public abstract void method2();
+         abstract void method3();         //public abstract void method3();
+         void method4();                  //public abstract void method4();
+      }
    ```   
 
 1. # 인터페이스
