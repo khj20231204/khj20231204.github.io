@@ -26,6 +26,8 @@ sidebar_category_list:
     children:
       - title: "JAVA"
         url: /java(lesson)
+      - title: "SQL"
+        url: /SQL(lesson)
   - title: "프로그래밍"
     children:
       - title: "SQL" 

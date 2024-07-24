@@ -69,5 +69,4 @@ author_profile: false
    예외가 발생하면 자신을 호출한 메소드 위치로 이동 후 예외를 처리하게 됩니다.   
    printData에서 예외가 발생 -> printData를 호출한 setData로 예외를 넘김 -> setData를 호출한 main의 t1.setData가 예외를 받음 -> main의 try catch가 예외를 처리   
 
-1. # throw
 
