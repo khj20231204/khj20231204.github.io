@@ -99,8 +99,10 @@ tag: [아카이브, gzip, rar]
 1. # 압축 해제
 
    - unzip   
+      unzip [파일명] -d [디렉토리 경로]
+
       ```
-         [nati@localhost mytar]$ unzip fruits.zip
+         [nati@localhost mytar]$ unzip fruits.zip -d /fruit
          Archive:  fruits.zip
          extracting: apple                   
          extracting: banana                  

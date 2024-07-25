@@ -162,6 +162,7 @@ author_profile: false
          SQL> select * from tab;    --테이블 목록 확인
       ```   
 
+1
       
 
 
