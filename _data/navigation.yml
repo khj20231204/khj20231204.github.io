@@ -24,10 +24,10 @@ counts:
 sidebar_category_list:
   - title: "수업"
     children:
-      - title: "JAVA"
+      - title: "JAVA(Lesson)"
         url: /java(lesson)
-      - title: "SQL"
-        url: /SQL(lesson)
+      - title: "SQL(Lesson)"
+        url: /sql(lesson)
   - title: "프로그래밍"
     children:
       - title: "SQL" 
