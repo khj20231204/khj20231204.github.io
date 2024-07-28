@@ -46,3 +46,4 @@ cmd창에서 sqlplus "/as sysdba"입력
    해결 방법:
    메뉴 → help → install new software   
    
+   
