@@ -60,6 +60,11 @@ author_profile: false
    Program Files(x86)   
    ProgramData   
    각각의 폴더에 MySQL이란 폴더가 생성됩니다.    
+   
+   ```
+      C:\ProgramData\MySQL\MySQL Server 8.0\Data
+   ```   
+   데이터베이스는 해당 경로에 설치되어있습니다.
    <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_install13.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    오라클은 자동으로 Path가 잡히기 때문에 설정이 필요없지만 MySQL은 Path설정을 해야합니다.   
@@ -69,9 +74,12 @@ author_profile: false
    <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_install14.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
    cmd창에으로 mysql에 접속합니다.   
-   mysql -uroot -p1234 mysql   
+   mysql -uroot -p1256 mysql   
    <span style="color:red">명령어  -u계정명 -p비밀번호 접속할DB명</span>   
    <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_install15.png" style="border:3px solid black;border-radius:9px;width:700px">   
+
+   -p비밀번호를 생략하고 입력하면 화면에 노출되지 않고 비밀번호를 입력할 수 있습니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_passwd_2.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
    ```
       show databases;   --데이터베이스 목록
@@ -127,3 +135,48 @@ author_profile: false
 
    새로운 커넥션이 생성되었습니다.   
    <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_install19.png" style="border:3px solid black;border-radius:9px;width:700px">   
+
+1. # JDBC 연동
+   MySQL사이트에서 JDBC를 다운 받습니다.   
+   <a href="https://dev.mysql.com/downloads/connector/j/">https://dev.mysql.com/downloads/connector/j/</a>   
+
+   Platform Independent를 선택 후 zip파일을 다운 받습니다.
+   <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_jdbc1.png" style="border:3px solid black;border-radius:9px;width:700px">   
+
+   압축을 풀고 "mysql-connector-j-9.0.0.jar"파일을 `C:\Program Files\Java\jdk-17\lib` 안에 넣습니다.   
+
+   이클립스에서 라이브러리를 추가 합니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_library.png" style="border:3px solid black;border-radius:9px;width:700px">   
+
+   Data Source Explorer로 연결을 합니다. Database Connections에서 마우스 오른쪽 버튼을 눌러 New를 선택합니다. New Connection Profile에 설정을 합니다.    
+   <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_profile_name.png" style="border:3px solid black;border-radius:9px;width:5ㄴ00px">   
+   구별하기 위해 Name에 계정 아이디를 입력합니다.   
+
+   리스트에 목록을 추가하기 위해 옆에 + 버튼을 누릅니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/oracle11g_error.png" style="border:3px solid black;border-radius:9px;width:400px">   
+
+   MySQL 8.1버전이 없기 때문에 가장 높은 버전 5.1을 그냥 선택합니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/driverDefinition1.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   JAR파일을 선택합니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/driverDefinition2.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   데이터베이스이름, 계정와 패스워드를 각각 입력합니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/driverDefinition3.png" style="border:3px solid black;border-radius:9px;width:600px">   
+
+   finish를 입력하면 새로운 MySQL이 연동된 것을 알 수 있습니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/mysqlDB.png" style="border:3px solid black;border-radius:9px;width:600px">   
+
+1. # sql 파일 생성
+
+   오른쪽 상단에 javaEE perspective를 선택합니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_java_ee.png" style="border:3px solid black;border-radius:9px;width:400px">   
+
+   SqlFile을 선택합니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/SQLfile.png" style="border:3px solid black;border-radius:9px;width:600px">   
+
+   앞에서 입력한 목록이 나타나고 선택을 합니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/SQLfile2.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   sql파일이 생성된 것을 확인할 수 있습니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/SQLfile3.png" style="border:3px solid black;border-radius:9px;width:700px">   
