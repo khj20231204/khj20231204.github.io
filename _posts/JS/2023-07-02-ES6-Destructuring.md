@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Destructuring Assignment(비구조화 할당)
-categories: ES6
+categories: JS
 tag: [배열 리터럴, 객체 리터럴, 이터러블]
 ---
 

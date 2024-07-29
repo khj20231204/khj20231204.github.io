@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 객체 확장 표현식
-categories: ES6
+categories: JS
 tag: [객체확장표현식]
 ---
 

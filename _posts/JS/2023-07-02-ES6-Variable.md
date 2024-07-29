@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 변수 선언
-categories: ES6
+categories: JS
 tag: [변수, 초기화, 스코프]
 ---
 

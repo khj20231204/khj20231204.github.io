@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 함수 정의하기
-categories: ES6
+categories: JS
 tag: [함수 선언, 화살표함수]
 ---
 

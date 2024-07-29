@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 화살표 함수
-categories: ES6
+categories: JS
 tag: [화살표함수]
 ---
 
