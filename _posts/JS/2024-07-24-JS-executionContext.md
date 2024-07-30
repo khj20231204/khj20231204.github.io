@@ -72,7 +72,7 @@ tag: []
 
    LexicalEnviroment   
    1)enviromentRecord : 현재 문맥의 식별자 정보 저장   
-   2)outerEnviromentReference :    
+   2)outerEnviromentReference : 외부 문맥의 식별자 정보 저장    
 
 1. # enviromentRecord
    현재 컨텍스트 식별자 정보를 수집해서 enviromentRecord에 담는 과정이 __호이스팅__ 입니다.   
@@ -105,6 +105,8 @@ tag: []
    ```   
    함수정의 선언된 1)만 함수 전체가 끌어올려지고 2),3) 함수 표현식으로 작성된 경우 할당된 참조변수만 끌어올려집니다.   
 
+
+
 1. # outerEnviromentReference
    외부 환경 참조, 환경이란 LexicalEnviroment입니다. 현재 문맥에 관련있는 외부 식별자 정보를 참조한다는 뜻입니다.
 
@@ -131,19 +133,33 @@ tag: []
    inner함수의 outerEnviromentReference는 outer의 LexcialEnviroment를 참조할 수 있지만 outer함수의 outerEnviromentReference는 inner함수의 LexcialEnviroment를 참조할 수 없습니다. 왜냐면 콜스택에 먼저 입력된 outer함수는 inner함수를 알 수 있는 어떤 정보도 없기 때문입니다. 이게 변수의 유효범위를 말하는 것이고 스코프입니다.   
 
    *shadowing   
+   
+1. # 소스 컨텍스트 저장 과정
    ```js
-      function outer(){
-         int a = 1;
+      var a = 1;
+      function outer(){       //outer함수 정의
          console.log(a);
 
-         function inner(){
-            int a = 2;
+         function inner(){    //inner함수 정의
             console.log(a);
+            var a = 3;
          }
+
+         inner();             //inner함수 호출
+         console.log(a);
       }
 
-      int a = 3;
-      console.log(a);
-   ```
-
+      outer();                //outer함수 호출
+   ```   
+   1)전역 Excecution Context활성화    
+   2)변수 a 선언(할당은 아님 a는 undefined)   
+   3)함수 outer 선언   
+   ------------------- 전역 컨텍스트의 enviromentRecord 수집 끝   
+   4)변수 a에 1할당   
+   5)함수 outer 호출 → OUTER Excecution Context 활성화   
+   6)"outer함수 호출"은 호출한 outer함수가 종료될 때까지 대기   
+   7)outer함수 내부의 enviromentReacord 정보 수집   
+   8)inner함수 선언문 수집   
+   ------------------- inner함수 컨텍스트의 enviromentRecord 수집 끝   
+   9)console.log(a);
 
