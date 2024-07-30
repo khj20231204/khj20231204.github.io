@@ -138,28 +138,48 @@ tag: []
    ```js
       var a = 1;
       function outer(){       //outer함수 정의
-         console.log(a);
+         console.log(a);      //---A
 
          function inner(){    //inner함수 정의
-            console.log(a);
+            console.log(a);   //---B
             var a = 3;
          }
 
          inner();             //inner함수 호출
-         console.log(a);
+         console.log(a);      //---C
       }
 
       outer();                //outer함수 호출
+      console.log(a);   
    ```   
    1)전역 Excecution Context활성화    
    2)변수 a 선언(할당은 아님 a는 undefined)   
    3)함수 outer 선언   
-   ------------------- 전역 컨텍스트의 enviromentRecord 수집 끝   
+   ------------------- 전역 context의 enviromentRecord 수집 끝   
    4)변수 a에 1할당   
-   5)함수 outer 호출 → OUTER Excecution Context 활성화   
+   5)함수 outer 호출 → outer Excecution Context 활성화   
    6)"outer함수 호출"은 호출한 outer함수가 종료될 때까지 대기   
    7)outer함수 내부의 enviromentReacord 정보 수집   
    8)inner함수 선언문 수집   
+   ------------------- outer함수 컨텍스트의 enviromentRecord 수집 끝   
+   9)console.log(a); //---A 실행   
+   변수 a를 outer context에서 탐색 → 변수 a없음 → 전역 context에서 탐색 → 1출력
+   10)inner함수 정의는 앞에서 수집했으니깐 넘어가고 inner함수 호출   
+   11)inner Excecution Context 활성화   
+   12)var a 선언   
    ------------------- inner함수 컨텍스트의 enviromentRecord 수집 끝   
-   9)console.log(a);
+   13)console.log(a); //---B 실행   
+   __변수 a가 inner Excecution Context에 선언은 돼있는데 값이 할당된 것이 아니기 때문에 undefined 발생__   
+   14)변수 a에 3할당   
+   15)inner함수에 대한 콜스택 반환, 스택에서 빠짐   
+   ------------------- inner함수 context종료   
+   16)console.log(a); //---C 실행   
+   outer 컨텍스트에서 a탐색 → 없음 → 전역 context에서 탐색 → 1출력   
+   17)outer context 종료   
+   18)전역 컨텍스트에서 a탐색 → 1출력      
+   19)프로그램 종료   
+   20)전역 context 종료
+
+
+
 
