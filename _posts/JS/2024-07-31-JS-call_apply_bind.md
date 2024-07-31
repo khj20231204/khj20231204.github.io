@@ -87,3 +87,8 @@ tag: []
      let callFunc = obj2.f.bind(obj1) //변수에 할당
      callFunc();  //변수로 호출, this : obj1
    ```
+
+1. # 한번에 예제
+   ```
+
+   ```
