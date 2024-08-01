@@ -89,6 +89,23 @@ tag: []
    ```
 
 1. # 한번에 예제
-   ```
+   ```js
+      function a(x,y,z){
+         console.log(this, x,y,z);
+      }
 
-   ```
+      var b = {
+         bb: 'bbb'
+      };
+
+      a.call(b, 1,2,3);
+      a.apply(b, [1,2,3]); //apply 배열로 인수 전달
+
+      var v = a.bind(b);   //bind생성, this연결, bind는 생성과 호출을 따로
+      v(1,2,3);            //bind호출
+
+      var v2 = a.bind(b,1,2); //bind 일부 인수 고정
+      v2(3);
+   ```   
+
+
