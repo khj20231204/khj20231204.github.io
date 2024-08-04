@@ -7,6 +7,8 @@ tag: []
  
 1. # callback
    다른 함수의 매개변수로 전달되는 함수를 의미합니다. 즉, 함수를 데이터처럼 취급하여 다른 함수에게 넘겨주는 것이죠. 이렇게 전달된 함수는 특정 조건이나 이벤트가 발생했을 때 호출되어 원하는 작업을 수행하도록 설계됩니다.   
+
+   콜백함수를 데이터처럼 매개변수로 넘겨주면 그것을 받는 함수에서 제어권을 위임받아 콜백함수를 실행하는 시점, this값 등을 알아서 처리하고 결과를 리턴하게됩니다. 이를 제어권 위임이라고 합니다. 콜백함수의 제어권을 처리하는 함수에게 위임하는 것입니다.     
   
    제어권 위임: 자신을 제어할 수 있는 권한을 다른 객체에 넘기는 것을 말합니다.   
    
@@ -43,9 +45,36 @@ tag: []
    forEach(function(v,i,a))에서 v,i,a의 순서가 매개변수의 위임이 됩니다. 순서를 임의대로 변경할 수 없기 때문입니다.   
 
    3)this 위임
-   ```
-      
-   ```
+   ```js
+      document.body.innerHTML = '<div id="a">click here!</div>';
+      document.getElementById('a').addEventListener('click',func);
+
+      function func(x){
+         console.log(this,x);
+      }
+
+     결과 값:
+     <div id='a'>click here!</div>
+     PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+     isTrusted : true
+     ...
+   ```   
+   this는 eventTarget으로하고, 콜백함수의 첫번째 인자에는 event객체를 넘겨주도록 정해져 있습니다.    
+
+   this가 원래는 id가 a인 div element였는데, this를 다른 객체로 바인딩시켜보겠습니다.   
+
+   ```js
+      var obj = {
+         name : 'john',
+         age : 22
+      }
+
+      document.body.innerHTML = '<div id="a">click here!</div>';
+      document.getElementById('a').addEventListener('click',func.bind(obj));
+
+      function func(x){
+         console.log(this,x);
+      }
 
 1. # 
 
