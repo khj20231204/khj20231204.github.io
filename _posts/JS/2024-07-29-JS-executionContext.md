@@ -43,14 +43,17 @@ tag: []
       outer();
    ```   
    1)전역공간 실행 컨텍스트가 열림   
-   2)outer()함수 호출
-   3)inner()함수 호출
+   2)outer()함수 호출   
+   3)inner()함수 호출   
    4)inner()함수 빠져나옴   
    5)outer()함수 빠져나옴   
    6)전연공간 빠져나옴   
 
    콜스택?   
    현재 어떤 함수가 동작중인지, 다음에 어떤 함수가 호출될 예정인지 등을 제어하는 자료구조   
+
+   
+1. # LexicalEnviroment
 
    실행 컨텍스트에는 세 가지 환경 정보가 있습니다.   
    VariableEnviroment : 식별자 정보 수집    
@@ -61,6 +64,8 @@ tag: []
    VariableEnviroment는 실시간 변화 반영X   
    LexicalEnviroment는 실시간 변화 반영O  
    VariableEnviroment와 LexicalEnviroment의 차이는 실시간 반영 여부만 있습니다.   
+
+   __실행 컨텍스트가 실행을 하는데 필요한 환경정보를 담고 있는 것이 LexicalEnviroment입니다. LexicalEnviroment의 값에 따라 실행 컨텍스트가 실행이 됩니다.   
 
    LexicalEnviroment는 어휘적 환경, 사전적인 환경이라고 합니다.   
    
@@ -73,6 +78,7 @@ tag: []
    LexicalEnviroment   
    1)enviromentRecord : 현재 문맥의 식별자 정보 저장   
    2)outerEnviromentReference : 외부 문맥의 식별자 정보 저장    
+
 
 1. # enviromentRecord
    현재 컨텍스트 식별자 정보를 수집해서 enviromentRecord에 담는 과정이 __호이스팅__ 입니다.   
@@ -103,9 +109,7 @@ tag: []
          c : undefined
       }
    ```   
-   함수정의 선언된 1)만 함수 전체가 끌어올려지고 2),3) 함수 표현식으로 작성된 경우 할당된 참조변수만 끌어올려집니다.   
-
-
+   함수정의로 선언된 1)만 함수 전체가 끌어올려지고 2),3) 함수 표현식으로 작성된 경우 할당된 참조변수만 끌어올려집니다.   
 
 1. # outerEnviromentReference
    외부 환경 참조, 환경이란 LexicalEnviroment입니다. 현재 문맥에 관련있는 외부 식별자 정보를 참조한다는 뜻입니다.
