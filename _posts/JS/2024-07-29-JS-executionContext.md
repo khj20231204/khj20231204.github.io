@@ -81,14 +81,13 @@ tag: []
 
 1. # LexicalEnviroment예제
    ```js
-      //중첩 함수일 때 LexicalEnviroment가 발생한다.
        function f(){
          var a = 22;
          function g(){
             console.log(a);
          }
 
-         g(); //함수f 안에서 정의된 함수g
+         g(); //함수f 안에서 정의된 함수g는 f의 LexicalEnviroment에 접근할 수 있습니다.
       }
 
      //------------------ 

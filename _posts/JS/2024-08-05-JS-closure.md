@@ -5,24 +5,27 @@ categories: JS
 tag: []
 ---
  
-1. # 클로저
+1. # 클로져
    함수가 생성되면서 만들어지는 렉시컬환경과 그 함수와의 결합, 조합입니다. 함수가 생성될 당시의 변수 환경을 기억하고, 그 환경에 접근할 수 있는 특별한 객체입니다.   
 
-   "둘러쌓인 LexicalEnviroment의 참조"   
-   "lexcialEnviroment와 내부함수의 조합"   
+   ```
+      lexcialEnviroment와 내부함수의 조합
+   ```
 
    실행 컨텍스트A 내부에서 함수B를 선언한 경우   
    :A의'LexicalEnviroment'와 함수B의 조합에서 나타나는 특별한 현상 => 클로져   
 
-   컨텍스트 A에서  선언한 변수를 내부함수 B에서 참조할 경우에 발생하는 특별한 현상   
-   컨텍스트 A에서 선어한 변수 a를 참조하는 내부함수 B를 A의 외부로 전달할 경우, A가 종료된 이후에도 사라지지 않는 연상.   
+   클로져를 이용하여 지역변수가 함수 종료 후에도 메모리를 계속 차지하여 함수 종료 후에도 사라지지 않는 지역변수를 만들 수 있습니다. 함수 생성시 자동으로 생성되는 개념이지만 클로져의 사용은 특별한 경우에 활용을 하게됩니다.   
 
-   클로져란 함수 생성시 자동으로 생성되는 개념이지만 클로져의 사용은 특별한 경우에 활용을 하게 됩니다.
+   ```js
+      function A(){};
+      var v = A();   //A함수 호출로 return값을 받게 됩니다.
+      var v = A;     //A함수 자체로 참조값이 변수v에 입력됩니다.
+   ```   
+   A() : 함수 리턴값   
+   A : 함수A 자체   
 
-   지역변수가 함수 종료 후에도 메모리를 계속 차지하게 할 수 있습니다.
-
-   함수 종료 후에도 사라지지 않는 지역변수를 만들 수 있다
-
+   클로져 예제)   
    ```js
       function A() {
          function B() {
@@ -38,79 +41,50 @@ tag: []
       v(); //함수 B호출
    ```
 
+1. # 결과값을 리턴과 함수 자체를 대입
+   ```js
+      function makeCounter(){
+         var count = 0;
 
-1. # var v = func();
+         return f; //함수f 자체
 
-답안 표시
+         function f(){
+            return count++;
+         }
+      }
 
+      var counter = makeCounter(); //호출 결과 return값, 함수f 자체를 리턴
+      var counter2 = makeCounter; //함수makeCounter자체를 참조
+      
+      console.log(counter()); //makeCounter()함수의 호출 결과값 함수f를 호출
+      //0
 
-자바스크립트에서 var v = func(); 문장 분석
-이 문장은 다음과 같은 의미를 가집니다:
+      console.log(counter()); 
+      //1
 
-var v: 변수 v를 선언합니다.
-func(): 함수 func를 호출하고, 그 결과값을 변수 v에 할당합니다.
-더 자세한 설명
-변수 선언: var 키워드는 ES5에서 사용되는 변수 선언 방식입니다. ES6부터는 let이나 const를 사용하는 것이 일반적입니다.
-함수 호출: func()는 함수 func를 실행하는 것을 의미합니다. 함수 func는 미리 정의된 함수여야 합니다.
-값 할당: func() 함수가 반환하는 값은 변수 v에 저장됩니다. 함수가 값을 반환하지 않으면 undefined가 할당됩니다.
-예시
-JavaScript
-function greet(name) {
-  return "Hello, " + name + "!";
-}
+      console.log(counter);   //makeCounter()호출한 결과 값으로 받은 함수f 자체
+      /*
+      ƒ f(){
+            return count++;
+         }
+      */
 
-var greeting = greet("Alice");
-console.log(greeting); // 출력: Hello, Alice!
-코드를 사용할 때는 주의가 필요합니다.
+      console.log(counter2()); //makeCounter함수 자체를 변수 counter2에 대입, counter2호출
+      /*
+      ƒ f(){
+            return count++;
+         }
+      */
 
-위 예시에서:
+      console.log(counter2);  //makeConter함수 자체 출력
+      /*
+      ƒ makeCounter(){
+         var count = 0;
 
-greet 함수는 인사말을 만들어 반환하는 함수입니다.
-greeting 변수에 greet("Alice") 함수 호출 결과가 저장됩니다.
-console.log를 통해 greeting 변수의 값을 확인합니다.
-중요한 점
-함수 func의 정의: func()를 사용하기 전에 반드시 func 함수가 정의되어 있어야 합니다.
-반환값: func 함수가 반환하는 값의 자료형에 따라 변수 v의 자료형도 결정됩니다.
-변수 범위: var로 선언된 변수는 함수 내부에서 선언하더라도 함수 외부에서도 접근할 수 있는 전역 변수가 됩니다. let이나 const를 사용하면 블록 레벨 스코프를 가질 수 있습니다.
-요약
-var v = func(); 문장은 함수를 호출하여 그 결과를 변수에 저장하는 간단한 할당 연산입니다. 자바스크립트 프로그래밍에서 함수를 사용하여 데이터를 처리하고 변수에 저장하는 기본적인 패턴입니다.
+         return f; 
 
-1. # var v = func;
-자바스크립트에서 var v = func; 문장 분석
-이 문장은 변수 v에 함수 func 자체를 할당하는 것을 의미합니다.
-
-자세한 설명
-변수 선언: var v는 변수 v를 선언합니다.
-함수 할당: = func는 함수 func를 변수 v에 할당합니다. 즉, v는 더 이상 일반적인 값을 저장하는 변수가 아니라, 함수를 가리키는 함수 참조가 됩니다.
-예시
-JavaScript
-function greet(name) {
-  return "Hello, " + name + "!";
-}
-
-var sayHello = greet; // greet 함수를 sayHello 변수에 할당
-
-console.log(sayHello("Alice")); // 출력: Hello, Alice!
-코드를 사용할 때는 주의가 필요합니다.
-
-위 예시에서:
-
-greet 함수는 인사말을 만들어 반환하는 함수입니다.
-sayHello 변수에 greet 함수를 할당합니다. 이제 sayHello는 greet 함수와 동일한 기능을 수행합니다.
-console.log(sayHello("Alice"))는 greet("Alice")와 같은 결과를 출력합니다.
-왜 함수를 변수에 할당할까요?
-함수를 값처럼 다루기: 함수를 변수에 할당하면 함수를 다른 변수에 전달하거나, 배열에 저장하는 등 함수를 값처럼 다룰 수 있습니다.
-고차 함수: 다른 함수를 인자로 받거나, 함수를 반환하는 함수를 고차 함수라고 합니다. 함수를 변수에 할당해야 고차 함수를 사용할 수 있습니다.
-콜백 함수: 비동기 처리 등에서 다른 함수의 실행이 끝난 후 호출될 함수를 콜백 함수라고 합니다. 콜백 함수 역시 함수를 변수에 할당하여 사용합니다.
-중요한 점
-함수 표현식: 함수를 변수에 할당할 때는 일반적으로 함수 표현식을 사용합니다. 함수 선언과 함수 표현식의 차이점은 호이스팅 여부입니다.
-this 바인딩: 함수를 변수에 할당하면 this 바인딩이 달라질 수 있습니다.
-화살표 함수: ES6부터 도입된 화살표 함수는 암시적인 this 바인딩을 가지므로, this를 사용할 때 주의해야 합니다.
-요약
-var v = func; 문장은 함수를 변수에 할당하여 함수를 값처럼 다루는 방법입니다. 이는 자바스크립트의 함수형 프로그래밍을 이해하는 데 중요한 개념입니다.
-
-추가 질문
-함수 표현식과 함수 선언의 차이점이 궁금하신가요?
-고차 함수, 콜백 함수에 대해 더 알고 싶으신가요?
-this 바인딩과 관련된 내용이 궁금하신가요?
-어떤 질문이든 편하게 해주세요.
+         function f(){
+            return count++;
+         }
+      }*/
+   ```
