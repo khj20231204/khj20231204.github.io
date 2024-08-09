@@ -10,7 +10,7 @@ tag: [cross, 레코드 수 문제]
 
    ```sql
       DECLARE
-         
+   
          --커서 선언
          CURSOR cursor_name IS statement,       -- 1)
 
@@ -80,3 +80,87 @@ tag: [cross, 레코드 수 문제]
    CLOSE문장은 CURSOR를 사용할 수 없게 하고 결과 셋의 정의를 해제합니다. SELECT문장이 다 처리된 완성 후에는 CURSOR를 닫습니다.
 
 1. # 커서 예제
+   ```SQL
+      CREATE OR REPLACE PROCEDURE CURSOR_SAMPLE01
+      IS
+         VDEPT DEPT%ROWTYPE;         -- 로컬변수
+         
+         CURSOR C1                   -- 커서 선언
+         IS
+         SELECT * FROM DEPT;
+      BEGIN
+         DBMS_OUTPUT.PUT_LINE('부서번호  /  부서명  /  지역명');
+         DBMS_OUTPUT.PUT_LINE('---------------------------');
+
+         OPEN C1;        -- 커서 열기(첫번째 데이터를 가져온다.)
+         LOOP    
+            FETCH C1 INTO VDEPT.DEPTNO, VDEPT.DNAME, VDEPT.LOC; --인출
+                  EXIT WHEN C1%NOTFOUND; --커서가 가져올 데이터가 없을때 true
+            DBMS_OUTPUT.PUT_LINE(VDEPT.DEPTNO||'/'||VDEPT.DNAME||'/'||VDEPT.LOC);        
+         END LOOP;
+         CLOSE C1;       -- 커서 닫기    
+      END;
+
+      EXECUTE CURSOR_SAMPLE01;
+   ```   
+
+   OPEN ~ FETCH ~ CLOSE 없이 FOR LOOP로 처리    
+   ```SQL
+      -- Q2. 부서 테이블의 모든 데이터를 출력하는 PL/SQL문 작성
+      -- FOR LOOP문으로 처리
+      -- 1. OPEN ~ FETCH ~ CLOSE 없이 처리할 수 있다.
+      -- 2. FOR LOOP문을 사용하게 되면, 각 반복문마다 CURSOR를 열고 
+      -- 각 행을 인출(FETCH)하고, CURSOR를 닫는 작업을 자동으로 처리
+
+      CREATE OR REPLACE PROCEDURE CURSOR_SAMPLE02
+      IS
+         VDEPT DEPT%ROWTYPE; --로컬 변수생성
+         
+         CURSOR C1
+         IS 
+         SELECT * FROM DEPT;
+      BEGIN
+         dbms_output.put_line('부서번호  /  부서명  /  지역명');
+         dbms_output.put_line('---------------------------');
+
+         FOR VDEPT IN C1 LOOP
+            EXIT WHEN C1%NOTFOUND;
+            dbms_output.put_line(vdept.deptno||'/'||vdept.dname||'/'||vdept.loc);        
+         END LOOP;
+      END;
+
+      -- 2.저장 프로시저 목록 확인
+      SELECT * FROM USER_SOURCE;
+
+      -- 3.프로시저 실행
+      EXECUTE CURSOR_SAMPLE02;
+   ```   
+
+   ```SQL
+      -- Q3.사원테이블에서 부서번호를 전달하여 해당 부서에 소속된 사원의 정보를 출력하는 프로시저를 커서를 이용하여 처리하라
+      -- 1.저장 프로시저 생성
+      CREATE OR REPLACE PROCEDURE INFO_EMP(VDEPTNO IN EMP.DEPTNO%TYPE)
+      IS
+         VEMP EMP%ROWTYPE;
+         
+         CURSOR C1
+         IS
+         SELECT * FROM EMP WHERE DEPTNO = VDEPTNO;
+      BEGIN
+         dbms_output.put_line('부서번호 / 사원번호 / 사원명 / 직급 / 급여');
+         dbms_output.put_line('----------------------------------------');
+         
+         FOR VEMP IN C1 LOOP
+            EXIT WHEN C1%NOTFOUND;
+            dbms_output.put_line(VEMP.DEPTNO ||'/'|| VEMP.EMPNO ||'/'|| VEMP.ENAME ||'/'|| VEMP.JOB || '/' || VEMP.SAL);
+         END LOOP;
+      END;
+
+      -- 2.목록 확인
+      SELECT * FROM USER_SOURCE;
+
+      -- 3.프로시저 실행
+      EXECUTE INFO_EMP(10);
+      EXECUTE INFO_EMP(20);
+      EXECUTE INFO_EMP(30);
+   ```

@@ -1,30 +1,86 @@
 ---
 layout: single
-title: PL / SQL
+title: 패키지와 트리거
 categories: SQL
 tag: [PL SQL]
 ---
 
-1. # 사용자 정의 함수(User Defined Function)
-   - Procedure처럼 절차형 SQL을 로직과 함께 저장한 명령문의 집합   
-      -내장 함수(Built-in Function) : 벤더에 의해 정의된 함수   
-   - Procedure와 달리 __반드시 수행 결과값을 Return__ 해야 함   
-   *Procedure는 매개변수로 받아온 OUT으로 선언한 변수에 return값을 넘기는데, 사용자 정의 함수는 RETURN으로 반드시 결과 값을 리턴해야합니다.
-   
-   ```
-      CREATE OR REPLACE FUNCTION util_abs(v_input IN NUMBER) RETURN NUMBER /* 프로시저는 OUT변수 사용, 사용자 정의 함수는 RETURN을 사용 */
+1. # 패키지
+   패키지 사전적인 의미는 꾸러미입니다. 관련 있는 프로시저를 보다 효율적으로 관리하기 위해서 패키지 단위로 배포할 때 유용하게 사용됩니다. 패지키는 패키지 선언(명세부)과 패키지 몸체 선언(몸체부) 두 가지 모두를 정의해야 합니다.   
+
+   문법   
+   ```SQL
+      CREATE OR REPLACE PACKAGE 패키지명
       IS
-         v_return NUMBER := 0;
-      BEGIN
-         IF v_input < 0 THEN
-            v_return := v_input * (-1);
-         ELSE
-            v_return := v_input;
-         END IF
-      RETURN v_return;
+         함수나 프로시저 선언
       END;
-      /
+
+      CREATE OR REPLACE PACKAGE BODY 패키지명
+      IS
+         함수나 프로시저 정의
+      END;
    ```   
+
+   ```SQL
+      -- 패키지(PACKAGE):저장 프로시저와 저장 함수를 묶어 놓은 것.
+      -- 패키지 = 패키지 헤드 + 패키지 바디
+
+      -- 패키지 생성
+      -- 1. 패키지 헤드 생성
+      CREATE OR REPLACE PACKAGE EXAM_PACK
+      IS
+         FUNCTION CAL_BONUS(VEMPNO IN EMP.EMPNO%TYPE)    -- 저장함수
+         RETURN NUMBER;
+         PROCEDURE CURSOR_SAMPLE02;
+      END;
+      -- 2. 패키지 바디 생성
+      CREATE OR REPLACE PACKAGE BODY EXAM_PACK
+      IS 
+         -- 저장함수 : CAL_BONUS
+         function cal_bonus(vempno in emp.empno%type)
+            return number                  -- 돌려줄 값의 자료형
+         is
+            vsal number(7,2);              -- 로컬변수
+         begin
+            select sal into vsal from emp where empno = vempno;
+            return vsal * 2;              -- 200% 인상한 급여를 돌려준다. 
+         end;
+         
+         -- 저장 프로시져 : CURSOR_SAMPLE02
+         PROCEDURE CURSOR_SAMPLE02
+         IS
+            VDEPT DEPT%ROWTYPE; --로컬 변수생성 
+            CURSOR C1
+            IS 
+            SELECT * FROM DEPT;
+         BEGIN
+            dbms_output.put_line('부서번호  /  부서명  /  지역명');
+            dbms_output.put_line('---------------------------');
+            FOR VDEPT IN C1 LOOP
+                  EXIT WHEN C1%NOTFOUND;
+                  dbms_output.put_line(vdept.deptno||'/'||vdept.dname||'/'||vdept.loc);        
+            END LOOP;
+         END;
+      END;
+
+      SELECT * FROM USER_SOURCE;
+
+      -- 3.저장 프로시져
+      EXECUTE EXAM_PACK.cursor_sample02;
+         
+      -- 4. 저장 함수 실행 : CAL_BONUS()
+      -- 1)바인드 변수 생성
+      VARIABLE VAR_RES NUMBER;
+
+      -- 2)실행
+      EXECUTE :VAR_RES := EXAM_PACK.CAL_BONUS(7788);
+
+      PRINT VAR_RES;
+
+      SELECT ENAME, EXAM_PACK.CAL_BONUS(7788) FROM EMP WHERE EMPNO=7900;
+      SELECT ENAME, EXAM_PACK.CAL_BONUS(7788) FROM EMP WHERE EMPNO=7788;
+   ```   
+
 
 1. # 트리거(Trigger)
    - DML문 수행 시, 이와 연결된 동작을 자동으로 수행하도록 작성된 프로그램   

@@ -105,7 +105,7 @@ author_profile: false
 
    1)root계정으로 접속   
    ```js
-      create databse jsptest;    //jsptest라는 데이터베이스 생성
+      create database jsptest;    //jsptest라는 데이터베이스 생성
 
       //5.7이하 버전
       grant all privileges on jsptest.* to jspid@'%' identified by 'jsppass' with grant option;

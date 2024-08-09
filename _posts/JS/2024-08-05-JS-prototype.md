@@ -32,7 +32,6 @@ tag: []
    ```   
    Object.getPrototypeOf를 사용하는 것을 공식문서에서는 추천하고 있습니다.   
    
-
    ```js
       var evens1 = new Array(1,2,3,4);  //Array 생성자 함수로 배열 생성
       var evens2 = [1,2,3,4];           //리터럴로 배열 생성
