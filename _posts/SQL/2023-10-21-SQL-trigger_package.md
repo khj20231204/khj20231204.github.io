@@ -81,11 +81,41 @@ tag: [PL SQL]
       SELECT ENAME, EXAM_PACK.CAL_BONUS(7788) FROM EMP WHERE EMPNO=7788;
    ```   
 
-
 1. # 트리거(Trigger)
-   - DML문 수행 시, 이와 연결된 동작을 자동으로 수행하도록 작성된 프로그램   
-   - 사용자가 명시적으로 호출하지 않으며, 조건이 맞으면 __자동으로 수행__ 됨    
-      -Procedure는 Execute 명령어로 실행하고, Function는 함수 이름으로 실행하지만 Trigger는 생성된 후 DML에 의해 자동으로 실행됩니다.   
+   트리거의 사전적 의미?   
+   ①(총의)방아쇠 = HIR TRIGGER   
+   ②제동기, 제륜 장치   
+   ③(연쇄 방응, 생리 현상, 일련의 사건등을 유발하는) 계기, 유인, 자극   
+
+   오라클에서 트리거 역시 해당 단어의 의미처럼 어떤 이벤트가 발생하면 자동적으로 방아쇠가 당겨져 총알이 발사되듯이 특정 테이블이 변경되면 이를 이벤트로 다른 테이블이 자동으로 변경되도록 하기 위해서 사용합니다. 트리거는 특정 동작을 이벤트로 인해서만 실행되는 프로시저의 일종입니다.   
+
+   1)트리거의 타이밍   
+   `[BEFORE]`   
+   타이밍은 어떤 테이블에 INSERT, UPDATE, DELETE문이 실행될 때 해당 문장이 __실행되기 전__ 에 트리거가 가지고 있는 BEGIN ~ END 사이의 문장을 실행합니다.   
+
+   `[AFTER]`   
+   타이밍은 INSERT, UPDATE, DELETE문이 __실행된 후__ 에 트리거가 가지고 있는 BEGIN ~ END 사이의 문장을 실행합니다.  
+
+   2)트리거의 이벤트   
+   사용자가 어떤 DML(INSERT, UPDATE, DELETE)문을 실행했을 때 트리거를 발생시킬 것인지를 결정합니다.   
+
+   3)트리거의 몸체   
+   해당 타이밍에 해당 이벤트가 발생하게 되면 실행될 기본 로직이 포함되는 부분으로 BEGIN ~ END에 기술합니다.   
+
+1. # 트리거의 유형
+   트리거의 유형은 FOR EACH ROW에 의해 문장 레벨 트리거와 행 레벨 트리거로 나눕니다.   
+   FOR EACH ROW가 생략되면 문장 레벨 트리거이고 행 레벨 트리거를 정의하고자 할 때에는 반드시 FOR EACH ROW를 기술해야 합니다.   
+
+   ```
+      FOR EACH ROW - 행 레벨 트리거   
+      FOR EACH ROW 생략 - 문장 레벨 트리거   
+   ```   
+
+   문장 레벨 트리거는 어떤 사용자가 트리거가 설정되어 있는 테이블에 대해 DML(INSERT, UPDATE, DELETE)문을 실행할 때 단 한번만 트리거를 발생시킬 때 사용합니다.   
+   행 레벨 트리거는 DML(INSERT, UPDATE, DELETE)문에 의해서 여러 개의 행이 변경된다면 각 행이 변결될 때마다 트리거를 발생시키는 방법입니다. 만약 5개의 행이 변경되면 5번 트리거가 발생됩니다.   
+   DML문 수행 시 연결된 동작을 자동으로 수행하도록 작성된 프로그램으로 사용자가 명시적으로 호출하지 않으며, 조건이 맞으면 __자동으로 수행__ 됩니다.   
+   
+   Procedure는 Execute 명령어로 실행하고, Function는 함수 이름으로 실행하지만 Trigger는 생성된 후 DML에 의해 자동으로 실행됩니다.   
    - 주로 데이터 무결성 보장을 위해 FK처럼 동작하거나, 실시간 집계성 테이블 생성에 사용됨   
    - 보안 적용, 유해하지 않은 트랜잭션 예방, 업무 규칙 적용, 감사 제공 등에서 사용   
    - OLTP 시스템에서는 부하로 인해 성능이 저하될 수 있음   
@@ -96,7 +126,7 @@ tag: [PL SQL]
    - Row Trigger와 Statement Trigger로 구분   
 
 1. # 트리거 주요 구문
-   - FOR EACH ROW
+   - FOR EACH ROW   
       -Row Trigger / Statement Trigger의 지정을 위한 구문   
       -"FOR EACH ROW" 사용 → Row Level Trigger → SQL문장의 각 행마다 Trigger 발생   
       -"FOR EACH ROW" 생략 → Statement Level Trigger → SQL 한 문장에 한 번만 Trigger 발생   
@@ -110,32 +140,118 @@ tag: [PL SQL]
       -:OLD는 문장 수행 전의 정보를 갖는 구조체      
    <img src="../../imgs/sql/trigger_new_old.png" style="boder:3px solid black;boder-radius:9px;width:500px">   
    - 변수 선언   
-      -ORDER.order_date%TYPE;
+      -ORDER.order_date%TYPE;   
       → ORDER테이블의 order_date컬럼과 동일한 타입으로 선언   
 
 1. # 트리거 생성 예
-   - 새로운 주문이 입력되면 판매 집계 테이블이 업데이트 되는 시나리오   
-   :주문이 발생하면 판매 테이블도 정보가 업데이트 돼야 하는데 이때 판매 테이블 업데이트에 트리거를 거는 예제   
+   ```SQL
+      -- 트리거(TRIGGER)
+      -- 1.트리거의 사전적인 의미는 방아쇠라는 의미를 가지고 있다
+      -- 2.트리거는 이벤트를 발생 시켜서 연쇄적으로 다른 작업을 자동으로 수행
+      -- 3.이벤트는 DML SQL문을 이용해서 이벤트를 발생시키고, 이때 연쇄적으로 실행부(BEGIN ~ END)
+      --  안의 내용을 자동으로 실행시켜준다.
 
-   → 주문 관리 테이블   
-      -ORDER: ORDER_DATE, PRODUCT, QTY, AMOUNT   
+      -- Q1.사원테이블에 사원이 등록되면, "신입 사원이 입사 했습니다."라는 메세지를 출력하는 트리거를 생성하라
 
-   → 판매 실적 관리 테이블   
-      -SALSES: SAL_DATE, PRODUCT, QTY, AMOUNT   
+      -- 1.예제로 적용할 사원 테이블 생성
+      DROP TABLE EMP01 PURGE;
+      CREATE TABLE EMP01(
+         EMPNO NUMBER(4) PRIMARY KEY,
+         ENAME VARCHAR2(20),
+         JOB VARCHAR2(20)
+      );
 
-   → 새로운 주문 입력시   
-      -ORDER 테이블에 새로운 주문 추가 => (SALES테이블 트리거 발생)   
-      -SALES 테이블 갱신 또는 추가 => (트리거 수행)   
-      :주문이 발생하면 최초 주문은 SALES테이블에 추가가 되고 이후 수량이 변경될 때마다 SALES테이블은 갱신이 됨   
-      :SALES에 해당 주문일자, 해당 상품이 있으면 → 기존 수량/금액 업데이트   
-      :예)(2020-01-01,"P01",5,250,000) → (2020-01-01,"P01",6,300,000)   
-      :SALES에 해당 주문일자, 해당 상품이 없으면 → 새 레코드 추가   
+      SELECT * FROM TAB;
 
-   ```
-      CREATE OR REPLACE TRIGGER summary_sales
-         AFTER INSERT  /* 3)INSERT 이후에 트리거를 발생 시켜라 */
-         ON ORDER  /* 1)ORDER 테이블에 대해서*/
-         FOR EACH ROW  /* 2)문장 전체가 아니라 한행 한행 각각 마다 트리거 발생하는데  */
+      -- 2.트리거 생성
+      CREATE OR REPLACE TRIGGER TRG_01
+         AFTER INSERT ON EMP01 -- EMP01 테이블에 INSERT가 된 다음에! 라는 의미 : 이벤트 발생
+      BEGIN
+         DBMS_OUTPUT.PUT_LINE('신입사원이 입사했다');
+      END;
+
+      -- 3.트리거 목록 확인
+      SELECT * FROM USER_TRIGGERS;
+
+      -- 4.이벤트 발생 : EMP01 테이블에 회원가입(데이터 입력)
+      SET SERVEROUTPUT ON
+      DESC EMP01;
+      INSERT INTO EMP01 VALUES(1,'ONE_MEMBER','SALES');
+      INSERT INTO EMP01 VALUES(2,'TWO_MEMBER','MANAGER');
+      SELECT * FROM EMP01;
+
+      -- Q2.사원테이블(EMP01)에 신입 사원이 등록되면, 급여 테이블(SAL01)에 급여를 자동으로 추가해주는 트리거를 생성하라
+
+      -- 1. 사원 테이블 : EMP01
+      DELETE FROM EMP01;
+      COMMIT;
+
+      -- 2. 급여 테이블 생성
+      CREATE TABLE SAL01(
+         SALNO NUMBER(4) PRIMARY KEY, -- 기본키(PRIMARY KEY)
+         SAL NUMBER(7,2), 
+         EMPNO NUMBER(4) REFERENCES EMP01(EMPNO)
+      );
+
+      SELECT * FROM TAB;
+
+      -- 3.시퀀스 생성
+      CREATE SEQUENCE SAL01_SALNO_SEQ;   --1부터 1씩 증가되는 시퀀스 생성
+
+      SELECT * FROM SEQ;
+      SELECT * FROM USER_SEQUENCES;
+
+      -- 4.트리거 생성
+      -- :NEW.컬럼명 : INSERT, UPDATE문을 이용해서 이벤트가 발생한 경우
+      -- :OLD.컬럼명 : DELETE문을 이용해서 이벤트가 발생한 경우
+      CREATE OR REPLACE TRIGGER TRG_02
+         AFTER INSERT ON EMP01   -- 이벤트 생성
+         FOR EACH ROW            -- 행레벨 트리거
+      BEGIN
+         INSERT INTO SAL01 VALUES(SAL01_SALNO_SEQ.NEXTVAL, 300, :NEW.EMPNO);
+      END;
+      -- EMP01에 INSERT가 일어나면 BEGIN ~ END; 구문 안에 있는 INSERT INTO ~ 를 실행
+
+      -- 5.트리거 목록 확인
+      SELECT * FROM USER_TRIGGERS;
+
+      -- 6.이벤트 발생 : EMP01 테이블에 데이터 입력
+      INSERT INTO EMP01 VALUES(1111,'홍길동','개발자');
+      INSERT INTO EMP01 VALUES(1112,'홍길순','화가');
+
+      -- 7.데이터 확인
+      SELECT * FROM EMP01;
+      SELECT * FROM SAL01;
+
+      -- Q3.사원 테이블(EMP01)에서 사원정보가 삭제되면, 급여 테이블(SAL01)의 정보를 자동으로 삭제하는 트리거를 생성
+      DELETE FROM EMP01 WHERE EMPNO=1111;
+
+      CREATE OR REPLACE TRIGGER TRG_03
+         AFTER DELETE ON EMP01   -- 이벤트 발생
+         FOR EACH ROW            -- 행레벨 트리거
+      BEGIN
+         DELETE FROM SAL01 WHERE EMPNO = :OLD.EMPNO;
+      END;
+      -- EMP01테이블에 DELETE가 발생하면 BEING ~ END; 사이에 명령어 실행
+
+      -- 2.트리거 목록 확인
+      SELECT * FROM USER_TRIGGERS;
+
+      -- 3.이벤트 발생
+      -- : 사원 테이블(EMP01)의 사원번호 1111번 사원을 삭제(탈퇴)하면, 연쇄적으로 
+      -- 급여 테이블(SAL01)의 급여 정보도 같이 삭제된다.
+      DELETE FROM EMP01 WHERE EMPNO=1111;
+
+      SELECT * FROM EMP01;
+      SELECT * FROM SAL01;
+   ```   
+
+   예제2)   
+   ```SQL
+      REATE OR REPLACE TRIGGER summary_sales
+      AFTER INSERT  /* 3)INSERT 이후에 트리거를 발생 시켜라 */
+      ON ORDER  /* 1)ORDER 테이블에 대해서*/
+      FOR EACH ROW  /* 2)문장 전체가 아니라 한행 한행 각각 마다 트리거 발생하는데  */
 
       DECLARE
          o_date ORDER.order_date%TYPE;  /* o_date변수를 선언하는데 ORDER테이블에 있는 order_date컬럼의 타입과 같은 타입으로 만듦*/
@@ -155,6 +271,5 @@ tag: [PL SQL]
             INSET INTO SALES VALUES(o_date, o_prod, :NEW.qty, :NEW.amount);
          END IF;
       END;  
-      /
+         /
    ```
-   프로시저와 함수는 생성 후 호출을 하지만 트리거는 생성만 하고 따로 호출하지 않고 자동실행됩니다.   
