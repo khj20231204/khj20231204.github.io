@@ -20,8 +20,8 @@ tag: [github, 폴더]
 
    2. ## config가 설정되어 있지 않으면 config 설정   
       ```s
-         git config --global user.name="natista"
-         git config --global user.email="natista@gmail.com"
+         git config --global user.name "natista"
+         git config --global user.email "natista@gmail.com"
       ```   
 
    2. ## ssh키 발급받기   

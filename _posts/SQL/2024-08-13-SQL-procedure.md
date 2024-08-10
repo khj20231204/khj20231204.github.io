@@ -46,61 +46,97 @@ tag: [cross, 레코드 수 문제]
 
 1. # 입출력이 없는 프로시저
    ```sql
+      -- 1.저장 프로시저 생성
       CREATE OR REPLACE PROCEDURE DEL_ALL
-      IS
+      IS 
       BEGIN
          DELETE FROM EMP01;
       END;
 
-      SELECT * FROM USER_SOURCE;    -- 프로시저 목록 확인
+      -- 2.프로시저 목록 확인
+      SELECT * FROM USER_SOURCE;
 
-      EXEC DEL_ALL;                 -- 프로시저 실행
+      -- 3.프로시저 실행
+      EXEC DEL_DALL;
+      EXECUTE DEL_DALL;
+
+      -- 4.프로시저 실행 결과 확인
+      SELECT * FROM EMP01;
+
+      -- 5.ROLLBACK;
+      ROLLBACK;
+
+      SET AUTOCOMMIT OFF
+
+      -- 6.테이블에 데이터 입력
+      INSERT INTO EMP01 SELECT * FROM EMP;
    ```   
 
 1. # 입력이 있는 프로시저
    ```SQL      
-      CREATE OR REPLACE PROCEDURE DEL_NAME(VNAME IN EMP01.ENAME%TYPE)
+      -- 매개변수가 있는 프로시저
+      -- 매개변수의 MODE값 
+      -- IN : 매개변수로 값을 받는 역할
+      -- OUT : 매개변수로 값을 돌려주는 역할
+
+      -- 1. 매개변수가 있는 프로시저 생성
+      CREATE OR REPLACE PROCEDURE DEL_ENAME(VENAME IN EMP01.ENAME%TYPE)
       IS
       BEGIN
-         DELETE FROM EMP01 WHERE ENAME = VNAME;
+         DELETE FROM EMP01 WHERE ENAME = VENAME;
       END;
 
-      SELECT * FROM USER_SOURCE;    -- 프로시저 목록 확인
+      -- 2.프로시저 목록 확인
+      SELECT * FROM USER_SOURCE;
 
-      EXEC DEL_NAME('SCOTT');       -- 프로시저 실행
+      -- 3.프로시저 실행
+      EXEC DEL_ENAME('SCOTT');
+      EXECUTE DEL_ENAME('SMITH');
+
+      -- 4.목록 확인
+      SELECT * FROM EMP01;
+
+      -- 5.ROLLBACK
+      ROLLBACK;
    ```
 
 1. # 입출력이 있는 프로시저
    예1)   
    ```SQL
-      --1. 프로시저 생성
-      create or replace procedure sal_empno(
-         vempno in emp.empno%type,       --사원번호
-         vename out emp.ename%type,      --사원명
-         vsal out emp.sal%type,          --급여
-         vjob out emp.job%type)          --직책
-      is
-      begin
-         select ename, sal, job into vename, vsal, vjob from emp
-            where empno = vempno;
-      end;
+      -- 매개변수의 MODE가 IN, OUT으로 되어있는 프로시저 생성
+      -- IN : 매개변수로 값을 받는 역할
+      -- OUT : 매개변수로 값을 돌려주는 역할
 
-      --2.프로시저 목록 확인
-      select * from user_source;
+      -- Q.프로시저의 매개변수에 사원번호를 전달해서 그 사원의 사원명, 급여, 직책을 구하는 프로시저
+      SELECT * FROM EMP01;
+      CREATE OR REPLACE PROCEDURE SAL_EMPNO(
+         VEMPNO IN EMP01.EMPNO%TYPE,  --사원번호
+         VENAME OUT EMP01.ENAME%TYPE, --사원명
+         VSAL OUT EMP01.SAL%TYPE,     --급여
+         VJOB OUT EMP01.JOB%TYPE      --직책
+         )
+      IS
+      BEGIN
+         SELECT ENAME, SAL, JOB INTO VENAME, VSAL, VJOB FROM EMP01 
+         WHERE EMPNO = VEMPNO;
+      END;
 
-      --3. 바인드 변수 : 프로시저를 실행할때 결과를 돌려받는 변수
-      variable var_ename varchar2(12);
-      variable var_sal number;
-      variable var_job varchar2(10);
+      -- 2.프로시저 확인
+      SELECT * FROM USER_SOURCE;
 
-      --4. 프로시저 실행
-      execute sal_empno(7788, :var_ename, :var_sal, :var_job);
-      execute sal_empno(7839, :var_ename, :var_sal, :var_job);
+      -- 3.바인드 변수 : 프로시저를 실행할 때 결과를 돌려받는 변수
+      VARIABLE VAR_ENAME VARCHAR2(12);
+      VARIABLE VAR_SAL NUMBER;
+      VARIABLE VAR_JOB VARCHAR2(10);
 
-      --5. 바인드 변수로 돌려받은 값을 출력
-      print var_ename;
-      print var_sal;
-      print var_job;
+      -- 4.프로시저 실행
+      EXECUTE SAL_EMPNO(7788, :VAR_ENAME, :VAR_SAL, :VAR_JOB);
+      EXECUTE SAL_EMPNO(7839, :VAR_ENAME, :VAR_SAL, :VAR_JOB);
+
+      -- 5.바인드 변수로 돌려받은 값을 출력
+      PRINT VAR_ENAME;
+      PRINT VAR_SAL;
+      PRINT VAR_JOB;
    ```   
    프로시저를 생성하고 출력을 받을 변수를 생성합니다. 줄력 받을 변수는   
    ```s
