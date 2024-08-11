@@ -18,6 +18,13 @@ tag: []
    </p>
    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
+   *색 표현 법
+   ```js
+      document.body.style.backgroundColor = "green"         //문자입력
+      document.body.style.backgroundColor = "#0077F0"       //16진수 
+      document.body.style.backgroundColor = "rgb(0,123,0")  //10진수
+   ```
+
 1. # 텍스트
    텍스트 프로퍼티   
    text-indent : length | percentage - 들여쓰기   
