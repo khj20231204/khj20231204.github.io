@@ -28,6 +28,10 @@ sidebar_category_list:
         url: /java(lesson)
       - title: "SQL(Lesson)"
         url: /sql(lesson)
+      - title: "HTML&CSS(Lesson)"
+        url: /htmlcss(lesson)
+      - title: "REACT(Lesson)"
+        url: /react(lesson)
   - title: "프로그래밍"
     children:
       - title: "SQL" 
