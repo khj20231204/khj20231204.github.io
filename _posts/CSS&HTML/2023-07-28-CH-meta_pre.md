@@ -5,8 +5,6 @@ categories: CSS&HTML
 tag: []
 ---
 
-
-
 1. # pre
    탭과 줄바꿈이 브라우저에 그대로 노출      
 

@@ -103,9 +103,15 @@ tag: []
    myid2처럼 한 요소에 한 개의 id가 와야 합니다.   
    id가 class보다 우선순위가 높기 때문에 "ID와 Class의 우선순위"가 해당 하는 요소에 firstId가 secondClass보다 스타일 시트가 먼저 적용이 되었습니다.   
 
-1. # 셀렉터 조합하기
+1. # 고급 셀렉터
+   1)연결 선택자 : 둘 이상의 선택자를 연결해서 적용될 요소 지정      
+   2)가장 클래스와 가상 요소   
+   가상 클래스는 클래스 이름 앞에 콜론(:)을 1개만 붙여 표시하는 방식   
+   가상 요소는 클래스 앞에 콜론을 2개(::)를 붙여 표시하는 방식   
+
+1. # 연결 선택자  
    - 자식 셀렉터   
-   부모와 자식 관계에 있는 두 셀렉터를 > 로 조합한 관계입니다. 부모 바로 아래에 있는 요소가 해당 됩니다.
+   부모와 자식 관계에 있는 두 셀렉터를 > 로 조합한 관계입니다. 부모 바로 아래에 있는 요소가 해당 됩니다.   
 
    - 자손 셀렉터   
    부모와 자손의 관계는 부모와 자손을 나란히 나열하면 됩니다. 부모 아래에 있는 모든 셀렉터에 해당 됩니다.   
@@ -118,10 +124,39 @@ tag: []
    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
       
    첫번째가 div의 자식이 되고, 두번째와 세번째는 div의 자손이 되므로 div style1로 자손들에 스타일 시트를 먼저 적용 후 "div > style1"로 자식에게만 적용하여 "첫번째" 요소만 빨간색이 되었습니다.   
-   두번째, 세번째, 네번째가 전부 파란색 글씨가 적용되었습니다. 깊이는 상관없이 자식들은 그 이하의 모든 요소들이 포함됩니다.
+   두번째, 세번째, 네번째가 전부 파란색 글씨가 적용되었습니다. 깊이는 상관없이 자식들은 그 이하의 모든 요소들이 포함됩니다.   
+
+1. # 인접 형제 선택자와 형제 선택자   
+   형제 요소 중에서 첫 번째 동생 요소만 선택하는 것을 __인접 형제 선택자__ 라고 합니다. 요소1과 요소2 사이에 '+' 기호를 표시하니다.   
+   ```cs
+      h1 + p {color:blue;}
+   ```   
+   h1의 첫번째 형제가 p이면 적용   
+
+   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="GRbOrNL" data-pen-title="Untitled" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <span>See the Pen <a href="https://codepen.io/khj99/pen/GRbOrNL">
+   Untitled</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
+   on <a href="https://codepen.io">CodePen</a>.</span>
+   </p>
+   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+   h1 다음 바로 span이 왔기 때문에 color:red가 적용되었습니다. p 다음 h2가 아니라 div가 왔기 때문에 color:blue는 적용되지 않았습니다.   
+
+   모든 형제 요소에 적용   
+   인접 형제 선택자와는 달리 모든 형제 요소에 적용되는 경우를 __형제 선택자__ 라고 합니다. 요소1과 요소2 사이에 `~`를 사용합니다.   
+   ```cs
+      h1 ~ p {color:blue;}
+   ```   
+
+   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="rNEYjdY" data-pen-title="sibling2_selector" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <span>See the Pen <a href="https://codepen.io/khj99/pen/rNEYjdY">
+   sibling2_selector</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
+   on <a href="https://codepen.io">CodePen</a>.</span>
+   </p>
+   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 1. # 가상 클래스 셀렉터   
-   어떤 상황이 발생됐을 때 적용되도록 CSS3 표준에 만들어진 셀렉터입니다.   
+   사용자가 웹 요소를 클릭하거나 마우스 포인터를 올려놓는 등 특정 동작을 할 때 스타일이 바뀌도록 만들 때 사용합니다.
 
    <table>
       <tr>
@@ -176,6 +211,7 @@ tag: []
       </tr>
    </table>
    
+   예제1)   
    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LYvWdPW" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
    <span>See the Pen <a href="https://codepen.io/khj99/pen/LYvWdPW">
    ch04.selecter_pseudoClass</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
@@ -183,12 +219,20 @@ tag: []
    </p>
    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
       
+   예제2)   
+   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="qBzVRQQ" data-pen-title="navi" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <span>See the Pen <a href="https://codepen.io/khj99/pen/qBzVRQQ">
+   navi</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
+   on <a href="https://codepen.io">CodePen</a>.</span>
+   </p>
+   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
 1. # 그 외 셀렉터   
    1)전체 셀렉터   
    와일드카드 문자(*)를 사용하면 웹 페이지의 모든 html에 스타일 시트가 적용됩니다.   
-   ```css
-      * {color : green;}
-   ```   
+   
+      `*` {color : green;}
+   
    페이지의 모든 글자색이 그린색이 됩니다.   
 
    2)속성 셀렉터   
