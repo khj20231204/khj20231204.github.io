@@ -64,6 +64,9 @@ tag: [github, 폴더]
    앞 단계에서 생성한 git디렉토리가 목록으로 자동 추가 되어있습니다. 기존 프로젝트가 이 디렉토리로 옮겨지게 됩니다.   
    <img src="../../imgs/git/eclipse_repository_2.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
+   Share Project의 좀더 자세한 설명   
+   <img src="../../imgs/git/eclipse_repository_2_1.png" style="border:3px solid black;border-radius:9px;width:700px">   
+
    연동이 정상적으로 되면 프로젝트 옆에 연동된 github명과 현재 branch가 나타납니다.   
    <img src="../../imgs/git/eclipse_repository_3.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
