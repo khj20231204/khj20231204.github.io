@@ -46,6 +46,8 @@ sidebar_category_list:
         url: /css&html
       - title: "JS"
         url: /js
+      - title: "REACT"
+        url: /react
   - title: "그리고 또"
     children:
       - title: CentOS
