@@ -24,30 +24,36 @@ counts:
 sidebar_category_list:
   - title: "수업"
     children:
+      - title: "SPRING(Lesson)"
+        url: /spring(lesson)
       - title: "JAVA(Lesson)"
         url: /java(lesson)
       - title: "SQL(Lesson)"
         url: /sql(lesson)
       - title: "HTML&CSS(Lesson)"
         url: /htmlcss(lesson)
+      - title: "JS(Lesson)"
+        url: /js(lesson)
       - title: "REACT(Lesson)"
         url: /react(lesson)
   - title: "프로그래밍"
     children:
-      - title: "SQL" 
-        url: /sql
-      - title: "CODINGTEST"
-        url: /codingtest
-      - title: "DB_CODINGTEST"
-        url: /db_codingtest
+      - title: "SPRING"
+        url: /spring
       - title: "JAVA"
         url: /java
+      - title: "SQL" 
+        url: /sql
       - title: "CSS&HTML"
         url: /css&html
       - title: "JS"
         url: /js
       - title: "REACT"
         url: /react
+      - title: "CODINGTEST"
+        url: /codingtest
+      - title: "DB_CODINGTEST"
+        url: /db_codingtest
   - title: "그리고 또"
     children:
       - title: CentOS

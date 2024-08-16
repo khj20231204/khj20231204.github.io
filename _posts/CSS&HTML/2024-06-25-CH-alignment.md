@@ -5,6 +5,23 @@ categories: CSS&HTML
 tag: []
 ---
 
+1. # 가운데 정렬
+
+   가운데 정렬을 하기 위해서 
+   ```cs
+      margin: 0 auto;
+   ```   
+   를해야 하는데, margin: 0 auto를 사용하기 위해서 __width를 설정__ 해야 합니다.   
+
+   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="poXpKYX" data-pen-title="marginauto" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <span>See the Pen <a href="https://codepen.io/khj99/pen/poXpKYX">
+   marginauto</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
+   on <a href="https://codepen.io">CodePen</a>.</span>
+   </p>
+   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+   content1은 width가 없기 때문에 그냥 길게 글자가 나열되었고, content2는 가운데 정렬이 되었습니다.   
+
 1. # 가로 정렬
    ul li를 사용할 때 세로 정렬이 기본이 되는데 가로 정렬을 하는 방법입니다.   
 
