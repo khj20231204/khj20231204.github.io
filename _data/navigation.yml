@@ -72,17 +72,17 @@ sidebar_category_list:
         url: /jekyllblog
       - title: Interview
         url: /interview
-  - title: "영어"
-    children:
-      - title: "LISTEN" 
-        url: /listen
-      - title: "READING"
-        url: /reading
-      - title: "SUMMARY"
-        url: /summary
-      - title: "WORD"
-        url: /word
 
+  # - title: "영어"
+  #   children:
+  #     - title: "LISTEN" 
+  #       url: /listen
+  #     - title: "READING"
+  #       url: /reading
+  #     - title: "SUMMARY"
+  #       url: /summary
+  #     - title: "WORD"
+  #       url: /word
 
 # 파일이름은 상관없다
 # 실행되면 navigation.yml에서 docs를 참조하는데 
