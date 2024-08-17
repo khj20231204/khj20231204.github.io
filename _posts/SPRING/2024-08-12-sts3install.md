@@ -42,3 +42,30 @@ author_profile: false
    ex)C:\Users\user\Documents\workspace-sts-3.9.18.RELEASE\.metadata\.plugins\org.springsource.ide.eclipse.commons.content.core   
    해당 경로에 https-content.xml을 넣습니다.   
 
+   이제 Spring MVC Project 메뉴가 보이면 클릭을 하고,   
+   제일 상단에 Project name을 입력하고 Next버튼을 누릅니다.   
+
+   만약 
+   <img src="../../imgs/spring/sts3_install_7.png" style="border:3px solid block;border-radius:9px;width:600px">   
+   다음과 같은 error가 발생한다면 jdk11로 버전을 맞춰줘야 합니다. sts3과 jdk11이 호환되기 때문입니다.   
+
+   cmd창에서 자바 버전을 확인해 봅니다.   
+   ```
+     C:\Users\natis>java -version
+      java version "11.0.23" 2024-04-16 LTS
+      Java(TM) SE Runtime Environment 18.9 (build 11.0.23+7-LTS-222)
+      Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.23+7-LTS-222, mixed mode)
+   ```   
+   다음과 같이 11버전이 아니라면 jdk11을 설치해야 합니다.   
+   <a href="https://www.oracle.com/kr/java/technologies/javase/jdk11-archive-downloads.html">https://www.oracle.com/kr/java/technologies/javase/jdk11-archive-downloads.html</a>   
+   해당 경로로가서 jdk11을 다운 받습니다.   
+
+   jdk11을 설치하면 해당 경로에 설치가 됩니다.   
+   ```
+      C:\Program Files\Java\jdk-11.0.15.1\
+   ```   
+
+   프로젝트 생성 후 느낌표가 나타나면 Build path에서 C:\Program Files\Java\jdk-11\lib경로의 jrt-fs.jar을 첨부합니다.   
+   <img src="../../imgs/spring/sts3_install_8.png" style="border:3px solid block;border-radius:9px;width:600px">   
+
+
