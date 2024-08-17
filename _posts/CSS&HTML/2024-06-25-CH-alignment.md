@@ -22,6 +22,68 @@ tag: []
 
    content1은 width가 없기 때문에 그냥 길게 글자가 나열되었고, content2는 가운데 정렬이 되었습니다.   
 
+   또 다른 방법으로 flex와 align-item을 이용하여 정렬시킬 수 있습니다.   
+   ```cs
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   ```   
+   display를 flex로 두고 flex속성인 justify-content의 속성값을 center로 두며 가로방향의 가운데에 위치하게 됩니다.   
+
+1. # 센터 정렬
+   가로, 세로의 중간 정렬 방법은 2가지가 있습니다.   
+
+   1)   
+   ```html
+      <style>
+      .container{
+        position:fixed; 
+        /*
+        child의 부모 설정으로
+        position값으로 fixed, absolut, relative 중 1개를 선택
+        */
+      }
+
+      .child {
+         width: 300px;
+         height: 100px;
+         
+         position: absolute; /* 정렬하는 태그 자신의 position을 absolute로 설정 */
+         left: 50%;
+         top: 50%;
+         margin-left: -150px; /* 자신의 넓이의 50%를 빼준다 */
+         margin-top: -50px;   /* 자신의 높이의 50%를 빼준다 */
+      }
+      </style>
+
+      <div class="container">
+            <h1 class="child">요소의 중앙 배치</h1>
+      </div>
+   ```   
+   부모를 position으로 설정하고 자신를 absolute로 설정, 넓이와 높이를 각각 1/2만큼 감소시킨 margin값을 적용합니다. 하지만 이 방법은 자신의 가로와 세로 넓이를 알아야하고 계산도 해야하기 때문에 번거롭습니다.   
+
+   2)   
+   ```html
+      <style>
+         .container {
+            position: relative; /* 부모로 설정 */
+         }
+
+         .child {
+            position: absolute; /* 자신의 위치를 absolute로 */
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+         }
+      </style>
+      
+      <div class="container">
+         <h1 class="child">요소의 중앙 배치</h1>
+      </div>
+   ```   
+   앞서 계산을 했던 방식과 다르게 transform속성을 적용하여 -50%를 해줍니다. 넓이와 높이의 계산없이 바로 적용이 가능합니다.      
+
 1. # 가로 정렬
    ul li를 사용할 때 세로 정렬이 기본이 되는데 가로 정렬을 하는 방법입니다.   
 
@@ -64,4 +126,3 @@ tag: []
 
    overflow:hidden을 float 요소의 부모에 적용하면, 부모 컨테이너의 높이가 고정되어 float 요소가 다른 요소들의 레이아웃에 미치는 영향을 최소화하고, 결과적으로 더욱 안정적인 레이아웃을 구축할 수 있습니다. 하지만 모든 경우에 overflow:hidden이 정답은 아니며, 레이아웃의 복잡성에 따라 다른 방법(flexbox, grid 등)을 사용해야 할 수도 있습니다.
 
-1. # 

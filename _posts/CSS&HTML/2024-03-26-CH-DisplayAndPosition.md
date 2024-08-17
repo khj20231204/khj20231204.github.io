@@ -102,11 +102,11 @@ tag: []
    on <a href="https://codepen.io">CodePen</a>.</span>
    </p>
    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>   
-   
-   <br>
       
 1. # 절대 배치 - absolute
-   position:absolute를 하게 되면 __부모 태그 안에서__ 상대 좌표로 이동하게 됩니다. 부모 태그를 기준으로 top, left, bottom, right 에 위치하게 됩니다. 브라우저 크기가 변해도 태그 위치는 변하지 않습니다.
+   position:absolute를 하게 되면 __부모 태그 안에서__ 상대 좌표로 이동하게 됩니다. 부모 태그를 기준으로 top, left, bottom, right 에 위치하게 됩니다. 브라우저 크기가 변해도 태그 위치는 변하지 않습니다. 부모 태그 설정은 부모로 설정하려는 태그에 position을 입력해 줘야 합니다. position값으로 static을 제외한 __relative, absolute, fixed__ 3개 모두 부모 역할을 합니다.   
+
+   absolute가 제대로 동작하지 않을 때는 부모 태그(position:relative로 설정한)에 width와 height를 설정해줍니다. 부모의 영역을 설정해줘야 absolute가 제대로 동작하는 경우도 있습니다.   
 
    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="vYMerqB" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
    <span>See the Pen <a href="https://codepen.io/khj99/pen/vYMerqB">
