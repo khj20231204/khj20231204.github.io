@@ -19,7 +19,7 @@ tag: [ICMP]
    ● IP 데이터 그램을 위한 상태 정보 질의 서비스 - 수신자, 라우터 등에 원하는 정보를 질의를 통해 확인 후 송신자에게 전달    
 
 1. # ICMP Protocol
-   <img src="../../imgs/network/icmp.png" style="border:3px solid block;border-radius:9px;width:600px">
+   <img src="../../imgs/network/icmp.png" style="border:3px solid block;border-radius:9px;width:600px">   
    <br>
    160bit ~ 191bit = 191-160+1 = 한 줄 총 32bit -> 4byte.
    <br>

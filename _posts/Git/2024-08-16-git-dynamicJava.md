@@ -20,6 +20,6 @@ tag: [github, 폴더]
    Project Explorer에 javaweb프로젝트가 생겼고 우클릭후 가장 하단에 properties속성을 선택합니다.   
    <img src="../../imgs/git/dynamic_change_4.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
-   Dynamic Web Module버전과 Java버전을 프로젝트 생성당시 설정한 값 설정합니다.   
+   Project Facets메뉴에서 Dynamic Web Module버전과 Java버전을 프로젝트 생성 당시 설정한 값으로 설정합니다.   
    오른쪽 화면에 Runtimes를 선택해서 Apache Tomcat버전을 선택하고 Apply를 누릅니다.   
    <img src="../../imgs/git/dynamic_change_5.png" style="border:3px solid black;border-radius:9px;width:600px">   
