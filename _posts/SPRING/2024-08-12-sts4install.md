@@ -40,5 +40,12 @@ author_profile: false
    <img src="../../imgs/spring/install_7.png" style="border:3px solid block;border-radius:9px;width:600px">   
    모든 항목을 선택 후 Confirm을 선택합니다.   
 
+   플로그인 설치 후에 에러가 발생합니다.   
+   <img src="../../imgs/spring/sts3_error.png" style="border:3px solid block;border-radius:9px;width:600px">   
+
+   <span style="color:red;font-weight:bold">STS4에서는 더 이상 STS3를 지원하지 않습니다. 그렇기 때문에 플러그인을 설치하면 다음과 같은 error발생합니다. 만약 Spring MVC project를 만드는 것이 목적이라면 지원이 끊긴 STS3 IDE를 설치해야합니다.</span>   
+
+
+
    
 
