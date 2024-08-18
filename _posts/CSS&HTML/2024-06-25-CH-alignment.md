@@ -22,13 +22,22 @@ tag: []
 
    content1은 width가 없기 때문에 그냥 길게 글자가 나열되었고, content2는 가운데 정렬이 되었습니다.   
 
-   또 다른 방법으로 flex와 align-item을 이용하여 정렬시킬 수 있습니다.   
+   또 다른 방법으로 flex와 align-item을 이용하여 정렬시킬 수 있습니다. 이 속성들은 부모 태그에서 사용합니다.   
    ```cs
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      .container {   /* 부모 태그에 display:flex 선언*/
+         background-color: #384047;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 100%;      /* width와 height를 명확히 제시 */
+         height: 100vh;
+      }
+      
+      <main class='container'>
+         <div></div>
+      </main>  
    ```   
-   display를 flex로 두고 flex속성인 justify-content의 속성값을 center로 두며 가로방향의 가운데에 위치하게 됩니다.   
+   display를 flex로 두고 flex속성인 justify-content의 속성값을 center와 align-items 속성값을 center로 두며 가로방향의 가운데에 위치하게 됩니다.   
 
 1. # 센터 정렬
    가로, 세로의 중간 정렬 방법은 2가지가 있습니다.   

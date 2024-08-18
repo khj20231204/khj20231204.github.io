@@ -20,7 +20,7 @@ tag: []
    flex를 사용하기 위해서는 부모 태그를 Flex Container로 만들어야 하는데 그 방법이 부모 태그에 displady:flex를 적는 것.   
    부모 컨테이너에서만 display:flex를 선업합니다.
 
-   - display:flex => __블록 요소__ 처럼 Flext Container를 구성   
+   - display:flex => __블록 요소__ 처럼 Flex Container를 구성   
    - display:inline-flex => __인라인 요소__ 처럼 Flex Container를 구성   
    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mdgXpLR" data-pen-title="ch05.01_flex_inlineFlex" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
    <span>See the Pen <a href="https://codepen.io/khj99/pen/mdgXpLR">
