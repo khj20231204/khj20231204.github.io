@@ -68,8 +68,8 @@ author_profile: false
 1. # private
    public void main() -> private void main()으로 수정해도 실행 됩니다.   
    웹서버에서 실행할 때는 private라도 상관없지만 다른 클래스에서 접근할 땐 private이면 역시 실행이 안됩니다. 웹에서 호출이 가능한 이유는   
-   Reflection API를 사용하기 때문입니다. - 클래스 정보를 얻고 다를 수 있는 강력한 기능 제고   
-   java.lang.reflect패키지를 제공   
+   Reflection API를 사용하기 때문입니다. - 클래스 정보를 얻고 다를 수 있는 강력한 기능 제공   
+   java.lang.reflect패키지에서 제공   
 
    ```java   
       public void main(String[] args) throws Exception {
