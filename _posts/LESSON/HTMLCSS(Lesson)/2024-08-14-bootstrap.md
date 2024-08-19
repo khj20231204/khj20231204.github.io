@@ -28,7 +28,7 @@ author_profile: false
    밑으로 스크롤을 이동시켜 Try it yourself 버튼을 클릭합니다.   
    <img src="../../../imgs/LESSON/HC(Lesson)/bootstrap4.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
-   상단 CDN주소가 있습니다. 이 부분을 가져와야 스타일과 자바스크립트가 적용됩니다. 가운데 style부분이 있는데 이 부분은 있는 UI가 있고 없는 UI가 있습니다. 마지막으로 밑에 HTML 부분이 화면에 보여지는 태그들입니다. 이부분을 모두 복사해서 가져옵니다.   
+   반응형 웹을 만들경우 가장 상단에 meta name="viewport" 부분을 같이 가져옵니다. 그 아래에 CDN주소가 있습니다. 이 부분을 가져와야 스타일과 자바스크립트가 적용됩니다. 그 아래 부분에 style부분이 있는데 이 부분은 있는 UI가 있고 없는 UI가 있습니다. 마지막으로 밑에 HTML 부분이 화면에 보여지는 태그들입니다. 이부분을 모두 복사해서 가져옵니다.   
    <img src="../../../imgs/LESSON/HC(Lesson)/bootstrap5.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    다음과 같이 가져와서 원하는 기능들을 추가하면 됩니다.      
