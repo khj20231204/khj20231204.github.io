@@ -1,8 +1,8 @@
 ---
 layout: single
-title: static 함수와 내부 클래스
+title: 내부 클래스
 categories: JAVA
-tag: [object,equals, toString]
+tag: 
 ---
 
 1. # static함수에서 내부 클래스 사용
