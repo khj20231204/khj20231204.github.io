@@ -12,13 +12,13 @@ author_profile: false
 
    다운 받으면 spring-tool-suite-3.9.18.RELEASE-e4.21.0-win32-x86_64.zip란 압축파일이 생깁니다.   
 
-   <img src="../../imgs/spring/sts3_install_1.png" style="border:3px solid block;border-radius:9px;width:600px">   
+   <img src="../../imgs/spring/sts3_install_1.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    오른쪽 마우스를 클릭해 연결 프로그램에서 "Window 탐색기"를 클릭해 내부로 들어가면 sts-bundle이란 폴더가 나옵니다. 다시 해당 폴더 안으로 들어가면 sts-3.9.18.RELEASE란 폴더가 있는데 해당 폴더를 바로 C드라이브로 드래그&드롭하면 압축이 해제됩니다.   
-   <img src="../../imgs/spring/sts3_install_2.png" style="border:3px solid block;border-radius:9px;width:600px">   
+   <img src="../../imgs/spring/sts3_install_2.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    sts-3.9.18.RELEASE란 폴더가 C드라이브에 생기고 실행은 STS.exe로 하면됩니다.   
-   <img src="../../imgs/spring/sts3_install_3.png" style="border:3px solid block;border-radius:9px;width:600px">   
+   <img src="../../imgs/spring/sts3_install_3.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
 1. # 프로젝트 생성
    Create new spring Starter Project와 Spring Legacy Project가 있는데   
@@ -28,15 +28,15 @@ author_profile: false
    Spring Legacy Project를 선택합니다.   
 
    Spring MVC Project를 선택합니다.   
-   <img src="../../imgs/spring/sts3_install_6.png" style="border:3px solid block;border-radius:9px;width:600px">   
+   <img src="../../imgs/spring/sts3_install_6.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    Spring MVC Project가 화면에 없는 경우   
    1)Configure templates 목록 삭제   
    Configure templates를 선택합니다.   
-   <img src="../../imgs/spring/sts3_install_4.png" style="border:3px solid block;border-radius:9px;width:600px">   
+   <img src="../../imgs/spring/sts3_install_4.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    spring-data-gemfire와 spring-integration 2개 파일을 remove로 제거를 합니다.   
-   <img src="../../imgs/spring/sts3_install_5.png" style="border:3px solid block;border-radius:9px;width:600px">   
+   <img src="../../imgs/spring/sts3_install_5.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    2)xml 파일 추가   
    STS3의 workspace경로\.metadata\.plugins\org.springsource.ide.eclipse.commons.content.core 를 선택합니다.   
@@ -47,7 +47,7 @@ author_profile: false
    제일 상단에 Project name을 입력하고 Next버튼을 누릅니다.   
 
    만약   
-   <img src="../../imgs/spring/sts3_install_7.png" style="border:3px solid block;border-radius:9px;width:400px">   
+   <img src="../../imgs/spring/sts3_install_7.png" style="border:3px solid black;border-radius:9px;width:400px">   
    다음과 같은 error가 발생한다면 jdk11로 버전을 맞춰줘야 합니다. sts3과 jdk11이 호환되기 때문입니다.   
 
    cmd창에서 자바 버전을 확인해 봅니다.   
@@ -67,4 +67,4 @@ author_profile: false
    ```   
 
    프로젝트 생성 후 느낌표가 나타나면 Build path에서 C:\Program Files\Java\jdk-11\lib경로의 jrt-fs.jar을 첨부합니다.   
-   <img src="../../imgs/spring/sts3_install_8.png" style="border:3px solid block;border-radius:9px;width:600px">   
+   <img src="../../imgs/spring/sts3_install_8.png" style="border:3px solid black;border-radius:9px;width:600px">   
