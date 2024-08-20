@@ -106,5 +106,13 @@ tag:
 
    객체에 있는 메소드도 사용할 수 있습니다.   
    ```java
-      
-   ```
+      int[] intArr = new int[5];
+		for(int i=0 ; i<5 ; i++) {
+			int r = (int)(Math.random()*10);
+			intArr[i] = r;
+		}
+		
+		Queue<Integer> queue = new LinkedList<>();
+		Arrays.stream(intArr).forEach(queue::offer); //queue::offer
+   ```   
+   intArr에 있는 배열 값을 forEach로 루프를 돌면서 queue객체의 offer 메소드를 사용하여 queue에 입력하게 됩니다.   
