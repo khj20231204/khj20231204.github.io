@@ -12,7 +12,7 @@ org.apache.coyote.http11.Http11Processor.service Error parsing HTTP request head
 
 <img src="../../imgs/spring/tomcaterror1.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
-https://localhost:8080을 하든데 https에서 s를 없애면 됩니다.   
+https://localhost:8080에서 https에서 s를 없애면 됩니다.   
 ```
    http://localhost:8080
 ```
