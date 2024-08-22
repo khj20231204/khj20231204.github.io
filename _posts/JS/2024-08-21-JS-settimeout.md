@@ -6,7 +6,7 @@ tag:
 ---
 
 1. # setTimeout
-   setTimeout(function, milliseconds) 지정한 function를 milliseconds 이후에 한 번 실행하는 함수입니다. setInterval(function, milliseconds)은 지정한 function를 milliseconds마다 실행하는 함수입니다. 하지만 재귀적으로 호출하게 되면 setTimeout함수도 milliseconds마다 실행되게 됩니다.   
+   setTimeout(function, milliseconds) 지정한 function를 milliseconds 이후에 __한 번만 실행__ 하는 함수입니다. setInterval(function, milliseconds)은 지정한 function를 __milliseconds마다 실행__ 하는 함수입니다. 하지만 재귀적으로 호출하게 되면 setTimeout함수도 milliseconds마다 계속해서 실행되게 됩니다.   
 
 	```html
 		<div>

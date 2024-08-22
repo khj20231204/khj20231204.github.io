@@ -63,7 +63,6 @@ author_profile: false
    ```   
    인스턴스 메서드는 인스턴스 변수와 static 변수 모두 사용할 수 있지만, static 메서드는 static 변수만 사용할 수 있습니다.   
    public static void main()과 같이 __static을 붙여도 실행됩니다.__ 톰캣이 객체를 생성한 상태에서 static을 붙여 호출한 것입니다. static을 붙여도 실행은 되는데 이왕이면 인스턴스 변수와 static 변수 모두 사용할 수 있는 인스턴스 메서드로 선언을 한 것입니다.   
-
    
 1. # private
    public void main() -> private void main()으로 수정해도 실행 됩니다.   
