@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 서버와 클라이언트
+title: WAS 톰캣
 categories: SPRING
 tag: []
 author_profile: false
@@ -48,5 +48,12 @@ author_profile: false
    __서블릿도 해당 url이 있습니다.__ http://www.koreamovie.co.kr/reserve/list 여기에서 list에 해당하는 Controller를 찾아가게되는데 이 Controller가 서블릿입니다. 서블릿의 주소는 list가 됩니다.   
    __서블릿 ≒ Controller__   
 
-   
+   <img src="../../imgs/spring/tomcat_inner2.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
+1. # Tomcat 설정 파일 server.xml, web.xml
+   톰캣설치경로/conf/server.xml : Tomcat 서버 설정 파일   
+   톰캣설치경로/conf/web.xml : Tomcat의 모든 web app의 공통 설정   
+   웹앱이름/WEB-INF/web.xml : web app의 개별 설정   
+
+   web app의 공통 설정을 적용한 이후에 web app의 개별 설정 적용   
+   
