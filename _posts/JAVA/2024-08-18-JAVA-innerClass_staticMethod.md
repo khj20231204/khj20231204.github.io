@@ -35,3 +35,5 @@ tag:
    ```   
    main인 static함수에 new Node()를 사용하면 error가 발생하고 static이 아닌 일반 함수에서 new Node()를 사용하면 error가 발생하지 않습니다.   
    그 이유는 멤버 내부 클래스는 외부 클래스의 인스턴스가 필요하며, 외부 클래스의 인스턴스를 통해 생성되기 때문입니다. static
+
+   
