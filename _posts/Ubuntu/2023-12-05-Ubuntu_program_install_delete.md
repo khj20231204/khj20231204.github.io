@@ -65,44 +65,62 @@ tag: [ssh, scp]
    purge 명령어를 사용하면 패키지가 설치될 때 생성된 파일들을 모두 삭제할 수 있습니다. 이는 패키지를 완전히 제거하고, 다시 설치할 때 이전 설정이나 데이터의 영향을 받지 않도록 도와줍니다.   
    주의해야 할 점은 purge 명령어는 시스템 파일이나 설정 파일에 대한 변경을 수반할 수 있으므로 신중하게 사용해야 합니다.   
 
-1. # 설치할 프로그램
-
-   - 루비   
-   쉘 스크립트로 작성   
+1. # 쉘 스크립트로 프로그램 설치
+   -루비 : 쉘 스크립트로 작성해서 설치   
    ```s
-   #!/bin/bash
+      #!/bin/bash
 
-   sudo apt update && apt upgrade -y
+      sudo apt update && apt upgrade -y
 
-   #ruby prerequisites
-   sudo --dpkg configure -a
-   sudo apt-get -y install ruby-full build-essential zlib1g-dev
+      #ruby prerequisites
+      sudo --dpkg configure -a
+      sudo apt-get -y install ruby-full build-essential zlib1g-dev
 
-   echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
-   echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-   echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-   source ~/.bashrc
+      echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+      echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+      echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+      source ~/.bashrc
 
-   #jekyll and bundler
-   gem install jekyll bundle
+      #jekyll and bundler
+      gem install jekyll bundle
 
-   #Execute in blog Directory
-   #bundle install
-   #bundle exec jekyll serve
-   ```
+      #Execute in blog Directory
+      #bundle install
+      #bundle exec jekyll serve
+   ```   
+   해당 스크립트를 실행해주면 설치가 됩니다.   
    
-   - 프로그램   
-   2. 비쥬얼 스튜디오   
+1. # dpkg로 프로그램 설치   
+   1)비쥬얼 스튜디오   
    ```s
       sudo dpkg -i code_1.84.2-1699528352_amd64.deb   
    ```   
-   2. VMware   
+
+   2)VMware   
    ```
       sudo chmod +x VMware-Player-Full-16.2.5-20904516.x86_64.bundle   
       sudo ./VMware-Player-Full-16.2.5-20904516.x86_64.bundle    
    ```   
-   2. 웨일
+
+   3)웨일
    ```
       sudo dpkg -i naver-whale-stable_amd64.deb   
+   ```   
+
+1. # 프로그램 삭제
+
+   패키지 설치 목록을 확인합니다.   
    ```
-   
+      dpkg --list
+
+      sudo dpkg --purge remove firefox
+   ```   
+   <img src="../../imgs/ubuntu/ubuntu_delete_1.png" style="border:3px solid black;border-radius:9px;width:800px">   
+
+   이후 Ubuntu SoftWare에서 설치된 프로그램 삭제   
+   <img src="../../imgs/ubuntu/ubuntu_delete_2.png" style="border:3px solid black;border-radius:9px;width:800px">   
+
+    GNOME환경이면 chache를 업데이트해서 왼쪽 하단 앱표시 목록에서 삭제   
+   ```
+       sudo update-desktop-database
+   ```

@@ -9,7 +9,7 @@ tag:
    구글에서 JDK검색   
    <img src="../../imgs/ubuntu/jdk.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
-   자바 스프링 3버젼을 사용하기 위해서는 최소 JDK 17버젼 이상을 사용해야 합니다.   
+   자바 스프링 부트3을 사용하기 위해서는 최소 JDK 17버젼 이상을 사용해야 합니다.   
    JDK 17을 선택하고 x64 Compressed Archive를 다운 받습니다.   
    <img src="../../imgs/ubuntu/jdk.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
