@@ -16,16 +16,16 @@ tag:
    <img src="../../imgs/java/class_version_1.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
    오른쪽 마우스 → Properties   
-   <img src="../../imgs/java/class_version_2.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/java/class_version_2.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    Java Compiler → 오른쪽 셀렉트박스에서 현재 JDK 버전 선택   
-   <img src="../../imgs/java/class_version_3.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/java/class_version_3.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
    오른쪽 마우스 → Build Path → Add Libaries...
-   <img src="../../imgs/java/class_version_4.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/java/class_version_4.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    JRE System Library 선택   
-   <img src="../../imgs/java/class_version_5.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/java/class_version_5.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    현재 컴퓨터에 설치되어 있는 default JRE 선택. 즉 class file version과 jdk version을 맞춰줘야 합니다.   
-   <img src="../../imgs/java/class_version_6.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/java/class_version_6.png" style="border:3px solid black;border-radius:9px;width:500px">   
