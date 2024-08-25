@@ -54,13 +54,30 @@ tag: [github, 폴더]
 
    2. ## add origin과 pull   
       ```javascript
-         git remote add origin "https://github.com/natista99/javaTeamProject.git" //원격저장소의 origin을 연결
-         git branch -M main //branch를 main으로 하기
-         git pull origin main
+         git remote add origin "https://github.com/natista99/javaTeamProject.git" 
+         //원격저장소의 origin을 연결, branch가 master로 설정됨
+
+         git remote -v  //origin 확인
+
+         git pull origin main  //github에 파일 가져오기
+
+         git branch -M main  //branch를 main으로 설정
+         //github에서 repostitory를 생성하면 기본 branch가 main을 만들어짐
+         //하지만, git remote add origin으로 파일을 가져오면 기본 branch가 master가 됨
+         //앞으로 로컬에 있는 파일을 업로드할 branch 역시 main으로 바꿔줌
+
+         git branch  //branch 확인
+
+         git pull origin main //branch 변경 후 pull 한번 수행해 줘야 됨
+         //*처음 commit 후 push에서 error가 나는 경우는 대부분 이 과정을 생략해서 임
       ```   
-      <img style="border: 3px solid black;border-radius:9px;width:800px;" src="../../imgs/git/git_pull.jpg">   
+      github에 저장소의 주소를 원격 주소로 연결을하고 origin이 제대로 설정되어 있는지 확인하는 명령어가 git remote -v 입니다.   
+      git pull을 해서 github에 있는 repository 파일들을 가져오면 git branch가 설정되있는데 현재 설정된 branch를 확인하는 명령어가 git branch입니다.   
+      예전 깃허브 초장기에 기본 branch가 master였습니다. 하지만 남여차별의 이유로 현재는 기본 branch가 main입니다. git pull을 하고나면 나의 로컬에 branch가 설정되는데 그 값이 master로 됩니다. 깃허브 branch 값이 main과 로컬에 설정된 branch값이 master로 다르기 때문에 로컬 branch를 main으로 바꿔줘야 합니다.   
+      branch를 변경 후 "git pull origin main" 명령을 한번 실행해줘야 합니다. 이걸 하지 않으면 나중에 commit 후에 push를 할 때 error가 발생합니다.   
+      
       <br>
-      폴더에 없던 readme.md파일을 확인할 수 있습니다.   
+      pull을 하고 나면 폴더에 없던 readme.md파일을 확인할 수 있습니다.   
       <img style="border: 3px solid black;border-radius:9px;width:800px;" src="../../imgs/git/folder_readme.jpg">   
 
    2. ## add -> commit -> push   
@@ -68,7 +85,12 @@ tag: [github, 폴더]
       원격 저장소에 올리기전 로컬 저장소의 대기상태로 만들기 위해 add를 하고 이후 commit메세지와 함께 commit을 합니다.   
       ```javascript
          git add --all
+         
+         git status //git 상태 확인, 현재 로컬에 add 되어있는 파일들이 나타나남
+
          git commit -m "java Project first commit"
+         git status //clean 이란 상태가 표시됨
+         
          git push origin main 
       ```   
       <img style="border: 3px solid black;border-radius:9px;width:800px;" src="../../imgs/git/github_up_perfect.jpg">   
