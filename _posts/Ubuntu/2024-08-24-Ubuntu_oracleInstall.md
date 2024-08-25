@@ -1,12 +1,12 @@
 ---
 layout: single
-title: 오라클 설치
+title: 우분투에서 오라클 설치
 categories: Ubuntu
 tag: 
 ---
 
 1. # 오라클 설치
-   다운 받습니다.   
+   oracle 11g를 다운 받습니다.   
    <a href="https://www.oracle.com/database/technologies/xe-prior-release-downloads.html">https://www.oracle.com/database/technologies/xe-prior-release-downloads.html</a>
 
    다운 받은 파일을 압축 풉니다.   

@@ -40,7 +40,7 @@ tag: [github, 폴더]
       주소창에서 cmd를 입력하면 해당 경로로 만들어진 명령창이 뜹니다.   
       <img style="border: 3px solid black;border-radius:9px;width:800px;" src="../../imgs/git/pc_folder_address.jpg">   
       <br>
-      주소창에서 cmd를 입력면 해당 경로로 실행된 명령창이 바로 뜹니다.   
+      주소창에서 cmd를 입력하면 해당 경로로 실행된 명령창이 바로 뜹니다.   
       <img style="border: 3px solid black;border-radius:9px;width:700px;" src="../../imgs/git/direct_address_cmd.jpg">   
 
    2. ## init   
@@ -63,8 +63,8 @@ tag: [github, 폴더]
 
          git branch -M main  //branch를 main으로 설정
          //github에서 repostitory를 생성하면 기본 branch가 main을 만들어짐
-         //하지만, git remote add origin으로 파일을 가져오면 기본 branch가 master가 됨
-         //앞으로 로컬에 있는 파일을 업로드할 branch 역시 main으로 바꿔줌
+         //하지만, 로컬에서 git init를 하면 기본 branch가 master가 됨
+         //앞으로 로컬에 있는 파일을 업로드할 branch를 github와 같은 main으로 바꿔주는 과정임
 
          git branch  //branch 확인
 
@@ -73,7 +73,7 @@ tag: [github, 폴더]
       ```   
       github에 저장소의 주소를 원격 주소로 연결을하고 origin이 제대로 설정되어 있는지 확인하는 명령어가 git remote -v 입니다.   
       git pull을 해서 github에 있는 repository 파일들을 가져오면 git branch가 설정되있는데 현재 설정된 branch를 확인하는 명령어가 git branch입니다.   
-      예전 깃허브 초장기에 기본 branch가 master였습니다. 하지만 남여차별의 이유로 현재는 기본 branch가 main입니다. git pull을 하고나면 나의 로컬에 branch가 설정되는데 그 값이 master로 됩니다. 깃허브 branch 값이 main과 로컬에 설정된 branch값이 master로 다르기 때문에 로컬 branch를 main으로 바꿔줘야 합니다.   
+      예전 깃허브 초장기에 기본 branch가 master였습니다. 하지만 남여차별의 이유로 현재는 기본 branch가 main입니다. 로컬에서 git init을 하고나면 나의 로컬에 branch가 설정되는데 그 값이 master로 됩니다. 깃허브 branch 값이 main과 로컬에 설정된 branch값이 master로 다르기 때문에 로컬 branch를 main으로 바꿔줘야 합니다.   
       branch를 변경 후 "git pull origin main" 명령을 한번 실행해줘야 합니다. 이걸 하지 않으면 나중에 commit 후에 push를 할 때 error가 발생합니다.   
       
       <br>
