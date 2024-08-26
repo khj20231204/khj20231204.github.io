@@ -5,6 +5,8 @@ categories: JAVA
 tag: 
 ---
 
+1. # 
+
 1. # static함수에서 내부 클래스 사용
    static함수에서 내부 클래스를 사용하면 error가 발생합니다.   
 
