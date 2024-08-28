@@ -41,6 +41,70 @@ author_profile: false
 
    __*css로 배경색 적용시 backgroundColor(o), backgroundcolor(x), background(o)__   
 
+1. # input요소 선택자
+
+   input요소 선택자는 
+   `$(":type")` 로 선택할 수 있습니다.
+
+   ```javascript
+      <script>
+         $(document).ready(function(){
+            $(":text").click(function(){
+               alert($(this).val());
+            });
+            
+            $(":radio").click(function(){
+               alert($(this).val());
+            });
+            
+            $(":checkbox").click(function(){
+               alert($(this).val());
+            });
+            
+            $(":text[name='textname']").val("append textname");
+            
+            $(":button[temp='temporaryVar']").click(function(){
+               alert("아쿠 머리야");
+            });
+         });
+      </script>
+
+      <input type="text" value="textValue">
+      <input type="radio" value="radioValue">
+      <input type="checkbox" value="checkBoxValue">
+      <input type="submit" value="submitValue">
+      
+      <input type="text" name="textname">
+      
+      <input type="button" temp="temporaryVar" value="temporary">
+   ```
+
+1. # 속성 선택자
+   태그와 속성, 속성값으로 요소를 선택할 수 있습니다.   
+   `<b c d="e">` 란 태그가 있을 때 가장 앞의 b가 태그 이름이 되고 뒤에 d가 속성 e가 속성값이 됩니다.   
+
+   ```html      
+      <script>
+          $(document).ready(function(){
+            $("temp[text='iam']").click(function(){   //temp태그에 text속성값으로 iam이 있는 것을 클릭
+               alert("내가 만든 temp");
+            })
+            
+            $("b[c]").click(function(){   //b태그에 c속성이 있는 것을 클릭
+               alert("b[c]");
+            })
+
+            $("f[i='e']").click(function(){  //f태그에 i속성값으로 e가 있는 것을 클릭
+               alert("f[i='e']")
+            });
+         });
+      </script>
+      
+      <temp text="iam">iam</temp>
+      <br>
+      <b c d="e">bcd텍스트</b>
+      <f g h i="e">fghi텍스트</f>
+   ```
 1. # css적용
    ```html
       <script>
@@ -190,5 +254,25 @@ author_profile: false
       <p><img src="img/flower.jpg" title="꽃"></p>
    ```   
 
-1. # 
+1. # this
+   이벤트를 발생시킨 객체 값을 가져오는 것이 this입니다. this값의 attr과 text로 
+   ```html
+      <script>
+         $(document).ready(function(){
+            $('a').click(function(){ //모든 a태그를 구해온다.
+               $('img').attr('src',$(this).attr('href'))
+                     .attr('title',$(this).text());
+            
+               return false;
+            });
+         });
+      </script>
+      <ul>
+         <li><a href="img/flower.jpg" title="꽃">꽃</a></li>
+         <li><a href="img/sea.jpg" title="바다">바다</a></li>
+         <li><a href="img/Jellyfish.jpg" title="해파리">해파리</a></li>
+         <li><a href="img/building.jpg" title="건물">건물</a></li>
+      </ul>
+      <p><img src="img/flower.jpg" title="꽃"></p>
+   ```
 
