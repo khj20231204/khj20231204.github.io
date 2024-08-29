@@ -143,3 +143,11 @@ author_profile: false
       <div>출력2</div>
       <div>출력3</div>
    ```   
+
+1. # 외부 파일 연결
+   ```html
+      <script src="http://code.jquery.com/jquery-latest.js"></script>
+      <script src="login.js"></script>
+   ```   
+   jQuery역시 자바스크립트와 같이 src로 외부 파일을 불러옵니다.   
+   단, jQuery 라이브러리 이후에 외부 파일src를 입력해야 합니다.   

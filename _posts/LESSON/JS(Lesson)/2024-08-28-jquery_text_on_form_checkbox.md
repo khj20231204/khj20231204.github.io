@@ -171,9 +171,9 @@ author_profile: false
 1. # radio객체
    radio객체   
    radio : input type=radio 로 되어있는 태그를 모두 구해오는 필터 선택자   
-   is() 메소드 : radio버튼이나 checkbox의 선택 여부를 판별할때 사용되는 메소드 선택되면 true, 선택되지 않으면 false를 리턴한다.   
-   is(":checked")   
-   $(":radio").is(":checked") : 모든 radio버튼을 구해와서 선택 여부를 판별한다   
+   `is() 메소드` : radio버튼이나 checkbox의 선택 여부를 판별할때 사용되는 메소드 선택되면 true, 선택되지 않으면 false를 리턴한다.   
+   `is(":checked")`   
+   `$(":radio").is(":checked")` : 모든 radio버튼을 구해와서 선택 여부를 판별한다   
 
    ```html
       <script>

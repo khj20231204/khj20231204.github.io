@@ -23,7 +23,7 @@ author_profile: false
 1. # Controller생성
 
    프로젝트 생성시 thymeleaf를 선택하고 생성을 해줘야 Controller에서 제대로 인식을 합니다.   
-   <img src="../../imgs/spring/controller_exe_1.png" style="border:3px solid black;border-radius:9px;width:700px">   
+   <img src="../../imgs/spring/controller_exe_1.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    thymeleaf를 선택하고 프로젝트를 생성하면 pom.xml파일에 다음과 같은 dependency가 생깁니다. 이 부분이 있어야 합니다.   
    <img src="../../imgs/spring/controller_exe_2.png" style="border:3px solid black;border-radius:9px;width:700px">   
@@ -49,7 +49,7 @@ author_profile: false
    ```   
 
    src/main/resources 디렉토리에 static과 templates가 있는데 controller로 등록하기 위해선 tymeleaf가 참조하는 디렉토리인 templates에 first.html파일을 생성합니다.   
-   <img src="../../imgs/spring/controller_exe_6.png" style="border:3px solid black;border-radius:9px;width:500px">   
+   <img src="../../imgs/spring/controller_exe_6.png" style="border:3px solid black;border-radius:9px;width:800px">   
    static은 주소창에서 직접 접근할 때 사용할 html파일이 저장됩니다.   
 
    주소창에 http://localhost:8070/firstController로 GetMapping을 한 firstController를 입력하면 Constroller가 처리 후 first를 리턴하게 되는데 프레임워크가 최종적으로 만들 땐 first.html이 됩니다. templates 디렉토리에 있는 first.html파일이 실행된 화면입니다.   
@@ -62,4 +62,4 @@ author_profile: false
       server.port=8070
    ```   
 
-   <img src="../../imgs/spring/controller_exe_4.png" style="border:3px solid black;border-radius:9px;width:400px">   
+   <img src="../../imgs/spring/controller_exe_4.png" style="border:3px solid black;border-radius:9px;width:700px">   
