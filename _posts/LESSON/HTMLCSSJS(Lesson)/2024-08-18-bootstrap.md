@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 08_18.BootStrap
-categories: HTML&CSS(Lesson)
+categories: HTML&CSS&JS(Lesson)
 tag: []
 author_profile: false
 ---
