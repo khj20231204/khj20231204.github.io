@@ -36,6 +36,8 @@ tag: [github, 폴더]
          .externalToolBuilders 
       ```   
 
+      *windows에서 폴더 경로를 지정시 백슬래쉬`(\)`를 사용하고 linux에서는 `/`를 사용하지만 gitignore 안에 경로 설정은 windows나 linux 구분없이 `/`를 사용합니다.   
+
    2. ## 주소창에 cmd입력   
       주소창에서 cmd를 입력하면 해당 경로로 만들어진 명령창이 뜹니다.   
       <img style="border: 3px solid black;border-radius:9px;width:800px;" src="../../imgs/git/pc_folder_address.jpg">   

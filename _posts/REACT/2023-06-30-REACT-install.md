@@ -75,7 +75,7 @@ tag: [React,설치]
 1. # serve 설치 및 실행   
       1.서버 설치 : npm install serve -g   
       2.서버 실행 : serve -s build   
-      <img style="border:3px solid black;border-radius:9px;width:400px;" src="../../imgs/react/serve_install_exe.jpg"/>     
+      <img style="border:3px solid black;border-radius:9px;width:4git 00px;" src="../../imgs/react/serve_install_exe.jpg"/>     
 
       <h4> ■다음과 같은 에러가 뜨는 경우..</h4>
       <img style="border: 3px solid black;border-radius:9px;width:800px;height:200px;" src="../../imgs/react/powershell_executionPolicy_error.jpg"/>   
