@@ -1,7 +1,7 @@
 ---
 layout: single
 title: jQuery연결과 기초 함수
-categories: jQeury(Lesson)
+categories: jQuery(Lesson)
 tag: [toggle, hide, show, select]
 author_profile: false
 ---
