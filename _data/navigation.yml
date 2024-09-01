@@ -36,6 +36,8 @@ sidebar_category_list:
         url: /jquery(lesson)
       - title: "REACT(Lesson)"
         url: /react(lesson)
+      - title: "JSP(Lesson)"
+        url: /jsp(lesson)
   - title: "프로그래밍"
     children:
       - title: "SPRING"
