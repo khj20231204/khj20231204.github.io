@@ -48,5 +48,9 @@ tag: [github, 폴더]
       /target/filename.txt //target디렉토리 안에 filename.txt만 버전 관리 제외
 
       *.xml //xml 확장자를 가진 모든 파일 차단
+
+      **/target/ //어떤 경로에 있던 target디렉토리와 그 하위 디렉토리를 버전 관리에서 제외
+
+      target  ////어떤 경로에 있던 target 이름의 디렉토리, 파일과 그 하위 디렉토리를 버전 관리에서 제외
    ```
    `/target` 과 `target/` 과 `/target/` 은 각각 다른점이 있다고 하는데 직접 해본 결과 차이를 발견할 수 없었음.   
