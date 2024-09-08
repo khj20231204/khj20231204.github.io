@@ -58,7 +58,67 @@ author_profile: false
       %>
    ```   
 
-   회원가입 주소입력 -> controller -> add.jsp -> submit -> action을 controller주소로 -> controller -> 결과출력 jsp
+1. # `<c:url>`의 사용
+   ```cs
+      <form action="<c:url value="/register/save"/>" method="post" onSubmit="return formCheck(this)">
+   ```   
+   `<c:url>`이 하는 역할 2가지   
+   1)context root 자동 추가   
+   2)seesion id 자동 추가   
 
 
-   
+1. # 회원 가입 로딩 순서
+
+   controller -> 회원가입폼.jsp -> controller -> 가입결과폼.jsp   
+
+   1)회원가입 주소입력   
+   ```cs
+      //url주소
+      localhost/ch4/register/add   
+   ```   
+
+   2)controller에서 받음   
+   ```cs
+      @RequestMapping("/register/add")   
+      public String register(){
+         return "registerForm"; //jsp파일의 회원가입 폼
+      }   
+   ```   
+
+   3)registerForm.jsp   
+   회원가입 폼 출력    
+   form의 action주소를 controller주소로 입력   
+   ```html
+      <form action="/ch4/register/save" method=...>
+   ```   
+
+   4)controller에서 받음   
+   ```cs
+      @RequestMapping("/register/save")   
+      public String register(){
+         return "registerInfo";
+      }      
+   ```   
+
+   5)registerInfo.jsp   
+   회원가입 완료 결과 화면 출력   
+   ```cs
+      <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+      <% 
+         String[] str = request.getParameterValues("sns"); 
+
+         for(String s : str){
+            %>
+            <h1>sns=<%= s %></h1>	
+            <%
+         }	
+      %>
+
+      <h1>id=${param.id}</h1>
+      <h1>pwd=${param.pwd}</h1>
+      <h1>name=${param.name}</h1>
+      <h1>email=${param.email}</h1>
+      <h1>birth=${param.birth}</h1>
+   ```   
