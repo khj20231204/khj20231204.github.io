@@ -74,6 +74,8 @@ sidebar_category_list:
         url: /jekyllblog
       - title: Interview
         url: /interview
+      - title: etc
+        url: /etc
 
   # - title: "영어"
   #   children:

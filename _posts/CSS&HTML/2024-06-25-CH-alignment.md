@@ -5,44 +5,48 @@ categories: CSS&HTML
 tag: []
 ---
 
-1. # 가운데 정렬
+1. # 가로방향의 가운데 정렬
 
-   가운데 정렬을 하기 위해서 
+   margin 이용   
    ```cs
-      margin: 0 auto;
+      .content1 {
+         background-color:gray;
+         margin: 0 auto;
+      }
+
+      .content2 {
+         background-color:gray;
+         margin: 0 auto;
+         width: 500px;
+      }
    ```   
    를해야 하는데, margin: 0 auto를 사용하기 위해서 __width를 설정__ 해야 합니다.   
 
-   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="poXpKYX" data-pen-title="marginauto" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-   <span>See the Pen <a href="https://codepen.io/khj99/pen/poXpKYX">
-   marginauto</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
-   on <a href="https://codepen.io">CodePen</a>.</span>
-   </p>
-   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
+   위에 텍스트가 content1이 적용, 아래 텍스트가 cotent2가 적용되었습니다.   
    content1은 width가 없기 때문에 그냥 길게 글자가 나열되었고, content2는 가운데 정렬이 되었습니다.   
-
-   또 다른 방법으로 flex와 align-item을 이용하여 정렬시킬 수 있습니다. 이 속성들은 부모 태그에서 사용합니다.   
-   ```cs
-      .container {   /* 부모 태그에 display:flex 선언*/
-         background-color: #384047;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         width: 100%;      /* width와 height를 명확히 제시 */
-         height: 100vh;
-      }
-      
-      <main class='container'>
-         <div></div>
-      </main>  
-   ```   
-   display를 flex로 두고 flex속성인 justify-content의 속성값을 center와 align-items 속성값을 center로 두며 가로방향의 가운데에 위치하게 됩니다.   
+   <img src="../../imgs/CH/align_margin.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
 1. # 센터 정렬
-   가로, 세로의 중간 정렬 방법은 2가지가 있습니다.   
+   1)flex와 align-item을 이용하여 정렬시킬 수 있습니다. 이 속성들은 부모 태그에서 사용합니다.   
+      ```cs
+         .container {   /* 부모 태그에 display:flex 선언*/
+            background-color: #384047;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;      /* width와 height를 명확히 제시 */
+            height: 100vh;
+         }
+         
+         <main class='container'>
+            <div></div>
+         </main>  
+      ```   
+      display를 flex로 두고 flex속성인 justify-content의 속성값을 center와 align-items 속성값을 center로 두며 가로방향의 가운데에 위치하게 됩니다.   
 
-   1)   
+      <a href="#child_center">부모 태그의 의미</a>
+
+   2)position 이용   
    ```html
       <style>
       .container{
@@ -71,7 +75,7 @@ tag: []
    ```   
    부모를 position으로 설정하고 자신를 absolute로 설정, 넓이와 높이를 각각 1/2만큼 감소시킨 margin값을 적용합니다. 하지만 이 방법은 자신의 가로와 세로 넓이를 알아야하고 계산도 해야하기 때문에 번거롭습니다.   
 
-   2)   
+   3)position transform이용   
    ```html
       <style>
          .container {
@@ -135,3 +139,93 @@ tag: []
 
    overflow:hidden을 float 요소의 부모에 적용하면, 부모 컨테이너의 높이가 고정되어 float 요소가 다른 요소들의 레이아웃에 미치는 영향을 최소화하고, 결과적으로 더욱 안정적인 레이아웃을 구축할 수 있습니다. 하지만 모든 경우에 overflow:hidden이 정답은 아니며, 레이아웃의 복잡성에 따라 다른 방법(flexbox, grid 등)을 사용해야 할 수도 있습니다.
 
+
+1. # <span id="child_center">부모 태그의 의미</span>
+   
+   텍스트에겐 텍스트를 감싸고 있는 태그가 부모태그가 됩니다. 부모 태그에 flex를 적용하면 자식의 모든 요소들이 가운데 정렬이 됩니다.   
+
+   flex 정렬 스타일입니다.   
+   ```cs
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   ```
+
+   부모 태그에 적용하면 자신이 감싸고 있는 자식 태그들 모두가 가운데 정렬이 됩니다.   
+   ```html
+      <body>
+         <div class="container">
+            <div class="title">title</div>
+            <div class="child">
+               <h5>child</h5>
+               <ul>
+                  <li>1</li>
+                  <li>2</li>
+               </ul>
+            </div>
+         </div>
+      </body>
+   ```   
+   
+   <br>
+   container에 flex 정렬 스타일을 적용하면 container가 감싸고 있는 모든 자식들이 가운데 정렬이 됩니다.   
+   ```css
+        .container {   /* 부모 태그에 display:flex 선언*/
+         background-color: #c9b494;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+         /* 
+         width: 100%;    
+         height: 100vh; 
+         width와 height 속성을 지정할 수도있습니다.   
+         */
+      }
+   ```   
+   title과 child의 h5, ul, li 모두 가운데 정렬이 됩니다.   
+   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="jOjXgMB" data-pen-title="alignment_container" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <span>See the Pen <a href="https://codepen.io/khj99/pen/jOjXgMB">
+   alignment_container</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
+   on <a href="https://codepen.io">CodePen</a>.</span>
+   </p>
+   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+   
+   <br>  
+   child에 flex 정렬 스타일을 적용하면 h5,ul 모두 가운데 정렬이 됩니다.   
+   ```css  
+       .child { 
+         background-color: #93c2a4;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+   ```   
+   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="rNEoXMJ" data-pen-title="alignment_child" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <span>See the Pen <a href="https://codepen.io/khj99/pen/rNEoXMJ">
+   alignment_child</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
+   on <a href="https://codepen.io">CodePen</a>.</span>
+   </p>
+   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+   <br>
+   <hr/>
+   title에 flex 정렬 스타일을 적용하면 'title'이란 텍스트가 div안에서 가운데 정렬이 됩니다.   
+   'title'이란 텍스트에겐 `<div class="title">title</div>` div로 감싸고 있는 부분이 부모태그가 됩니다.   
+   글자 'title'에 부모태그인 div의 class에 `display:flex`를 적용했습니다
+   ```css
+      .title {
+         background-color: #ef586a;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 20vh;
+      }
+   ```   
+   <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="YzodmGb" data-pen-title="alignmnet_title" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+   <span>See the Pen <a href="https://codepen.io/khj99/pen/YzodmGb">
+   alignmnet_title</a> by kimhyunjin (<a href="https://codepen.io/khj99">@khj99</a>)
+   on <a href="https://codepen.io">CodePen</a>.</span>
+   </p>
+   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+   
