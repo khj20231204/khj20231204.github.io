@@ -8,7 +8,7 @@ author_profile: false
 
 1. # @RequestParam
 
-   @RequestPara은 생략하면 기본적으로 적용되는 어노테이션입니다.
+   @RequestParam은 생략하면 기본적으로 적용되는 어노테이션입니다.
    ```java
       @RequestMapping("/requestParam2")
       public String main1(String year){
@@ -166,5 +166,5 @@ author_profile: false
    ```   
    다음과 같이 myDate객체의 바로 뒤에 BindingResult를 선언합니다.   
 
-   
+
 
