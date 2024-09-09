@@ -31,7 +31,7 @@ author_profile: false
       http://127.0.0.1/ch2/hello
    ```   
    ch2는 spring MVC project명, hello는 Mapping주소가 됩니다.   
-   <img src="../../imgs/spring/mapping_address.png" style="border:3px solid black;border-radius:9px;width:400px">   
+   <img src="../../imgs/spring/mapping_address.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
 1. # static
    public void main()에서 static이 아니여도 실행이 가능한 이유?   
