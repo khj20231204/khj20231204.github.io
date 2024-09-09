@@ -64,7 +64,7 @@ author_profile: false
    ```   
    `<c:url>`이 하는 역할 2가지   
    1)context root 자동 추가   
-   2)seesion id 자동 추가   
+   2)session id 자동 추가   
 
 
 1. # 회원 가입 로딩 순서

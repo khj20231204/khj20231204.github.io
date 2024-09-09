@@ -8,7 +8,7 @@ author_profile: false
 
 1. # @RequestParam
 
-   @RequestParam은 생략하면 기본적으로 적용되는 어노테이션입니다.
+   @RequestParam은 생략하면 기본적으로 적용되는 어노테이션입니다.   
    ```java
       @RequestMapping("/requestParam2")
       public String main1(String year){
@@ -25,8 +25,8 @@ author_profile: false
    main1과 main2는 똑같은 코드입니다. main1에서 @RequestPara을 생략하면 main2와 같은 의미가 됩니다.    
    생략할 경우 required=false가 됩니다.   
 
-   name='year'에서 year는 파라미터이름
-   required는 필수 여부입니다. 
+   name='year'에서 year는 파라미터이름   
+   required는 필수 여부입니다.   
    required=true : 필수   
    requried=false : 선택   
 
@@ -51,7 +51,7 @@ author_profile: false
    ```   
    main1과 main2는 동일한 형식입니다. main2에서 @RequestParam을 명시해줬기 때문에 required=true가 됩니다.   
 
-   주소창에 다음과 같이 입력할 경우
+   주소창에 다음과 같이 입력할 경우   
     ```
       http://localhost/ch2/requestParam         //year=null, 404 error발생
 		http://localhost/ch2/requestParam?year=   //year="", 빈문자열 출력
@@ -63,7 +63,7 @@ author_profile: false
       @RequestMapping("/requestParam5")
 	   public String main3(@RequestParam(required=false, defaultValue="1") String year)
    ```   
-   보통 required=false인 경우 defaultValue값을 설정합니다.
+   보통 required=false인 경우 defaultValue값을 설정합니다.   
 
 1. # @ModelAttribute
    적용 대상을 Model의 속성으로 자동 추가해주는 어노테이션입니다. 반환 타입 또는 컨트롤러 메서드의 매개변에 적용 가능합니다.   
@@ -81,11 +81,11 @@ author_profile: false
          ...
       }
    ```   
-   값을 매개변수로 받으면서 바로 modle에 저장합니다.   
+   값을 매개변수로 받으면서 바로 model에 저장합니다.   
    윗쪽의 @ModelAttribute("myDate") MyDate date는 date객체를 myData란 키값으로 저장하게 되고,   
    아랫쪽의 @ModelAttribute MyDate date에서는 __클래스 이름의 첫글자가 소문자__ 인 이름이 키값으로 저장됩니다.   
 
-   __반환 타입에 적용__   
+   __-반환 타입에 적용-__   
    반환 타입에도 ModelAttribute를 적용할 수 있습니다.   
    ```java
       private @ModelAttribute("yoil") char getYoil(MyDate date){
