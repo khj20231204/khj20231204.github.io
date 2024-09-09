@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 어노테이션 요약
+title: RequestRaram, ModelAttribute
 categories: SPRING
 tag: []
 author_profile: false
