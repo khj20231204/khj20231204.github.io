@@ -158,59 +158,59 @@ tag: []
 1. # 가상 클래스 셀렉터   
    사용자가 웹 요소를 클릭하거나 마우스 포인터를 올려놓는 등 특정 동작을 할 때 스타일이 바뀌도록 만들 때 사용합니다.
 
-   <table>
-      <tr>
-         <th>유형</th>
-         <th>셀렉터</th>
-         <th>설명</th>
-      </tr>
-      <tr>
-         <td>마우스</td>
-         <td>:hover</td>
-         <td>마우스가 올라갈 때 스타일 적용</td>
-      </tr>
-      <tr>
-         <td>마우스</td>
-         <td>:active</td>
-         <td>마우스로 누르고 있는 상황에서 스타일 적용</td>
-      </tr>
-      <tr>
-         <td>폼 요소</td>
-         <td>:focus</td>
-         <td>폼 요소가 키보드나 마우스로 포커스를 받을 때 스타일 적용td>
-      </tr>
-      <tr>
-         <td>링크</td>
-         <td>:link</td>
-         <td>방문하지 않은 링크에 스타일 적용</td>
-      </tr>
-      <tr>
-         <td>링크</td>
-         <td>:visited</td>
-         <td>방문한 링크에 스타일 적용</td>
-      </tr>
-      <tr>
-         <td>블록</td>
-         <td>:first-letter</td>
-         <td>p,div같은 블록형 태그의 첫 글자에 스타일 적용, span과 같은 인라인 태그에 적용되지 않음</td>
-      </tr>
-      <tr>
-         <td>블록</td>
-         <td>:first-line</td>
-         <td>p,div같은 블록형 태그의 첫 라인에 스타일 적용</td>
-      </tr>
-      <tr>
-         <td>구조</td>
-         <td>:nth-child(even)</td>
-         <td>짝수번째 모든 자식 태그에 스타일 적용</td>
-      </tr>
-      <tr>
-         <td>구조</td>
-         <td>:nth-child(1)</td>
-         <td>첫 번째 자식 태그에 스타일 적용</td>
-      </tr>
-   </table>
-   
+      <table>
+         <tr>
+            <th>유형</th>
+            <th>셀렉터</th>
+            <th>설명</th>
+         </tr>
+         <tr>
+            <td>마우스</td>
+            <td>:hover</td>
+            <td>마우스가 올라갈 때 스타일 적용</td>
+         </tr>
+         <tr>
+            <td>마우스</td>
+            <td>:active</td>
+            <td>마우스로 누르고 있는 상황에서 스타일 적용</td>
+         </tr>
+         <tr>
+            <td>폼 요소</td>
+            <td>:focus</td>
+            <td>폼 요소가 키보드나 마우스로 포커스를 받을 때 스타일 적용td>
+         </tr>
+         <tr>
+            <td>링크</td>
+            <td>:link</td>
+            <td>방문하지 않은 링크에 스타일 적용</td>
+         </tr>
+         <tr>
+            <td>링크</td>
+            <td>:visited</td>
+            <td>방문한 링크에 스타일 적용</td>
+         </tr>
+         <tr>
+            <td>블록</td>
+            <td>:first-letter</td>
+            <td>p,div같은 블록형 태그의 첫 글자에 스타일 적용, span과 같은 인라인 태그에 적용되지 않음</td>
+         </tr>
+         <tr>
+            <td>블록</td>
+            <td>:first-line</td>
+            <td>p,div같은 블록형 태그의 첫 라인에 스타일 적용</td>
+         </tr>
+         <tr>
+            <td>구조</td>
+            <td>:nth-child(even)</td>
+            <td>짝수번째 모든 자식 태그에 스타일 적용</td>
+         </tr>
+         <tr>
+            <td>구조</td>
+            <td>:nth-child(1)</td>
+            <td>첫 번째 자식 태그에 스타일 적용</td>
+         </tr>
+      </table>
+      
    예제1)   
    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LYvWdPW" data-user="khj99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
    <span>See the Pen <a href="https://codepen.io/khj99/pen/LYvWdPW">
