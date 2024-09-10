@@ -16,7 +16,7 @@ author_profile: false
    ```java
    @PostMapping("/register/save")
    public String save(User user, Model m) throws Exception{
-      String msg = URLEncoder.encode("id를 잘못 입력했습니다", "utf-8");
+      String msg = URLEncoder.encode("id를 잘못 입력했습니다", "utf-8"); //주는 쪽에서는 Encode
       return "redirect:/register/add?msg"+msg;
    }
    ```   
@@ -27,7 +27,7 @@ author_profile: false
    ```html
       <%@ page import="java.net.URLDecoder" %>
 
-      <div id="msg">${param.msg}</div> <!-- 이렇게 해서 msg가 안보이는 경우 -->
-      <div id="msg">${URLDecoder.decode(param.msg, "utf-8")}</div> <!-- decoding을 해준다 -->
+      <div id="msg">${param.msg}</div> <!-- 이렇게 해서 msg가 안보이는 경우 밑에처럼 Decode를 수행 -->
+      <div id="msg">${URLDecoder.decode(param.msg, "utf-8")}</div> <!-- 받는 쪽에서는 Decode -->
    ```   
    URLDecoder는 java.net에 있는 패키지라서 import를 해줘야합니다.   
