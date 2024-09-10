@@ -178,11 +178,14 @@ author_profile: false
    ```html
       <script>
          $(document).ready(function(){
+
             //배열로 가져오기
             $("#check01").click(function(){
                var arr = $(":radio");
                
-               var len = arr.length;
+               var len = arr.length; //len으로 for문으로 해도 된다
+
+
                var count = 0;
                $.each(arr, function(i,v){
                   if(!v.checked)count++;
@@ -297,3 +300,22 @@ author_profile: false
       </form>
    ```
    
+1. # 유효성 검사
+   ```html
+      	<script>
+            $(document).ready(function(){
+               $('form').submit(function(){
+                  var radioes = $("input:radio[name='season']")
+               });
+               
+            })
+         </script>	
+         </head>
+         <body>
+            가장 좋아하는 계절은? <br>
+            <form name=syberpoll method=post action=result.jsp>
+               <input type=radio id="s1" name=season value=봄>봄<br>
+               <input type=submit value="투표">
+            </form>
+         </body>
+   ```

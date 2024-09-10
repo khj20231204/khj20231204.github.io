@@ -14,10 +14,10 @@ author_profile: false
    실제타입 : javax.servlet.http.HttpServletResponse 또는 javax.servlet.ServletResponse   
 
    __session__ : HTTP 세션 정보를 저장합니다.   
-   javax.servlet.jsp.HpptSession   
+   실제타입 : javax.servlet.jsp.HpptSession   
 
    __out__ : JSP 페이지가 생성하는 결과를 출력할 때 사용되는 출력 스트림입니다.   
-   javax.servlet.JspWriter   
+   실제타입 : javax.servlet.JspWriter   
 
    pageContext : JSP 페이지에 대한 정보를 저장합니다.   
    실제타입 : javax.servlet.jsp.PageContext   
@@ -48,5 +48,5 @@ author_profile: false
 
    String getRequestURI() : 요청 URI를 구함   
 
-   String getContextPath() : 컨텍스트 패스(project명)를 구함   
-   
+   String getContextPath() : 현재 요청이 들어온 웹 애플리케이션의 컨텍스트 경로를 반환하는 메서드   
+
