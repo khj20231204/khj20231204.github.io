@@ -50,3 +50,14 @@ author_profile: false
 
    String getContextPath() : 현재 요청이 들어온 웹 애플리케이션의 컨텍스트 경로를 반환하는 메서드   
 
+1. # response 객체   
+   클라이언트의 응답 정보를 처리해주는 객체
+
+1. # response 객체의 주요 메소드
+   String getCharacterEncoding() : 한글 인토딩 형태를 구함   
+
+   void addCookie(Cookie cookie) : 쿠키를 발행함   
+   
+   Void sendRedirect(String location) : 지정한 URL로 이동   
+
+   

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 내장 객체
+title: 파라미터 전달
 categories: JSP(Lesson)
 tag: []
 author_profile: false
