@@ -6,7 +6,7 @@ tag: []
 author_profile: false
 ---
 
-1. # 
+1. # 페이지간 이동 순서
 
    board.html파일 -> submit버튼 -> 유효성 검사 -> board.jsp
 
