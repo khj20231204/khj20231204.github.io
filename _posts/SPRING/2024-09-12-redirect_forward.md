@@ -34,5 +34,7 @@ author_profile: false
    1.클라언트가 /ch2/write.jsp로 요청   
    2.write.jsp에서 전달받은 데이터와 함께 login.jsp로 데이터를 전달   
    3.login.jsp가 처리 후 응답   
+   => 요청 1번, 응답 1번   
 
-   write.jsp에서 전달 시 
+   write.jsp에서 전달 시 request와 response를 같이 전달합니다.   
+   login.jsp가 response를 통해 클라이언트에게 응답합니다.   
