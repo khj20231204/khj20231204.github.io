@@ -39,11 +39,19 @@ author_profile: false
                //button : 유효성 검사할 거 없다
                //console.log($("input[temp='temporaryVar']").val());
 
+        			var obj = $("input[name='season']").is(":checked"); //true
+               console.log(v.val()); //error
+               //is(":checked"); 는 체크가 되어있는지 아닌지 확인하는 메소드
+               
+               var obj2 = $("input[name='season']:checked");
+               console.log(obj2.val()); //spring 또는 summer 또는 winter
+               //obj2는 체크가 된 radio객체
+
                //radio
                var radioArr = $("input[name='season']");
                $.each(radioArr, function(i,v){
-                  //console.log($(this).val()); //spring, summer, winder
-                  //console.log(v.value);      //spring, summer, winder
+                  //console.log($(this).val()); //spring, summer, winter
+                  //console.log(v.value);      //spring, summer, winter
                   //console.log($(this).is(':checked')) //true, false, false
                   //console.log(v.is(':checked')) //error, is는 jqeury문법, v는 js문법
                })
@@ -65,6 +73,9 @@ author_profile: false
                   //console.log($(this).is(':checked')) //true, false, false
                   //console.log(v.is(':checked')) //error, is는 jqeury문법, v는 js문법
                })
+               //또는 is(":checked")로 체크
+               var v = $("input[name='season']").is(":checked");
+               console.log(v); //체크된 항목이 있으면 true, 없으면 flase
 
                //checkbox => 위에 radio버튼과 일치
                var checkboxArr = $("input[name='hobby']");
@@ -74,14 +85,22 @@ author_profile: false
                   //console.log($(this).is(':checked')) //true, false, false
                   //console.log(v.is(':checked')) //error, is는 jqeury문법, v는 js문법
                })
+               //또는 is(":checked")로 체크
+               var v2 = $("input[name='hobby']").is(":checked");
+               console.log(v2); //체크된 항목이 있으면 true, 없으면 false
 
                //select
                var selectArr = $("select[name='tele']");
                $.each(selectArr,function(i,v){
-                  console.log($(this).val()); //011, 1개만 출력, 선택하지 않으면 ""출력
-                  console.log($(this).length); //1
+                  //console.log($(this).val()); //011, 1개만 출력, 선택하지 않으면 ""출력
+                  //console.log($(this).length); //1
                })
 
+               /*
+               결론 
+               radio, checkbox는 is(":checked")
+               select는 val()
+               */
                return false;
             });
          })

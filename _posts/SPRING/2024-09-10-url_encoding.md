@@ -31,3 +31,5 @@ author_profile: false
       <div id="msg">${URLDecoder.decode(param.msg, "utf-8")}</div> <!-- 받는 쪽에서는 Decode -->
    ```   
    URLDecoder는 java.net에 있는 패키지라서 import를 해줘야합니다.   
+
+   
