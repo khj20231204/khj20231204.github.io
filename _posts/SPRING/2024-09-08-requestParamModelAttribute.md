@@ -113,7 +113,6 @@ author_profile: false
          private int year;
          private int month;
          private int day;
-
          ...
       }
 
