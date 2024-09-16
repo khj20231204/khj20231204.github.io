@@ -6,6 +6,12 @@ tab: [react]
 ---
 
 1. # Component?
+
+   어떤 걸 컴포넌트로 만들면 좋은가?   
+   1.반복적인 html을 축약을 할 때   
+   2.큰 페이지들   
+   3.자주 변경되는 것들    
+
    React에서 페이지를 구성하는 최소단위입니다.
    ```javascript
       //Component   
@@ -97,7 +103,27 @@ tab: [react]
    여기서 중요한 건 children이란 props인데 children은 리액트의 컴포넌트에서 기본으로 전달되는 props로, 해당 컴포넌트 내부에 작성된 "자식 컴포넌트"를 의미 합니다. 자식 컴포넌트를 명시적으로 전달하지 않아도 자동으로 전달됩니다.   
    결과 화면 :   
    <img style="border: 3px solid black;border-radius:9px;width:300px;" src="../../imgs/react/mycomponent_result.jpg" />   
+   
 1. # 컴포넌트에서 데이터   
    *컴포넌트끼리 데이터를 주고받을 땐 Props*   
    *컴포넌트 내에서 데이터를 관리할 땐 State*    
    *데이터는 "부모"에서 "자식"으로만 전달*   
+
+1. # div 묶기
+   의미 없는 div를 묶을 때는 `<></>`를 사용합니다.   
+
+   ```javascript
+      const Modal = () => {
+         return(
+         <>
+            <div className="modal">
+               <h4>제목</h4>
+               <p>날짜</p>
+               <p>상세내용</p>
+            </div>
+            <div>부제목</div>
+            <div>작성자</div>
+         </>   
+         )
+      }
+   ```   

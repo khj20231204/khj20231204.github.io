@@ -68,15 +68,23 @@ tab: [useState]
                
                <button type="button" onClick={() => {
                
-                  /** 제대로 동작하지 않음 **/                  
+                  /** 제대로 동작하지 않음 **/
+
                   /* 얕은 복사 */
+                  //subject의 원래 주소값과 copy의 원래 주소값이 같아 실제로는 변경된 것이 없다.
                   let copy = subject;
-                  /* useState의 특징 */
+
+                  /* useState의 특징 적용*/
                   copy[0] = "아이쿠 그냥 추천";
+
+                  /* copy[0]의 주소값이 변경되었지 copy의 주소값이 변경된 건 아니다*/
                   setSubject(copy);
 
                   /** 제대로 동작 **/
+                  //[...obj] 이 문법을 사용하면  화살표가 새로 생긴다.
+                  //따라서 newSubject와 subject 주소가 다른다.   
                   const newSubject = [...subject];
+
                   newSubject[0] = "아이쿠 그냥 추천";
                   setSubject(newSubject);
 
