@@ -97,3 +97,39 @@ tab: [useState]
 
    __useState의 특징__   
    useState는 상태 변경 시 <span style="color:red">새로운 값을 만들어서</span> 상태를 업데이트해야 합니다. 기존 상태를 직접 수정하면 React는 변화를 감지하지 못하고 렌더링되지 않습니다.   
+
+1. # 자식이 부모의 state를 가져다쓰고 싶을 때는 props
+   부모 -> 자식 state 전송하는 법   
+
+   1.부모:<자식컴포넌트 작명={state이름}>   
+   ```javascript
+      const Parent = () => {
+         return(
+            <div>
+               <Child color={'skyblue'} />
+            </div>
+         )
+      }
+   ```   
+
+   2.자식:props파라미터 등록 후 props.작명 사용   
+   ```javascript
+      const Child = (props) => {
+         return(
+            <div>
+               <p>{props.color}</p> // 배열인 경우 모든 원소값들 출력
+               <p>{props[1]. color}</p>  //props배열의 1번째 인덱스 값 가져오기
+            </div>
+         )
+      }
+   ```   
+
+   props 전송은 부모 -> 자식만 가능   
+
+   자식이 부모에게 전달하거나 형제끼리 전달하는 거 모두 불가능   
+
+   <span style="color:red">*state 만드는 곳은  state를 사용하는 컴포넌트들 중 최상위 컴포넌트에 선언.</span>   
+   왜? state는 props로 부모->자식으로만 전달되기 때문.
+
+
+   
