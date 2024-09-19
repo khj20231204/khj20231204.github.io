@@ -5,6 +5,7 @@ categories: SQL
 tag: [쿼리 순서]
 ---
 
+
 1. # 일반 쿼리 순서
    SELECT ...   
    FROM ...   
