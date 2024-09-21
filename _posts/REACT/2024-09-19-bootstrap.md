@@ -33,9 +33,9 @@ tab:
 
    <br>
 
-   3.요소 선택
-   <img style="border: 3px solid black;border-radius:9px;width:400px;" src="../../imgs/react/bootstrap_1.png">   
-   왼쪽 메뉴에서 Layout, Forms, Components를 선택할 수 있습니다.   
+   3.요소 선택   
+   <img style="border: 3px solid black;border-radius:9px;width:200px;" src="../../imgs/react/bootstrap_1.png">   
+   홈페이지의 왼쪽 메뉴에서 Layout, Forms, Components를 선택할 수 있습니다.   
 
    버튼 선택   
    ```
