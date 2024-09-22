@@ -68,7 +68,7 @@ tab:
    대문자는 컴포넌트이기 때문에 전부 import를 해야합니다.   
 
    import목록이 3개 입니다.   
-   ```javascript
+   ```javascript 
       import Container from 'react-bootstrap/Container';
       import Nav from 'react-bootstrap/Nav';
       import Navbar from 'react-bootstrap/Navbar';
