@@ -33,7 +33,8 @@ author_profile: false
 
             // 3. 출력  <-------------------------------------------------------- 하나의 관심사
             response.setContentType("text/html");  
-            response.setCharacterEncoding("utf-8");  
+            response.setCharacterEncoding("utf-8");
+            //response.setContentType("text/html; charset=utf-8");  
             PrintWriter out = response.getWriter();  
             out.println("<html>");
             out.println("<head>");
