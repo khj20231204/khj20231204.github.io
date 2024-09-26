@@ -9,10 +9,10 @@ author_profile: false
 1. # 라이브러리 추가
    라이브러리를 추가하는 방법에는 Build Path로 추가하는 방법과 lib폴더에 추가하는 방법이 있습니다.   
 
-   <img src="../../imgs/spring/library_add_2.png" style="border:3px solid black;border-radius:9px;width:300px">   
+   <img src="../../imgs/spring/library_add_2.png" style="border:3px solid black;border-radius:9px;width:450px">   
    Build Path로 추가
 
-   <img src="../../imgs/spring/library_add_1.png" style="border:3px solid black;border-radius:9px;width:300px">   
+   <img src="../../imgs/spring/library_add_1.png" style="border:3px solid black;border-radius:9px;width:400px">   
    lib폴더에 추가   
 
    Build Path에서 Libraries에 추가하는 방법을 강력하게 추천합니다.   
