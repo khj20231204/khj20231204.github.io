@@ -1,6 +1,6 @@
 ---
 layout: single
-title: find와 filter
+title: find, filter, findIndex
 categories: JS
 tag: []
 ---
@@ -56,3 +56,26 @@ tag: []
       1 : {id: 3, name: '샌들', price: 30000}
    ```   
    id가 2보다 큰 객체 '구두'와 '샌들'을 리턴합니다.   
+
+1. # findIndex
+   findIndex는 조건에 일치하는 index를 반환하는 함수   
+   
+   ```javascript
+      let customerData = createSlice({
+         name : 'customerData',
+         initialState : 
+         [
+            {id : 0, name : 'White and Black', count : 2},
+            {id : 2, name : 'Grey Yordan', count : 1}
+         ],
+         reducers : {
+            changeCount(state,action){
+               let num = state.findIndex((e)=>  e.id === action.payload)
+               //e는 state의 하나하나 데이터 , index를 반한
+               //findIndex : arry 에서 원하는 거 몇번째 있나 찾아주는 함수
+
+               state[num].count += 1;
+            }
+         }
+      })
+   ```
