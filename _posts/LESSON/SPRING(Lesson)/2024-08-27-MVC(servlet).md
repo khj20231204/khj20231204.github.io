@@ -107,4 +107,12 @@ author_profile: false
       </servlet-mapping>
    ```
 
-1. # 
+1. # 실행순서
+   로그인 session 이 있다 - main페이지
+   sesstio이 이 없다 - 로그인
+
+   memberForm.jsp -> MemberInsert.do(controller) -> 
+
+   main.jsp -> UpdateMember.do(controller) : controller에서
+
+   
