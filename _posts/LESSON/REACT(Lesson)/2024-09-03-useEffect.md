@@ -91,6 +91,38 @@ author_profile: false
       };
    ```
 
+   3)state가 변경될 때만 useEffect실행   
+   ```javascript
+      function App() {
+
+         const [data, setData] = useState(0);
+         const [search, setSearch] = useState(0);
+
+         let downLoad = () => {
+            setData(5);
+         }
+
+         useEffect(() => {
+            console.log("useEffect 실행됨");
+            downLoad();
+         },[search])  //setSearch(2)가 실행되면 useEffect 1번 실행됨, 이후로는 search값이 2로 변경이 없기 때문에 실행 안됨
+
+         return (
+            <div>
+               <button onClick={() => {
+                  setSearch(2);
+               }}>검색하기</button>
+               <h2>데이터 : {data}</h2>
+               <button onClick={() => {
+                  setData(data+1);
+               }}>더하기</button>
+            </div>
+         );
+      }
+
+      export default App;
+   ```
+
 1. # React에서 렌더링되는 경우
    React 컴포넌트는 특정 조건이 만족될 때마다 다시 렌더링되어 화면에 반영됩니다. 이러한 렌더링 과정은 React 애플리케이션의 핵심 동작 중 하나이며, UI를 동적으로 업데이트하는 데 필수적입니다.   
 

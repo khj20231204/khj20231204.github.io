@@ -1,31 +1,63 @@
 ---
 layout: single
-title: Hook
+title: Hooks
 categories: REACT
 tab: [Effect Hook]
 ---
 
-1. # Hook 사용 위치
+1. # 훅의 종류
+   __useState: 상태 관리__   
+   컴포넌트 내부에서 데이터를 저장하고 변경할 수 있도록 합니다.   
+   예: 버튼 클릭 시 카운트 증가   
+
+   __useEffect: 부가 효과__   
+   컴포넌트가 화면에 나타나거나 업데이트될 때 특정 작업을 수행합니다.   
+   예: 데이터 Fetch, 타이머 설정, DOM 조작   
+   
+   __useContext: 컨텍스트 API 사용__   
+   컴포넌트 트리 전체에 데이터를 전달하고 공유합니다.   
+   예: 테마 변경, 로그인 상태 관리   
+   
+   __useReducer: 복잡한 상태 관리__   
+   상태 업데이트 로직을 함수로 분리하여 관리합니다.   
+   예: 여러 개의 상태를 가진 복잡한 폼   
+   
+   __useMemo: 값 메모이제이션__   
+   비싼 연산 결과를 캐싱하여 불필요한 재연산을 방지합니다.   
+   예: 복잡한 계산, 큰 배열 필터링   
+   
+   __useCallback: 콜백 함수 메모이제이션__   
+   자주 변경되지 않는 콜백 함수를 메모이제이션하여 성능을 향상시킵니다.   
+   예: 최적화된 이벤트 핸들러   
+   
+   __useRef: DOM 노드 참조__   
+   DOM 노드에 대한 참조를 유지합니다.   
+   예: 포커스 설정, 직접적인 DOM 조작   
+   
+   __custom hooks: 커스텀 훅 생성__   
+   특정 로직을 재사용 가능한 훅으로 만들어 코드를 모듈화합니다.
+   예: 커스텀 폼 훅, 데이터 Fetch 훅
+
+1. # Hooks 사용 위치
    ```javascript
       import useState from 'react';
 
-      //const [number, setNumber] = useState();  //---- 1)React Hook "useState" cannot be called at the top level.
+      //const [number, setNumber] = useState();  //---- 1)error발생
 
       function App() {
 
-         const [number, setNumber] = useState();  //---- 2)react__WEBPACK_IMPORTED_MODULE_1___default is not a function or its return value is not iterable
+         const [number, setNumber] = useState();  //---- 2)사용할 위치
 
          return (
             <div>
-               //const [number, setNumber] = useState();  //---- 3)
+               //const [number, setNumber] = useState();  //---- 3)error 발생
             </div>
          );
       }
 
       export default App;
    ```
-
-      1)
+   변수와 함수는 1),2)에서 사용가능 하지만 hook는 2) 위치에서만 사용가능합니다.   
 
 1. # Effect Hook 1
    ```javascript
