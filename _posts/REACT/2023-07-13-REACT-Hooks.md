@@ -5,6 +5,28 @@ categories: REACT
 tab: [Effect Hook]
 ---
 
+1. # Hook 사용 위치
+   ```javascript
+      import useState from 'react';
+
+      //const [number, setNumber] = useState();  //---- 1)React Hook "useState" cannot be called at the top level.
+
+      function App() {
+
+         const [number, setNumber] = useState();  //---- 2)react__WEBPACK_IMPORTED_MODULE_1___default is not a function or its return value is not iterable
+
+         return (
+            <div>
+               //const [number, setNumber] = useState();  //---- 3)
+            </div>
+         );
+      }
+
+      export default App;
+   ```
+
+      1)
+
 1. # Effect Hook 1
    ```javascript
       import React, {useState, useEffect} from 'react';

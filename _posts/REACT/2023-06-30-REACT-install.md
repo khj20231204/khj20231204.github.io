@@ -20,8 +20,10 @@ tag: [React,설치]
    <br>
    <img style="border: 3px solid black;border-radius:9px;width:680px;" src="../../imgs/react/path_cmdwindow.jpg">   
    cmd창 경로가 C:\react>로 나타납니다.
+
 1. # node 버전 확인
    node -v
+
 1. # npx로 cra설치하기
    my-app이란 이름을 가진 프로젝트를 만들기위해 npx에서 cra라이브러리를 이용합니다.   
    npx create-react-app my-app    
@@ -87,3 +89,8 @@ tag: [React,설치]
       -결과화면-   
       <img style="border: 3px solid black;border-radius:9px;width:680px;" src="../../imgs/react/serve_complete.jpg" />   
 
+1. # VS Extension
+
+   1.ESLint : 문법 검사   
+   2.Prettier - Code formatter : 코드 정렬
+   3.Reactjs Code snippets : 자동 완성

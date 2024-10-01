@@ -32,8 +32,12 @@ tab: [react]
       결과값 : 
       하이
    ```
+
+   홈페이지를 구성할 때 가장 먼저 __컴포넌트 설계__ 를 해야합니다. 특정 환경에서 어느 컴포넌트가 값이 변하고 변하지 않는지 파악 후 값이 자주 변하는 부분을 컴포넌트 작성합니다. 데이터 쓰임이 다른 부분을 컴포넌트 별로 나눕니다.
+
 1. # Component의 이름은 대문자로 시작
    Component의 시작을 대문자로 적으므로써 기존 HTML코드인지 Component인지 구별할 수 있습니다.
+
 1. # Class component와 Function Component
    ```javascript
       //클래스 Component

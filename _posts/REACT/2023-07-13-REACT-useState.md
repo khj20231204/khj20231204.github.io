@@ -5,7 +5,18 @@ categories: REACT
 tab: [useState]
 ---
 
-# useState 사용 예제
+1. # useState
+   <a href="../LESSON/REACT(Lesson)/2024-09-03-useSate.md">다른 설명</a>
+
+   ```javascript
+      let [number, setNumber] = useState(0);
+
+      setNumber(number++) //(X)
+      setNumber(number+1) //(O)
+   ```  
+   number++ 인 경우 number = number+1 이기 때문에 결과 값이 다시 number에 입력됩니다. 그렇기 때문에 number에 1을 증가시킨 number+1을 입력해야 합니다.   
+
+1. # useState 사용 예제
    ```javascript
       function App() {
          const [person, setPerson] = useState({
