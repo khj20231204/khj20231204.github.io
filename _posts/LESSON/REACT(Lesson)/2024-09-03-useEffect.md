@@ -144,6 +144,49 @@ author_profile: false
    부모 컴포넌트가 렌더링될 때, 자식 컴포넌트도 함께 렌더링될 수 있습니다.
    부모 컴포넌트의 렌더링은 자식 컴포넌트의 props 변경을 유발할 수 있으며, 이는 자식 컴포넌트의 렌더링을 트리거합니다.   
 
+1. # useEffect에서 ajax 사용시 주의 점
+
+   ```javascript
+      const [boards, setBoards] = useState([]);
+
+      useEffect(() => {
+         //ajax로 다운로드 받았다고 가정 -------------- 1)
+         let data = [
+            {id:1, title:'제목1', content:'내용'},
+            {id:2, title:'제목2', content:'내용2'},
+            {id:3, title:'제목3', content:'내용3'},
+         ]
+
+         setBoards([...data]); //---------------------2)
+
+      },[])
+   ```
+   1)에서 ajax로 밑에 data를 다운 받는다고 가정. 이 경우 ajax는 비동기로 처리 되기 때문에 data를 다운 받으란 명령만 내린 뒤 실행 코드는 밑으로 내려감   
+   2)data를 다운 받기 전이기 때문에 첫번째는 data에 빈 데이터 상태로 boards에 입력   
+   3)이후, ajax에서 다운로드가 끝나면 콜백함수에 의해 다시 setBoards가 호출 되어 data가 boards에 입력   
+
+   __useEffect에서 data는 상태값에 입력이 돼야 함__
+
+   ```javascript
+      let dataTemp;  //dataTemp란 변수 선언
+         
+      useEffect(() => {
+         //다운로드 가정
+         let data = [
+            {id:1, title:'제목1', content:'내용'},
+            {id:2, title:'제목2', content:'내용2'},
+            {id:3, title:'제목3', content:'내용3'},
+         ]
+         dataTemp = data; //변수에 data할당, setData가 아니라 일반 변수기 때문에 상태변화에 따른 값이 호출 안 됨.
+      },[]) 
+
+      return (
+         <div>
+            <Home boards={dataTemp}/> //dataTemp에는 아무런 값도 저장 안 됨
+         </div>
+      );
+   ```    
+   useEffect 내에서 일반 변수에 값을 할당 했기 때문에 다운로드가 끝나도 재랜더링이 일어나지 않습니다. 그렇기 때문에 dataTemp에는 빈 배열이 저장됩니다.   
 
 
 

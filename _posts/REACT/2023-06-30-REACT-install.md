@@ -94,3 +94,4 @@ tag: [React,설치]
    1.ESLint : 문법 검사   
    2.Prettier - Code formatter : 코드 정렬
    3.Reactjs Code snippets : 자동 완성
+   4.vscode-styled-components : css 자동 완성
