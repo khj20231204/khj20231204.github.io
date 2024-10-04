@@ -6,6 +6,122 @@ tag: []
 author_profile: false
 ---
 
+1. # 프로젝트 생성 순서
+   <img src="../../../imgs/spring/spring_webxml.png" style="border:3px solid black;border-radius:9px;width:400px">   
+   web.xml 파일 생성 체크   
+
+   <img src="../../../imgs/LESSON/SPRING(Lesson)/proejct_order_1.png" style="border:3px solid black;border-radius:9px;width:450px">   
+   META-INF 폴더 안에 context.xml   
+   WEB_INF/lib 폴더 안에 jar 라이브러리 추가   
+
+   __DB생성__   
+   webapp폴더 → SQL폴더 → board2.sql   
+   Data Source Explorer에서 DB connection 연결   
+
+   webapp폴더 → board폴더 → 모든 jsp파일   
+
+   *DTO(model) → DAO(dao) → Controller → Service 순서로 작성   
+   <img src="../../../imgs/LESSON/SPRING(Lesson)/pakage_order.png" style="border:3px solid black;border-radius:9px;width:450px">   
+
+   __Model - DTO__   
+   BoardBean.java   
+   db와 변수이름 타입이 일치해야된다. db의 table을 가져와서 작성!   
+
+   __DB - DAO__   
+   BoardDAO.java   
+   ```java
+      import java.sql.Connection;
+      import javax.naming.Context;
+      import javax.naming.InitialContext;
+      import javax.sql.DataSource;
+
+      public class BoardDAO {
+            // 싱글톤 : 객체 생성을 한번만 수행 하는것.
+            private static BoardBean instance = new BoardBean();
+
+            public static BoardBean getInstance() { // 정적 메소드
+               return instance;
+            }
+
+            // 컨넥션풀에서 컨넥션을 구해오는 메소드
+            private Connection getConnection() throws Exception {
+               Context init = new InitialContext();
+               DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/orcl");
+               return ds.getConnection();
+            }
+      }
+   ```
+
+   __Controller__   
+   servlet생성   
+   <img src="../../../imgs/LESSON/SPRING(Lesson)/proejct_order_2.png" style="border:3px solid black;border-radius:9px;width:500px">
+
+   톰캣 버전에 따라 컨트롤러 주소 설정이 2가지   
+   1)서블릿 맵핑 2)어노테이션   
+
+   어노테이션으로 경로를 설정하기 위해서 web.xml파일에서 서블릿 맵핑 부분은 주석처리   
+   <img src="../../../imgs/LESSON/SPRING(Lesson)/proejct_order_3.png" style="border:3px solid black;border-radius:9px;width:800px">
+
+   어노테이션으로 처리   
+   ```java
+      @WebServlet("*.do") //<-- *.do으로 어노테이션 설정, 확장자가 do이면 전부 이쪽으로 접속
+   ```
+
+   -web.xml을 사용할 경우-   
+   ```xml
+      <servlet>
+         <description></description>
+         <display-name>BoardController</display-name>
+         <servlet-name>BoardController</servlet-name>
+         <servlet-class>Controller.BoardController</servlet-class>
+      </servlet>
+      <servlet-mapping>
+         <servlet-name>BoardController</servlet-name>
+         <url-pattern>*.do</url-pattern> <!-- 이부분을 *.do로 입력 -->
+      </servlet-mapping> 
+   ```
+   서블릿 맵핑을 사용할 경우 url-pattern 부분에 *.do입력   
+
+
+   __컨트롤러 서블릿 전체 소스__   
+   ```java
+      @WebServlet("*.do")
+      public class BoardController extends HttpServlet {
+         private static final long serialVersionUID = 1L;
+         
+         //doGet(), doPost() 메소드의 공통적인 작업 처리
+         protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+         }
+         
+         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            System.out.println("get");
+            
+            doProcess(request, response);
+         }
+
+         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            System.out.println("post");
+            
+            doProcess(request, response);
+         }
+      }
+   ```
+
+   Service
+   
+   Action.jsava
+   ActionForward.java
+   BoardAddAction.java
+   BoardListAction.java
+   BoardDetailAction.java
+   BoardReplyForm.java
+   BoardReply.java
+
+
+    -> DAO -> Controller -> Service
+
+
+
 1. # 주요 기능
    1.Connection Pool   
    2.request, session 객체 공유 설정   
