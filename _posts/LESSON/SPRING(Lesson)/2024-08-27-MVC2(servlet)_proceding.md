@@ -1,6 +1,6 @@
 ---
 layout: single
-title: MVC2
+title: MVC2 프로젝트 진행과정
 categories: SPRING(Lesson)
 tag: []
 author_profile: false
@@ -82,45 +82,118 @@ author_profile: false
    ```
    서블릿 맵핑을 사용할 경우 url-pattern 부분에 *.do입력   
 
-
    __컨트롤러 서블릿 전체 소스__   
    ```java
-      @WebServlet("*.do")
-      public class BoardController extends HttpServlet {
-         private static final long serialVersionUID = 1L;
-         
-         //doGet(), doPost() 메소드의 공통적인 작업 처리
+      @WebServlet("*.do") //do 확장자는 모두 이쪽으로
+      public class Controller extends HttpServlet {
+
          protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-         }
-         
-         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            System.out.println("get");
             
+            String requestURI = request.getRequestURI(); //전체 URI를 가져온다
+            String contextPath = request.getContextPath(); //현재 프로제트명을 가져온다.
+            String command = requestURI.substring(contextPath.length());
+            
+            System.out.println(requestURI);  //mymodel2board/LoginForm.do
+            System.out.println(contextPath); //mymodel2board
+            System.out.println(command); 	 //LoginForm.do
+         }
+
+         //링크를 걸거나 location이동
+         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            System.out.println("doGet");
             doProcess(request, response);
          }
 
+         //form을 통해 전송 시
          protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            System.out.println("post");
-            
+            System.out.println("doPost");
             doProcess(request, response);
+         }
+
+      }
+   ```
+   HTTP Request는 웹 서버에 데이터를 요청하는 방식 6가지입니다.   
+
+   GET: 서버에서 특정 리소스를 가져오는 데 사용됩니다.   
+   POST: 서버에 새로운 데이터를 생성하는 데 사용됩니다. 예를 들어, 웹 양식 데이터를 서버에 전송하거나 파일을 업로드할 때 사용됩니다.   
+   PUT: 서버에 있는 기존 리소스를 전체적으로 업데이트하는 데 사용됩니다.   
+   DELETE: 서버에 있는 기존 리소스를 삭제하는 데 사용됩니다.   
+   PATCH: 서버에 있는 기존 리소스를 부분적으로 업데이트하는 데 사용됩니다.   
+   HEAD: GET 요청과 비슷하지만, 응답 본문 대신 응답 헤더만 반환합니다. 주로 리소스의 메타데이터를 확인할 때 사용됩니다.   
+
+   Service 에서   
+   Action.java / ActionForward.java 먼저 생성  Action.java는 Interface   
+
+   BoardAddAction.java / BoardListAction.java   
+   BoardDetailAction.java / BoardReplyForm.java / BoardReply.java 에서 Action.java를 상속   
+
+   <span style="color:red">*jsp에서 form의 요청주소와 service의 이름을 같게 해야 함.</span>
+
+   Action.java - 인터페이스   
+   ```javascript
+      public interface Action {
+         //추상 메서드
+         public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
+      }
+   ```
+
+   ActionForward.java
+   ```javascript
+      public class ActionForward { //Forward 방식 설정
+         private boolean redirect;
+         private String path;
+         
+         public boolean isRedirect() {
+            return redirect;
+         }
+         public String getPath() {
+            return path;
+         }
+         public void setRedirect(boolean redirect) {
+            this.redirect = redirect;
+         }
+         public void setPath(String path) {
+            this.path = path;
          }
       }
    ```
 
-   Service
-   
-   Action.jsava
-   ActionForward.java
-   BoardAddAction.java
-   BoardListAction.java
-   BoardDetailAction.java
-   BoardReplyForm.java
-   BoardReply.java
+   forward if문   
+   ```javascript
+      //포워딩 처리
+		if(forward != null) {
+			if(forward.isRedirect()) { //redirect 방식으로 포워딩
+				response.sendRedirect(forward.getPath());
+			}else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response);
+			}
+		}
+   ```
+
+   __session은 redirect와 dispather 다 사용 가능__   
+   __request는 dispather만 사용 가능__   
+
+   ```javascript
+      BoardDTO board = new BoardDTO();
+   ```
+   Dto클래스를 초기화할 때 int형은 자동 0으로 초기화   
 
 
-    -> DAO -> Controller -> Service
+1. # 프로그램 실행 순서
+   첫글 입력 board_write.jsp(view) → Controller → BoardAddAction.java(service) → redirect:BoardListAction.do → Controller → BoardListAction.java(service) → board_list.jsp(view) 
 
+1. # el, jstl, jsp 값 출력 비교
 
+   ```java
+   글 갯수 : ${listcount} 개 //el	
+	
+	글 갯수 : <%= count %>  //jstl
+
+	<%
+	int count = ((Integer)request.getAttribute("listcount")).intValue();
+	%> //jsp
+   ```
 
 1. # 주요 기능
    1.Connection Pool   
