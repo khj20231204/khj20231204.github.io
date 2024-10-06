@@ -70,6 +70,25 @@ tag: [React,설치]
       프로젝트 폴더(create-react-app를 이용해서 만든my-app)가 아닌 경우 다음과 같은 에러가 나타납니다.   
       현재 실행 폴더를 my-app으로 변경해서 실행합니다.   
 
+1. # 설치할 모듈들
+   부트스트랩 : npm install react-bootstrap bootstrap   
+   *부트스트랩 모듈도 추가 했고, 제공된 사이트 import도 했는데 태그 요소들은 나타나고 스타일이 적용 안 되는 경우   
+   ```cs
+      import 'bootstrap/dist/css/bootstrap.min.css';
+   ```
+   css도 적용   
+
+
+
+
+
+   1. VS Extension   
+      1.ESLint : 문법 검사   
+      2.Prettier - Code formatter : 코드 정렬   
+      3.Reactjs Code snippets : 자동 완성   
+      4.vscode-styled-components : css 자동 완성   
+
+
 1. # 프로젝트 완성 후 배포하기 위해 build하기
       프로젝트 폴더안의 VSCode terminal에서 npm run build 실행. 서버에 올리기위해 압축하는 과정   
       <img style="border: 3px solid black;border-radius:9px;width:680px;" src="../../imgs/react/npm_run_build.jpg"/>   
@@ -89,9 +108,3 @@ tag: [React,설치]
       -결과화면-   
       <img style="border: 3px solid black;border-radius:9px;width:680px;" src="../../imgs/react/serve_complete.jpg" />   
 
-1. # VS Extension
-
-   1.ESLint : 문법 검사   
-   2.Prettier - Code formatter : 코드 정렬
-   3.Reactjs Code snippets : 자동 완성
-   4.vscode-styled-components : css 자동 완성

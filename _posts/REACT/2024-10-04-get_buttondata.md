@@ -5,7 +5,7 @@ categories: REACT
 tab: [react]
 ---
 
-1. 버튼 클리시
+1. # 버튼 클릭시
    ```javascript
       import React, { useState } from 'react';
 
