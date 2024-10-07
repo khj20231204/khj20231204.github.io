@@ -82,8 +82,10 @@ tag: [React,설치]
    css도 적용을 해줘야 됩니다.   
 
    __라우터__   
-   ```
+   ```javascript
       npm install react-router-dom
+
+      import {Routes, Route, Link} from 'react-router-dom'
    ```
    
 
