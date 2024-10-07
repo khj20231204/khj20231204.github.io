@@ -71,12 +71,21 @@ tag: [React,설치]
       현재 실행 폴더를 my-app으로 변경해서 실행합니다.   
 
 1. # 설치할 모듈들
-   부트스트랩 : npm install react-bootstrap bootstrap   
+   __부트스트랩__   
+   ```
+      npm install react-bootstrap bootstrap   
+   ```
    *부트스트랩 모듈도 추가 했고, 제공된 사이트 import도 했는데 태그 요소들은 나타나고 스타일이 적용 안 되는 경우   
    ```cs
       import 'bootstrap/dist/css/bootstrap.min.css';
    ```
-   css도 적용   
+   css도 적용을 해줘야 됩니다.   
+
+   __라우터__   
+   ```
+      npm install react-router-dom
+   ```
+   
 
 
 
