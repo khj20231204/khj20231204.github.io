@@ -20,11 +20,10 @@ author_profile: false
 1. # maven project import
    maven project는 war파일로 압축을 하면 설정이 바뀌기 때문에 압축을 해서 압축 파일을 그대로 import해야 한다.   
 
-   import → Projects from Folder or Archive   
+   import → Exising Projects into Workspace      
    <img src="../../../imgs/LESSON/SPRING(Lesson)/import_zip1.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
-   <img src="../../../imgs/LESSON/SPRING(Lesson)/import_zip2.png" style="border:3px solid black;border-radius:9px;width:500px">   
-
+   Copy projects into workspace를 선택   
    <img src="../../../imgs/LESSON/SPRING(Lesson)/import_zip3.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
 1. # MyBatis
