@@ -1,10 +1,13 @@
 ---
 layout: single
-title: URL Encoding
+title: URL Encoding과 Encoding Setting
 categories: SPRING
 tag: []
 author_profile: false
 ---
+
+1. # Encoding Setting
+   <img src="../../imgs/spring/encoding_set.png" style="border:3px solid black;border-radius:9px;width:500px">
 
 1. # URL Encoding
    브라우저의 주소창에 "http://" 이후에 한글을 치면 브라우저가 한글을 인코딩해서 주소창에 보여줍니다. 주소값을 그대로 복사해서 메모장에 붙여넣으면 인코딩되지 않은 한글값을 알 수 있습니다.   
