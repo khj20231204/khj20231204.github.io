@@ -86,12 +86,41 @@ tag: [React,설치]
       npm install react-router-dom
 
       import {Routes, Route, Link} from 'react-router-dom'
+      import { BrowserRouter } from 'react-router-dom'
    ```
    
+   index.js   
+   ```cs
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(
+      <React.StrictMode>
+         <BrowserRouter>
+         <App />
+         </BrowserRouter>
+      </React.StrictMode>
+      );
+   ```
 
+   App.js
+   ```cs
+      <Routers>
+         <Router path="/detail" element={<componet/>}>
+      </Routers>
+   ```
 
-
-
+   __지도__   
+   ```
+      npm install --save @svg-maps/south-korea
+   ```
+   node_modules 폴더에 @svg-maps 폴더가 생긴다. 폴더 내부에 있는 south-korea.svg 파일을 public 폴더 내부에 넣어주자.
+   ```
+      <svg xmlns="south-korea.svg" viewBox="0 0 524 631">
+         <path ~~~ />
+         <path ~~~ />
+         ~~~
+      </svg>
+   ```
+   svg 태그를 만들어주고, 내부에 south-korea.svg의 svg 태그 내부에 있는 모든 path를 복사해서 넣어준다.
 
    1. VS Extension   
       1.ESLint : 문법 검사   

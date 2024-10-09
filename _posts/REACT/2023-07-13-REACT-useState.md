@@ -66,7 +66,26 @@ tab: [useState]
    ```
    component를 사용하여 username 호출
 
-1. # 배열에 값 입력시 제대로 동작 안함
+1. # 배열로 초기화
+   ```javascript
+      let sample = [
+       {id:1, name:"A"},
+       {id:2, name:"B"},
+       {id:3, name:"C"},
+       {id:4, name:"D"},
+     ];
+
+      let [users, setUsers] = useState(sample) // --- 1)
+      let [users, setUsers] = useState([sample]) // --- 2)
+   ```
+   1)let [users, setUsers] = useState(sample)   
+   여기서는 sample 배열이 직접 상태의 초기값으로 설정됩니다. 따라서 users의 초기값은 sample 배열의 내용, 즉 [{id:1, name:"A"}, {id:2, name:"B"}, {id:3, name:"C"}, {id:4, name:"D"}]입니다.   
+
+   2)let [users, setUsers] = useState([sample])   
+   이 경우 sample 배열이 새로운 배열로 감싸져 있습니다. 따라서 users의 초기값은 [sample]이 되며, 결과적으로 users는 배열의 배열이 됩니다. 즉, users의 값은 [[{id:1, name:"A"}, {id:2, name:"B"}, {id:3, name:"C"}, {id:4, name:"D"}]]가 됩니다.   
+
+
+1. # 배열에 값 입력시 랜더링 안함 - 1
    ```javascript
       const [subject, setSubject] = useState(['가을남자','정장','헤어스타일']);
 
@@ -108,6 +127,53 @@ tab: [useState]
 
    __useState의 특징__   
    useState는 상태 변경 시 <span style="color:red">새로운 값을 만들어서</span> 상태를 업데이트해야 합니다. 기존 상태를 직접 수정하면 React는 변화를 감지하지 못하고 렌더링되지 않습니다.   
+
+1. # 배열에 값 입력시 랜더링 안함 - 2
+   ```javascript
+      let sample = [
+         {id:1, name:"A"},
+         {id:2, name:"B"},
+         {id:3, name:"C"},
+         {id:4, name:"D"},
+      ];
+
+      //1)동작 함
+      let [users, setUsers] = useState([]) //초기값 설정 안 함
+
+      let download = () => {
+         setUsers(sample) 
+      }
+
+      //2)동작 안함
+      let [users, setUsers] = useState(sample) //초기값을 sample로 입력
+
+      let download = () => {
+         setUsers(sample)  //초기값과 같은 reference
+      }
+
+      //3)동작 함
+      let [users, setUsers] = useState(sample) //초기값을 sample로 설정하지만
+
+      let download = () => {
+         setUsers([...sample])  //spread 연산자를 사용함, spread연산자를 사용할 땐 [ ] 입력해야함
+      }
+
+      //4)
+      let [users, setUsers] = useState(sample) //초기값을 sample로 입력
+
+      let download = () => {
+         sample.push({id:7, name:'kk'}) //비록 push를 넣어서 sample값을 변경했지만 deep copy아니기 때문에 랜더링 안됨
+         setUsers(sample)  //초기값과 같은 reference
+      }
+
+      //5)
+      let [users, setUsers] = useState(sample) //초기값을 sample로 입력
+
+      let download = () => {
+         let sample2 = sample.concat({id:7, name:'kk'}) //concat으로 깊은 복사를 하게되면 랜더링 됨
+         setUsers(sample2)  //concat으로 인해 초기값과 다른 reference를 가지게 됨
+      }
+   ```
 
 1. # 자식이 부모의 state를 가져다쓰고 싶을 때는 props
    부모 -> 자식 state 전송하는 법   

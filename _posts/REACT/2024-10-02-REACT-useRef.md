@@ -1,15 +1,10 @@
 ---
 layout: single
-<<<<<<< HEAD
-title: export
-=======
 title: useRef
->>>>>>> a009c766e29ced85c5041b34ce207451d8e6b063
 categories: REACT
 tab: 
 ---
 
-<<<<<<< HEAD
 1. # export
    ```javascript
       import Sub from './Sub'; //같은 폴더 위치의 default export
@@ -35,7 +30,7 @@ tab:
       export default Sub; //default의 export는 1개밖에 못 함 
    ```
    num을 export할 때 { }를 사용하고 import 할 때도 { }를 사용합니다.   
-=======
+
 1. # useRef
    useRef는 React에서 **참조(reference)**를 생성하고 관리하기 위한 Hook입니다. 쉽게 말해, 특정 값이나 DOM 요소를 가리키는 주소를 만들어주는 것이라고 생각할 수 있습니다.
 
@@ -80,4 +75,3 @@ tab:
       }
    ```
 
->>>>>>> a009c766e29ced85c5041b34ce207451d8e6b063
