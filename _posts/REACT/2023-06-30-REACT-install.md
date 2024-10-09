@@ -108,6 +108,14 @@ tag: [React,설치]
       </Routers>
    ```
 
+   __Styled__   
+   ```javascript
+      npm install styled-components
+      //component가 아니라 component__s__ 입니다.
+
+      import styled from 'styled-components'  //import
+   ```
+
    __지도__   
    ```
       npm install --save @svg-maps/south-korea
