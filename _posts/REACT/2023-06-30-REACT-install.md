@@ -131,6 +131,7 @@ tag: [React,설치]
    svg 태그를 만들어주고, 내부에 south-korea.svg의 svg 태그 내부에 있는 모든 path를 복사해서 넣어준다.
 
    1. VS Extension   
+      1.Auto Import - ES6, TS, JSX, TSX : 자동 import   
       1.ESLint : 문법 검사   
       2.Prettier - Code formatter : 코드 정렬   
       3.Reactjs Code snippets : 자동 완성   

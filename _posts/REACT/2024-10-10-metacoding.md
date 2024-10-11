@@ -98,8 +98,8 @@ tab: [react]
    ```
 
 1. # props 값 넘기기
-   HomePage.js에 <Header><Home><Footer> 컴포넌트들이 있고, HomePage.js에 useState값 board와 setBoard를 Home에게 넘길 때 주의점   
-   HomePage.js에 board를 → Home.js에 넘김   
+   HomePage.js에 <Header><Home><Footer> 컴포넌트들이 있고, HomePage.js에 useState값 board와 setBoard를 자식 Home에게 넘길 때 주의점   
+   HomePage.js에 board 변수를 → 자식 Home.js에 넘김   
 
    HomePage.js
    ```javascript
