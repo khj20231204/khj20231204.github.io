@@ -108,6 +108,20 @@ tag: [React,설치]
       </Routers>
    ```
 
+   __Redux__   
+   ```javascript
+      npm i @reduxjs/toolkit react-redux
+   ```   
+   package.json파일에 react와 react-dom의 버전이 18.1.x 이상이여야 한다.   
+   
+   버전이 낮은 경우:   
+   직접 버전을
+   ```json
+      "react": "^18.3.1",
+      "react-dom": "^18.3.1",
+   ```
+   으로 수정 후 npm install 실행   
+
    __Styled__   
    ```javascript
       npm install styled-components
