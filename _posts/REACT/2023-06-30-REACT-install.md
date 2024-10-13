@@ -110,6 +110,7 @@ tag: [React,설치]
 
    __Redux__   
    ```javascript
+      npm i react-redux
       npm i @reduxjs/toolkit react-redux
    ```   
    package.json파일에 react와 react-dom의 버전이 18.1.x 이상이여야 한다.   
