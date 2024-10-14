@@ -220,18 +220,22 @@ author_profile: false
             insert into member22 values (#{id}, #{password})
          </insert>  //DAO의 session.insert("insert", member);에서 넘겨준다
 
-         <update id="update" parameterType="member">
+         //resultType이 없어도 적용값의 행만큼 반환
+         <update id="update" parameterType="member"> 
             update member22 set password = #{password} where id = #{id}
          </update> //DAO의 session.update("update", mem);에서 넘겨준다
          
+         //resultType이 없어도 적용값의 행만큼 반환
          <delete id="delete" parameterType="String">
             delete from member22 where id = #{id}
          </delete> //DAO의 session.delete("delete", id);에서 넘겨준다
          
       </mapper>
    ```
+   update와 delete 쿼리를 실행할 경우 일반적으로 영향을 받은 행의 개수를 나타내는 int형 값을 __자동으로 반환__ 합니다.   
  
 
-   
+톰캣이 10.1 => Dynamic web module version : 6.0
+톰캣 10.0 => Dynamic web module version : 4.5
 
    

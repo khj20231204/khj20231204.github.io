@@ -54,6 +54,22 @@ author_profile: false
    boardupdateform.jsp (글수정 폼)   
    boarddeleteform.jsp (글삭제 폼)   
 
+   -relation webpage process-   
+   ```
+      no: db의 sequence primary key
+      page : 현재 페이지
+
+      boardlist.jsp (글목록)  → boardform.jsp (글작성 폼)  → boardwrite.do → insertresult.jsp → boardlist.jsp (글목록)   
+
+      boardlist.jsp (글목록) → : no, page 전달,  boardcontent.do → boardcontent.jsp (상세 페이지)  
+
+      boardcontent.jsp (상세 페이지)  → : page전달, boardlist.do → boardlist.jsp (글목록)
+
+      boardcontent.jsp (상세 페이지)  → : page, no 전달, boardupdateform.do → boardupdateform.jsp (글수정 폼) 
+      → boardupdate.do  → updateresult.jsp (page, no) 
+      
+      boardcontent.jsp (상세 페이지) → boarddeleteform.jsp (글삭제 폼)  (page, no) 
+   ```
 
    __환경 설정 파일 작성 순서__   
    <span style="color:red">수정 후 바로바로 실행</span>
