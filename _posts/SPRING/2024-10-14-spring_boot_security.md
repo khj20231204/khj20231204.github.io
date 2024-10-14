@@ -79,3 +79,17 @@ tag: []
 
    __ResponseEntity__   
    스프링 프레임워크에서 HTTP 응답을 나타내는 클래스입니다. 단순히 데이터만 반환하는 것이 아니라, HTTP 상태 코드, 헤더, 본문 등 다양한 정보를 포함하여 클라이언트에게 더욱 풍부한 응답을 제공할 수 있도록 해줍니다.
+
+   __claim__   
+   JWT(JSON Web Token)에서 Claim은 토큰 내에 포함된 사용자 정보나 메타데이터를 의미합니다. 이 주장들은 JSON 형태로 표현되며, 토큰의 유효성 검증이나 사용자 식별 등에 활용됩니다.   
+
+   claim 예시   
+   ```json
+      {
+         "iss": "https://example.com",
+         "sub": "user123",
+         "name": "John Doe",
+         "admin": true,
+         "iat": 1516239022
+      }
+   ```
