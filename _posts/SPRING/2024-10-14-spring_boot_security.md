@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Spring Boot 정리
+title: Spring Boot Security정리
 categories: SPRING
 tag: []
 ---
@@ -51,3 +51,31 @@ tag: []
 
    ```
 
+   __@Slf4j__   
+   에러나 간단한 정보, 버그시 로그를 남길 때 사용하는 어노테이션   
+
+   __@Component__   
+   스프링 부트 애플리케이션에서 Bean을 정의하는 데 사용되는 표준 메커니즘입니다. 스프링 컨테이너가 애플리케이션을 시작할 때, @Component 애노테이션이 붙은 클래스를 자동으로 검색하고 Bean으로 등록합니다. 클래스에 Component를 붙이면 다른 클래스에서 Autowired로 의존성을 주입하여 해당 클래스를 사용할 수 있습니다.   
+
+   -JwtProp.java-   
+   ```java
+      @Component //<- Component 선언
+      public class JwtProp {
+         private String secretKey;
+      }
+   ```   
+   JwtProp.java에서 Component로 선언하면 LoginController에서 JwtProp클래스에 Autowired를 주입 후 사용 가능   
+   -LoginController.java-   
+   ```java
+      public class LoginController {
+
+      @Autowired //의존성 주입
+      private JwtProp jwtProp; //JwtProp 사용 가능
+      
+   ```
+
+   __@ConfigurationProperties("com.hjcompany.jwt")__   
+   com.hjcompany.jwt 경로 하위 속성들을 지정   
+
+   __ResponseEntity__   
+   스프링 프레임워크에서 HTTP 응답을 나타내는 클래스입니다. 단순히 데이터만 반환하는 것이 아니라, HTTP 상태 코드, 헤더, 본문 등 다양한 정보를 포함하여 클라이언트에게 더욱 풍부한 응답을 제공할 수 있도록 해줍니다.
