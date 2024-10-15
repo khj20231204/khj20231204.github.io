@@ -89,9 +89,33 @@ author_profile: false
          }
       %>
    ```
-1. # page
+
+1. # Spring에서 DB연결
+
+   root-context.xml  
+   ```xml
+      <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> 
+         <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+         <property name="username" value="spring"></property> <!-- 수정 -->
+         <property name="password" value="spring123"></property> <!-- 수정 -->
+      </bean>
+
+      <!-- HikariCP configuration -->
+      <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+         <constructor-arg ref="hikariConfig" />
+      </bean>
+
+      <!-- 스프링으로 oracle db 연결 -->
+      <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+         <property name="dataSource" ref="dataSource"></property>
+         <property name="configLocation" value="classpath:util/configuration.xml" /> <!-- 경로 수정 -->
+         <property name="mapperLocations" value="classpath:sql/*.xml" /> <!-- 파일 이름 수정 -->
+      </bean>	
    ```
-   String nowPage = request.getParameter("page"); //page는 예약어라 변수로 사용 못함
+1. # page
+   ```java
+      String nowPage = request.getParameter("page"); //page는 예약어라 변수로 사용 못함
    ```
 
 1. # 따옴표
