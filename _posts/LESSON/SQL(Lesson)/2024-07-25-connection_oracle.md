@@ -45,5 +45,28 @@ cmd창에서 sqlplus "/as sysdba"입력
 
    해결 방법:
    메뉴 → help → install new software   
-   
-   
+
+1. # Oracle과 MySql 연결
+   ```java
+      //My-SQL 연결 설정하는 부분 
+      String driver = "com.mysql.cj.jdbc.Driver";
+
+      String url = "jdbc:mysql://localhost:3306/jsptest";
+      String user = "jspid";
+      String password = "jsppass";	
+
+      //****************************************
+
+      //Oracle 연결 설정하는 부분
+      String driver = "oracle.jdbc.driver.OracleDriver";
+
+      String url = "jdbc:oracle:thin:@localhost:1521:xe";
+      String user = "scott";
+      String password = "tiger";
+
+       //****************************************
+
+      // JDBC 방식
+      Class.forName(driver);		// JDBC Driver Loading
+      con = DriverManager.getConnection(url, user, password);
+   ```

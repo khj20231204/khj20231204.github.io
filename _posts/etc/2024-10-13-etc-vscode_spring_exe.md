@@ -1,7 +1,7 @@
 ---
 layout: single
 title: VSCode에서 Spring Boot실행
-categories: SPRING
+categories: etc
 tag: []
 author_profile: false
 ---

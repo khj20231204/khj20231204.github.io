@@ -1,7 +1,7 @@
 ---
 layout: single
 title: VScode에서 Spring로그 색깔 넣기
-categories: SPRING
+categories: etc
 tag: []
 ---
 
