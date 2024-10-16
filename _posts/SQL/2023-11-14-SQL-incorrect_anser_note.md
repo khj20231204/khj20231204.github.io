@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 오답노트
-categories: SQL
+categories: ORACLE
 tag: [오답노트]
 ---
 

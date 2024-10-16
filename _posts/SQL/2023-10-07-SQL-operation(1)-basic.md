@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 연산자(1)-산술/비교/논리
-categories: SQL
+categories: ORACLE
 tag: []
 ---
 

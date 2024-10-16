@@ -46,8 +46,10 @@ sidebar_category_list:
         url: /spring
       - title: "JAVA"
         url: /java
-      - title: "SQL" 
-        url: /sql
+      - title: "ORACLE" 
+        url: /oracle
+      - title: "MYSQL" 
+        url: /mysql
       - title: "CSS&HTML"
         url: /css&html
       - title: "JS"

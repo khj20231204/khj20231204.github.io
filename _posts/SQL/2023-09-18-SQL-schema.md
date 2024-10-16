@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 스키마
-categories: SQL
+categories: ORACLE
 tag: [SCHEMA]
 ---
 

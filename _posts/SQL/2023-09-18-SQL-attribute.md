@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Attribute(속성)
-categories: SQL
+categories: ORACLE
 tag:
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: INNER/NATURAL/ON/USING - JOIN
-categories: SQL
+categories: ORACLE
 tag: [inner, natural, using]
 ---
 

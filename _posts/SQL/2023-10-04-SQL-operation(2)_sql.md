@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 연산자(2)-SQL연산자
-categories: SQL
+categories: ORACLE
 tag: [BETWEEN, CONCAT, LIKE, IN, DESC, ROWNUM]
 ---
 

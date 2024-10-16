@@ -1,7 +1,7 @@
 ---
 layout: single
 title: BasicDML
-categories: SQL
+categories: ORACLE
 tag: [where]
 ---
 

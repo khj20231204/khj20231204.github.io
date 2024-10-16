@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 모델링
-categories: SQL
+categories: ORACLE
 tag: [modeling]
 ---
 

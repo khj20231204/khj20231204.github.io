@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 자바에서 프로시저 사용
-categories: SQL
+categories: ORACLE
 tag: 
 ---
 

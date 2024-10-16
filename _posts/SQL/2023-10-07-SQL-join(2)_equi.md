@@ -1,7 +1,7 @@
 ---
 layout: single
 title: EQUI/NON EQUI/암시적/명시적조인 - JOIN
-categories: SQL
+categories: ORACLE
 tag: [equi join, non equi, 암시적, 명시적]
 ---  
 

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 정규화
-categories: SQL
+categories: ORACLE
 tag: []
 ---
 

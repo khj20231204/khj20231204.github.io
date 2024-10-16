@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 제약 조건
-categories: SQL
+categories: ORACLE
 tag: [무결성, 이상현상]
 ---
 

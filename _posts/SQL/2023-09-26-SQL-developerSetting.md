@@ -1,7 +1,7 @@
 ---
 layout: single
 title: developer설정
-categories: SQL
+categories: ORACLE
 tag: [developer]
 ---
 

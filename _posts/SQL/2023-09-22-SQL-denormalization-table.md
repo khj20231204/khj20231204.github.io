@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 반정규화-테이블
-categories: SQL
+categories: ORACLE
 tag: []
 ---
 

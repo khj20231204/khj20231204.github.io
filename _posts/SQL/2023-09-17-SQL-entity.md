@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Entity(엔터티)
-categories: SQL
+categories: ORACLE
 tag:
 ---
 

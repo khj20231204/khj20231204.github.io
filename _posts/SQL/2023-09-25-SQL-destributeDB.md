@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 분산 데이터베이스
-categories: SQL
+categories: ORACLE
 tag: [분산]
 ---
 

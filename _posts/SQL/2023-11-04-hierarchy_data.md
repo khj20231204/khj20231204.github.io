@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 계층형 질의
-categories: SQL
+categories: ORACLE
 tag: [E.F.CODE]
 ---
 

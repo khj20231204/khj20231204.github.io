@@ -1,7 +1,7 @@
 ---
 layout: single
 title: oracle설치-11g설치
-categories: SQL
+categories: ORACLE
 tag: [인덱스]
 ---
 

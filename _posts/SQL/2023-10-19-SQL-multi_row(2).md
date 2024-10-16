@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Multi-Row Function(2)-고급 집계함수
-categories: SQL
+categories: ORACLE
 tag: [고급 집계 함수, DECODE, ROLLUP, CUBE, GROUPING SET]
 ---
 

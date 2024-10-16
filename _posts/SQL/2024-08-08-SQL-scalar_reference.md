@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 스칼라 변수/레퍼런스 변수
-categories: SQL
+categories: ORACLE
 tag: []
 ---
 

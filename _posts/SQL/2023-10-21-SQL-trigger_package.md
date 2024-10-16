@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 패키지와 트리거
-categories: SQL
+categories: ORACLE
 tag: [PL SQL]
 ---
 

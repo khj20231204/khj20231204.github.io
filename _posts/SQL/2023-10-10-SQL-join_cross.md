@@ -1,7 +1,7 @@
 ---
 layout: single
 title: CROSS/문제 JOIN
-categories: SQL
+categories: ORACLE
 tag: [cross, 레코드 수 문제]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Multi-Row Function(3)-윈도우 함수
-categories: SQL
+categories: ORACLE
 tag: [window 함수]
 ---
 

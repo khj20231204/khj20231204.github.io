@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 연산자(3)-집합연산자
-categories: SQL
+categories: ORACLE
 tag: [ORDER BY, ALIAS, UNION, INTERSECT, MINUS]
 ---
 

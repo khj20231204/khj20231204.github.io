@@ -1,7 +1,7 @@
 ---
 layout: single
 title: OUTER JOIN
-categories: SQL
+categories: ORACLE
 tag: [outer]
 ---
 

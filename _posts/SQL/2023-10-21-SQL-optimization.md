@@ -1,7 +1,7 @@
 ---
 layout: single
 title: SQL 최적화 기본
-categories: SQL
+categories: ORACLE
 tag: [최적화]
 ---
 

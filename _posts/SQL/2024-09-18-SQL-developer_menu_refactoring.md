@@ -1,7 +1,7 @@
 ---
 layout: single
 title: developer 왼쪽 메뉴 리팩토리
-categories: SQL
+categories: ORACLE
 tag: [쿼리 순서]
 ---
 

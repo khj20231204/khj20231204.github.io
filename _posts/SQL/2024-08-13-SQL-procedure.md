@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 프로시저와 저장 함수
-categories: SQL
+categories: ORACLE
 tag: [cross, 레코드 수 문제]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Multi-Row Function(1)-집계함수
-categories: SQL
+categories: ORACLE
 tag: [GROUP BY, 집계함수]
 ---
 

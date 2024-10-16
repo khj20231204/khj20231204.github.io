@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Relationship(관계)
-categories: SQL
+categories: ORACLE
 tag:
 ---
 

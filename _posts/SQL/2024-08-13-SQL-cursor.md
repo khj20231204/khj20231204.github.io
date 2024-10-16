@@ -1,7 +1,7 @@
 ---
 layout: single
 title: cursor(커서)
-categories: SQL
+categories: ORACLE
 tag: [cross, 레코드 수 문제]
 ---
 

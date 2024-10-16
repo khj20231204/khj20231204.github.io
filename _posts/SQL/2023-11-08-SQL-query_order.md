@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 쿼리 순서
-categories: SQL
+categories: ORACLE
 tag: [쿼리 순서]
 ---
 

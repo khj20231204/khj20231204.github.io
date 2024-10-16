@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 식별자
-categories: SQL
+categories: ORACLE
 tag: [식별자, 비식별자]
 ---
 

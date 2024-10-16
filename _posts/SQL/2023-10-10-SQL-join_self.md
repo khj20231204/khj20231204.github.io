@@ -1,7 +1,7 @@
 ---
 layout: single
 title: SELF JOIN
-categories: SQL
+categories: ORACLE
 tag: [self]
 ---
 

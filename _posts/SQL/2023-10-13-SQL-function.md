@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 함수
-categories: SQL
+categories: ORACLE
 tag: [형변환]
 ---
 

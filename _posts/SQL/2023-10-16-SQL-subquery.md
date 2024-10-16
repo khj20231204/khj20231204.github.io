@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Subquery
-categories: SQL
+categories: ORACLE
 tag: [IN, ALL, ANY, EXISTS]
 ---
 
