@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 스프링 부트에서 mysql dependency 문제
-categories: SPRING
+categories: SPRINGBOOT
 tag: []
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Spring Boot Security정리
-categories: SPRING
+categories: SPRINGBOOT
 tag: []
 ---
 

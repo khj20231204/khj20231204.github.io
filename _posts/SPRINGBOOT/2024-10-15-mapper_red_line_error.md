@@ -1,7 +1,7 @@
 ---
 layout: single
 title: mapper xml파일 빨간줄
-categories: SPRING
+categories: SPRINGBOOT
 tag: []
 author_profile: false
 ---

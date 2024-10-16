@@ -40,6 +40,8 @@ sidebar_category_list:
         url: /jsp(lesson)
   - title: "프로그래밍"
     children:
+      - title: "SPRINGBOOT"
+        url: /springboot
       - title: "SPRING"
         url: /spring
       - title: "JAVA"

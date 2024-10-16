@@ -28,11 +28,12 @@ author_profile: false
 
    webapp : jsp파일
 
-1. # pom.xml 
+1. # pom.xml - Maven
 
    pom.xml파일 dependency 추가   
    ctrl + shift + f : 자동 정렬 기능   
 
+   __Maven__   
    ```xml
       <!-- 내장 Tomcat실행시 jsp 파일을 사용하기 위한 의존 라이브러리 -->
 		<dependency>
@@ -49,36 +50,94 @@ author_profile: false
 
 		<!-- 추가 end -->
    ```
+   오른쪽 마우스 - update maven
+
+1. # build.gradle - Gradle
+   ```cs
+      dependencies {
+         // jsp
+         implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+         // jakarta jstl
+         implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.0'
+         // spring-boot-configuration-processor : @ConfigurationProperties 사용
+         implementation 'org.springframework.boot:spring-boot-configuration-processor'
+         // jwt 
+         implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+         runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+         runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+         // spring web
+         implementation 'org.springframework.boot:spring-boot-starter-web'
+         // mybatis
+         implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+         // lombok
+         compileOnly 'org.projectlombok:lombok'
+         annotationProcessor 'org.projectlombok:lombok'
+         // mysql
+         runtimeOnly 'com.mysql:mysql-connector-j'
+         // sprign-boot
+         developmentOnly 'org.springframework.boot:spring-boot-devtools'
+         providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+         testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+         // junit
+         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+      }
+   ```  
+
+   오른쪽 마우스 -> Reload Projects   
 
 1. # application.properties 설정
 
-   ```javascript
+   ```t
       spring.mvc.view.prefix=/WEB-INF/views/
       spring.mvc.view.suffix=.jsp
 
       server.port=80
 
-      # oracle
+      # oracle - hikari 포함
       spring.datasource.hikari.driver-class-name=oracle.jdbc.OracleDriver
       spring.datasource.hikari.jdbc-url=jdbc:oracle:thin:@localhost:1521:xe
       spring.datasource.hikari.username=spring
       spring.datasource.hikari.password=spring123
+      
+      # Oracle - hikari 제외
+      spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+      spring.datasource.url=jdbc:oracle:thin:@127.0.0.1:1521:xe (Oracle 설치 서버 IP :  포트 : DB 이름)
+      spring.datasource.username=ID
+      spring.datasource.password=PW
+
+      # MySql
+      spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver (MySql)
+      spring.datasource.url=mysql://localhost:3306/test_db (MySql 설치 서버 IP : 포트 / DB 이름)
+      spring.datasource.username=ID
+      spring.datasource.password=PW
    ```
 
    __properties파일을 yml로 변환__
-
-   application.properties 
-   ```
-      server.port=80
-   ```
-
-   application.yml   
-   ```
-      server:
-         port: 80
-   ```
-
    https://mageddo.com/tools/yaml-converter   
+
+1. # application.yml 로 설정
+   ```yml
+      #mySql
+      spring:
+         datasource:
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            username: jspid
+            url: jdbc:mysql://localhost3306/jsptest
+            #url: jdbc:mysql://localhost:3306/jsptest?characterEncoding=UTF-8&serverTimezone=UTC
+            password: jsppass
+         mvc:
+            view:
+               prefix: /WEB-INF/views/
+               suffix: .jsp
+         
+         server.port: 80
+
+         # Mapper Xml Location
+         mybatis:
+         mapper-locations: 
+            classpath:mapper/**/*.xml
+   ```
 
 1. # pom.xml의 오라클과 메이븐 dependency를 때문에 처음 실행이 안됨
 
@@ -97,7 +156,7 @@ author_profile: false
 		</dependency>-->
    ```
 
-1. # jsp파일 사용할 폴더 생성
+1. # jsp파일 사용할 폴더 생성 - maven
 
    application.properties 파일에 설정 경로 저장
    ```cs
@@ -111,17 +170,8 @@ author_profile: false
 
    *폴더 경로는 임의대로 수정 가능   
 
-1. # db 연동
-
-   hikari cp 사용
-
-   ```yml
-      # oracle
-      spring.datasource.hikari.driver-class-name=oracle.jdbc.OracleDriver
-      spring.datasource.hikari.jdbc-url=jdbc:oracle:thin:@localhost:1521:xe
-      spring.datasource.hikari.username=spring
-      spring.datasource.hikari.password=spring123
-   ```
+1. # jsp파일 사용할 폴더 생성 - gradle
+   main/webapp/WEB-INF/views 경로로 직접 생성   
 
 1. # DatabaseConfiguration.java
    main/java/com/example/demo/configuration/DatabaseConfiguration.java   
@@ -133,12 +183,31 @@ author_profile: false
       sqlSessionFactoryBean.setTypeAliasesPackage("com.example.demo.model");
    ```
 
+1. # mapper 폴더 생성
    resources/mapper - ooo.xml폴더 생성   
    다른 폴더에 있는 board.xml파일 복사해서 붙여넣기   
 
-   main/java/com/example/demo/model - BoardBean.java 생성   
+   ```xml
+      <?xml version="1.0" encoding="UTF-8" ?>
+      <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+      <mapper namespace="boardns">
+
+         <insert id="insert" parameterType="board">
+            insert into boardtest values(boardtest_seq.nextval,#{name},#{subject},#{content},sysdate)
+         </insert>
+         
+         <select id="list" resultType="board">
+            select * from boardtest
+         </select>
+
+      </mapper>
+
+   ```
 
 1. # DTO파일 생성
+   main/java/com/example/demo/model - BoardBean.java 생성   
 
    BoardBean.java   
 
