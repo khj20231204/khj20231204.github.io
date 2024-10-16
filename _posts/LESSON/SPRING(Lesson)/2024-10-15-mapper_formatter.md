@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Mapper
+title: Mapper 포맷
 categories: SPRING(Lesson)
 tag: []
 author_profile: false

@@ -1,7 +1,7 @@
 ---
 layout: single
-title: Spring Boot
-categories: SPRING(Lesson)
+title: 톰캣 에러
+categories: SPRING
 tag: []
 author_profile: false
 ---

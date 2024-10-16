@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 07_25.이클립스에서 오라클 사용
+title: 07_25.이클립스에서 오라클, MySql 
 categories: SQL(Lesson)
 tag: []
 author_profile: false

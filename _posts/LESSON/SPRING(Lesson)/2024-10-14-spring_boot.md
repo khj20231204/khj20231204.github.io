@@ -28,7 +28,44 @@ author_profile: false
 
    webapp : jsp파일
 
-1. # properties파일을 yml로
+1. # pom.xml 
+
+   pom.xml파일 dependency 추가   
+   ctrl + shift + f : 자동 정렬 기능   
+
+   ```xml
+      <!-- 내장 Tomcat실행시 jsp 파일을 사용하기 위한 의존 라이브러리 -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- jstl -->
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!-- 추가 end -->
+   ```
+
+1. # application.properties 설정
+
+   ```javascript
+      spring.mvc.view.prefix=/WEB-INF/views/
+      spring.mvc.view.suffix=.jsp
+
+      server.port=80
+
+      # oracle
+      spring.datasource.hikari.driver-class-name=oracle.jdbc.OracleDriver
+      spring.datasource.hikari.jdbc-url=jdbc:oracle:thin:@localhost:1521:xe
+      spring.datasource.hikari.username=spring
+      spring.datasource.hikari.password=spring123
+   ```
+
+   __properties파일을 yml로 변환__
 
    application.properties 
    ```
@@ -43,20 +80,133 @@ author_profile: false
 
    https://mageddo.com/tools/yaml-converter   
 
+1. # pom.xml의 오라클과 메이븐 dependency를 때문에 처음 실행이 안됨
+
+   밑에 2개 dependency를 주석처리하면 실행 됨   
+   ```
+      <!--<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc11</artifactId>
+			<scope>runtime</scope>
+		</dependency>-->
+   ```
+
 1. # jsp파일 사용할 폴더 생성
 
    application.properties 파일에 설정 경로 저장
    ```cs
-      spring.mvc.view.prefix=/WEB-INF/views/
-      spring.mvc.view.suffix=.jsp
+         spring.mvc.view.prefix=/WEB-INF/views/
+         spring.mvc.view.suffix=.jsp
    ```
-   폴더 경로는 임의대로 수정 가능   
+
+   webapp/WEB-INF/views 로 생성
 
     <img src="../../../imgs/LESSON/SPRING(Lesson)/spring_views.png" style="border:3px solid black;border-radius:9px;width:300px">   
 
+   *폴더 경로는 임의대로 수정 가능   
+
+1. # db 연동
+
+   hikari cp 사용
+
+   ```yml
+      # oracle
+      spring.datasource.hikari.driver-class-name=oracle.jdbc.OracleDriver
+      spring.datasource.hikari.jdbc-url=jdbc:oracle:thin:@localhost:1521:xe
+      spring.datasource.hikari.username=spring
+      spring.datasource.hikari.password=spring123
+   ```
+
+1. # DatabaseConfiguration.java
+   main/java/com/example/demo/configuration/DatabaseConfiguration.java   
+
+   DatabaseConfiguration.java 파일 안에  
+   ```java
+      applicationContext.getResources("classpath:/mapper/*.xml"));
+      ...
+      sqlSessionFactoryBean.setTypeAliasesPackage("com.example.demo.model");
+   ```
+
+   resources/mapper - ooo.xml폴더 생성   
+   다른 폴더에 있는 board.xml파일 복사해서 붙여넣기   
+
+   main/java/com/example/demo/model - BoardBean.java 생성   
+
+1. # DTO파일 생성
+
+   BoardBean.java   
+
+   ```java
+      @Data
+      @Alias("board") //mapper파일에서 사용
+      public class BoardBean {
+         
+         private int board_num;
+         private String board_name;
+         private String board_pass;
+         private String board_subject; //글제목
+         private String board_content; //글내용
+         private int board_re_ref; //글그룹번호
+         private int board_re_lev; //답변글 깊이
+         private int board_re_seq; //답변글 출력순서
+         private int board_readcount; //조회수
+         private String board_date; //등록날짜
+      }
+   ```
+
+1. # 내장 톰캣 구동 -------------------------
+
+1. # DB생성
+
+1. # controller생성
+
+   ```java
+      @Controller
+      public class BoardController {
+
+         @Autowired  //DI개념
+         private BoardService service;
+      }
+   ```
+1. # service생성
+
+   ```java
+      @Service
+      public class BoardService {
+
+         @Autowired
+         private BoardDao dao;
+      }
+   ```
+
+1. # dao생성
+
+   ```java
+      @Repository //클래스일 때 Repository, 인터페이스 Mapper
+      public class BoardDao {
+
+         @Autowired
+         private SqlSession session;
+      }
+   ```
+
+1. # board폴더 생성
+   webapp안에 /WEB-INF/views/board 폴더 생성
+   ```
+      webapp/WEB-INF/views/board
+   ```
+
 1. # index.jsp 파일 생성
    webapp폴더 안에 index.jsp파일 생성   
-
+   ```   
+      webapp/index.jsp
+   ```
    responseBody가 있는 경우 Controller를 사용
 
    @RestController = @Controller + @ResponseBody 
@@ -70,6 +220,10 @@ author_profile: false
          <version>3.0.0</version>
       </dependency>
    ```
+
+1. # 외부 톰캣 실행 --------------------------------
+   index.jsp파일을 생성했기 때문에 가능   
+
 
 1. # 외부 톰캣과 내장 톰캣의 차이
    외부 톰캣 : http://localhost/demo/ : 프로젝트명 포함, 포트 없음   
@@ -87,7 +241,7 @@ author_profile: false
    http://localhost/index.html :  __resources/static/index.html 파일__ 이자동으로실행됨
    http://localhost/hi
    http://localhost/welcome
-   http://localhost/abc
+   http://localhost/abc                                                                                                                                                                                                                
    http://localhost/hello
    http://localhost/gugu
 
@@ -135,5 +289,3 @@ author_profile: false
    ini(설치파일)파일의 마지막 줄에 lombok경로가 설정됨   
    <img src="../../../imgs/LESSON/SPRING(Lesson)/lombok_install_6.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
-1. # MyBatis
-   
