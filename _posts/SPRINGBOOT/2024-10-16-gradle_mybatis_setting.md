@@ -9,7 +9,7 @@ author_profile: false
 1. # MyBatis setting
 
 1. # 폴더 구조
-   <img src="../../imgs/springBoot/mybatis_setting.png" style="border:3px solid black;border-radius:9px;width:300px">   
+   <img src="../../imgs/springBoot/mybatis_setting.png" style="border:3px solid black;border-radius:9px;width:450px">   
 
    configuration, controller, dao, model, servie 전부 connectmysql_ex 프로젝트명 폴더 안에 위치해야 한다.   
 
@@ -31,7 +31,7 @@ author_profile: false
    __SqlSessionTemplate__   
    SqlSession을 관리합니다. SqlSession의 생명주기를 관리하고, 트랜잭션을 자동으로 처리해줍니다. 즉, SqlSession을 직접 생성하고 닫는 번거로움 없이 SqlSessionTemplate을 통해 간편하게 SQL을 실행할 수 있습니다.
 
-   -DatabaseConfiguration.java 의 전체 소스-   
+   -DatabaseConfiguration.java의 전체 소스-   
    ```java
       @Configuration
       public class DatabaseConfiguration {
@@ -97,11 +97,6 @@ author_profile: false
 
       <!-- DAO 클래스와 연결 -->
       <mapper namespace="com.hjcompany.connectmysql_ex.dao.ExDao">
-
-         <!-- 
-         sqlSessionFactoryBean.setTypeAliasesPackage("com.hjcompany.connectmysql_ex.model")
-         별명을 설정 했기 때문에 DTO인 exbean의 전체 경로를 설정하지 않고 별명사용
-          -->
          <select id="getList" resultType="exbean"> 
             SELECT * FROM TABLEEX
          </select>

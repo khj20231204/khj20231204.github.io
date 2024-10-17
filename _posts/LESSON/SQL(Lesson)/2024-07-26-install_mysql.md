@@ -74,11 +74,15 @@ author_profile: false
    <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_install14.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
    cmd창에으로 mysql에 접속합니다.   
-   mysql -uroot -p1256 mysql   
-   <span style="color:red">명령어  -u계정명 -p비밀번호 접속할DB명</span>   
-   <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_install15.png" style="border:3px solid black;border-radius:9px;width:700px">   
-
-   -p비밀번호를 생략하고 입력하면 화면에 노출되지 않고 비밀번호를 입력할 수 있습니다.   
+   ```
+      명령어  -u[계정명] -p[접속할DB명]
+      또는
+      명령어  -u [계정명] -p [접속할DB명]
+      또는
+      명령어  -u [계정명] -p [비밀번호] [접속할DB명]
+   ```
+   mysql -uroot -p mysql   
+   
    <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_passwd_2.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
    ```
@@ -100,10 +104,9 @@ author_profile: false
    오라클은 xe라는 데이터베이스 안에 sys나 scott처럼 계정을 여러개 생성하여 사용하는 방식이고,   
    mysql은 데이터베이스 단위로 이루어져이 있기 때문에 여러개의 데이터베이스를 생성하여 이를 계정으로 사용하는 방식입니다.   
 
-   root계정으로 접속 → 데이터베이스 생성   
-   mysql Workbench에서 실행합니다.   
-
-   1)root계정으로 접속   
+   mysql Workbench의 root계정으로 접속해서 sql쿼리를 실행합니다.   
+   <img src="../../../imgs/LESSON/SQL(Lesson)/workbench_root.png" style="border:3px solid black;border-radius:9px;width:900px">   
+   root계정으로 접속   
    ```js
       create database jsptest;    //jsptest라는 데이터베이스 생성
 
@@ -120,9 +123,15 @@ author_profile: false
       //jspid에 권한부여
       flush privileges;
       //재시작없이 설정 변경 적용
+
+      //데이터베이스를 따로 생성해 줘야 합니다.!!!!!
+      create database jsptest;
    ```   
 
-   cmd창에서 jspid로 로그인합니다.   
+   계정과 데이터베이스를 생성 후 cmd창에서도 jspid로 로그인해 봅니다.   
+   ```
+      mysql -u [아이디] -p [데이터베이스명]
+   ```
    <img src="../../../imgs/LESSON/SQL(Lesson)/mysql_install16.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
 1. # 일반 계정으로 커넥션 생성
