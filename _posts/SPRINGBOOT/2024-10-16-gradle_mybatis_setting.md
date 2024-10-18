@@ -83,7 +83,7 @@ author_profile: false
       sqlSessionFactoryBean.setMapperLocations( applicationContext.getResources("classpath:/mapper/*.xml"));
    ```
    경로 설정에서 classpath는   
-    <img src="../../imgs/springBoot/mybatis_classpath.png" style="border:3px solid black;border-radius:9px;width:300px">   
+   <img src="../../imgs/springBoot/mybatis_classpath.png" style="border:3px solid black;border-radius:9px;width:300px">   
    "src/main/resources"까지 입니다.  
    src/main/resources/mapper/*.xml란 뜻으로 classpath:/mapper/*.xml 이든 classpath:mapper/*.xml 이든 상관 없습니다.   
    resources 폴더 안에 mapper폴더 안의 xml확장자를 가진 mapper와 맵핑.  
@@ -129,8 +129,31 @@ author_profile: false
       }
    ```
 
+1. # path
+   ```
+      mybatis.mapper-locations=/mybatis/mapper/**/**.xml
+   ```   
+   기본 폴더 설정은 src/main/resources 까지입니다.   
+   <img src="../../imgs/springBoot/gradle_classpath1.png" style="border:3px solid black;border-radius:9px;width:300px">   
+
+   ```
+      mybatis.mapper-locations=classpath:/mybatis/mapper/**/**.xml
+      mybatis.mapper-locations=classpath:mybatis/mapper/**/**.xml
+   ```
+   classpath를 추가하게 되면 기본 폴더 경로 com/hjcompany/server 까지가 classpath가 됩니다.   
+
+
+
 1. # error
    ```
    java.lang.NullPointerException: Cannot invoke "com.hjcompany.connectmysql_ex.service.EXService.getList()" because "this.exService" is null
    ```
    @Autowired와 @Service 어노테이션 붙이는 부분 보기   
+
+
+   ```
+      org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [C:\khj\SpringBootEx\react-context-jwt-security\server\build\resources\main\mybatis\mapper\UserMapper.xml]'
+   ```   
+   application.properties의 mapper 경로 설정 오류   
+
+   

@@ -22,6 +22,10 @@ counts:
 #children의 title과 _posts md파일의 categories 이름이 같아야 한다.
 #children의 url과 _pages디렉토리의 md파일 안에 permalink와 같아야 한다.
 sidebar_category_list:
+  - title: "프로젝트"
+    children:
+      - title: "PROJECT"
+        url : /project
   - title: "수업"
     children:
       - title: "SPRING(Lesson)"
