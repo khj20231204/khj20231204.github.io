@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Spring Boot
+title: Maven / Oracle / MyBatis / JSP
 categories: SPRING(Lesson)
 tag: []
 author_profile: false
@@ -27,6 +27,9 @@ author_profile: false
    포트, db 설정 등을 입력   
 
    webapp : jsp파일
+
+1. # 전체 경로
+   <img src="../../../imgs/LESSON/SPRING(Lesson)/maven_mybatis_allpath.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
 1. # pom.xml - Maven
 
@@ -111,6 +114,19 @@ author_profile: false
       spring.datasource.url=mysql://localhost:3306/test_db (MySql 설치 서버 IP : 포트 / DB 이름)
       spring.datasource.username=ID
       spring.datasource.password=PW
+
+      # 여기까지 DatabaseConfiguration.java가 있는 경우 설정이고 
+      # 밑에는 설정 클래스파일이 없는 경우 Mybatis경로 바로 설정 추가
+
+      #Mybatis 설정
+      #Mybatis 매퍼 파일 경로 : ~/메인패키지/mapper/**Mapper.xml
+      mybatis.mapper-locations=classpath:mybatis/mapper/*.xml
+
+      #Mybatis ResultType 매핑 패키지 경로
+      mybatis.type-aliases-package=com.hjcompany.server.dto
+
+      #underscore(DB) -> camel(Java)
+      mybatis.configuration.map-underscore-to-camel-case=true
    ```
 
    __properties파일을 yml로 변환__
@@ -160,27 +176,60 @@ author_profile: false
 
    application.properties 파일에 설정 경로 저장
    ```cs
-         spring.mvc.view.prefix=/WEB-INF/views/
-         spring.mvc.view.suffix=.jsp
+      spring.mvc.view.prefix=/WEB-INF/views/
+      spring.mvc.view.suffix=.jsp
    ```
 
-   webapp/WEB-INF/views 로 생성
+   main/webapp/WEB-INF/views 경로로 직접 생성   
 
     <img src="../../../imgs/LESSON/SPRING(Lesson)/spring_views.png" style="border:3px solid black;border-radius:9px;width:300px">   
 
    *폴더 경로는 임의대로 수정 가능   
 
-1. # jsp파일 사용할 폴더 생성 - gradle
-   main/webapp/WEB-INF/views 경로로 직접 생성   
-
 1. # DatabaseConfiguration.java
-   main/java/com/example/demo/configuration/DatabaseConfiguration.java   
 
-   DatabaseConfiguration.java 파일 안에  
    ```java
-      applicationContext.getResources("classpath:/mapper/*.xml"));
-      ...
-      sqlSessionFactoryBean.setTypeAliasesPackage("com.example.demo.model");
+      @Configuration
+      @PropertySource("classpath:/application.properties")          
+      public class DatabaseConfiguration {
+         
+         @Autowired
+         private ApplicationContext applicationContext;
+
+         @Bean
+         @ConfigurationProperties(prefix = "spring.datasource.hikari")
+         public HikariConfig hikariConfig() {
+            return new HikariConfig();
+         }
+
+         @Bean
+         @ConfigurationProperties(prefix = "mybatis.configuration")
+         public org.apache.ibatis.session.Configuration mybatisConfig() {
+            return new org.apache.ibatis.session.Configuration();
+         }
+
+         @Bean
+         public DataSource dataSource() {
+            DataSource dataSource = new HikariDataSource(hikariConfig());
+            return dataSource;
+         }
+
+         @Bean
+         public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+            SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+            sqlSessionFactoryBean.setDataSource(dataSource);
+            sqlSessionFactoryBean.setMapperLocations(
+               applicationContext.getResources("classpath:/mapper/*.xml"));
+            sqlSessionFactoryBean.setConfiguration(mybatisConfig());
+            sqlSessionFactoryBean.setTypeAliasesPackage("com.example.demo.model");
+            return sqlSessionFactoryBean.getObject();
+         }
+
+         @Bean
+         public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+            return new SqlSessionTemplate(sqlSessionFactory);
+         }
+      }
    ```
 
 1. # mapper 폴더 생성

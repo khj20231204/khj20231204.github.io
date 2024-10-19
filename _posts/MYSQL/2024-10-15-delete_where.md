@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Safe Update 설정
+title: delete시 where조건 없애기
 categories: MYSQL
 tag: []
 author_profile: false
