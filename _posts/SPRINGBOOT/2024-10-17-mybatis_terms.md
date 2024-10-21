@@ -60,4 +60,4 @@ author_profile: false
 
    `ⓕ <select id="getUserById" parameterType="int" resultMap="userMap">` : resultMap="userMap"**을 통해 조회 결과를 userMap에 정의된 규칙에 따라 Users객체로 변환합니다.   
 
-   
+ 

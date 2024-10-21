@@ -10,8 +10,8 @@ author_profile: false
 
    Initializing Servlet 'dispatcherServlet'   
    JwtRequestFilter.java의 doFilterInternal 메소드   
-   JwtAuthenticationFilter.java 의  attemptAuthentication 메소드   
-   CustomUserDetailService.java 의 loadUserByUsername 메소드   
+   JwtAuthenticationFilter.java의 attemptAuthentication 메소드   
+   CustomUserDetailService.java의 loadUserByUsername 메소드   
  
    1. 클라이언트 요청: 클라이언트가 인증된 상태로 시스템의 자원에 접근하려고 요청을 보냅니다.   
    1. Initializing Servlet 'dispatcherServlet'   
