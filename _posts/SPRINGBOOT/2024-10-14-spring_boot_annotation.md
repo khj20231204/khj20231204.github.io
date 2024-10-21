@@ -117,6 +117,17 @@ tag: []
 
    __ResponseEntity__   
    스프링 프레임워크에서 HTTP 응답을 나타내는 클래스입니다. 단순히 데이터만 반환하는 것이 아니라, HTTP 상태 코드, 헤더, 본문 등 다양한 정보를 포함하여 클라이언트에게 더욱 풍부한 응답을 제공할 수 있도록 해줍니다.   
+   RESTful API를 개발할 때, 클라이언트에게 다양한 정보를 전달해야 할 경우 ResponseEntity를 사용하면 매우 유용합니다. 예를 들어, 요청이 성공했는지 실패했는지, 에러 메시지, 추가적인 헤더 정보 등을 함께 전달할 수 있습니다.   
+   
+   예제)   
+   ```java
+      public ResponseEntity<?> join(@RequestBody Users user) throws Exception {
+
+         ...
+
+         return new ResponseEntity<>("SUCCUESS",HttpStatus.OK);
+      }
+   ```
 
    __UserDetails 인터페이스__   
    스프링 시큐리티에서 사용자 정보를 담는 인터페이스입니다. 사용자의 권한, 비밀번호, 사용자 이름 등을 포함하여 사용자 인증에 필요한 모든 정보를 담고 있습니다. 즉, 시스템에 접근하려는 사용자를 나타내는 객체라고 할 수 있습니다.   
@@ -141,6 +152,17 @@ tag: []
 
    __JwtAuthenticationFilter__   
    Spring Security에서 JWT(JSON Web Token) 기반 인증을 처리하는 필터입니다. 클라이언트가 요청할 때마다 실행되어, 요청 헤더에 포함된 JWT 토큰의 유효성을 검증하고, 유효한 토큰인 경우 인증된 사용자 정보를 SecurityContext에 설정하여 후속 요청에 대한 권한 검사를 가능하게 합니다.   
+
+   __@EnableWebSecurity__   
+   스프링 시큐리티(Spring Security)를 사용하는 스프링 부트 애플리케이션에서 필수적인 어노테이션입니다. 이 어노테이션은 해당 클래스에서 웹 보안 설정을 활성화한다는 것을 의미합니다. 즉, 스프링 시큐리티의 다양한 기능들을 사용하여 애플리케이션을 보호할 수 있도록 환경을 마련해 주는 것입니다.   
+
+   __@EnableMethodSecurity__   
+   스프링 시큐리티(Spring Security)에서 메서드 레벨의 보안 설정을 활성화하는 데 사용됩니다. 즉, 특정 메서드에 대한 접근 권한을 세밀하게 제어할 수 있도록 해줍니다.   
+      prePostEnabled=true:   
+         pre: 메서드 실행 전에 권한을 검사할 수 있도록 합니다.   
+         post: 메서드 실행 후에 권한을 검사할 수 있도록 합니다.   
+      securedEnabled=true:   
+      메서드에 대한 접근 권한을 제어하기 위해 @Secured 어노테이션을 사용할 수 있도록 허용한다는 의미입니다.   
 
    __OncePerRequestFilter__   
    한 요청당 한 번만 실행되는 필터입니다. 즉, 한 번의 요청에 대해 여러 번 호출되는 것을 방지하여 불필요한 자원 낭비를 줄이고, 예상치 못한 동작을 방지하는 역할을 합니다.   
