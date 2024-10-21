@@ -26,3 +26,17 @@ author_profile: false
       유효하지 않은 경우:   
       1. UserDetailsService를 호출하여 사용자 정보를 다시 조회하고, 새로운 토큰을 발급하는 등의 처리를 수행합니다.   
       1. UserDetailsService 실행 (필요한 경우): JwtAuthenticationFilter에서 토큰 검증에 실패하거나, 새로운 토큰을 발급해야 할 경우 UserDetailsService가 호출되어 사용자 정보를 조회하고 UserDetails 객체를 생성합니다.   
+
+1. # 인증 관련 절차
+   
+   __회원가입__ : 인증과정 X   
+   아직 인증된 사용자가 아니기 때문에, JWT를 이용한 인증 과정을 거치지 않습니다. 일반적으로 회원가입 요청은 인증이 필요하지 않은 요청이므로, 인증 관련 필터(예: UsernamePasswordAuthenticationFilter, JwtAuthenticationFilter)는 건너뛰게 됩니다.   
+
+   __로그인__ : 인증과정 O   
+   아이디와 패스워드 사용   
+
+
+   인증을 성공하면 -> 토큰 생성
+
+
+   토큰 검증
