@@ -111,6 +111,9 @@ author_profile: false
       th:each="변수:${Collection}"
    ```
 
+   table에 each가 있으면 table이 반복되고 , tr에 each가 있으면 tr이 반복됩니다.   
+   each가 있는 위치가 반복문의 scope가 됩니다.   
+
    -Controller.java-   
    ```java
       @RequestMapping("/getlist")
