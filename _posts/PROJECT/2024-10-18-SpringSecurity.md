@@ -153,6 +153,14 @@ author_profile: false
 
    12.만약 권한이 없는 경우, 액세스가 거부되며, 클라이언트는 적절한 오류 메시지나 리디렉션을 받게 됩니다.   
 
+1. # url 소스 위치
+   회원 가입, 회원정보 조회, 회원정보 수정, 회원 탈퇴는 UserController.java에서 설정   
+   로그인 경우에만 JWT토큰 인증을해야 하기 때문에 JwtAuthenticationFilter.java에서 설정   
+   ```java
+      JwtAuthenticationFilter의 생성자의
+      setFilterProcessesUrl(JwtConstants.AUTH_LOGIN_URL); 에서 설정
+   ```
+
 1. # 실제 프로그램 실행 메소드   
    __-회원가입시-__   
 
@@ -168,7 +176,9 @@ author_profile: false
          "name" : "testname",
          "email" : "testemail@mail.com"
       }
-   ```
+   ```   
+
+   <img src="../../imgs/project/thunder_join.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    SecurityConfig.java의 PasswordEncoder 메소드   
    SecurityConfig.java의 authenticationManager 메소드   
@@ -184,6 +194,7 @@ author_profile: false
    
    회원가입을 하고나면 DB에 user_id, user_pw, name, email, reg_date, upd_date, enabled = 1 다음과 같은 데이터가 입력되고, user_pw같은 경우는 암호화 된 상태로 DB에 저장됨   
 
+   DB 회원가입 결과 :   
    ```
       no	7
       user_id	testid
@@ -195,4 +206,49 @@ author_profile: false
       enabled	1   
    ```
 
-   -
+   __-로그인-__   
+   ```
+      http://localhost:8088/login?username=testid&password=1234
+   ```   
+
+   <img src="../../imgs/project/thunder_login1.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   로그인이 성공하면 Header탭에 토큰이 생성된다. 서버측에서 클라이언트에게 보내기 위해 만들어진 Header입니다.   
+
+   <img src="../../imgs/project/thunder_login2.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   로그인 성공 시 👍   
+   클라이언트가 로그인 요청을 서버로 보냅니다.   
+   서버는 클라이언트의 인증 정보를 검증하고, 인증이 성공하면 JWT 토큰을 생성합니다.   
+   생성된 JWT 토큰은 일반적으로 HTTP 응답 헤더의 Authorization 필드에 담겨 클라이언트로 전송됩니다.   
+   클라이언트의 역할👌   
+   클라이언트는 서버로부터 받은 JWT 토큰을 Authorization 헤더에 포함시켜 후속 요청에 함께 보냅니다.   
+   서버는 클라이언트가 보낸 요청 헤더에서 JWT 토큰을 추출하여 유효성을 검증하고, 인증된 사용자인지 확인합니다.   
+
+   *헤더는 메모리에 임시적으로 저장되었다 
+
+   __-회원 정보 조회-__   
+   Bearer을 제외하고 토큰을 복사합니다.   
+
+   ```
+      http://localhost:8088/users/info
+   ```
+
+   <img src="../../imgs/project/thunder_info.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   조회를 하면 다음과 같이 회원 정보를 가져옵니다.   
+
+   <img src="../../imgs/project/thunder_info2.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   __-회원 정보 수정-__   
+
+   ```
+      http://localhost:8088/users/update
+   ```
+   
+   PUT방식으로 요청을 해야하고, Auth의 Bearer에 토큰을 입력하고 
+
+   <img src="../../imgs/project/thunder_update1.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   Body의 JSON에 수정할 내용을 입력합니다.  
+   <img src="../../imgs/project/thunder_update2.png" style="border:3px solid black;border-radius:9px;width:500px">   
