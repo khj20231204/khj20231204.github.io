@@ -154,30 +154,45 @@ author_profile: false
    12.만약 권한이 없는 경우, 액세스가 거부되며, 클라이언트는 적절한 오류 메시지나 리디렉션을 받게 됩니다.   
 
 1. # 실제 프로그램 실행 메소드   
-   user/login   
+   __-회원가입시-__   
 
-   2024-10-22T17:36:21.364+09:00  INFO 21996 --- [server] [  restartedMain] c.h.server.config.SecurityConfig         : SecurityConfig.java의 PasswordEncoder 메소드
-   2024-10-22T17:36:21.382+09:00  INFO 21996 --- [server] [  restartedMain] c.h.server.config.SecurityConfig         : SecurityConfig.java의 authenticationManager 메소드
-   2024-10-22T17:36:21.711+09:00  INFO 21996 --- [server] [  restartedMain] c.h.s.s.j.f.JwtAuthenticationFilter      : JwtAuthenticationFilter.java의 생성자
-   2024-10-22T17:36:21.729+09:00  INFO 21996 --- [server] [  restartedMain] c.h.s.s.jwt.filter.JwtRequestFilter      : JwtRequestFilter.java의 생성자
-   2024-10-22T17:36:21.776+09:00  INFO 21996 --- [server] [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with 
-   2024-10-22T17:36:21.711+09:00  INFO 21996 --- [server] [  restartedMain] c.h.s.s.j.f.JwtAuthenticationFilter      : JwtAuthenticationFilter.java의 생성자
+   ```
+      http://localhost:8088/users/join
+   ```
    
-   2024-10-22T17:36:22.000+09:00  INFO 21996 --- [server] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+   Body에 JSON 입력   
+   ```
+      {
+         "userId" : "testid",
+         "userPw" : "1234",
+         "name" : "testname",
+         "email" : "testemail@mail.com"
+      }
+   ```
 
-   2024-10-22T17:36:56.558+09:00  INFO 21996 --- [server] [nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-   2024-10-22T17:36:56.574+09:00  INFO 21996 --- [server] [nio-8088-exec-1] c.h.s.s.jwt.filter.JwtRequestFilter      : JwtRequestFilter.java의 doFilterInternal 메소드
-   2024-10-22T17:36:56.574+09:00  INFO 21996 --- [server] [nio-8088-exec-1] c.h.s.s.jwt.filter.JwtRequestFilter      : authorization : null
+   SecurityConfig.java의 PasswordEncoder 메소드   
+   SecurityConfig.java의 authenticationManager 메소드   
+   JwtRequestFilter.java의 생성자   
+   JwtAuthenticationFilter.java의 생성자   
+   DispatcherServlet    
+   JwtRequestFilter.java의 doFilterInternal 메소드   
+   UserController.java - join 주소 /
+   UserServiceImpl.java의 insert 메소드   
+   HikariDataSource       : HikariPool-1 - Starting...   
+   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@17b0e21b   
+   UserController     : 회원 가입 성공! - SUCCESS   
    
-   2024-10-22T17:36:56.574+09:00  INFO 21996 --- [server] [nio-8088-exec-1] c.h.s.s.jwt.filter.JwtRequestFilter      : JwtRequestFilter.java의 doFilterInternal 메소드
-   2024-10-22T17:37:14.548+09:00  WARN 21996 --- [server] [nio-8088-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body
-   2024-10-22T17:38:59.239+09:00  INFO 21996 --- [server] [nio-8088-exec-3] c.h.server.controller.UserController     : UserController.java - join 주소 /
-   2024-10-22T17:38:59.258+09:00  INFO 21996 --- [server] [nio-8088-exec-3] c.h.server.controller.UserController     : [post] - users : Users(no=0, userId=test, userPw=1234, userPwCheck=null, name=testname, email=test@emial.com, regDate=null, updDate=null, enabled=0, authList=null)
-   2024-10-22T17:38:59.258+09:00  INFO 21996 --- [server] [nio-8088-exec-3] c.h.server.service.UserServiceImpl       : UserServiceImpl.java의 insert 메소드
-   2024-10-22T17:38:59.348+09:00  INFO 21996 --- [server] [nio-8088-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-   2024-10-22T17:38:59.613+09:00  INFO 21996 --- [server] [nio-8088-exec-3] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@17b0e21b
-   2024-10-22T17:38:59.616+09:00  INFO 21996 --- [server] [nio-8088-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-   2024-10-22T17:38:59.665+09:00  INFO 21996 --- [server] [nio-8088-exec-3] c.h.server.controller.UserController     : 회원 가입 성공! - SUCCESS
-   2024-10-22T17:38:59.676+09:00  INFO 21996 --- [server] [nio-8088-exec-3] c.h.s.s.jwt.filter.JwtRequestFilter      : ----------------------doFilterInternal의 doFilter 후 --------------------------------
+   회원가입을 하고나면 DB에 user_id, user_pw, name, email, reg_date, upd_date, enabled = 1 다음과 같은 데이터가 입력되고, user_pw같은 경우는 암호화 된 상태로 DB에 저장됨   
 
+   ```
+      no	7
+      user_id	testid
+      user_pw	$2a$10$czxhHCRwDNY4Y42jaX5TZuc7VrdxKdtcjL4yuG1/eBaG6or89Q916
+      name	testname
+      email	testemail@mail.com
+      reg_date	2024-10-22 22:04:53
+      upd_date	2024-10-22 22:04:53
+      enabled	1   
+   ```
 
+   -
