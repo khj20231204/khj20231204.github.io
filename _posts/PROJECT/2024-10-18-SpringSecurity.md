@@ -242,6 +242,7 @@ author_profile: false
 
    조회를 하면 다음과 같이 회원 정보를 가져옵니다.   
 
+
    <img src="../../imgs/project/thunder_info2.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    __-회원 정보 수정-__   
@@ -321,6 +322,25 @@ author_profile: false
    5.UserServiceImpl - login, select, update   
 
    6.mapper로 DB에 데이터 CRUD   
+
+1. #  토큰 입력 후 http://localhost:8088/users/info 실행 과정
+   filter.JwtRequestFilter의 doFilterInternal 메소드 호출   
+
+   Http헤더에서 토큰을 가져옴   
+
+   `Authentication authentication = jwtTokenProvider.getAuthentication(jwt)`   
+
+   Http에서 가져온 토큰을 jwtTokenProvider의 getAuthentication 메소드를 호출하여 파싱 후 사용자 정보를
+   UsernamePasswordAuthenticationToken 형태로 반환하면 Authentication이 이를 받게됨   
+
+   `SecurityContextHolder.getContext().setAuthentication(authentication)`   
+
+   Authentication객체 생성 후 jwtTokenProvider에서 UsernamePasswordAuthenticationToken 형태로 보낸 사용자 정보를 SecurityContextHolder의 Authentication에 저장   
+
+   
+
+
+
 
 
 
