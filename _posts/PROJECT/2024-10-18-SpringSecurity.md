@@ -323,20 +323,47 @@ author_profile: false
 
    6.mapper로 DB에 데이터 CRUD   
 
-1. #  토큰 입력 후 http://localhost:8088/users/info 실행 과정
-   filter.JwtRequestFilter의 doFilterInternal 메소드 호출   
+1. # http://localhost:8088/users/info에 토큰 입력 후 실행 과정   
+   
+   __-JwtRequestFilter.java 에서 실행-__   
+   1)filter.JwtRequestFilter의 doFilterInternal 메소드 호출   
 
-   Http헤더에서 토큰을 가져옴   
+   2)Http헤더에서 토큰을 가져옴   
 
-   `Authentication authentication = jwtTokenProvider.getAuthentication(jwt)`   
-
-   Http에서 가져온 토큰을 jwtTokenProvider의 getAuthentication 메소드를 호출하여 파싱 후 사용자 정보를
+   3)Http에서 가져온 토큰을 jwtTokenProvider의 getAuthentication 메소드를 호출하여 파싱 후 사용자 정보를
    UsernamePasswordAuthenticationToken 형태로 반환하면 Authentication이 이를 받게됨   
+         
+      `Authentication authentication = jwtTokenProvider.getAuthentication(jwt)`   
 
-   `SecurityContextHolder.getContext().setAuthentication(authentication)`   
+   3)Authentication객체 생성 후 jwtTokenProvider에서 UsernamePasswordAuthenticationToken 형태로 보낸 사용자 정보를 SecurityContextHolder의 Authentication에 저장   
 
-   Authentication객체 생성 후 jwtTokenProvider에서 UsernamePasswordAuthenticationToken 형태로 보낸 사용자 정보를 SecurityContextHolder의 Authentication에 저장   
+      `SecurityContextHolder.getContext().setAuthentication(authentication)`   
 
+      3-1)__-jwtTokenProvider.java에서 실행되는 내용-__   
+         헤더에서 토큰을 추출 후 파싱   
+         -jwtTokenProvider.java-   
+         `Jws<Claims> parsedToken = Jwts.parser()...`   
+
+         파싱된 토큰 정보에서 사용자 정보를 축출 후 UserDetails에 담기   
+         -jwtTokenProvider.java-   
+         `UserDetails userDetails = new CustomUser(user)`   
+
+         userDetails를 UsernamePasswordAuthenticationToken형태로 돌려주면 위에서 말한 Authentication객체가 받음   
+   
+   4)사용자 정보를 받고 이번에는 토큰 유효기간 체크   
+
+   5)다음 필터로 이동,   
+   
+   프레임워크의 자체 필터를 모두 통과 된다면   
+
+   6)UserController.java 실행   
+   
+   `public ResponseEntity<?> userInfo(@AuthenticationPrincipal CustomUser customUser){ ... }`   
+   프레임워크로부터 CustomUser 정보를 받음   
+
+   7)프레임워크로부터 받음 사용자 정보를 ResponseEntity형태로 리턴   
+   
+   =>DB로 가지않고 토큰에서 바로 정보를 추출해서 리턴하는 루틴이였습니다.🔮   
    
 
 
