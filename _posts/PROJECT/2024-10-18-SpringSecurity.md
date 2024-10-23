@@ -161,7 +161,7 @@ author_profile: false
       setFilterProcessesUrl(JwtConstants.AUTH_LOGIN_URL); 에서 설정
    ```
 
-1. # 실제 프로그램 실행 메소드   
+1. # 실제 프로그램 
    __-회원가입시-__   
 
    ```
@@ -178,6 +178,7 @@ author_profile: false
       }
    ```   
 
+   __POST__ 방식으로 진행해야 합니다.   
    <img src="../../imgs/project/thunder_join.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    SecurityConfig.java의 PasswordEncoder 메소드   
@@ -211,6 +212,7 @@ author_profile: false
       http://localhost:8088/login?username=testid&password=1234
    ```   
 
+   __GET__ 방식으로 진행해야 합니다.   
    <img src="../../imgs/project/thunder_login1.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    로그인이 성공하면 Header탭에 토큰이 생성된다. 서버측에서 클라이언트에게 보내기 위해 만들어진 Header입니다.   
@@ -234,6 +236,8 @@ author_profile: false
       http://localhost:8088/users/info
    ```
 
+   __GET__ 방식으로 진행해야 합니다.   
+
    <img src="../../imgs/project/thunder_info.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    조회를 하면 다음과 같이 회원 정보를 가져옵니다.   
@@ -246,9 +250,78 @@ author_profile: false
       http://localhost:8088/users/update
    ```
    
-   PUT방식으로 요청을 해야하고, Auth의 Bearer에 토큰을 입력하고 
+   __PUT__ 방식으로 요청을 해야하고, Auth의 Bearer에 토큰을 입력합니다.   
 
    <img src="../../imgs/project/thunder_update1.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
-   Body의 JSON에 수정할 내용을 입력합니다.  
+   userId와 userPw는 일치해야 하기 때문에 그대로 합니다.   
+
+   ```
+     {
+      "userId" : "testid",
+      "userPw" : "1234",
+      "name" : "updatename",
+      "email" : "update@mail.com"
+      }
+   ```
+
+   Body의 JSON에 수정할 내용을 입력합니다.   
    <img src="../../imgs/project/thunder_update2.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+   name과 email이 변경 되었습니다.   
+   <img src="../../imgs/project/thunder_update3.png" style="border:3px solid black;border-radius:9px;width:500px">   
+
+
+1. # 실제 프로그램 실행 순서
+
+   ```java
+      //Starting
+      2024-10-23T11:44:20.161+09:00  INFO 22160 --- [server] [  restartedMain] com.hjcompany.server.ServerApplication   : Starting ServerApplication using Java 17.0.9 with ...
+      2024-10-23T11:44:21.501+09:00  INFO 22160 --- [server] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8088 (http)
+      2024-10-23T11:44:21.573+09:00  INFO 22160 --- [server] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1354 ms
+
+      //SecurityConfig
+      2024-10-23T11:44:21.873+09:00  INFO 22160 --- [server] [  restartedMain] c.h.server.config.SecurityConfig         : SecurityConfig.java의 PasswordEncoder 메소드
+      2024-10-23T11:44:21.890+09:00  INFO 22160 --- [server] [  restartedMain] c.h.server.config.SecurityConfig         : SecurityConfig.java의 authenticationManager 메소드
+      2024-10-23T11:44:22.217+09:00  INFO 22160 --- [server] [  restartedMain] c.h.server.config.SecurityConfig         : SecurityConfig.java securityFilerChain 메소드
+      
+      ///Filter
+      2024-10-23T11:44:22.227+09:00  INFO 22160 --- [server] [  restartedMain] c.h.s.s.j.f.JwtAuthenticationFilter      : JwtAuthenticationFilter.java의 생성자
+      2024-10-23T11:44:22.229+09:00  INFO 22160 --- [server] [  restartedMain] c.h.s.s.jwt.filter.JwtRequestFilter      : JwtRequestFilter.java의 생성자
+
+      //DispatcherServlet
+      2024-10-23T11:44:22.534+09:00  INFO 22160 --- [server] [  restartedMain] com.hjcompany.server.ServerApplication   : Started ServerApplication in 2.747 seconds (process running for 3.352)
+      2024-10-23T11:44:33.676+09:00  INFO 22160 --- [server] [nio-8088-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+      2024-10-23T11:44:33.677+09:00  INFO 22160 --- [server] [nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+      2024-10-23T11:44:33.678+09:00  INFO 22160 --- [server] [nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms`
+   ```
+
+   1.__SecurityConfig클래스__ - 시큐리티 설정하는 부분과 AuthenticationManager 빈 등록   
+
+   2.   
+      1)login 요청 시 : __JwtAuthenticationFilter클래스__ - 아이디외 패스워드 일치 확인   
+      
+         인증 시도 시 실행 : __attemptAuthentication메소드__    
+         __CustomUserDetailService클래스__ 에서 사용자 정보를 읽어 들임   
+
+         1-1)인증 성공 시 __successfulAuthentication메소드__ 실행 - 토큰 생성 : __JwtTokenProvider클래스__ 호출   
+
+         1-2)인증 실패 - 알림창으로 알림   
+
+      2)그외 경로 : __JwtRequestFilter클래스__ - 클라이언트에 의해 애플리케이션의 모든 HTTP 요청이 들어올 때마다 자동으로 실행됩니다.   
+      
+         __doFilterInternal메소드__ : http헤더에서 토큰 추출 검증   
+         2-1)토큰이 없거나 유효하지 않다 - 다음 필터로 이동   
+         2-2)토큰이 유효하다 - Authentication에 사용자 인증 정보 등록이후 다음 필터로 이동   
+
+   3.DispatcherServlet 실행   
+   
+   4.UserController - 컨트롤러   
+
+   5.UserServiceImpl - login, select, update   
+
+   6.mapper로 DB에 데이터 CRUD   
+
+
+
+
