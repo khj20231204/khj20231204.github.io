@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Eclipse프로젝트를 Github에 올리기   
+title: (토큰 생성포함)Eclipse프로젝트를 Github로
 categories: Git
 tag: [github, 폴더]
 ---
