@@ -17,6 +17,11 @@ tab:
 
    -App.js-   
    ```java
+      import './App.css';
+      import { createContext, useContext, useState } from 'react';
+      import { Routes, Route } from 'react-router-dom';
+      import Details from './Details';
+
       {/*
       1)App에 있는 state를 공유하겠다
       2)context선언
@@ -29,8 +34,6 @@ tab:
 
       let [stock] = useState([10,11,12]);
       let [shoes] = useState('shoes');
-
-      let {childValue} = useContext(ChildContext)
 
       return (
          <div className="App">
@@ -61,8 +64,9 @@ tab:
 
    -Details.js-   
    ```java
+      import React, { useContext, useState } from 'react'; //useContext 임포트
       import { Context1 } from './App'; //1)🔺Context1 임포트
-
+      
       const Details = () => {
 
          /* 2)🔸Context1을 넣어서 useContext:Context를 사용하겠다는 뜻
