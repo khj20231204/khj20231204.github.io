@@ -39,5 +39,8 @@
   "sass-loader": {
     "version": "7.1.0",
     "resolved": "https://registry.npmjs.org/sass-loader/-/sass-loader-7.1.0.tgz"
+  },
+  "dependencies": {
+    "styled-components": "^6.1.13"
   }
 }
