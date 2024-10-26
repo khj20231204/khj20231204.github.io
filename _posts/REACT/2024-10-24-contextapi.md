@@ -8,6 +8,63 @@ tab:
 1. # Context API
    부모 state를 저장해서 자식에게 전달하는 기능을 합니다. React는 기본적으로 부모에서 자식으로 데이터가 흐르는 단방향 데이터 흐름을 따릅니다. 즉, 부모 컴포넌트에서 자식 컴포넌트로 props를 통해 데이터를 전달하고, 자식 컴포넌트는 props를 통해 받은 데이터를 기반으로 자신의 상태를 변경할 수 있지만, 그 반대는 되지 않습니다. useContext는 부모 컴포넌트에서 제공한 값을 자식 컴포넌트에서 사용할 수 있도록 해주는 역할을 합니다. 즉, 부모에서 자식으로 데이터를 전달하는 통로 역할을 할 뿐, 자식에서 부모로 데이터를 역전파하는 기능은 제공하지 않습니다.   
 
+   Contet를 선언하는 명령어는 createContet입니다. 선언 후 Context에 저장된 값은 자식 컴포넌트에서 사용할 수 있습니다.   
+   Context에 값을 저장하는 방법으로 초기화시 입력하는 방법이 있고, Provider로 저장값을 입력하는 방법이 있는데 Provider는 입력 값들을 변경할 수 있습니다.   
+
+   1)초기화시 입력   
+   ```javascript
+      const myContext = createContext({color:'red'}); //객체 값 입력
+      const myContext2= createContext([2,3,4]); //배열 값 입력
+   ```   
+
+   2)provider 선언 후 입력   
+   ```javascript
+      //... state입력
+      <myContext.Provider value={{ stock,shoes }}> 
+         ...
+      </myContext.Provider>
+
+      //객체 입력
+      <myContext.Provider value={{ color:'red' }}> 
+       ... 
+      </myContext.Provider>
+
+      //배열 입력
+      <myContext.Provider value={{ [2,3,4] }}> 
+       ... 
+      </myContext.Provider>
+   ```
+
+1. # createContext로 선언 후 Consumer로 바로 사용하기
+
+   ```javascript
+      -Color.js-
+
+      import React, { createContext } from 'react';
+
+      const color = createContext([2,3,4])
+
+      export default color;
+   ```
+   
+   ```javascript
+      -ColorBox.js- 
+
+      import React from 'react';
+      import color from './Color';
+
+      const ColorBox = () => {
+         return (
+            <color.Consumer>
+               {v => v[0]}
+            </color.Consumer>
+         );
+      };
+
+      export default ColorBox;
+   ```
+   Color에서 선언한 값들을 ColorBox에서 사용 가능   
+
 1. # create와 provider를 1개로
 
    __1)부모 컴포넌트__   
