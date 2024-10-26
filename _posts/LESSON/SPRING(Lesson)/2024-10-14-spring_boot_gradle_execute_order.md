@@ -48,13 +48,19 @@ author_profile: false
       spring.mvc.view.suffix=.jsp
 
       # 포트 설정
-      server.prort=80
+      server.port=80
 
       # mysql 환경 설정
       spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
       spring.datasource.url=jdbc:mysql://localhost:3306/membersdb
       spring.datasource.username=hjcompany
       spring.datasource.password=hjpass
+
+      # oracle 환경 설정
+      spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+      spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
+      spring.datasource.username=spring
+      spring.datasource.password=spring123
 
       #Mybatis 설정
       #Mybatis 매퍼 파일 경로 : ~/메인패키지/mapper/**Mapper.xml
