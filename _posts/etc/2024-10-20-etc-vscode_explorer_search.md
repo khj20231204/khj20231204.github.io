@@ -9,5 +9,5 @@ tag: []
 
    shift + ctrl + f    
 
-   <img src="../../imgs/etc/vscode_explorer_search.png" style="border:3px solid black;border-radius:9px;width:600px"/>   
+   <img src="../../imgs/etc/vscode_explorer_search.png" style="border:3px solid black;border-radius:9px;width:400px"/>   
 
