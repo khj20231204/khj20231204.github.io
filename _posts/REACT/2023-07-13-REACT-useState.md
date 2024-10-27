@@ -16,6 +16,29 @@ tab: [useState]
    ```  
    number++ 인 경우 number = number+1 이기 때문에 결과 값이 다시 number에 입력됩니다. 그렇기 때문에 number에 1을 증가시킨 number+1을 입력해야 합니다.   
 
+   위치 값으로 변수, 변수설정이 결정됩니다.
+   let [a, b, c] = useState('')라고 하면 b가 setA의 역할이 됩니다. c는 undefined가 됩니다.   
+   ```javascript
+      const Aaa = () => {
+         let [a, b,c] = useState('');
+
+         let changeA = () => {
+            b('a값 변경')
+         }
+
+         return (
+            <div>
+               <div onClick={changeA}>클릭!</div>
+               {console.log({a})} //""
+               {console.log({b})} //f()
+               {console.log({c})} //undefined
+            </div>
+         );
+      };
+
+      export default Aaa;
+   ```
+
 1. # useState 사용 예제
    ```javascript
       function App() {

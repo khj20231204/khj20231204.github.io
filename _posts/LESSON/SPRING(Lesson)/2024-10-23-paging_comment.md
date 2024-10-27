@@ -8,6 +8,8 @@ author_profile: false
 
 1. # 전체 소스
    ```java
+      -Controller.java-
+
       //기본-1) 현재 페이지 번호   
       int page = 1;   
       //기본-2) 한 페이지에 출력할 데이터 갯수   
@@ -64,6 +66,91 @@ author_profile: false
 		
 		return forward;
    ```
+
+   ```jsp
+      -list.jsp-
+
+      <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+         
+      <!DOCTYPE html>
+      <html>
+      <head>
+      <meta charset="UTF-8">
+      <title>게시판 목록</title>
+      </head>
+      <body>
+         <a href="boardform.do">글작성</a><br>
+         글갯수 : ${listcount } 개
+         <table border=1 align="center" width="800">
+            <caption><h3>게시판 목록</h3></caption>
+            <tr>
+               <th>번호</th>
+               <th>제목</th>
+               <th>작성자</th>
+               <th>날짜</th>
+               <th>조회수</th>
+            </tr>
+            
+            <!-- 화면 출력 번호 -->
+            <c:set var="num" value="${listcount-(page-1)*10 }"/>
+            <c:forEach var="b" items="${boardlist }">
+            <tr>
+               <td>${num}
+                  <c:set var="num" value="${num-1}"/>
+               </td>		
+               <td>
+                  <a href="boardcontent.do?no=${b.no}&page=${page}">			
+                     ${b.subject}
+                  </a>
+               </td>		
+               <td>${b.writer}</td>		
+               <td>
+                  <fmt:formatDate value="${b.register}" 
+                     pattern="yyyy-MM-dd HH:mm:ss"/>
+               </td>		
+               <td>${b.readcount}</td>		
+            </tr>
+            </c:forEach>		
+         </table>
+
+         <!-- 페이지 처리 -->	
+         <center>
+         <c:if test="${listcount > 0 }">
+
+         <!-- 1page로 이동 -->
+         <a href="boardlist.do?page=1" style="text-decoration:none"> < </a>	
+
+         <!-- 이전 블럭으로 이동 -->
+         <c:if test="${startPage > 10 }">
+            <a href="boardlist.do?page=${startPage-10}">[이전]</a>
+         </c:if>
+
+         <!-- 각 블럭에 10개의 페이지 출력 -->
+         <c:forEach var="i" begin="${startPage}" end="${endPage}">
+            <c:if test="${i == page}">		<!-- 현재 페이지 -->
+               [${i}]
+            </c:if>
+            <c:if test="${i != page}">		<!-- 현재 페이지가 아닌 경우 -->
+               <a href="boardlist.do?page=${i}">[${i}]</a>
+            </c:if>
+         </c:forEach>
+
+         <!-- 다음 블럭으로 이동 -->
+         <c:if test="${endPage < pageCount }">
+            <a href="boardlist.do?page=${startPage+10}">[다음]</a>
+         </c:if>
+
+         <!-- 마지막 페이지로 이동 -->
+         <a href="boardlist.do?page=${pageCount}" style="text-decoration:none"> > </a>
+
+         </c:if>
+         </center>	
+      </body>
+      </html>
+   ```
 1. # pagenation
    페이지를 구성하기 위해서 기본적으로 가져오는 데이터가 3개 있습니다. 그리고 기본 데이터에서 파생되는 데이터가 5가지가 있는데, startRow, endRow는 DB의 데이터를 가져오는 값이 되고, startPage, endPage, pageCount는 하단의 페이지 목록을 구하는 데이터가 됩니다.   
    
@@ -83,7 +170,7 @@ author_profile: false
    파생-2)endRow : 데이터베이스에서 가져올 가상의 rownum의 마지막 수
 
    (1)startRow, (2)endRow   
-   => 데이터베이스의 데이터 rownum 수, 실제 board_num이 아니라 가상의 rownum   
+   => __데이터베이스의 데이터 rownum 수, 실제 board_num이 아니라 가상의 rownum__   
    
    startRow와 endRow는 page와 limit로 정의
 
