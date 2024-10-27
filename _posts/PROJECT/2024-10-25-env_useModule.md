@@ -1,6 +1,6 @@
 ---
 layout: single
-title: firstProject
+title: 환경과 사용한 모듈들
 categories: PROJECT
 tag: []
 author_profile: false
