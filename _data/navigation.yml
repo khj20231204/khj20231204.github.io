@@ -42,6 +42,8 @@ sidebar_category_list:
         url: /react(lesson)
       - title: "JSP(Lesson)"
         url: /jsp(lesson)
+      - title: "DEV(Lesson)"
+        url: /dev(lesson)
   - title: "프로그래밍"
     children:
       - title: "SPRINGBOOT"
