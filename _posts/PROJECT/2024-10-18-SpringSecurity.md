@@ -162,7 +162,8 @@ author_profile: false
    ```
 
 1. # 실제 프로그램 
-   __-회원가입시-__   
+
+1. # 회원가입시
 
    ```
       http://localhost:8088/users/join
@@ -207,7 +208,8 @@ author_profile: false
       enabled	1   
    ```
 
-   __-로그인-__   
+1. # 로그인
+
    ```
       http://localhost:8088/login?username=testid&password=1234
    ```   
@@ -229,7 +231,7 @@ author_profile: false
 
    *헤더는 메모리에 임시적으로 저장되었다 
 
-   __-회원 정보 조회-__   
+1. # 회원 정보 조회
    Bearer을 제외하고 토큰을 복사합니다.   
 
    ```
@@ -245,7 +247,7 @@ author_profile: false
 
    <img src="../../imgs/project/thunder_info2.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
-   __-회원 정보 수정-__   
+1. # 회원 정보 수정
 
    ```
       http://localhost:8088/users/update
