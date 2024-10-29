@@ -80,13 +80,14 @@ home : 계정 디렉토리 /home/myubuntu
 root : root 계정 디렉토리   
 sbin : 리눅스 관리자가 사용하는 명령어 디렉토리   
 tmp : 임시 디렉토리   
-usr : 프로그램이 설치 디렉토리   
+usr : 프로그램이 설치 디렉토리 - 설치 시 여기에 프로그램 저장   
 var : 가변적인 데이터가 저장되는 디렉토리   
       로그 파일(web log, ftp log, mail log 파일)   
 
 o mc   
 mc 설치   
-$ sudo apt-get install mc   
+$ sudo apt-get update
+$ sudo apt-get install mc  //모든 명령어는 앞에 f를 넣어서 클릭, 1=>f1버튼, 2=>f2버튼, 3=>f3버튼 
 
 mc 실행   
 $ mc   
