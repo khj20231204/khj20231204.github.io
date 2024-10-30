@@ -117,98 +117,109 @@ $ whereis  ls
 $ whereis  mc   
 /usr/bin/mc   
 
-o 리눅스 편집 프로그램
-vi 편집기
-emacs
-nano
-gedit  : GUI 편집 프로그램
+o 리눅스 편집 프로그램   
+vi 편집기   
+emacs   
+nano   
+gedit  : GUI 편집 프로그램   
 
-o docker에서  설치
- # apt-get  install  vim
- # apt-get  install  nano
+o docker에서  설치   
+ # apt-get  install  vim   
+ # apt-get  install  nano   
 
-O vi editor
-- 명령모드 : 편집, 수정    yy(복사), dd(삭제), p(붙이기)
+O vi editor   
+- 명령모드 : 편집, 수정    
+yy(복사), dd(삭제), p(붙이기)   
 
-- 입력모드 :  a, i, o키 누르면 입력모드로 전환됨
+- 입력모드 :  a, i, o키 누르면 입력모드로 전환됨   
 
-- 콜론모드    :set nu (줄번호 표시)
-                  :set nonu (줄번호 삭제)
-	     :w (저장)
-                  :q (종료)
-                  :wq(저장후 종료)
+- 콜론모드   
+:set nu (줄번호 표시)   
+:set nonu (줄번호 삭제)   
+:w (저장)   
+:q (종료)   
+:wq(저장후 종료)   
 
-vi editor 실습
-$cd  /tmp
-$ vi  test
+vi editor 실습   
+$cd  /tmp   
+$ vi  test   
 
-$ nano  test
+$ nano  test   
 
-$ gedit  test
+$ gedit  test   
 
 
-o 계정 생성
-$ sudo  adduser   생성할계정명
-$ sudo  adduser   test
-passwd :  1234
-repasswd : 1234
+o 계정 생성   
+$ sudo  adduser   생성할계정명   
+$ sudo  adduser   test   
+passwd :  1234   
+repasswd : 1234   
 
-/home/test  계정 디렉토리 생성됨
-vi  /etc/passwd  파일에 계정정보가 저장된다.
-sudo  vi  /etc/shadow  비밀번호가 암호화 되어서 저장
+/home/test  계정 디렉토리 생성됨   
+vi  /etc/passwd  파일에 계정정보가 저장된다.   
+sudo  vi  /etc/shadow  비밀번호가 암호화 되어서 저장   
 
-o 비번설정
-$ sudo passwd  계정명
-$ sudo passwd  test
-passwd :  12345
-repasswd : 12345
+o 비번설정   
+$ sudo passwd  계정명   
+$ sudo passwd  test   
+passwd :  12345   
+repasswd : 12345   
 
-o 계정 전환
-$ su  전환할계정명
+o 계정 전환   
+$ su  전환할계정명   
 
-o myubuntu 계정에서 test 계정으로 계정전환
-$ su   test       : test 계정으로 전환
-passwd : 12345 
-$ whoami          : 현재 계정명 확인
-test
+o myubuntu 계정에서 test 계정으로 계정전환   
+$ su   test       : test 계정으로 전환   
+passwd : 12345    
+$ whoami          : 현재 계정명 확인   
+test   
 
-o root 계정 비밀번호 설정 : 1234
-$ su  myubuntu
-$ sudo  passwd  root
-passwd :            : 현재 계정의 비번입력
-passwd : 1234     : root 계정의 비번입력
-repasswd : 1234
+o root 계정 비밀번호 설정 : 1234   
+$ su  myubuntu   
+$ sudo  passwd  root   
+passwd :       => 현재 계정의 비번입력   
+passwd : 1234  => root 계정의 비번입력   
+repasswd : 1234   
 
-o myubuntu 계정에서 root 계정으로 계정전환
-$ su root           : 2가지 방법 모두 사용 가능
-$ su  -
-passwd : 1234     : root 계정의 비번입력
+o myubuntu 계정에서 root 계정으로 계정전환   
+2가지 방법 모두 사용 가능   
+$ su root :    
+$ su  -   
+passwd : 1234 => root 계정의 비번입력   
 
-#whoami 
-root
+#whoami   
+root   
 
-o root 계정에서 myubuntu 계정으로 계정전환
-# su  myubuntu   : 비번을 물어보지 않고 계정전환됨
+o root 계정에서 myubuntu 계정으로 계정전환   
+su  myubuntu   : 비번을 물어보지 않고 계정전환됨   
 
-o 허가권(permission)
-$ ls -al
-rwx   	      rwx   	       rwx
-소유자권한   소유그룹권한          타인의권한
+o 허가권(permission)   
+$ ls -al   
+rwx &nbsp;&nbsp;   rwx   rwx   
+소유자권한 소유그룹권한 타인의권한   
 
-r : read (읽기)         4
-w : write (쓰기)       2
-x : execute (실행)    1
+r : read (읽기)   4   
+w : write (쓰기)  2   
+x : execute (실행)1   
+
+1 - 실행   
+2 - 쓰기   
+3 - 실행,쓰기   
+4 - 읽기   
+5 - 실행, 읽기   
+6 - 쓰기, 읽기   
+7 - 실행, 쓰기, 읽기   
 
 o 허가권 변경
-$ chmod    777    파일 or  폴더명
-                755 
+$ chmod 777 파일 or  폴더명   
+755   
 
-$ cd  /home
-$ sudo  chmod   755   myubuntu   -R  
--R : 하위 디렉토리까지 755로 적용됨
+$ cd  /home   
+$ sudo  chmod   755   myubuntu   -R   
+*-R : 하위 디렉토리까지 755로 적용됨   
 
-o  소유자, 소유그룹 변경
- $ chown  소유자.소유그룹   파일 or 폴더   -R
- $ chown   root.root   toto
+o  소유자, 소유그룹 변경   
+ $ chown  소유자.소유그룹   파일 or 폴더   -R   
+ $ chown   root.root   toto   
 
 
