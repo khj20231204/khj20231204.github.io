@@ -57,36 +57,114 @@ author_profile: false
 
    1. # 클라이언트의 username과 password가 null이 뜬다
 
-      1)처음 연결 오류 poroxy 설정
-       <img src="../../imgs/project/axios_error_2.png" style="border:3px solid black;border-radius:9px;width:700px">   
-       클라이언트와 서버의 포트 번호 설정이 이루어지지 않았다 proxy에 대해서 조사해서 쓰기
+      1)처음 연결 오류 poroxy 설정   
+      <img src="../../imgs/project/axios_error_2.png" style="border:3px solid black;border-radius:9px;width:700px">   
+      클라이언트와 서버의 포트 번호 설정이 이루어지지 않았다 proxy에 대해서 조사해서 쓰기   
 
-      2)오류
-      클라이언트 오류 표시
-       <img src="../../imgs/project/axios_error_1.png" style="border:3px solid black;border-radius:9px;width:700px">   
+      package.json   
+      ```json
+            "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+         ]
+      },
+      "proxy": "http://localhost:8088" //추가
+      }
+       ```   
+
+      2)오류   
+      클라이언트 오류 표시   
+       <img src="../../imgs/project/axios_error_1.png" style="border:3px solid black;border-radius:9px;width:700px">    
 
       ```
          2024-10-30T19:29:50.222+09:00  INFO 26064 --- [server] [nio-8088-exec-4] c.h.s.s.j.f.JwtAuthenticationFilter      : JwtAuthenticationFilter username : null
          2024-10-30T19:29:50.223+09:00  INFO 26064 --- [server] [nio-8088-exec-4] c.h.s.s.j.f.JwtAuthenticationFilter      : JwtAuthenticationFilter password : null
       ```
-      클라이언트와 서버를 하나의 vscode에서 같이 실행 시키니깐 값은 받아온다
+      클라이언트와 서버를 하나의 vscode에서 같이 실행 시키니깐 값은 받아온다   
 
       3)
-      클라이언트 오류 표시
+      클라이언트 오류 표시   
       ```
          headers.replace is not a function
          TypeError: headers.replace is not a function
             at login (http://localhost:3000/static/js/bundle.js:1827:33)
-      ```
-      <img src="../../imgs/project/axios_error_3.png" style="border:3px solid black;border-radius:9px;width:300px">   
+      ```   
+      <img src="../../imgs/project/axios_error_3.png" style="border:3px solid black;border-radius:9px;width:300px">    
 
       <img src="../../imgs/project/chrome_network.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
       ```java
-         const data = response.data;
+         const data = response.data;   
          const status = response.status;  
          const headers = response.headers; 
          
          const authorization = headers.authorization;  //headers의 authorization
          const accessToken = authorization.replace("Bearer ", ""); //authorization에서 replace, Bearer 다음 한칸 뛰오고 
-      ```
+      ```   
+
+1. # axios오류
+
+   <img src="../../imgs/project/axios_error_4.png" style="border:3px solid black;border-radius:9px;width:300px">    
+
+   async로 요청을 보냈는데 받는 과정에서 error 발생   
+   server는 정상 가동 중   
+   ```javascript
+      response = await auth.info(); //await로 받는 과정에서 에러발생
+
+      console창에 오류 메세지:
+      GET http://localhost:3000/users/info 403 (Forbidden)
+      AxiosError {message: 'Request failed with status code 403', name: 'AxiosError', code: 'ERR_BAD_REQUEST', config: {…}, request: XMLHttpRequest, …}
+      */
+   ```
+
+1. # CORS   
+   교차 출처 리소스 공유 (Cross-origin Resource Sharing, Cors)는 추가 HTTP헤더를 사용하여, 한 출처에서 실행 중인 웹 애플리케이션이 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제이다. 
+   쉽게 말해서 도메인,프로토콜,포트번호가 하나라도 다를 경우에 출처가 다른 교차
+   출처(Cross Origin)라고 판단되며 브라우저에서는 보안 때문에 Cross-Origin HTTP 
+   요청을 제한한다. 권한을 부여 받기 위한 Cross-Origin 요청은 서버에서 허가를
+   받아야 한다.
+
+   교차 출처 리소스 공유 (Cross-origin Resource Sharing, Cors)는 추가 HTTP헤더를
+사용하여, 한 출처에서 실행 중인 웹 애플리케이션이 다른 출처의 선택한 자원에
+접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제이다. 
+쉽게 말해서 도메인,프로토콜,포트번호가 하나라도 다를 경우에 출처가 다른 교차
+출처(Cross Origin)라고 판단되며 브라우저에서는 보안 때문에 Cross-Origin HTTP 
+요청을 제한한다. 권한을 부여 받기 위한 Cross-Origin 요청은 서버에서 허가를
+받아야 한다.
+
+ 1)React CORS문제 해결하기 :   
+   클래스나 메소드 위에 @CrossOrigin 어노테이션을 추가한다.   
+   ```java
+      @RestController
+      @CrossOrigin("*")  //<-- 추가
+      public class HomeController {
+         @RequestMapping("/sample")
+         
+         public SampleVo sample() {
+            SampleVo sv = new SampleVo();
+            sv.setMno(23);
+            sv.setFirstName("홍");
+            sv.setLastName("길동");
+            return sv;
+         }
+      }
+   ```
+
+   2)React CORS문제 해결하기 : 
+   WebConfig 클래스 생성해서 react의 3000번 포트허용
+   ```java
+      @Configuration
+      public class WebConfig implements WebMvcConfigurer{
+      
+      @Override
+      public void addCorsMappings(CorsRegistry registry) {
+         registry.addMapping("/**") // react의 3000번 포트 허용
+         .allowedOrigins("http://localhost:3000") 
+         .allowedMethods("GET", "POST", "PUT","DELETE")
+         .allowedHeaders("*")
+         .maxAge(3600);
+      }
+   }
+   ```
+         

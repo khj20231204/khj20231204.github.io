@@ -6,6 +6,44 @@ tag: []
 author_profile: false
 ---   
 
+1. # async 메소드 위치
+   apis에서 api.js와 auth.js가 있는데 api.js에서 axios를 생성한다. axios 한번의 생성으로 회원가입 부분 다 처리.   
+   auth.js에서 직접 서버로 요청하는 post, get, put을 처리한다.   
+
+   auth.js
+   ```javascript
+      //로그인
+      export const login = (username, password) => api.post(`/login?username=${username}&password=${password}`);
+
+      //사용자 정보
+      export const info = () => api.get(`/users/info`); 
+
+      //회원가입
+      export const join = (data) => api.post(`/users/join`, data)
+
+      //회원정보 수정
+      export const update = (data) => api.put(`users/update`, data);
+
+      //회원탈퇴
+      export const remove = (userId) => api.delete(`/users/${userId}`)
+   ```
+   axios를 사용하는 __함수__ 로만 이루어진 파일   
+
+   LoginContextProvider.js
+   ```javascript
+      1)const login = async(username, password) => {
+         ...
+         response = await auth.info();
+         ...
+      }   
+
+      2)const loginCheck = async () => {
+         ...
+         const response = await auth.login(username, password);
+         ...
+      }
+   ```
+
 1. #  LoginContextProvider의 실행 순서
 
    로그인버튼을 클릭
@@ -16,7 +54,7 @@ author_profile: false
 
    3)const loginSetting = (userData, accessToken) => { ... }
 
-   4)
+   4)const logoutSetting = () => { ... }
 
 1. # const login = async(username, password) => {...}
 
