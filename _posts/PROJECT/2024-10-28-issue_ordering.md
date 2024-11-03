@@ -118,6 +118,30 @@ author_profile: false
       */
    ```
 
+   1)CORS로 접근
+
+   2)다시 에러 문구 분석 
+   403 (Forbidden) 에러에 대한 설명
+   403 (Forbidden) 에러는 웹 서버가 사용자의 요청을 이해했지만, 해당 리소스에 대한 접근 권한이 없다고 알려주는 HTTP 상태 코드입니다. 마치 문이 잠겨 있어 들어갈 수 없다는 뜻과 같습니다.   
+   ```java
+      //@Secured("ROLE_USER") //USER 권한 설정 <-- 권한을 변경해봤다
+      @GetMapping("/info")
+      public ResponseEntity<?> userInfo(@AuthenticationPrincipal CustomUser customUser) { ... }
+   ```
+   클라이언트에서 id와 pass입력 후 login버튼 클릭 -> 서버 측에서 id와 pass 확인 후 토큰 생성 -> 토큰에 사용자 정보를 담아서 클라이언트에 전송 -> 클라이언트가 받는 건 암호화된 토큰 -> info요청시 이 토큰을 다시 서버측에 전달 -> 서버에서 비밀키를 이용해서 토큰 디코딩 해석 후 아이디와 권한 등 정보를 활용.   
+   즉, 클라이언트 측이 가지고 있는 토큰으로는 권한 정보를 확인 불가능.   
+   서버측에서 토큰을 받아서 해석한 값에 권한을 확인해봐야함   
+
+
+   UserAuth.java에서 map형태로 id와 권한 설정   
+   UserServiceImpl.java의 insert에서 권한 등록   
+   JwtTokenProvider.java의 createToken에서 토큰 생성   
+   login시 받은 토큰을 해석하여 권한을 확인   
+   CustomerUser.java의 getAuthorities에서 권한을 가져온다
+
+   데이터베이스에 ROLE_USER가 USER로 등록되어있는 걸 발견   
+
+
 1. # CORS   
    교차 출처 리소스 공유 (Cross-origin Resource Sharing, Cors)는 추가 HTTP헤더를 사용하여, 한 출처에서 실행 중인 웹 애플리케이션이 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제이다. 
    쉽게 말해서 도메인,프로토콜,포트번호가 하나라도 다를 경우에 출처가 다른 교차

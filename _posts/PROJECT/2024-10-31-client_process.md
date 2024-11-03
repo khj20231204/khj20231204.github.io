@@ -154,11 +154,78 @@ author_profile: false
    유저 정보 세팅   
    권한 정보 세팅   
 
+1. # 회원가입🎇
+   pages/Join.jsx ➡️ join/joinFormJS.jsx ➡️ LoginJoin/SignUp.jsx (LoginJoin에 컴포넌트로 SignIn, SignUp, OverlayContainer가 있는데 회원가입에 필요한 건 SignUp 컴포넌트만 필요하기 때문에 SignUp만 남기도 나머지는 다 지운다)  
 
+   ```javascript
+      -Join.jsx-
 
+      import * as auth from '../apis/auth' //auth import
 
+      const join = async(form) => { ... }
 
+      return (
+         <>
+            <Header/>
+            <div className='container'>
+               <JoinFormJS join={join}/> //JoinFormJS로 join함수를 props로 전달
+            </div>
+         </>
+      );
+   ```
 
+   ```javascript
+      -JoinFormJS.jsx-
 
+      const JoinFormJs = ({join}) => { ... } //앞에서 props로 전달한 join을 받는다
+
+      return (
+         <div className="joinformjs">
+            <div className="wrapper">
+               <div className="container right-panel-active">
+                  <SignUp join={join}/> //JoinFormJs에서는 join을 전달만 함
+                  <SignIn/>
+                  <OverlayContainer/>
+               </div>
+            </div>
+         </div>
+      );
+   ```
+
+   ```javascript
+      -SignUp.jsx-
+
+      <form onSubmit={(e)=>onJoin(e)}> //3️⃣폼의 onSubmit이 실행
+         ...
+         <button type="submit" className="form_btn">Sign Up</button>  //2️⃣버튼을 클릭
+         ...
+      </form>
+
+      const SignUp = ({join}) => { //1️⃣JoinFormJS에서 props로 전달 받은 join함수를 받음
+
+         const onJoin = (e) => { //4️⃣onJoin함수 실행
+            e.preventDefault();
+
+            const form = e.target;
+
+            const userId = form.username.value;
+            const userPw = form.password.value;
+            const email = form.email.value;
+
+            join({userId, userPw, email}) //폼의 정보를 join함수의 매개변수로 전달하고 join함수를 호출
+         }
+      }
+
+   ```
+
+1. # 회원정보 수정💡
+   pages/User.jsx ➡️ components/UserForm.jsx   
+
+   컴포넌트는 다른 페이지에서 사용할 수 있기 때문에 state설정이나 함수 설정은 pages에서 수행. 컴포넌트는 값만 넘겨받는 기능만 수행   
+
+   부모 컴포넌트에서 자식 컴포넌트로 props전달이 가능하지만, 자식 컴포넌트에서는 부모 컴포넌트로 porps를 전달할 수 없다. 그렇지만 함수로 호출은 가능한다.  
+
+   User.jsx에서는 회원 정보 조회, 회원 정보 수정, 회원 탈퇴 기능을 수행한다.   
+   
 
    
