@@ -6,6 +6,11 @@ tag: []
 author_profile: false
 ---   
 
+1. # 에러 번호
+   401 Unauthorized - 인증 실패   
+   403 Forbidden - 접근 거부(권한 없음)   
+   404 Not Found   
+
 1. # 부트스트랩의 href를 link로 변경
 
 1. # 자바스크립트 사용하기

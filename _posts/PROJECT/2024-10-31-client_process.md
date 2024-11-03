@@ -266,7 +266,7 @@ author_profile: false
             const userPw = form.password.value;
             const email = form.email.value;
 
-            updateUser({userId, userPw, email}) //부모 컴포넌트에 위치하고 있는 함수 실행
+            updateUser({userId, userPw, email}) //부모 컴포넌트에 위치하고 있는 함수를 props로 받아서 실행
          }
 
          return (
@@ -274,6 +274,7 @@ author_profile: false
             <form onSubmit={(e)=> onUpdate(e)}>
                <input type="text" name="username" placeholder="username" readOnly defaultValue={userInfo?.userId}/>
                <input type="text" name="email" placeholder="email" defaultValue={userInfo?.email}/>
+               //props로 받은 객체 userInfo
                <button onClick={() => {deleteUser(userInfo.userId)}}>Delete Account</button>
             </form>
             ...
