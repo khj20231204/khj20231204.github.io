@@ -225,7 +225,63 @@ author_profile: false
 
    부모 컴포넌트에서 자식 컴포넌트로 props전달이 가능하지만, 자식 컴포넌트에서는 부모 컴포넌트로 porps를 전달할 수 없다. 그렇지만 함수로 호출은 가능한다.  
 
-   User.jsx에서는 회원 정보 조회, 회원 정보 수정, 회원 탈퇴 기능을 수행한다.   
+   User.jsx에서는 회원정보 조회, 회원정보 수정, 회원탈퇴 기능을 수행한다.   
    
+   회원정보를 수정하기 위해서는 회원정보를 info로 받아와서 클라이언트 화면에 내용을 보여주고, 다시 클라이언트의 수정 내용을 서버로 보내 업데이트를 해야한다.  
+
+   부모 User.jsx   
+   ```javascript
+      -User.jsx-
+
+      const [userInfo, setUserInfo] = useState();
+
+      //회원 정보 조회 - /user/info
+      const getUserInfo = async () => { //1️⃣
+         const response = await auth.info(); 
+         setUserInfo(data);
+      } 
+
+      //회원 정보 수정
+      const updateUser = async (form) => {  //2️⃣
+         response = await auth.update(form);
+      }
+
+      <UserForm userInfo={userInfo} updateUser={updateUser} />
+   ```
+   1️⃣ : auth.info()로 사용자 정보를 서버로부터 받아와서 useInfo state에 저장. 이 state를 자식 UserForm.jsx에 전달   
+   2️⃣ : 자식의 변경 정보를 form 매개변수로 받아온다. 자식 UserForm에서 props의 state로 함수를 전달했고, 자식 컴포넌트에서 이 함수를 실행하므로써 부모 컴포넌트가 실행되고 매개변수로 값을 받아 올 수 있다.   
+
+   자식 UserForm.jsx   
+   ```javascript
+      -UserForm.jsx-
+
+      const UserForm = ({userInfo, updateUser, deleteUser}) => {  //부모 컴포넌트로부터 props로 state와 함수를 받는다
+
+         const onUpdate = (e) => {
+            e.preventDefault(); 
+
+            const form = e.target; 
+
+            const userId = form.username.value;
+            const userPw = form.password.value;
+            const email = form.email.value;
+
+            updateUser({userId, userPw, email}) //부모 컴포넌트에 위치하고 있는 함수 실행
+         }
+
+         return (
+            ...
+            <form onSubmit={(e)=> onUpdate(e)}>
+               <input type="text" name="username" placeholder="username" readOnly defaultValue={userInfo?.userId}/>
+               <input type="text" name="email" placeholder="email" defaultValue={userInfo?.email}/>
+               <button onClick={() => {deleteUser(userInfo.userId)}}>Delete Account</button>
+            </form>
+            ...
+            ); 
+         };
+   ```   
+   defaultValue={userInfo?.userId} : state로 받은 userInfo 객체를 받아서 userId값을 사용   
+   updateUser({userId, userPw, email}) : 부모 컴포넌트에 위치하고 있는 updateUser 함수를 호출
+
 
    
