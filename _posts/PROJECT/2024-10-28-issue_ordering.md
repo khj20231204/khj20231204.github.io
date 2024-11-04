@@ -197,3 +197,34 @@ author_profile: false
    }
    ```
          
+1. # context 바인딩 에러
+
+   <img src="../../imgs/project/context_binding_error.png" style="border:3px solid black;border-radius:9px;width:300px">    
+
+   ```javascript  
+      -LoginContextProvider.jsx-
+
+      export const LoginContext = createContext();
+
+      const LoginContextProvider = ({ children }) => { ... }
+
+      export default LoginContextProvider;
+   ```
+   LoginContextProvider 컴포넌트에서 LoginContextProvider는 default로 export가 되고 createContext()로 선언된 LoginContext를 자식 컴포넌트에서 가져다가 사용하게 된다. export를 할 때 default가 아닌 경우 이름을 변경하면 인식을 못 한다.   
+
+   ```javascript  
+      -admin.jsx-
+
+      import {LoginContextProvider} from '../contexts/LoginContextProvider'; //error발생
+      import LoginContextProvider from '../contexts/LoginContextProvider'; //문법에는 이상이 없지만 isLogin, roles를 인식 못 함
+      import LoginContext from '../contexts/LoginContextProvider'; //error발생, default 이외에는 { }를 감싸야함
+      import {LoginContextSe} from '../contexts/LoginContextProvider'; //error발생, 이름 변경
+      import {LoginContext} from '../contexts/LoginContextProvider'; //error발생, 정상 작동
+
+
+      const Admin = () => {
+         ...
+         const { isLogin, roles } = useContext(LoginContext)
+         ...
+      }
+   ```
