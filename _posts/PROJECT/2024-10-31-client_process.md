@@ -284,5 +284,27 @@ author_profile: false
    defaultValue={userInfo?.userId} : state로 받은 userInfo 객체를 받아서 userId값을 사용   
    updateUser({userId, userPw, email}) : 부모 컴포넌트에 위치하고 있는 updateUser 함수를 호출
 
+1. # 권한 입력
+   UserServiceImpl.java에서 insert가 수행될 때 user_auth테이블에 userId와 auth를 입력.
+
+   ```java
+    //권한 등록
+      if(result > 0){
+         UserAuth userAuth = new UserAuth();
+         userAuth.setUserId(users.getUserId());
+         userAuth.setAuth("ROLE_USER"); //기본 권한 : 사용자 권한(ROLE_USER)
+         result = userMapper.insertAuth(userAuth);
+      }
+   ```
+   'ROLE_USER'로 기본 권한만 입력하기 때문에 ROLR_ADMIN의 admin 권한은 mysql에서 직접 id와 roles=ROLE_ADMIN'로 admin 계정 생성   
+
+   ```xml
+      UserMapper.xml
+
+       <insert id="insertAuth">
+         INSERT INTO user_auth( user_id, auth ) 
+         VALUES ( #{userId}, #{auth} )
+      </insert>
+   ```
 
    

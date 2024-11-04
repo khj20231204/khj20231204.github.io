@@ -228,3 +228,15 @@ author_profile: false
          ...
       }
    ```
+
+1. # 호출하지 않은 함수를 계속 읽어 올 때
+   
+   ```javascript
+       <button onClick={() => {deleteUser(userInfo.userId)}}>Delete Account</button>
+   ```   
+   1)type="button"이 없다. submit으로 설정되어 졌다
+   2)deleteUser(userInfo.userId)는 부모로 받은 함수기 때문에 
+   ```javascript
+       <button type="button" onClick={deleteUser(userInfo.userId)}>Delete Account</button>
+   ```
+   다음과 같이 바인딩 시키지 않고 함수 안에 호출해야 한다.   
