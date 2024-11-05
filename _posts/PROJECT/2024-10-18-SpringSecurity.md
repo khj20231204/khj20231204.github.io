@@ -161,6 +161,9 @@ author_profile: false
       setFilterProcessesUrl(JwtConstants.AUTH_LOGIN_URL); 에서 설정
    ```
 
+   JwtAuthenticationFilter에서 인증 실패 시 401 메세지 리턴, 인증 성공 시 200 메세지 리턴   
+
+
 1. # 실제 프로그램 
 
 1. # 회원가입시
