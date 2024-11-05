@@ -229,4 +229,27 @@ author_profile: false
       }
    ```
 
- 
+1. # list requestMapping 403오류
+
+    <img src="../../imgs/project/list_mapping_403.png" style="border:3px solid black;border-radius:9px;width:500px">
+
+    <img src="../../imgs/project/list_mapping_403_2.png" style="border:3px solid black;border-radius:9px;width:700px">
+
+   https://velog.io/@jhbae0420/%EB%BD%80%EB%AA%A8%EB%8F%84%EB%A1%9C-%EB%A9%94%EC%9D%B4%ED%8A%B8-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0%EC%9D%98-CSRF-%ED%95%84%ED%84%B0-%ED%95%B4%EC%A0%9C%EB%A5%BC-%ED%86%B5%ED%95%9C-403-Forbidden-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0
+
+   csrf참고 -> 아니였다
+
+   SecurityConfig.java에서 인가 설정
+
+   
+1. # client - 호출하지 않은 함수를 계속 읽어 올 때
+   
+   ```javascript
+       <button onClick={() => {deleteUser(userInfo.userId)}}>Delete Account</button>
+   ```   
+   1)type="button"이 없다. submit으로 설정되어 졌다
+   2)deleteUser(userInfo.userId)는 부모로 받은 함수기 때문에 
+   ```javascript
+       <button type="button" onClick={deleteUser(userInfo.userId)}>Delete Account</button>
+   ```
+   다음과 같이 바인딩 시키지 않고 함수 안에 호출해야 한다. 
