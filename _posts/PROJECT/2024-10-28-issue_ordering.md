@@ -345,3 +345,5 @@ author_profile: false
        <button type="button" onClick={deleteUser(userInfo.userId)}>Delete Account</button>
    ```
    다음과 같이 바인딩 시키지 않고 함수 안에 호출해야 한다. 
+
+   1. # context 사용시 출력값 지연
