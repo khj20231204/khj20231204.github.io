@@ -231,17 +231,109 @@ author_profile: false
 
 1. # list requestMapping 403오류
 
-    <img src="../../imgs/project/list_mapping_403.png" style="border:3px solid black;border-radius:9px;width:500px">
+    <img src="../../imgs/project/list_mapping_403.png" style="border:3px solid black;border-radius:9px;width:800px">
 
-    <img src="../../imgs/project/list_mapping_403_2.png" style="border:3px solid black;border-radius:9px;width:700px">
+    <img src="../../imgs/project/list_mapping_403_2.png" style="border:3px solid black;border-radius:9px;width:800px">
+
+   오류 메세지
+   ```   
+      Board.jsx:57 
+      GET http://localhost:8088/board/list?page=2 403 (Forbidden)
+      Board.jsx:62 
+      AxiosError {message: 'Request failed with status code 403', name: 'AxiosError', code: 'ERR_BAD_REQUEST', config: {…}, request: XMLHttpRequest, …}
+      code :  "ERR_BAD_REQUEST"
+      config :  {transitional: {…}, adapter: Array(3), transformRequest: Array(1), transformResponse: Array(1), timeout: 0, …}
+      message : "Request failed with status code 403"
+      name : "AxiosError"
+      request : XMLHttpRequest {onreadystatechange: null, readyState: 4, timeout: 0, withCredentials: false, upload: XMLHttpRequestUpload, …}
+      response : {data: '', status: 403, statusText: '', headers: AxiosHeaders, config: {…}, …}
+      status : 403
+      stack : "AxiosError: Request failed with status code 403\n    at settle (http://localhost:3000/static/js/bundle.js:75177:12)\n    at XMLHttpRequest.onloadend (http://localhost:3000/static/js/bundle.js:73828:66)\n    at Axios.request (http://localhost:3000/static/js/bundle.js:74327:41)"
+      [[Prototype]] : Error
+   ```
 
    https://velog.io/@jhbae0420/%EB%BD%80%EB%AA%A8%EB%8F%84%EB%A1%9C-%EB%A9%94%EC%9D%B4%ED%8A%B8-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0%EC%9D%98-CSRF-%ED%95%84%ED%84%B0-%ED%95%B4%EC%A0%9C%EB%A5%BC-%ED%86%B5%ED%95%9C-403-Forbidden-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0
 
    csrf참고 -> 아니였다
 
-   SecurityConfig.java에서 인가 설정
+   SecurityConfig.java에서 인가 설정 -> 해줬는데 반복
 
-   
+   인가부분이 아니라 파라미터값이 달라도 에러가 발생한다는 것을 알았다
+
+   ```
+       fetch('http://localhost:8088/board/list')
+         .then((res) => {
+            console.log(1, res)
+      });
+   ```
+   사용 허용
+
+   ```
+      axios.get('http://localhost:8088/board/list')
+         .then(response => {
+           console.log(response.data);
+         })
+         .catch(error => {
+           console.error(error);
+         });
+   ```
+   허용 불가
+
+   무엇이가 이상하다고 생각, 잠시 쉬고 왔더니 되었다
+
+   cors를 webConfig로 차단
+   ```
+      @Configuration
+      public class WebConfig implements WebMvcConfigurer {
+         
+         @Override
+         public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**") // react의 3000번 포트 허용
+            .allowedOrigins("http://localhost:3000") 
+            .allowedMethods("GET", "POST", "PUT","DELETE")
+            .allowedHeaders("*")
+            .maxAge(3600);
+            }
+         }
+   ```
+   아니였다
+
+   post로 전송
+   ```java
+       @PostMapping("/list")
+      //public ResponseEntity<Map<String, Object>> list() throws Exception {
+      //public ResponseEntity<Map<String, Object>> list(@RequestParam(value="page", defaultValue="1") int page) throws Exception {
+      public ResponseEntity<Map<String, Object>> list(@RequestParam(value="page", defaultValue="1") int page, @RequestBody Board board) throws Exception {
+         ...
+      }
+
+      axios.post('http://localhost:8088/board/list?page=2', board)
+         .then(response => {
+           console.log(response.data);
+         })
+         .catch(error => {
+           console.error(error);
+         });
+   ```
+   오류가 나지 않음
+
+   get으로 전송   
+   ```java
+       @GetMapping("/list")
+      public ResponseEntity<Map<String, Object>> list(@RequestParam(value="page", defaultValue="1") int page, @RequestBody Board board) throws Exception {
+         ...
+      }
+
+      axios.get('http://localhost:8088/board/list?page=2', board)
+         .then(response => {
+           console.log(response.data);
+         })
+         .catch(error => {
+           console.error(error);
+         });
+   ```
+   에러 발생
+
 1. # client - 호출하지 않은 함수를 계속 읽어 올 때
    
    ```javascript
