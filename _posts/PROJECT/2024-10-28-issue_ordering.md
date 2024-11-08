@@ -347,3 +347,9 @@ author_profile: false
    다음과 같이 바인딩 시키지 않고 함수 안에 호출해야 한다. 
 
    1. # context 사용시 출력값 지연
+      useEffect()의 의존성 배열에 state값을 입력   
+
+      A와 B는 한페이지에 선언된 컴포넌트들   
+      A에 useContext를 가져옴   
+      B에서 값을 변경만함   
+      A의 useEffect의 의존성 배열에서 이를 탐지 적용함   

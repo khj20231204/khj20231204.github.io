@@ -90,21 +90,8 @@ author_profile: false
    ```javascript
       let {page, search, keyword, setPageFunc, setSearchFunc, setKeywordFunc} = useContext(BoardContext);
    ```
-   Board.jsx
-   SearchForm.jsx   
-   BoardForm.jsx   
-   Pagenation.jsx
 
-   BoardContextProvider.jsx : createContext 선언 => 자식에게 {page, search, keyword, setPageFunc, setSearchFunc, setKeywordFunc} 변수와 set으로 설정하는 함수를 넘겨줌   
 
-   Board.jsx : useContext 선언   
-
-   ㄴ SearchForm.jsx : useContext 선언 => setSearchFunc(search); setKeywordFunc(keyword); search와 keyword 값만 변경하면   
-   ㄴ Board.jsx : useEffect() 의  [page, search, keyword] 의존성 배열에서 이를 탐지하고 내부에서 getList(page);를 호출
-
-   *리액트의 한 페이지에 선언된 모든 컴포넌트들은 한 화면에 있다고 생각   
-   *이벤트를 줘서 값을 인식 시켜야 한다는 생각
-    
    4️⃣
    6️⃣
    5️⃣
