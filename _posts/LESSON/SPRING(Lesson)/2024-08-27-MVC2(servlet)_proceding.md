@@ -21,7 +21,7 @@ author_profile: false
    webapp폴더 → board폴더 → 모든 jsp파일   
 
    *DTO(model) → DAO(dao) → Controller → Service 순서로 작성   
-   <img src="../../../imgs/LESSON/SPRING(Lesson)/pakage_order.png" style="border:3px solid black;border-radius:9px;width:450px">   
+   <img src="../../../imgs/LESSON/SPRING(Lesson)/pakage_order.png" style="border:3px solid black;border-radius:9px;width:400px">   
 
    __Model - DTO__   
    BoardBean.java   
@@ -297,11 +297,8 @@ author_profile: false
    ```
 
 1. # 실행순서
-   로그인 session 이 있다 - main페이지
-   sesstio이 이 없다 - 로그인
-
-   memberForm.jsp -> MemberInsert.do(controller) -> 
-
-   main.jsp -> UpdateMember.do(controller) : controller에서
+   로그인 session 이 있다 - main페이지   
+   sesstio이 이 없다 - 로그인   
+   memberForm.jsp -> MemberInsert.do(controller) -> main.jsp -> UpdateMember.do(controller) : controller에서
 
    

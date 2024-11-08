@@ -250,3 +250,212 @@ author_profile: false
    내부쿼리1 : 전체를 내림차순정렬 - 최신 게시글을 가장 앞에 놓기 위해서 135번, 134번, 133번, 132번,… 이렇게 가장 마지막에 입력된 데이터를 가장 먼저 노출
 
    Select rownum rnum :  rownum은 db가 제공하는 가상의 순위 데이터, 내부쿼리1에서 내림차순정렬한 것을 순위를 매긴다. 
+
+
+1. # 검색 기능 있고 page 클래스 따로 생성한 경우
+
+   컨트롤러
+   ```java   
+      - Controller.java -
+
+      @RequestMapping("list.do")
+      public String list(String pageNum, Board board, Model model) {
+         
+         /* 변수명에 page가 붙으면 하단 페이징,
+         * 변수명에 row가 붙으면 상단 데이터 부분(단, rowPerPage는 row의 데이터 부분을 따른다)
+         */
+
+         /* 
+         pageNum이란? [1] [2] [3] ... [10] 중 현재 선택된 페이지 값
+         */
+
+         System.out.println("board:"+board);
+         /* board로 넘어온 값이 없으면 null로 뜨지 에러가 나지 않는다 */
+
+         /* totalCount를 가져오든지 list를 가져오든지 전부 board 자체를 넘기는데 board에 search와 keyword가 있기 때문에 mapper의 쿼리에서 like로 걸러주고 결과를 리턴한다. 그냥 DTO로 모든 값을 넘기고 쿼리문에서 모든 걸 처리 */
+
+         final int rowPerPage = 10;			// 화면에 출력할 데이터 갯수
+
+         if (pageNum == null || pageNum.equals("")) {
+            pageNum = "1";
+         }
+         int currentPage = Integer.parseInt(pageNum); // 현재 페이지 번호
+         System.out.println("pageNum:" + pageNum);;
+         
+         //데이터 출력 row 값들
+         int total = boardServiceImpl.getCount(board);
+      
+         int startRow = (currentPage - 1) * rowPerPage + 1;
+
+         int endRow = startRow + rowPerPage - 1;
+         board.setStartRow(startRow);
+         board.setEndRow(endRow);
+         
+         
+         //하단 페이지 부분 - 클래스로 만듦
+         PagingPgm pp = new PagingPgm(total, rowPerPage, currentPage);
+         
+         /*
+         화면 출력 번호 - 보여지는 임의의 수
+         : 최신 글이 가장 처음으로 위치, desc로 정렬 상태
+         전체 글 23개
+         startRow : 1 => no : 23
+         startRow : 11 => no : 13
+         startRow : 21 => no : 3
+         */
+         int no = total - startRow + 1;
+         System.out.println("no:" + no+ " ,total:"+total+" ,startRow:"+startRow);
+
+         //list가져오기
+         List<Board> list = boardServiceImpl.getList(board);
+
+         model.addAttribute("list",list);
+         model.addAttribute("pp",pp);
+         model.addAttribute("no",no);
+         model.addAttribute("search",board.getSearch());
+         model.addAttribute("keyword",board.getKeyword());
+
+         return "list2";
+      }
+   ```
+
+   ```java
+      - JSP부분 -
+
+      <body>
+      pp.startPage: ${pp.startPage}
+      pp.endPage: ${pp.endPage}
+
+      <div class="container" align="center">
+         <table border="1" width="800">
+            <tr>
+               <td>번호</td>
+               <td>제목</td>
+               <td>작성자</td>
+               <td>작성일</td>
+               <td>조회수</td>
+            </tr>
+            <c:if test="${empty list}">
+               <tr>
+               <td colspan="5">데이터가 없습니다.</td>
+               </tr>
+            </c:if>
+
+            <c:if test="${not empty list}">
+               <c:set var="no1" value="${no}"></c:set>
+               <c:forEach var="board" items="${list}">
+                  <tr>
+                     <!-- 글 숫자 foreach동안 no-1 -->
+                     <td>${no1}</td>
+                     
+                     <!-- 글제목 : a href, 댓글이면 level만큼 집어넣기 -->
+                     <td>
+                        <!-- 넘겨줘야 하는 값이 글 pk값과 현재 페이지 -->
+                        <a href="view.do?num=${board.num}&pageNum=${pp.currentPage}">
+                           <c:if test="${board.re_level > 0}">
+                              <span style="width:'${board.re_level * 5}'"></span>
+                              <img src="댓글 이미지">
+                           </c:if>
+                           ${board.subject}
+                           <c:if test="${board.re_level > 30}">
+                              <img src="핫 이미지">
+                           </c:if>
+                        </a>
+                     </td>
+                     <!-- 글제목 끝 -->
+                     
+                     <td>${board.writer}</td>
+                     <td>${board.reg_date}</td>
+                     <td>${board.readcount}</td>
+                  </tr>
+               <c:set var="no1" value="${no1-1}"></c:set>
+               </c:forEach>
+            </c:if>
+         </table>      
+
+         <!-- 검색 부분 search, keyword는 board에 포함되어 있는 걸 controller에서 뽑아서 따로 model로 전달 -->
+         <form action="list.do">
+            <input type="hidden" name="pageNum" value="1">
+            <select name="search">
+               <option value="subject" <c:if test="${search == 'subject'}">selected</c:if>>제목</option>
+               <option value="content" <c:if test="${search == 'content'}">selected</c:if>>내용</option>
+               <option value="writer" <c:if test="${search == 'writer'}">selected</c:if>>작성자</option>
+               <option value="subcon" <c:if test="${search == 'subcon'}">selected</c:if>> 제목+내용</option>
+            </select>
+            <input type="text" name="keyword">
+            <input type="submit" value="확인">
+         </form>
+
+         <!-- 
+            검색 했을 경우의 페이징 처리 : 
+            page와 search와 keyword를 함께 넘겨준다
+         -->
+         <c:if test="${not empty keyword}">
+            <!-- 
+               pagePerBlk = limit
+
+               startPage가 한번에 보여주는 row값 limit=10 또는 limit=5 보다 큰 경우 [이전] 메뉴 표시 
+               
+               startPage 값은 1, 11, 21, 31, .. 단위로 밖에 안나온다(limit가 10일 때)
+               pagePerBlk이 10이니깐 11, 21, 31 인 경우 [이전] 목록 출력
+               [이전] [11] [12] .. [20] 
+
+
+               "이전"을 클릭한 경우
+               [1] [2] ... [10] 이 나오게 하려면
+               startPage - 블록단위(10)를 해야
+               시작페이지가 11 인 경우 = 1,
+               시작페이지가 21 인 경우 = 11, 
+               가 된다
+            -->
+            <c:if test="${pp.startPage > pp.pagePerBlk}">
+               <a href="list.do?pageNum=${pp.startPage - pp.pagePerBlk}&search=${search}&keyword=${keyword}">[이전]</a>
+            </c:if>
+            <!-- 
+               forEach를 돌면서 페이징 처리 
+               현재 페이지면 비활성화
+               현재 페이지가 아니면 활성화
+            -->
+            <c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
+               <c:if test="${i == pp.currentPage}">
+                  [${i}]
+               </c:if>
+               <c:if test="${i != pp.currentPage}">
+                  <a href="list.do?pageNum=${i}&search=${search}&keyword=${keyword}"> [${i}]</a>
+               </c:if>
+            </c:forEach>
+
+            <!-- 
+               endPage가 totalPage보다 작은 경우 [다음] 메뉴 표시
+            -->
+            <c:if test="${pp.endPage < pp.totalPage}">
+               <a href="list.do?pageNum=${pp.endPage + pp.pagePerBlk}&search=${search}&keyword=${keyword}">[다음]</a>
+            </c:if>
+         </c:if>
+
+         <!--
+            검색 하지 않았을 때의 페이징 처리 :
+            page만 넘겨준다
+         -->
+         <c:if test="${empty keyword}">
+            <c:if test="${pp.startPage > pp.pagePerBlk }">
+               <a href="list.do?pageNum=${pp.startPage - 1}">[이전]</a>
+            </c:if>
+            <c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
+               <c:if test="${pp.currentPage==i}">
+                  [${i}]
+               </c:if>
+               <c:if test="${pp.currentPage != i}">
+                  <a href="list.do?pageNum=${i}">[${i}]</a>
+               </c:if>
+            </c:forEach>
+            <c:if test="${pp.endPage < pp.totalPage}">
+               <a href="list.do?pageNum=${pp.endPage + 1}">[다음]</a>
+            </c:if>
+         </c:if>
+         <div align="center">
+            <a href="insertForm.do" class="btn btn-info">글 입력</a>
+         </div>
+      </div>
+   </body>
+   ```

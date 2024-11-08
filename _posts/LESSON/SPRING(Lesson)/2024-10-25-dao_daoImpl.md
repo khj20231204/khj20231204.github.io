@@ -8,9 +8,9 @@ author_profile: false
  
 1. # DAO를 Dao와 DaoImpl로 나누는 경우
 
-   주로 스프링에서 이렇게 사용 하는 듯...   
+   "Service를 Service와 ServiceImpl로 나누는 경우"에서 적었듯이 강사님 실력이 의심되긴 하지만 일단 정리를 해놓는다.   
 
-   interface로 만든 Dao에서 선언만 하고, class로 만든 DaoImpl에서 실제 함수를 호출
+   interface로 만든 Dao에서 선언만 하고, class로 만든 DaoImpl에서 실제 함수를 호출   
 
    ```java
       -Dao.java-

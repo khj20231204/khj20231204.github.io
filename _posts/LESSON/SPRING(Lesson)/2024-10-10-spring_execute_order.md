@@ -7,7 +7,7 @@ author_profile: false
 ---
 
 1. # 어노테이션 입력 순서
-   <img src="../../../imgs/LESSON/SPRING(Lesson)/annotation_insert_order.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../../imgs/LESSON/SPRING(Lesson)/annotation_insert_order.png" style="border:3px solid black;border-radius:9px;width:500px">   
    
    컨트롤러에서는 Service 객체에 Autowired주입   
    서비스에서는 Dao 객체에 Autowired주입   
@@ -101,7 +101,7 @@ author_profile: false
       Dao에서 SqlSession에 접근하여 SqlSessionTemplate를 실행.   
       SqlSession : Sql문을 실행시키는 메소드를 제공   
       SqlSessionTemplate : SqlSession을 상속받은 구현 클래스   
-      <img src="../../../imgs/LESSON/SPRING(Lesson)/sqlsession_explain.png" style="border:3px solid black;border-radius:9px;width:800px">   
+      <img src="../../../imgs/LESSON/SPRING(Lesson)/sqlsession_explain.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    1. ## 쿼리를 실행 후 결과값을 가지고
       select 쿼리 결과를 Object로 돌려주는데 SqlSession이 다운캐스팅으로 하는 것   

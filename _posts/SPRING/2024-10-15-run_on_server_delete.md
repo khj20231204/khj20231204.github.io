@@ -18,14 +18,14 @@ author_profile: false
 
    Server Runtime -> Apache Tomcat 선택 -> Apply 후 close   
 
-   __그래들이나 메이브 업데이트__   
+   __gradle 또는 maven 업데이트__   
 
    그러면   
 
-   <img src="../../imgs/spring/runserver_error3.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/spring/runserver_error3.png" style="border:3px solid black;border-radius:9px;width:400px">   
 
    서버를 새로 만들 때 목록에 나타남   
 
-   <img src="../../imgs/spring/runserver_error4.png" style="border:3px solid black;border-radius:9px;width:800px">   
+   <img src="../../imgs/spring/runserver_error4.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
    Run on Server메뉴가 없는 경우는 서버 추가 목록에도 보이지 않음   

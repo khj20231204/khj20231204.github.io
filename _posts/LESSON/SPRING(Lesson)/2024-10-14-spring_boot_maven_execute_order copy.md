@@ -91,7 +91,7 @@ author_profile: false
 
 1. # application.properties 설정
 
-   ```t
+   ```yml
       spring.mvc.view.prefix=/WEB-INF/views/
       spring.mvc.view.suffix=.jsp
 
@@ -158,7 +158,7 @@ author_profile: false
 1. # pom.xml의 오라클과 메이븐 dependency를 때문에 처음 실행이 안됨
 
    밑에 2개 dependency를 주석처리하면 실행 됨   
-   ```
+   ```yml
       <!--<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
@@ -182,7 +182,7 @@ author_profile: false
 
    main/webapp/WEB-INF/views 경로로 직접 생성   
 
-    <img src="../../../imgs/LESSON/SPRING(Lesson)/spring_views.png" style="border:3px solid black;border-radius:9px;width:300px">   
+    <img src="../../../imgs/LESSON/SPRING(Lesson)/spring_views.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    *폴더 경로는 임의대로 수정 가능   
 
@@ -389,10 +389,10 @@ author_profile: false
 
    *STS3을 닫은 후 실행!   
     
-    STS4의 폴더 안으로 다운 받은 Lombok의 jar파일을 이동
+    STS4의 폴더 안으로 다운 받은 Lombok의 jar파일을 이동   
    <img src="../../../imgs/LESSON/SPRING(Lesson)/lombok_install.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
-   Specify location을 클릭 후 sts실행 파일을 선택
+   Specify location을 클릭 후 sts실행 파일을 선택   
    <img src="../../../imgs/LESSON/SPRING(Lesson)/lombok_install_2.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    Install / Update 실행   

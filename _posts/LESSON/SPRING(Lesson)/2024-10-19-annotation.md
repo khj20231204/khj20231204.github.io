@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 어노테이션
+title: 수업 시간에 다룬 주요 어노테이션
 categories: SPRING(Lesson)
 tag: []
 author_profile: false
