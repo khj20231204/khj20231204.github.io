@@ -346,10 +346,76 @@ author_profile: false
    ```
    다음과 같이 바인딩 시키지 않고 함수 안에 호출해야 한다. 
 
-   1. # context 사용시 출력값 지연
+1. # context 사용시 출력값 지연
       useEffect()의 의존성 배열에 state값을 입력   
 
       A와 B는 한페이지에 선언된 컴포넌트들   
       A에 useContext를 가져옴   
       B에서 값을 변경만함   
       A의 useEffect의 의존성 배열에서 이를 탐지 적용함   
+
+1. # Warning: A component is changing an uncontrolled input to be controlled. 
+   
+   에러 메시지
+   ```
+       A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component.
+   ```   
+
+   page 디렉토리에 있는 부모 컴포넌트   
+   ```javascript
+      - WriteBoard.jsx -
+
+      <WriteBoardForm userId={userId}/>
+   ```
+
+   component 디렉토리에 있는 자식 컴포넌트   
+   ```javascript
+      - WriteBoardForm.jsx -
+
+      const WriteBoardForm = (props) => {
+         const {userId} = props;
+         ...
+         {{backgroundColor:'whitesmoke'}} value={userId}/>
+         ...
+      }
+   ```
+
+   글쓰기를 할 때 부모 컴포넌트에서 자식 컴포넌트로 userId를 넘겼는데 취소를 누를 경우 navigate(-1)를 사용하여 되돌아 갔다가 다시 글쓰기로 넘어오면서 발생하는 에러   
+
+   컴포넌트는 새로고침되거나 재런딩되면 기존의 값은 초기화 되기 때문에 부모 컴포넌트로부터 props로 userId를 받았는데 이것이 없어지기 때문.   
+
+   해결 : props로 전달하지 말고 userId는 메인에서 로그인 할 때 받기 때문에 이때 context로 저장한다. useState를 선언 후 useEffect에 등록한다.   
+
+   ```javascript
+      import { LoginContext } from '../../contexts/LoginContextProvider';
+
+      let {userInfo} = useContext(LoginContext); //context에서 userInfo정보를 가져와서
+      let [userId, setUserId] = useState(userInfo.userId);
+
+      useEffect(() => {
+         setUserId(userInfo.userid);
+      }, [userId])
+   ```
+
+   아니였다. context는 변수들의 상태를 저장하는 도구이며, 새로고침하면 역시 기존의 내용이 없어진다. 값을 저장하기 위해서는 다른 저장소가 필요하다.   
+
+   1. 로컬 스토리지 사용하기   
+   2. 쿠키 사용 or 서버측에서 관리하기   
+
+   현재는 서버가 없기 때문에 간단하게 로컬 스토리지에 저장할 수 한다.   
+   ```javascript
+      //일반 값 저장하기와 불러오기
+      localStorage.setItem('access', access);   //파싱없이 그냥 저장
+      const accessToken = localStorage.getItem('access'); //파싱없이 그냥 불러옴
+      
+      //객체 저장하기와 불러오기
+      localStorage.setItem('userInfo', JSON.stringify(userInfo)); //userInfo객체를 파싱하여 로컬 스토리지에 저장
+      const userId = JSON.parse(localStorage.getItem('userInfo')).userId; //userInfo객체에서 userId란 이름의 값을 가져와서 파싱해서 userId 변수에 저장
+   
+      //삭제
+      localStorage.removeItem('userId');
+
+      //clear
+      localStorage.clear();
+   ```
+   <span style="color:red">객체를 저장하고 불러올 때만 parsing을 한다</span>
