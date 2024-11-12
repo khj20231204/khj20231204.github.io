@@ -19,9 +19,14 @@ tag: []
       $ ssh -i ec2_server.pem ubuntu@ec2-13-124-90-221.ap-northeast-2.compute.amazonaws.com 
    ```
    <img src="../../imgs/project/aws_ec2_2.png" style="border:3px solid black;border-radius:9px;width:600px">   
-   users/user/.ssh 폴더에 pem파일과 config설정 파일이 함께 있습니다. config파일이 없으면 새로 생성합니다.      
+   
+   users/user/.ssh 폴더에 pem파일과 config설정 파일이 함께 있습니다. config파일이 없으면 새로 생성합니다. 
+
    ec2_server.pem : 인스턴스 생성 시 다운받은 pem파일로 pem파일이 있는 위치에서 위에 명령어 실행   
+
    ubuntu : EC2에서 ubuntu를 설치할 경우 자동으로 설정해주는 계정 이름. 인스턴스 생성 후 바로 접속하면 ubuntu계정이름으로 접속됩니다.   
+   <img src="../../imgs/project/ec2_ubuntu.png" style="border:3px solid black;border-radius:9px;width:600px">   
+
    ec2-13-124-90-221.ap-northeast-2.compute.amazonaws.com : 퍼블릭 DNS   
 
    1.첫번째 오류
