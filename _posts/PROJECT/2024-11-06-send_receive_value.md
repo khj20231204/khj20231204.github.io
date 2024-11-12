@@ -84,12 +84,12 @@ author_profile: false
         })
    ```
 
-1. # 주소 변수 값 받기
+1. # 주소 변수 값 받기(int형이든 String형이든 받을 때 결정해 주면 됨)
 
    RequestParam : server   
    ```java
       @GetMapping("/api/getRoomInfo") 
-      public ResponseEntity<Map<String, Object>> getRoomInfo(@RequestParam("roomNo") int roomNo) {
+      public ResponseEntity<Map<String, Object>> getRoomInfo(@RequestParam("roomNo") int roomNo) { //여기서 roonNo의 데이터형 결정
          Map<String, Object> responseBody =new HashMap<String, Object>();
          try {
             MafiaRoom getRoomInfo = mafiaService.getRoomInfo(roomNo);
@@ -106,6 +106,7 @@ author_profile: false
          }
       }
    ```
+   roomNo를 문자열로 받고 싶으면 `(@RequestParam("roomNo") String roomNo)` 으로 작성하면 됨   
 
    RequestParam : client
    ```javascript   
