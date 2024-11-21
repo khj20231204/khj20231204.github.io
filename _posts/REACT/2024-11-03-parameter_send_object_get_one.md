@@ -15,11 +15,15 @@ tab:
 
    ```javascript
 
+      //api선언
       export const update = (data) => api.put(`users/update`, data); //비동기로 form을 data로 전달
 
+      //함수 정의 부분, 매개변수를 받는 함수
       const updateUser = async (form) => { //하나의 매개변수로 받음
          response = await auth.update(form);
       };
 
+
+      //함수를 호출하여 매개변수를 전달
       updateUser({userId, userPw, email}); //객체를 전달
    ```
