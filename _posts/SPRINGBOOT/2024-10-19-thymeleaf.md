@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Jar와 War
+title: thymeleaf
 categories: SPRINGBOOT
 tag: []
 author_profile: false
