@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>JSFLUX</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -18,7 +19,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
   <script type="text/javascript" src="janus.js"></script>
   <script type="text/javascript" src="videoroomtest.js?ver=12"></script>
-  <!-- <script type="text/javascript" src="videoroomtest.js"></script> -->
+
   <script>
     $(function () {
       $(".navbar-static-top").load("navbar.html", function () {
@@ -27,6 +28,88 @@
       });
       $(".footer").load("footer.html");
     });
+
+    /* 비디오 녹화 */
+
+    var d = $(".container").next().attr("id");
+    console.log(d)
+
+    $("#startRC").click(function(){
+      alert('startRC')
+
+    })
+
+    $('#stopRC').click(() => {
+      alert('stopRC')
+    })
+
+    const preview = document.getElementById('preview');
+    const startButton = document.getElementById('startRC');
+    const stopButton = document.getElementById('stopRC');
+
+    let mediaRecorder;
+    let recordedChunks = [];
+
+    // 카메라 스트림 가져오기
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then(stream => {
+            preview.srcObject = stream;
+
+            // MediaRecorder 설정
+            mediaRecorder = new MediaRecorder(stream);
+
+            // 녹화 데이터 처리
+            mediaRecorder.ondataavailable = event => {
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data);
+                    // 서버로 전송 (WebSocket 또는 HTTP POST 사용)
+                    sendToServer(event.data);
+                }
+            };
+
+            mediaRecorder.onstop = () => {
+                // 모든 데이터 병합 후 다운로드
+                const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'recorded-video.webm';
+                document.body.appendChild(a);
+                a.click();
+                URL.revokeObjectURL(url);
+            };
+        });
+
+    // 녹화 시작
+    startButton.addEventListener('click', () => {
+      alert("df")
+        recordedChunks = [];
+        mediaRecorder.start();
+        console.log("Recording started...");
+    });
+
+    // 녹화 중지
+    stopButton.addEventListener('click', () => {
+        mediaRecorder.stop();
+        console.log("Recording stopped.");
+    });
+
+    // 서버로 데이터 전송
+    function sendToServer(data) {
+        const formData = new FormData();
+        formData.append('video', data, 'recorded-video.webm');
+        
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            console.log('Video uploaded successfully:', response);
+        }).catch(err => {
+            console.error('Error uploading video:', err);
+        });
+    }
+
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css"
     type="text/css" />
@@ -90,10 +173,12 @@
             </div>
           </div>
         </div>
+
         <div class="container hide" id="videos">
           <div class="row">
             <div class="col-md-4">
               <div class="panel panel-default">
+                <span><button id="startRC">Start Recording</button><button id="stopRC">Stop Recording</button></span>
                 <div class="panel-heading">
                   <h3 class="panel-title">Local Video <span class="label label-primary hide" id="publisher"></span>
                     <div class="btn-group btn-group-xs pull-right hide">
@@ -115,7 +200,7 @@
                     </div>
                   </h3>
                 </div>
-                <div class="panel-body" id="videolocal"></div>
+                <div class="panel-body" id="videolocal" style="width:1000px;"></div>
               </div>
             </div>
             <div class="col-md-4">
@@ -123,7 +208,7 @@
                 <div class="panel-heading">
                   <h3 class="panel-title">Remote Video #1 <span class="label label-info hide" id="remote1"></span></h3>
                 </div>
-                <div class="panel-body relative" id="videoremote1"></div>
+                <div class="panel-body relative" id="videoremote1" >aa</div>
               </div>
             </div>
             <div class="col-md-4">
@@ -168,5 +253,7 @@
     <div class="footer">
     </div>
   </div>
+
+  
 </body>
 </html>
