@@ -39,8 +39,30 @@ author_profile: false
 		</tr>
    ```
    
-1. # session
-   ```jsp
+1. # 값 넘기고 받아오기
+
+   __Model__   
+   constroller에서 model로 넘기면 jsp에서 getParameter로 받는다.   
+
+   ```java
+      - controller -
+      model.addAttribute("email","aaa@gmail.com");
+
+      - jsp -
+      String email = request.getParameter("email");
+   ```
+
+   __Session__   
+   ```java
+
+      - controller -   
+      session.setAttribute("firstCategory", firstCategory); //session 생성
+      session.removeAttribute("memberVo"); //session 삭제
+
+      String firstCategory = (String) session.getAttribute("firstCategory"); //session 사용하기
+
+      - jsp -
+
       <%
          request.setCharacterEncoding("utf-8");
          String email = request.getParameter("email");
