@@ -20,23 +20,6 @@ o pwd : 현재 작업 디렉토리명
 $ pwd   
 /home/myubuntu   
 
-o ifconfig : ip주소 확인   
-$ ifconfig   
- inet addr:192.168.130.128   
-
-o docker 에서 ifconfig설치   
-   sudo apt update   
-   sudo apt install net-tools   
-
-   sudo apt-get update   
-   sudo apt-get install net-tools   
-
-o ping : 네트워크 점검용 명령어   
-$ ping  kbs.co.kr   
-
-o docker 에서 ping 설치   
-sudo apt-get install iputils-ping   
-
 o 리부팅   
 $ reboot   
 $ init 6   
@@ -46,6 +29,37 @@ o 시스템 종료
 $ sudo halt   
 $ sudo init 0   
 $ sudo shutdown -h now   
+
+o ifconfig : ip주소 확인   
+$ ifconfig   
+ inet addr:192.168.130.128   
+
+o ifconfig설치   
+   sudo apt update   
+   sudo apt install net-tools   
+
+o ping : 네트워크 점검용 명령어   
+$ ping  kbs.co.kr   
+
+o docker 에서 ping 설치   
+sudo apt-get install iputils-ping   
+
+o 열린 포트 확인   
+   sudo ss -tuln | grep 80 - 목록에 80이 나타나면 열려있는 것   
+
+o 방화벽 상태 확인   
+   sudo ufw status   
+      Status : active - 방화벽 활성화된 상태   
+      Status : inactive - 방화벽 비활성화된 상태   
+
+o 방화벽 실행   
+   sudo ufw enable   
+
+o 방화벽 비활성화   
+   sudo ufw disable   
+
+o 특정 포트 열기   
+   sudo ufw allow 80/tcp - 일반적으로 http, https는 tcp 사용   
 
 cf. sudo 를 붙이면 root 권한을 가지게 된다.   
 
