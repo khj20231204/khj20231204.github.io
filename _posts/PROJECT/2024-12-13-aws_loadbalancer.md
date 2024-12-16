@@ -207,27 +207,45 @@ tag: []
       1. ALB에 SSL 인증서 연결   
       ACM(AWS Certificate Manager)에서 발급받은 SSL 인증서를 ALB(애플리케이션 로드 밸런서)에 연결   
      
-      1.1. SSL 인증서 준비
-      **ACM(AWS Certificate Manager)**에서 SSL 인증서를 발급받았다면, ALB에서 이 인증서를 사용할 수 있도록 준비합니다.
-      1.2. ALB 리스너 설정
-      AWS Management Console에 로그인하고 EC2 서비스로 이동합니다.
+      1.1. SSL 인증서 준비   
+      ACM(AWS Certificate Manager)에서 SSL 인증서를 발급받았다면, ALB에서 이 인증서를 사용할 수 있도록 준비합니다.   
+
+      1.2. ALB 리스너 설정   
+      AWS Management Console에 로그인하고 EC2 서비스로 이동합니다.   
 
       왼쪽 메뉴에서 Load Balancers를 선택하고, ALB를 생성합니다.   
       <img src="../../imgs/project/ssl_9.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
+      ALB의 Listeners 탭을 클릭한 후, HTTPS 리스너를 추가합니다.   
 
-      ALB의 Listeners 탭을 클릭한 후, HTTPS 리스너를 추가합니다.
+      HTTPS 리스너는 포트 443을 사용합니다.   
+      리스너 설정에서 SSL 인증서를 ACM에서 발급받은 인증서로 설정합니다.   
+      
+      설정 예시   
+      HTTP 리스너: 포트 80   
+      HTTPS 리스너: 포트 443 (ACM에서 발급한 인증서 사용)   
+      HTTPS 리스너 설정에서 SSL 인증서를 선택합니다.   
 
+      ALB를 통해 HTTPS의 요청을 외부에서 받아 내부적으로 HTTP 트래픽으로 변경하여 사용하는 경우   
 
-      HTTPS 리스너는 포트 443을 사용합니다.
-      리스너 설정에서 SSL 인증서를 ACM에서 발급받은 인증서로 설정합니다.
-      설정 예시:
+      1.ALB 리스너 설정   
+      리스너는 ALB가 수신할 트래픽의 프로토콜과 포트를 정의합니다.   
+      프로토콜: HTTPS   
+      포트: 443   
+      SSL 인증서: HTTPS를 사용하려면 SSL 인증서를 ALB에 연결해야 합니다.   
 
-      HTTP 리스너: 포트 80
-      HTTPS 리스너: 포트 443 (ACM에서 발급한 인증서 사용)
-      HTTPS 리스너 설정에서 SSL 인증서를 선택합니다.
+      2.대상 그룹(Target Group) 설정   
+      대상 그룹은 ALB가 트래픽을 전달할 서버(EC2 인스턴스 등)를 정의합니다.   
+      프로토콜: HTTP   
+      포트: 80   
 
-      ACM에서 발급받은 인증서를 선택하고 저장합니다.
+      =>ALB가 HTTPS로 받은 요청을 대상 그룹에 전달할 때, HTTP로 변환해서 보내도록 설정   
+
+      3.가용 영역   
+      AWS 리전(Region) 내에 물리적으로 분리된 데이터 센터 그룹입니다.
+      각 가용 영역은 독립된 전력, 네트워크, 냉각 시스템을 갖추고 있어 하나의 AZ에 장애가 발생해도 다른 AZ는 영향을 받지 않도록 설계되었습니다.
+      예를 들어, **서울 리전(ap-northeast-2)**에는 3개의 AZ가 있습니다: ap-northeast-2a, ap-northeast-2b, ap-northeast-2c. 한 가용 영역에서 장애가 발생하더라도 다른 가용 영역에서 트래픽을 처리할 수 있도록 설계합니다. 이를 통해 서비스 중단을 방지하고 애플리케이션의 가용성을 높입니다.   
+
 
       2. HTTPS 요청을 HTTP로 변환
       ALB는 기본적으로 SSL 종료(SSL termination)를 지원합니다. 즉, ALB가 클라이언트로부터 받은 HTTPS 요청을 처리하고, 이를 HTTP로 EC2 인스턴스로 전달합니다.
@@ -257,11 +275,13 @@ tag: []
       프로토콜: TCP
       포트 범위: 80
       출처: ALB가 속한 보안 그룹
+
       4. Route 53에서 DNS 설정
       만약 ALB를 사용하여 SSL을 종료하고 있다면, Route 53에서 도메인 이름을 ALB의 DNS로 매핑해야 합니다. 이를 통해 클라이언트가 HTTPS로 접속하면, ALB가 이를 처리하고 EC2 인스턴스로 HTTP 요청을 전달합니다.
 
       Route 53에서 A 레코드를 생성합니다.
       Alias로 ALB의 DNS 이름을 선택하여 도메인을 ALB로 라우팅합니다.
+
       5. 결과 확인
       설정이 완료되면, 브라우저에서 HTTPS로 도메인에 접속하여 ALB가 SSL을 종료하고 EC2 인스턴스로 HTTP 요청을 전달하는지 확인합니다.
 
