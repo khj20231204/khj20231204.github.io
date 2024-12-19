@@ -48,6 +48,9 @@ tag: []
    *반대 과정 HTTP -> HTTPS 로 전송하는 방식을 __HTTP to HTTPS Redirection__ 이라고 합니다.   
    리다이렉션은 HTTP로 요청을 보냈을 때 암호화하여 HTTPS로 전송하는 방식입니다. 이 과정 역시 ALB에서 설정할 수 있습니다.   
 
+1. # 전체 순서
+   SSL 인증서 발급 -> ACM에 업로드 -> 로드 밸런스에 적용하기 위한 대상 그룹 생성 -> 로드 밸런스 생성 -> Route 53에 도메인 적용
+
 1. # SSL 인증서 발급
    1. ## Let's Encrypt 인증서 발급   
       Let's Encrpyt는 HTTPS의 활성화를 위해 무료로 SSL/TLS 인증서를 제공하는 비영리 조직입니다.   
@@ -124,13 +127,13 @@ tag: []
          __2.manual : DNS-01 인증 방식__   
          로드 밸런서를 통해 트래픽을 처리할 것이므로, Certbot이 HTTP 요청을 직접 처리하지 못합니다. 대신 DNS 검증을 사용합니다.   
          ```yml
-           sudo certbot certonly --manual --preferred-challenges dns -d webrtcpj.o-r.kr  # --manual
+           sudo certbot certonly --manual --preferred-challenges dns -d example.com  # --manual
          ```   
          수동 모드로 진행합니다. 이 모드에서는 Certbot이 자동으로 인증을 처리하지 않고, 사용자가 특정 작업을 직접 수행해야 합니다. 실행 중 Certbot이 TXT 레코드를 추가하라고 지시합니다. 이를 AWS Route 53에 추가해야 합니다. 수동으로 DNS 레코드 추가가 필요하고 DNS를 직접 관리할 수 있어야 합니다.   
          => DNS TXT 레코드 추가   
          AWS Management Console로 이동 -> Route 53 -> 호스팅 영역(Hosted Zone) -> 도메인 선택 -> Certbot에서 제공한 TXT 레코드를 도메인의 TXT 레코드로 추가(1~2분 소요)   
 
-         위에 standalone 방식으로 error가 나서 manual 방식으로 실행.   
+         현재 저의 상황은 awsonly2024.github.io 를 webrtcpj.o-r.kr로 DNS를 변경 후 webrtcpj.o-r.kr 도메인으로 EC2에 접근합니다. DNS-01 인증 방식은 DNS에 따라 인증을 발급받는 것이기 때문에 변경 전의 awsonly2024.github.io는 필요가 없고(실제 txt에 입력할 수 있는 부분이 없음), 현재 DNS webrtcpj.o-r.kr 부분이 중요합니다.   
          ```yml
             sudo certbot certonly --manual --preferred-challenges dns -d webrtcpj.o-r.kr  # awsonly2024없이 webrtcpj만 입력합니다.
          ```   
@@ -170,12 +173,6 @@ tag: []
       이 내용을 복사해둡니다.
 
       __2.2 ALB에 인증서 업로드__   
-      PEM 파일을 하나의 파일로 결합 AWS Certificate Manager(ACM)에 인증서를 업로드하려면 인증서와 프라이빗 키를 준비해야 합니다. 필요한 파일을 하나로 결합합니다:
-
-      ```yml
-         cat /etc/letsencrypt/live/example.com/fullchain.pem /etc/letsencrypt/live/example.com/privkey.pem > combined.pem
-      ```   
-
       AWS Certificate Manager(ACM)에 업로드
       AWS Management Console에서 Certificate Manager로 이동 -> "Certificate import"를 선택 -> 결합된 인증서를 업로드하거나 다음 항목을 개별적으로 업로드
 
@@ -185,7 +182,7 @@ tag: []
       *fullchain.pem : 본문 내용이 2개인 이유   
       위쪽 - 서버 인증서 (도메인에 대한 SSL 인증서)   
       아래쪽 - 중간 인증서 (인증서 발급 기관의 인증서, CA 인증서)   
-      fullchain.pem 파일은 서버 인증서와 중간 인증서를 하나의 파일로 합친 것입니다. 중간 인증서는 인증서를 발급한 **인증기관(CA)**의 인증서입니다.   
+      fullchain.pem 파일은 서버 인증서와 중간 인증서를 하나의 파일로 합친 것입니다. 중간 인증서는 인증서를 발급한 인증기관(CA)의 인증서입니다.   
 
       <img src="../../imgs/project/ssl_7.png" style="border:3px solid black;border-radius:9px;width:800px">   
       인증서 본문에는 fullchain.pem의 서버 인증서(도메인 인증서) 입력   
@@ -194,99 +191,88 @@ tag: []
       인증서 정상 연결   
       <img src="../../imgs/project/ssl_8.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
-1. # 로드 밸런서에 ACM 적용
-      이제 발급받은 ssl을 alb에 적용하여 https의 요청을 ec2 내부에서 http의 요청으로 변경할 것입니다.   
+1. # 대상 그룹 생성
+   대상 그룹은 현재 존재하는 EC2의 인스턴스 값이 됩니다. 외부에서 http나 https로 접근 시 로드밸런서로 접속하게 될 EC2가 됩니다. 대상 그룹 생성시 중요한 부분이 적용된 인스턴스의 healthy값을 받아오는 것입니다. 적용된 EC2의 인스턴스가 제대로 작동하고 있는지 확인하기 위해서 대상 그룹 체크를 하게 되는데 그 부분이 상태 검사가 됩니다.   
 
-      전체 순서 :   
-      1.ACM에서 발급받은 SSL 인증서를 ALB의 HTTPS 리스너에 연결합니다.   
-      2.ALB가 HTTPS 요청을 SSL 종료 후 HTTP로 EC2에 전달하도록 설정합니다.   
-      3.대상 그룹에서 HTTP 프로토콜을 사용하여 EC2 인스턴스를 등록합니다.   
-      4.ALB와 EC2 인스턴스 간의 보안 그룹 규칙을 설정하여 트래픽이 허용되도록 합니다.   
-      5.Route 53에서 도메인 이름을 ALB의 DNS로 매핑하여 HTTPS로 접속할 수 있도록 합니다.   
+   <img src="../../imgs/project/target_point_check.png" style="border:3px solid black;border-radius:9px;width:600px">   
 
-      1. ALB에 SSL 인증서 연결   
-      ACM(AWS Certificate Manager)에서 발급받은 SSL 인증서를 ALB(애플리케이션 로드 밸런서)에 연결   
-     
-      1.1. SSL 인증서 준비   
-      ACM(AWS Certificate Manager)에서 SSL 인증서를 발급받았다면, ALB에서 이 인증서를 사용할 수 있도록 준비합니다.   
+   저는 자바로 챗팅 서버를 만들었기 때문에 자바의 healty 리콜 부분은 다음과 같습니다.   
+   ```java
+      @RestController
+      @RequestMapping("/healthcheck")
+      public class WebRtcHealthCheck {
 
-      1.2. ALB 리스너 설정   
-      AWS Management Console에 로그인하고 EC2 서비스로 이동합니다.   
+         @GetMapping  // -> error 이 부분은 제대로 함수값을 리턴하지 않음음
+         public ResponseEntity<String> getMethodName() {
+            return new ResponseEntity<>("success",HttpStatus.OK); //리턴 값이 status 200이 아님
+         }
 
-      왼쪽 메뉴에서 Load Balancers를 선택하고, ALB를 생성합니다.   
-      <img src="../../imgs/project/ssl_9.png" style="border:3px solid black;border-radius:9px;width:800px">   
+         @GetMapping  // -> 정상 작동. status 200을 리턴함
+         public ResponseEntity<String> healthCheck() {
+            return ResponseEntity.ok("Healthy");
+         }
+      }
+   ```
+   
+   <img src="../../imgs/project/tg_fullscreen.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
-      ALB의 Listeners 탭을 클릭한 후, HTTPS 리스너를 추가합니다.   
+   다음을 클릭하면 대상 등록 화면이 뜹니다. 여러 인스턴스 항목 중 HTTPS를 받아서 HTTP로 처리할 인스턴스를 선택합니다.   
 
-      HTTPS 리스너는 포트 443을 사용합니다.   
-      리스너 설정에서 SSL 인증서를 ACM에서 발급받은 인증서로 설정합니다.   
+   HTTPS -> 로드 밸런서 -> 대상 등록 -> HTTP   
+
+   왼쪽 버튼을 선택하면 "아래에 보류 중인 것으로 포함" 버튼을 클릭합니다. 그러면 대상 보기에 선택한 인스턴스 항목이 나타나고 아래에 대상 그룹 생성을 클릭합니다.   
+
+   대상 그룹을 생성하면 이 대상 그룹을 로드 밸런서와 연결합니다.   
+
+1. # 로드 밸런서 생성
+      Appliation Load Balancer를 선택합니다.   
+      <img src="../../imgs/project/load_balancer_1.png" style="border:3px solid black;border-radius:9px;width:800px">   
+
+      로드 밸런서 이름을 입력하고 인터넷 경계, IPv4를 선택합니다.   
+      <img src="../../imgs/project/load_balancer_2.png" style="border:3px solid black;border-radius:9px;width:800px">   
+
+      VPC와 가용 영역 설정   
+      <img src="../../imgs/project/load_balancer_4.png" style="border:3px solid black;border-radius:9px;width:800px">   
+
+      VPC :   
+      VPC는 가상 클라우드로 사용자 정의 네트워크를 설정합니다. IP주소 범위, 서브넷, 라우팅 테이블 등울 설정하게 됩니다. VPC값들은 이미 EC2의 인스턴스에 설정되어 있어서 인스턴스를 적용만 하면 됩니다.   
+      <img src="../../imgs/project/load_balancer_3.png" style="border:3px solid black;border-radius:9px;width:800px">   
+      네트워킹에 VPC ID가 있습니다.   
+
+      가용영역 :   
+      AWS 리전(Region) 내에 물리적으로 분리된 데이터 센터 그룹입니다. 각 가용 영역은 독립된 전력, 네트워크, 냉각 시스템을 갖추고 있어 하나의 AZ에 장애가 발생해도 다른 AZ는 영향을 받지 않도록 설계되었습니다. 예를 들어, 서울 리전(ap-northeast-2)에는 3개의 AZ가 있습니다: ap-northeast-2a, ap-northeast-2b, ap-northeast-2c. 한 가용 영역에서 장애가 발생하더라도 다른 가용 영역에서 트래픽을 처리할 수 있도록 설계합니다. 이를 통해 서비스 중단을 방지하고 애플리케이션의 가용성을 높입니다.   
+
+      __내가 속한 리전의 가용 영역은 필수로 선택__ 해야 합니다.   
+
+      <img src="../../imgs/project/load_balancer_5.png" style="border:3px solid black;border-radius:9px;width:800px">   
+      현재 인스턴스의 가용 영역은 2c가 됩니다.   
+
+      보안 그룹을 선택합니다. 보안 그룹은 로드 밸런서와 EC2에서 설정합니다.   
+      <img src="../../imgs/project/load_balancer_6.png" style="border:3px solid black;border-radius:9px;width:800px">   
+      외부에서 HTTPS의 요청이 오면 로드 밸런서가 먼저 HTTPS를 받아서 HTTP로 바꿔서 내부적으로 요청을 보내게 됩니다.   
       
-      설정 예시   
-      HTTP 리스너: 포트 80   
-      HTTPS 리스너: 포트 443 (ACM에서 발급한 인증서 사용)   
-      HTTPS 리스너 설정에서 SSL 인증서를 선택합니다.   
+      클라이언트(HTTPS 요청) -> 로드 밸런서(HTTP로 변환) -> EC2   
 
-      ALB를 통해 HTTPS의 요청을 외부에서 받아 내부적으로 HTTP 트래픽으로 변경하여 사용하는 경우   
+      HTTPS를 로드 밸런서 보안 그룹에 추가합니다.   
+      HTTP를 EC2 보안 그룹에 추가합니다.
 
-      1.ALB 리스너 설정   
-      리스너는 ALB가 수신할 트래픽의 프로토콜과 포트를 정의합니다.   
-      프로토콜: HTTPS   
-      포트: 443   
-      SSL 인증서: HTTPS를 사용하려면 SSL 인증서를 ALB에 연결해야 합니다.   
+      보안 그룹과 밑에 리스너가 있습니다. 보안 그룹은 로드 밸런서에 접근을 허용하는 프로토콜이고 접근한 프로토콜 중 HTTP로 변환할 프로토콜을 리슨하게 됩니다.   
 
-      2.대상 그룹(Target Group) 설정   
-      대상 그룹은 ALB가 트래픽을 전달할 서버(EC2 인스턴스 등)를 정의합니다.   
-      프로토콜: HTTP   
-      포트: 80   
+      리스너 설정를 HTTPS 443 로 설정합니다.   
 
-      =>ALB가 HTTPS로 받은 요청을 대상 그룹에 전달할 때, HTTP로 변환해서 보내도록 설정   
+      요약 =>   
+      로드 밸런서 보안 그룹 : HTTPS 443 허용   
+      EC2 보안 그룹 : HTTP 80 허용   
+      로드 밸런서 리스너 : HTTPS 443   
 
-      3.가용 영역   
-      AWS 리전(Region) 내에 물리적으로 분리된 데이터 센터 그룹입니다.
-      각 가용 영역은 독립된 전력, 네트워크, 냉각 시스템을 갖추고 있어 하나의 AZ에 장애가 발생해도 다른 AZ는 영향을 받지 않도록 설계되었습니다.
-      예를 들어, **서울 리전(ap-northeast-2)**에는 3개의 AZ가 있습니다: ap-northeast-2a, ap-northeast-2b, ap-northeast-2c. 한 가용 영역에서 장애가 발생하더라도 다른 가용 영역에서 트래픽을 처리할 수 있도록 설계합니다. 이를 통해 서비스 중단을 방지하고 애플리케이션의 가용성을 높입니다.   
+      대상 그룹에 앞에서 설정한 대상을 선택합니다. 리스너는 HTTPS, 대상 그룹은 HTTP   
+      <img src="../../imgs/project/load_balancer_7.png" style="border:3px solid black;border-radius:9px;width:800px">   
 
-
-      2. HTTPS 요청을 HTTP로 변환
-      ALB는 기본적으로 SSL 종료(SSL termination)를 지원합니다. 즉, ALB가 클라이언트로부터 받은 HTTPS 요청을 처리하고, 이를 HTTP로 EC2 인스턴스로 전달합니다.
-
-      2.1. 리스너 규칙 설정
-      HTTPS 리스너에서 EC2 인스턴스로 트래픽을 전달하는 규칙을 설정합니다.
-
-      ALB는 HTTPS 요청을 받아서, 백엔드 EC2 인스턴스로 HTTP로 요청을 전달합니다.
-      이를 위해 타겟 그룹을 설정하여, ALB가 트래픽을 HTTP로 EC2로 전달할 수 있게 합니다.
-      **대상 그룹(Target Group)**을 생성하거나 기존의 대상 그룹을 사용합니다.
-
-      대상 그룹에 EC2 인스턴스를 등록합니다.
-      이 대상 그룹은 HTTP 프로토콜을 사용하여 EC2 인스턴스로 트래픽을 전달하게 됩니다.
-      2.2. HTTP 리스너
-      ALB에서 HTTPS 리스너를 사용하여 외부에서 받은 트래픽을 SSL 종료 후 HTTP로 EC2로 전달하려면, HTTP 리스너(포트 80)는 별도로 설정하지 않아도 됩니다. ALB가 SSL을 종료하고 HTTP로 전달하기 때문에 HTTP 리스너를 추가할 필요는 없습니다.
-
-      3. 보안 그룹 및 EC2 인스턴스 설정
-      ALB가 EC2 인스턴스에 HTTP 요청을 전달하려면, 보안 그룹 설정을 적절히 구성해야 합니다.
-
-      3.1. ALB 보안 그룹
-      ALB 보안 그룹에서 포트 443 (HTTPS)을 허용해야 합니다.
-
-      3.2. EC2 보안 그룹
-      EC2 인스턴스의 보안 그룹에서 ALB가 HTTP 트래픽을 전달할 수 있도록 포트 80을 허용해야 합니다.
-
-      EC2 인스턴스 보안 그룹에 다음과 같은 규칙을 추가합니다:
-      프로토콜: TCP
-      포트 범위: 80
-      출처: ALB가 속한 보안 그룹
-
-      4. Route 53에서 DNS 설정
-      만약 ALB를 사용하여 SSL을 종료하고 있다면, Route 53에서 도메인 이름을 ALB의 DNS로 매핑해야 합니다. 이를 통해 클라이언트가 HTTPS로 접속하면, ALB가 이를 처리하고 EC2 인스턴스로 HTTP 요청을 전달합니다.
-
-      Route 53에서 A 레코드를 생성합니다.
-      Alias로 ALB의 DNS 이름을 선택하여 도메인을 ALB로 라우팅합니다.
-
-      5. 결과 확인
-      설정이 완료되면, 브라우저에서 HTTPS로 도메인에 접속하여 ALB가 SSL을 종료하고 EC2 인스턴스로 HTTP 요청을 전달하는지 확인합니다.
-
-      HTTPS 요청이 ALB에 도달하고, ALB는 이를 HTTP로 EC2에 전달합니다.
-      EC2 인스턴스는 HTTP 요청을 받아 처리합니다
+      ACM에 추가한 인증서를 선택합니다.   
+      <img src="../../imgs/project/load_balancer_8.png" style="border:3px solid black;border-radius:9px;width:800px">   
+    
+      로드 밸런서 생성   
+   
 1. # 인증서 자동 갱신   
       Let's Encrypt 인증서는 90일 동안 유효합니다. 갱신을 자동화하려면 다음을 설정합니다.   
 
