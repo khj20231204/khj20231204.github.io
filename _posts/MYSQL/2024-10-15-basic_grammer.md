@@ -27,7 +27,7 @@ author_profile: false
 
       create database jsptest;    //jsptest라는 데이터베이스 생성
 
-      //5.7이하 버전
+      //5.7이하 버전 
       grant all privileges on jsptest.* to jspid@'%' identified by 'jsppass' with grant option;
       //jsptest데이터베이스에 jspid라는 user를 생성하고 jsppass라는 password를 설정하고 권한을 부여
       flush privileges;
