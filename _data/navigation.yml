@@ -26,6 +26,20 @@ sidebar_category_list:
     children:
       - title: "PROJECT"
         url : /project
+  - title: "스파르타-심화"
+    children:
+      - title: "SPRING_MASTER"
+        url: /spring_master
+      - title: "SPARTA1"
+        url: /sparta1
+      - title: "SPARTA2"
+        url: /sparta2
+      - title: "SPARTA3"
+        url: /sparta3
+      - title: "SPARTA4"
+        url: /sparta4
+      - title: "SPARTA5"
+        url: /sparta5
   - title: "수업"
     children:
       - title: "SPRING(Lesson)"
