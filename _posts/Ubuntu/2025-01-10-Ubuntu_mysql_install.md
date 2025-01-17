@@ -69,6 +69,22 @@ tag:
    ```
    <img src="../../imgs/ubuntu/mysql_workbanch_1.png" style="border:3px solid black;border-radius:9px;width:700px">   
 
+1. # 비밀번호 정책 변경 및 재설정   
+   
+   정책 변경   
+   ```cs
+      SET GLOBAL validate_password.policy=LOW;  // LOW로 변경
+      SET GLOBAL validate_password.length=4;  // 길이를 4자 이상으로 변경
+   ```   
+   <img src="../../imgs/ubuntu/mysql_password_policy.png" style="border:3px solid black;border-radius:9px;width:700px">   
+
+   비밀번호를 변경   
+   ```cs
+      ALTER USER 'root'@'localhost' IDENTIFIED BY '새로운 비밀번호';
+   ```   
+   <img src="../../imgs/ubuntu/mysql_password_policy_2.png" style="border:3px solid black;border-radius:9px;width:700px">   
+
+
 1. # Workbench 설치
 
    worckbench 설치   
