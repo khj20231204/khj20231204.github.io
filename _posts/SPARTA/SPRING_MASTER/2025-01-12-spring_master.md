@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 기초과정1
+title: SPRING_BEGINNER
 categories: SPRING_MASTER
 tag: []
 author_profile: false
