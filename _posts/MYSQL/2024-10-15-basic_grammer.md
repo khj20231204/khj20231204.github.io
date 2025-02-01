@@ -22,8 +22,7 @@ author_profile: false
       show databases;   --데이터베이스 목록
       use sakila;       --데이터베이스 사용
       show tables;      --테이블 목록
-
-      select user, host from user;  --user목록
+      desc testTable;   --testTable 구성
 
       create database jsptest;    //jsptest라는 데이터베이스 생성
 
@@ -32,6 +31,7 @@ author_profile: false
       //jsptest데이터베이스에 jspid라는 user를 생성하고 jsppass라는 password를 설정하고 권한을 부여
       flush privileges;
       //재시작없이 설정 변경 적용
+
 
       //8버전부터
       create user jspid@'%' identified by 'jsppass';
