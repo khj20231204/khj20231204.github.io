@@ -1,6 +1,6 @@
 ---
 layout: single
-title: push할 때 pull했는데 pull하란 에러가 뜰 때때
+title: push할 때 pull했는데 pull하란 에러가 뜰 때
 categories: Git
 tag: [github, 폴더]
 ---

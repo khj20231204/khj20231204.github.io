@@ -30,8 +30,8 @@ sidebar_category_list:
     children:
       - title: "SPRING_MASTER"
         url: /spring_master
-      - title: "SPARTA1"
-        url: /sparta1
+      - title: "TIL"
+        url: /til
       - title: "SPARTA2"
         url: /sparta2
       - title: "SPARTA3"
