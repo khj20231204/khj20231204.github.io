@@ -89,7 +89,7 @@ author_profile: false
    RequestParam : server   
    ```java
       @GetMapping("/api/getRoomInfo") 
-      public ResponseEntity<Map<String, Object>> getRoomInfo(@RequestParam("roomNo") int roomNo) { //여기서 roonNo의 데이터형 결정
+      public ResponseEntity<Map<String, Object>> getRoomInfo(@RequestParam("roomNo") int roomNo) { //여기서 roomNo의 데이터형 결정
          Map<String, Object> responseBody =new HashMap<String, Object>();
          try {
             MafiaRoom getRoomInfo = mafiaService.getRoomInfo(roomNo);
