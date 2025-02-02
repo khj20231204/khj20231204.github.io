@@ -110,12 +110,11 @@ author_profile: false
          private Long id;
 
          @Id
-         @GeneratedValue(strategy = GenerationType.IDENTITY) // 전략 설정
+         @GeneratedValue(strategy = GenerationType.IDENTITY) // MySQL, h2
          private Long id;
 
          @Id
-         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_seq")
-         @SequenceGenerator(name = "example_seq", sequenceName = "example_sequence", allocationSize = 1)
+         @GeneratedValue(strategy = GenerationType.SEQUENCE) //Oracle, PostgreSQL
          private Long id;
 
          @Id
@@ -125,8 +124,11 @@ author_profile: false
 
          ...
       }
+   ```   
 
-   ```
+   GenerationType.SEQUENCE을 커스터마이징하기 위해서는 @SequenceGenerator를 사용   
+   GenerationType.TABLE을 커스터마이징이하기 위해서는 @TableGenerator를 사용   
+   GenerationType.IDENTITY를 커스터마이징하기 위한 어노테이션을 따로 존재하지 않음   
 
 1. # @SequenceGenerator()
    
@@ -149,8 +151,8 @@ author_profile: false
       @Entity
       public class Customer {
          @Id
-         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq_gen")
-         @SequenceGenerator(name = "customer_seq_gen", sequenceName = "customer_seq", allocationSize = 1)
+         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq_gen") //generator와 @SequenceGenerator의 name가 일치해야한다
+         @SequenceGenerator(name = "customer_seq_gen", sequenceName = "customer_seq",initialValue = 1, allocationSize = 1) //sequenceName이 DB의 sqeunce 이름이된다
          private Long id;
 
          private String name;
@@ -158,6 +160,180 @@ author_profile: false
    ```
    
    *@GeneratedValue(strategy = GenerationType.SEQUENCE)를 사용할 때 @SequenceGenerator가 필요한 이유는 시퀀스 생성의 세부 설정을 JPA에 알려주기 위함입니다. @SequenceGenerator를 생략할 경우, JPA는 기본 시퀀스 이름을 생성하여 사용합니다. 예를 들어, 엔티티 이름 뒤에 _SEQ를 붙여 **Customer_SEQ**라는 이름으로 시퀀스를 추측합니다. 하지만 데이터베이스에 기본적으로 해당 이름의 시퀀스가 없으면 오류가 발생합니다.   
+   @GeneratedValue의 generator 설정값과 @SequenceGenerator의 name이 일치해야합니다.   
+   @SequenceGenerator의 sequenceName이 DB의 sequence명이 됩니다.   
+
+   initialValue : 초기 시작값   
+   allocationSize : 한번에 메모리에 불러올 수 있는 크기, allocationSize = 1이면 JPA는 매번 ID를 생성할 때마다 데이터베이스 시퀀스를 호출합니다. 하지만 allocationSize = 50으로 설정하면 한 번에 50개의 ID를 미리 가져와 메모리에 캐싱하고, 이후 ID 생성 요청에서는 데이터베이스에 접근하지 않고도 처리합니다.   
+
+
+1. # @TableGenerator   
+
+   1.기본키 생성을 위해 별도의 테이블을 생성하고 이 테이블을 이용해 기본키를 생성합니다.   
+   2.Table 기본키 생성 전략은 별도의 테이블을 생성하기 때문에 데이터베이스 종류에 영향을 받지 않습니다.   
+   3.Table 생성 전략을 적용하기 위해서는 @TableGenerator 어노테이션이 필요하며 여러 옵션을 적용할 수 있습니다.   
+   4.Table 생성 전략은 테이블 생성과 키값 증가를 위한 update가 실행되기 때문에 성능에 대한 고려가 필요합니다.   
+
+   *@SequenceGenerator와 @TableGenerator는 명시적인 설정을 통해 전략을 커스터마이징하거나 기본값을 대체하는 데 사용됩니다.  
+
+   ```java  
+     @Entity
+     @Table(name="customer_tb")
+     @TableGenerator(name="id_generator", table="customer_tb", pkColumnName="id_name", pkColumnValue="customer_id", valueColumnName="next_value", initialValue=0, allocationSize=1)
+     public class Customer{
+
+         @Id
+         @GeneratorValue(strategy=GenerationType.TABLE, generator="id_generator")
+         private Long id;
+         ...
+     }
+   ```   
+
+   | 속성  |  기능 |  기본값 |
+   |:-----:|:-----:|:-----:|
+   | name |식별자 생성기 이름|필수|
+   | table |키생성 테이블명|hibernate_sequences|
+   |pkColumnName|시퀀스 컬럼명|sequence_name|
+   |valueColumnName|시퀀스 값 컬럼명|next_val|
+   |pkColumnValue|키로 사용할 값 이름|엔티티 이름|
+   |initialValue|초기 값, 마지막으로 생성된 값이 기준이다.|0|
+   |allocationSize|시퀀스 한 번 호출에 증가하는 수(성능 최적화에 사용)|50|
+   |catalog,schema|데이터베이스 catalog, schema 이름||
+   |uniqueConstraints|유니크 제약 조건을 지정할 수 있다||
+
+
+1. # @Column
+   @Column 어노테이션은 영속 객체의 필드와 데이터베이스 테이블의 열(column)을 매핑할 때 사용합니다.   
+   @Columnn 어노테이션은 당야한 옵션 기능을 제공하며 이를 통해 영속 객체 필드의 속성을 정의할 수 있습니다.   
+   @Column의 여러 속성들은 대부분 선택적으로 사용하며 기본값이 지정되어 있습니다.   
+
+   |  옵션  |  설명  |
+   |:------:|:------:|
+   | name | 해당 테이블 열의 이름을 지정 |
+   | nullable | NULL 값 허용 여부(default:true) |
+   | unique | Unique 제약 조건 여부(default:false) |
+   | length | 문자(String)의 길이 지정(default:255) |
+   | precision | 숫자의 전체 자릿수 지정 |
+   | scale | 소수점 이하 자릿수 지정 |
+   | insertable | 엔티티가 저장될 때 컬럼이 저장될지 여부(default:true) |
+   | updatable | 엔티티가 수정될 때 컬럼이 수정될지 여부(default:true)|
+   | table | 컬럼이 속한 테이블 지정 |
+   | columnDefinition | 컬럼에 대한 정의를 직접 지정 |
+
+   ```java
+      @Entity
+      @Table(name="USERS")
+      public class User{
+         @Id
+         @Column(name="USER_ID", nullable=false)
+         private Long userId;
+         
+         @Column(name="USER_NAME", nullable=false)
+         private String username;
+
+         @Column(name="FIRST_NAME", nullable=false, length=1)
+         private String firstName;
+
+         @Column(name="LAST_NAME", nullable=false)
+         private String lastName;
+      }
+   ```   
+
+1. # @Temporal
+   @Temporal 어노테이션은 영속 객체의 날짜 및 시간 필드에 적용합니다.   
+   자바의 날짜 및 시간 정보는 년,월,일과 시,분,초를 하나의 필드로 표현할 수 있지만 데이터베이스에 따라 날짜, 시간, 날짜와 시간 컬럼의 타입이 다르기 대문에 이를 @Temporal 어노테이션으로 지정할 수 있습니다.   
+   
+   | 옵션 | 기능 |
+   |:----:|:----:|
+   |TemporalType.DATE|날짜(년, 월, 일)|
+   |TemporalType.TIME|시간(시, 분, 초)|
+   |TemporalType.TIMESTAMP|날짜와 시간|
+      
+   ```java
+
+      @Entity
+      @Table(name="USER")
+      public class User{
+
+         @Id
+         @Column(name="USER_ID", nullable=false)
+         private Long userId;
+
+         @Temporal(TemporalType.DATE)
+         private Date mydate; //날짜
+
+         @Temporal(TemporalType.TIME)
+         private Date mytime; //시간
+
+         @Temporal(TemporalType.TIMESTAMP)
+         private Date mytimestamp; //날짜와 시간
+      }
+
+      -- 생성된 DDL --
+      date mydate,
+      time mytime,
+      timestamp mytimestamp
+   ```
+   자바의 Date 타입에는 년월일 시분초가 있지만 데이터베이스에는 date(날짜), time(시간), timestamp(날짜와 시간)라는 세 가지 타입이 별도로 존재합니다.   
+   
+   <span style="color:red">*Java 8 이후에는 java.time 패키지의 LocalDate, LodalTime, LocalDateTime을 사용할 경우 적용하지 않습니다.</span>    
+
+1. # 연관 관계의 이해   
+   JPA에서 연관관계는 영속객체(Entity)간의 관계를 의미합니다.   
+   영속객체 간의 연관관계는 __방향성__ 을 가지며, 단방향, 양방향 그 특성에 따라 구분합니다.   
+   연관관계는 관계의 __다중성__ 에 따라 일대일(1:1), 일대다(1:N), 다대일(N:1) 관계로 구분합니다.   
+   영속객체가 테이블과 맵핑되는 것과 마찬가지로 영속객체간의 관계는 테이블간의 관계와 매핑됩니다.   
+   영속객체간 관계 그리고 테이블간 관계에는 차이가 있으므로 이를 이해하고 매핑을 구성하는 것이 중요.   
+
+1. # 연관 관계의 방향성(1/3) - @ManyToOne, @JoinColumn
+   영속객체 간의 관계는 방향성을 갖습니다. Student클래스가 Major클래스를 참조함으로 Student -> Major의 방향성을 갖습니다.   
+   따라서, Student 객체는 참조하는 major를 통해 Major의 인스턴스 객체에 접근할 수 있습니다.   
+   또한 하나의 Major를 다수의 Student가 참조하기 때문에 N:1의 관계를 갖습니다.   
+   Student클래스는 Major클래스에 대해 ManyToOne의 관계, 그 반대의 경우에는 OneToMany의 관계가 됩니다.   
+
+   ```java
+      @Entity
+      @Table(name="STUDENT_TB")
+      public class Student{
+
+         @Id
+         @GeneratedValue
+         private Long studentId;
+         private String name;
+         private String grade;
+
+         @ManyToOne
+         /*
+         * Many는 Student
+         * One는 Major
+         * 현재클래스(Student) To 참조되는클래스(Major)
+         *
+         * Student 1명 - Major 1개
+         * Major 1개 - Student 여러명
+         *
+         * 손님 1명 - 메뉴 여러개
+         * 메뉴 1개 - 손님 1명
+         * 주문 - 손님 여러명, 메뉴 여러개
+         * 주문 테이블에 ManyToMany 관계
+         * */
+         @JoinColumn(name="MAJORID")
+         private Major major;
+
+         public Student(String name, String grade){
+            this.name = name;
+            this.grade = grade;
+         }
+      }
+   ```   
+   *ManyToMany   
+   손님 1명 - 메뉴 여러개   
+   메뉴 1개 - 손님 1명   
+   주문 - 손님 여러명, 메뉴 여러개   
+   주문 테이블에 ManyToMany 관계   
+
+
+
+
 
    
 
