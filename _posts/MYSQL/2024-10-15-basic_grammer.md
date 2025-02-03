@@ -25,6 +25,7 @@ author_profile: false
       desc testTable;   --testTable 구성
 
       create database jsptest;    //jsptest라는 데이터베이스 생성
+      create user jspid;
 
       //5.7이하 버전 
       grant all privileges on jsptest.* to jspid@'%' identified by 'jsppass' with grant option;
@@ -44,3 +45,29 @@ author_profile: false
       //데이터베이스를 따로 생성해 줘야 합니다.!!!!!
       create database jsptest;
    ```   
+
+1. #  사용자가 존재하지 않는 경우 (새로 생성 필요)
+
+   __root__ 계정으로 실행!
+
+   database : jpa1    
+   암호 : 1234   
+   사용자 : khj   
+
+   ```sql
+      CREATE USER 'khj'@'%' IDENTIFIED BY '1234';
+      GRANT ALL PRIVILEGES ON jpa1.* TO 'khj'@'%' WITH GRANT OPTION;
+      FLUSH PRIVILEGES;
+   ```   
+
+1. # 사용자가 이미 존재하는 경우 (비밀번호 변경 없이 권한만 부여)
+   ```sql
+      GRANT ALL PRIVILEGES ON jpa1.* TO 'khj'@'%' WITH GRANT OPTION;
+      FLUSH PRIVILEGES;
+   ```
+
+1. # . 기존 사용자의 비밀번호를 변경하고 싶다면
+   ```sql
+      ALTER USER 'khj'@'%' IDENTIFIED BY '1234';
+      FLUSH PRIVILEGES;
+   ```
