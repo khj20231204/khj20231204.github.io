@@ -7,8 +7,8 @@ author_profile: false
 ---
  
 1. # 2개 테이블 생성시 insert가 안되는 이유
-   ```   
-      major클래스는 다음과 같다
+   ```java
+      //major클래스는 다음과 같다
       package com.jpa.entity;
 
       import jakarta.persistence.*;
@@ -37,7 +37,7 @@ author_profile: false
          }
       }
 
-      Student 클래스는 다음과 같다
+      //Student 클래스는 다음과 같다
       package com.jpa.entity;
 
 
@@ -70,7 +70,7 @@ author_profile: false
          }
       }
 
-      실제 MAIN으로 실행한 코드이다
+      //실제 MAIN으로 실행한 코드이다
       {
       Major major = new Major("Computer Science","Engineer");
                   em.persist(major);
@@ -81,7 +81,7 @@ author_profile: false
 
                   tx.commit();
       }
-      이때 다음과 같은 코드가 있을 때 왜 MAJOR_TB와 STUDENT_TB 테이블에 왜 데이터가 삽입안되는가
+      //이때 다음과 같은 코드가 있을 때 왜 MAJOR_TB와 STUDENT_TB 테이블에 왜 데이터가 삽입안되는가
    ```   
 
    답변:     

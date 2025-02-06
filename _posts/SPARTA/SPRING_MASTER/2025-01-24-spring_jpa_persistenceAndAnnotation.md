@@ -1,11 +1,10 @@
 ---
 layout: single
-title: JPA
+title: JPA 영속성과 어노테이션
 categories: SPRING_MASTER
 tag: []
 author_profile: false
----
- 
+--- 
 
 1. # 영속성
    사전적 의미는 영원이 계속되는 성질이나 능력을 말합니다.   
@@ -284,65 +283,39 @@ author_profile: false
    
    <span style="color:red">*Java 8 이후에는 java.time 패키지의 LocalDate, LodalTime, LocalDateTime을 사용할 경우 적용하지 않습니다.</span>    
 
-1. # 연관 관계의 이해   
-   JPA에서 연관관계는 영속객체(Entity)간의 관계를 의미합니다.   
-   영속객체 간의 연관관계는 __방향성__ 을 가지며, 단방향, 양방향 그 특성에 따라 구분합니다.   
-   연관관계는 관계의 __다중성__ 에 따라 일대일(1:1), 일대다(1:N), 다대일(N:1) 관계로 구분합니다.   
-   영속객체가 테이블과 맵핑되는 것과 마찬가지로 영속객체간의 관계는 테이블간의 관계와 매핑됩니다.   
-   영속객체간 관계 그리고 테이블간 관계에는 차이가 있으므로 이를 이해하고 매핑을 구성하는 것이 중요.   
+1. # @AllArgsConstructor
+   모든 필드를 포함하는 생성자를 자동으로 생성해 줍니다.    
 
-1. # 연관 관계의 방향성(1/3) - @ManyToOne, @JoinColumn
-   영속객체 간의 관계는 방향성을 갖습니다. Student클래스가 Major클래스를 참조함으로 Student -> Major의 방향성을 갖습니다.   
-   따라서, Student 객체는 참조하는 major를 통해 Major의 인스턴스 객체에 접근할 수 있습니다.   
-   또한 하나의 Major를 다수의 Student가 참조하기 때문에 N:1의 관계를 갖습니다.   
-   Student클래스는 Major클래스에 대해 ManyToOne의 관계, 그 반대의 경우에는 OneToMany의 관계가 됩니다.   
-
+   🔹 예제 코드    
+   1️⃣ @AllArgsConstructor 없이 직접 생성자 작성    
    ```java
-      @Entity
-      @Table(name="STUDENT_TB")
-      public class Student{
-
-         @Id
-         @GeneratedValue
-         private Long studentId;
+      public class Member {
          private String name;
-         private String grade;
+         private int age;
+         private String email;
 
-         @ManyToOne
-         /*
-         * Many는 Student
-         * One는 Major
-         * 현재클래스(Student) To 참조되는클래스(Major)
-         *
-         * Student 1명 - Major 1개
-         * Major 1개 - Student 여러명
-         *
-         * 손님 1명 - 메뉴 여러개
-         * 메뉴 1개 - 손님 1명
-         * 주문 - 손님 여러명, 메뉴 여러개
-         * 주문 테이블에 ManyToMany 관계
-         * */
-         @JoinColumn(name="MAJORID")
-         private Major major;
-
-         public Student(String name, String grade){
+         // 모든 필드를 포함하는 생성자
+         public Member(String name, int age, String email) {
             this.name = name;
-            this.grade = grade;
+            this.age = age;
+            this.email = email;
          }
       }
+
+   ```
+
+   2️⃣ @AllArgsConstructor 사용   
+   ```java
+      import lombok.AllArgsConstructor;
+
+      @AllArgsConstructor  // 모든 필드를 매개변수로 받는 생성자 자동 생성
+      public class Member {
+         private String name;
+         private int age;
+         private String email;
+      }
    ```   
-   *ManyToMany   
-   손님 1명 - 메뉴 여러개   
-   메뉴 1개 - 손님 1명   
-   주문 - 손님 여러명, 메뉴 여러개   
-   주문 테이블에 ManyToMany 관계   
-
-
-
-
-
    
-
    
 
 

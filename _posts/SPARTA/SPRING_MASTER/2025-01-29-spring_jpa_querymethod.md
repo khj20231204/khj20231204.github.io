@@ -1,6 +1,6 @@
 ---
 layout: single
-title: JPA 쿼리 메소드드
+title: JPA 쿼리 메소드
 categories: SPRING_MASTER
 tag: []
 author_profile: false
@@ -19,6 +19,70 @@ author_profile: false
       Optional<User> findById(Long id);
    ```   
    ✔ Optional<>을 사용하면 null 방지 가능   
+
+1. # findBy의 네이밍 규칙
+
+   findBySubjectAndContent("제목","내용")란
+
+   subject컬럼에서는 제목을 찾고, content컬럼에서는 내용을 찾습니다.   
+
+   =>
+   ```sql
+      SELECT * FROM post WHERE subject = '제목' AND content = '내용';
+   ```   
+   의 의미입니다.   
+
+   <hr>
+   
+   🔹 활용 예제 코드
+   1️⃣ 엔티티 클래스
+   ```java
+      @Entity
+      public class Post {
+         @Id
+         @GeneratedValue(strategy = GenerationType.IDENTITY)
+         private Long id;
+         
+         private String subject;  // 제목
+         private String content;  // 내용
+
+         // Getter, Setter
+      }
+   ```
+
+   2️⃣ 리포지토리 인터페이스
+   ```java
+      public interface PostRepository extends JpaRepository<Post, Long> {
+         List<Post> findBySubjectAndContent(String subject, String content);
+      }
+   ```   
+
+   3️⃣ 사용 예제   
+   ```java
+      @Autowired
+      private PostRepository postRepository;
+
+      public void searchPost() {
+         List<Post> posts = postRepository.findBySubjectAndContent("제목", "내용");
+
+         for (Post post : posts) {
+            System.out.println("찾은 게시글: " + post.getSubject() + ", " + post.getContent());
+         }
+      }
+   ```
+
+   🔹 네이밍 다른 예제   
+   ```java
+      // subject가 특정 값인 데이터 조회
+      List<Post> findBySubject(String subject);
+
+      // subject가 특정 값이고, content가 특정 값을 포함하는 데이터 조회
+      List<Post> findBySubjectAndContentContaining(String subject, String keyword);
+
+      // subject가 특정 값이 아닌 데이터 조회
+      List<Post> findBySubjectNot(String subject);
+   ```
+
 
 1. # countBy (개수 조회)
    특정 조건을 만족하는 데이터 개수 조회   
