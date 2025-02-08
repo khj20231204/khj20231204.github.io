@@ -1,14 +1,14 @@
 ---
-title: "SPRING_MASTER"
+title: "JPA"
 layout: archive
-permalink: /spring_master
+permalink: /jpa
 author_profile: true
 types: posts
 sidebar:
   nav: "sidebar_category_list"
 ---
 
-{% assign posts = site.categories['SPRING_MASTER']%}
+{% assign posts = site.categories['JPA']%}
 {% for post in posts %}
   {% include archive-single.html type=page.entries_layout %}
 {% endfor %}
