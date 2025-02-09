@@ -1,7 +1,7 @@
 ---
 layout: single
 title: JPA 쿼리 메소드
-categories: SPRING_MASTER
+categories: JPA
 tag: []
 author_profile: false
 ---

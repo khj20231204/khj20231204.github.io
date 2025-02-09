@@ -1,7 +1,7 @@
 ---
 layout: single
 title: JPA 연관 관계 
-categories: SPRING_MASTER
+categories: JPA
 tag: []
 author_profile: false
 ---

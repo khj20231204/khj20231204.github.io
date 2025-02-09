@@ -1,7 +1,7 @@
 ---
 layout: single
 title: JPA 영속성과 어노테이션
-categories: SPRING_MASTER
+categories: JPA
 tag: []
 author_profile: false
 --- 
@@ -42,6 +42,9 @@ author_profile: false
    @Entity 어노테이션을 붙이면 영속 객체로 관리가 되는데 이때 기본 생성자는 반드시 필요합니다.   
    final, interface, innder class, 열거형는 영속 객체가 될 수 없음   
    영속 객체 필드에는 final을 사용할 수 없음 => 해당 필드가 set으로 정의될 수 있어야 update가능      
+
+1. # @Id
+   데이터베이스 PK와 매핑   
 
 1. # @Table
    관습적인 테이블 서계 방법에서 테이블 이름은 대문자에 "_"를 사용할 수 있습니다.   
