@@ -6,11 +6,147 @@ tag: []
 author_profile: false
 --- 
 
-1. # 영속성
-   사전적 의미는 영원이 계속되는 성질이나 능력을 말합니다.   
-   어플리케이션의 상태와 상관 없도록 물리적 저장소를 이용해 데이터를 저장하는 행위를 영속화(≒ DB에 저장하는 것)라 할 수 있습니다.   
-   데이터를 어떤 공간에 어떤 형태로 저장할 것인가에 따라 영속화 방식은 달라집니다.   
+1. # 영속 컨텍스트
 
+   영속성 컨텍스트는 논리적인 개념의 저장 공간   
+   눈에 보이지 않음   
+   엔티티 매니저를 통해서 영속성 컨텍스트에 접근   
+
+   엔티티 조회, 1차 캐시   
+   ```java
+      //엔티티를 생성한 상태(비영속성)
+      Member member = new Member();
+      member.setId("member1");
+      member.setUsernmae("회원1");
+
+      //엔티티를 영속
+      em.persist(member);
+
+      //엔티티 검색
+      Mmeber findeMember = em.find(Member.class, "member1");
+      Member finderMember2 = em.find(Member.class, "member2");
+
+      //회원 엔티티를 영속성 컨텍스트에서 분리 => 준영속 상태
+      em.detach(member);
+
+      //객체를 삭제한 상태(삭제)
+      em.remove(member);
+   ```   
+   영속한다 : JPA가 엔티티를 관리한다   
+   `em.persist(member)`로 member은 영속 컨텍스트의 1차 캐쉬에 저장   
+
+   findMember는 member1을 찾는데 1차 캐쉬에서 찾아온다.   
+   findMember2는 먼저 1차 캐쉬를 검색하지만 존재하지 않기 때문에 DB에서 찾는다. DB에 존재하면 1차 캐쉬로 가져와서 1차 캐쉬에서 findMember2를 반환. 이후부터는 findMember2를 조회하면 1차 캐쉬에서 바로 엔티티를 반환   
+
+   엔티티 메니저는 DB의 트랜잭션 단위로 만든다. 한번의 비지니스 루틴이 있나면 영속 컨텍스트는 삭제된다. 엔티티 메니저의 영속성 컨텍스트는 생성과 소멸을 반복하게 된다.      
+
+1. # 영속성 컨텍스트의 이점
+   1.1차 캐시   
+   2.동일성(identity) 보장   
+   3.트랜잭션을 지원하는 쓰기 지원   
+   4.변경 감지   
+   5.지연 로딩   
+
+   __영속 엔티티의 동일성 보장__   
+   ```java
+      Member a = em.find(Member.class, "member1");
+      Member b = em.find(Member.class, "member1");
+
+      System.out.println(a == b); //동일성 비교  true
+      // == 비교 : 주소값이 같다
+   ```   
+   1차 캐시로 반복 가능한 읽기(repeatable read) 등급의 트랜잭션 격리 수준을 데이터베이스가 아닌 애프리케이션 차원에서 제공   
+
+1. # 엔티티 등록
+   
+   트랜잭션을 지원하는 쓰기 지연   
+   ```java
+      EntityManger em = emf.createEntityManager();
+      EntityTransaction tranaction = em.getTransaction();
+
+      //엔티티 매니저는 데이터 변경시 트랜잭션을 시작해야 한다.
+      transaction.begin();
+
+      em.persist(memberA);
+      em.persist(memeberB);
+      //여기까지 insert sql을 데이터베이스에 보내지 않는다.
+
+      //커밋하는 순간 sql을 실행해서 데이터베이스에 보낸다
+      transction.commit();
+   ```
+
+   <img src="../../imgs/JPA/write_delay_sql.png" style="border:3px solid black;border-radius:9px;width:600px">   
+   transaction의 커밋이 실행되어야 DB에 쿼리문이 날아가는데 그 이전에 insert나 update등과 같은 쿼리문은 "쓰기 지연 SQL 저장소"란 곳에 차곡차곡 저장된다.   
+   
+   1.memberA를 삽입하는 insert 쿼리문이 쓰기 지연 SQL저장소에 저장되고, memberA의 Entity는 1차 캐쉬에 저장된다.   
+   2.memberB를 삽입하는 insert 쿼리문 역시 쓰기 지연 SQL저장소에 저장되고, memberB의 Entity는 1차 캐쉬에 저장된다.   
+
+   commit을 하게되면 flush가 발생해서 쿼리문이 날아가고 commit을 통해 쿼리문이 수행된다.   
+   ```java
+      <property name="hibernate.jdbc.batch_size" value="10"/>
+   ```
+   버퍼링같이 모았다가 한번에 전송하는 쿼리 갯수를 설정할 수 있다.   
+
+1. # 엔티티 수정
+   변경 감지   
+   ```java
+      EntityManager em = emf.createEntityManager();
+      EntityTransaction transaction = em.getTransaction();
+      transaction.begin(); 
+
+      //영속 엔티티 조회
+      Member memberA = em.find(Member.class, "memberA");
+
+      //영속 엔티티 데이터 수정
+      memberA.setUsername("hi");
+      memberA.setAge(10);
+
+      //em.update(member) 이런 코드가 있어야 하지 않을까?
+      transaction.commit(); //트랜잭션 커밋
+   ```   
+   <img src="../../imgs/JPA/dirty_checking.png" style="border:3px solid black;border-radius:9px;width:600px">   
+   엔티티가 영속성 컨텍스트에 저장이 될 때 최초 값을 스냅샷으로 찍어 놓습니다. 이후 값이 변경되면 이 스냅샷과 저장된 entity값을 비교 후 다르면 update 쿼리문을 "쓰기 지연 SQL 저장소"에 저장이 됩니다.   
+   커밋을 할 때 이 쿼리문이 실행되고 값이 변경이 됩니다. 그렇기 때문에 따로 "em.update(member)" 이런 코드가 필요없습니다.   
+
+1. # 엔티티 삭제
+   ```java
+      Member memberA = em.find(Member.class, "memberA");
+      
+      em.remove(memberA); //엔티티 삭제
+   ```
+
+1. # flush
+   영속성 컨텍스트의 변경 내용을 데이터베이스에 반영   
+
+   1.변경 감지   
+   2.수정된 엔티티를 쓰기 지연 SQL 저장소에 등록   
+   3.쓰기 지연 SQL 저장소에 등록된 쿼리를 데이터베이스에 전송(등록, 수정, 삭제 쿼리)   
+
+   영속성 컨텍스트를 플러시 하는 방법   
+   1.em.flush() - 직접 호출   
+   2.tranaction.commit() - 플러시 자동 호출   
+   3.JPQL 쿼리 실행 - 플러시 자동 호출   
+
+   flush가 발생하면 캐시가 지워지거나 영속성 컨텍스트가 삭제되는 것이 아니다. 다른 조건은 모두 그대로이고 단지 __쓰기 지연 SQL 저장소의 쿼리만 데이터베이스에 반영__ 될 뿐이다.   
+
+   *JPQL 쿼리 실행시 플러시가 자동으로 호출되는 이유   
+   ```java
+      //memberA, memberB, memberC를 저장
+      em.persist(memberA);
+      em.persist(memberB);
+      em.persist(memberC);
+
+      //중간에 JPQL실행
+      query = em.createQuery("select m from Member m", Member.class);
+      List<Member> member = query.getResultList();
+   ```   
+   memberA, memberB, memberC를 저장했지만 아직 데이터베이스에 반영 전이다. 하지만 밑에서 "select m from Member m" 전체 테이블을 조회하게 되면 memberA, memberB, memberC가 없기 때문에 에러가 발생할 수 있다. 그렇기 때문에 자동 flush실행으로 쿼리를 데이터베이스에 적용 후 JPQL을 실행   
+
+   플러시는 =>   
+   영속성 컨텍스트를 비우지 않음   
+   영속성 컨텍스트의 변경 내용을 데이터베이스에 동기화   
+   트랜잭션이라는 작업 단위가 중요 -> 커밋 직전에만 동기화하면 됨   
+   
 1. # 객체와 테이블 매핑
    도메인 객체를 관계형 데이터베이스 테이블로 맵핑할 때 @Entity 어노테이션을 사용합니다.   
    @Entity 어노테이션만 선언했을 때 __클래스 이름이 테이블 이름__ 이 되고 대/소문자 치환은 일어나지 않습니다.   
