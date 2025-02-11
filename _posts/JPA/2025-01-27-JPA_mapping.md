@@ -71,7 +71,7 @@ author_profile: false
    3.회원을 설명할 수 있는 필드가 있어야 한다. 이 필드는 길이 제한이 없다.   
 
    매핑 어노테이션 정리   
-   
+
    | 어노테이션 |    설명   |
    |:---------:|:---------:|
    |  @Column  | 컬럼 매핑 |
@@ -94,7 +94,14 @@ author_profile: false
 
    - 직접 할당 : @Id만 사용   
 
-   - 자동 생성(@)
+   - 자동 생성(@)   
+   IDENTITY : 데이터베이스에 위임, MYSQL   
+   SEQUENCE : 데이터베이스 시퀀스 오브젝트 사용, 
+      ORACLE : @SequenceGenerator 필요   
+   TABLE : 키 생성용 테이블 사용, 모든 DB에서 사용  
+      @TableGenerator 필요   
+   AUTO : 방언에 따라 자동 지정, 기본값   
+
 
 1. # 실제 예제 - 1.요구사항 분석과 기본 매핑   
 

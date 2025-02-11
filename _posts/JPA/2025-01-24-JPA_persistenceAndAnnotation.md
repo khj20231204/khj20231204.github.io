@@ -275,6 +275,8 @@ author_profile: false
    GenerationType.IDENTITY를 커스터마이징하기 위한 어노테이션을 따로 존재하지 않음   
 
 1. # @SequenceGenerator()
+
+   <img src="../../imgs/jpa/sequence_generator.png" style="border:3px solid black;border-radius:9px;width:600px">   
    
    @SequenceGenerator의 필요성   
    데이터베이스의 시퀀스 이름 매핑   
