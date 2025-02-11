@@ -75,7 +75,7 @@ author_profile: false
       transction.commit();
    ```
 
-   <img src="../../imgs/JPA/write_delay_sql.png" style="border:3px solid black;border-radius:9px;width:600px">   
+   <img src="../../imgs/jpa/write_delay_sql.png" style="border:3px solid black;border-radius:9px;width:600px">   
    transaction의 커밋이 실행되어야 DB에 쿼리문이 날아가는데 그 이전에 insert나 update등과 같은 쿼리문은 "쓰기 지연 SQL 저장소"란 곳에 차곡차곡 저장된다.   
    
    1.memberA를 삽입하는 insert 쿼리문이 쓰기 지연 SQL저장소에 저장되고, memberA의 Entity는 1차 캐쉬에 저장된다.   
@@ -104,7 +104,7 @@ author_profile: false
       //em.update(member) 이런 코드가 있어야 하지 않을까?
       transaction.commit(); //트랜잭션 커밋
    ```   
-   <img src="../../imgs/JPA/dirty_checking.png" style="border:3px solid black;border-radius:9px;width:600px">   
+   <img src="../../imgs/jpa/dirty_checking.png" style="border:3px solid black;border-radius:9px;width:600px">   
    엔티티가 영속성 컨텍스트에 저장이 될 때 최초 값을 스냅샷으로 찍어 놓습니다. 이후 값이 변경되면 이 스냅샷과 저장된 entity값을 비교 후 다르면 update 쿼리문을 "쓰기 지연 SQL 저장소"에 저장이 됩니다.   
    커밋을 할 때 이 쿼리문이 실행되고 값이 변경이 됩니다. 그렇기 때문에 따로 "em.update(member)" 이런 코드가 필요없습니다.   
 

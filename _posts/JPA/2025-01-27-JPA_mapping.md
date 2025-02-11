@@ -78,7 +78,21 @@ author_profile: false
    | @Lob | blob(숫자), clob(문자) 매핑|
    | @Transient | 특정 필드를 컬럼에 매핑하지 않음(매핑 무시) |
 
+1. # @Column
+   <img src="../../imgs/jpa/column.png" style="border:3px solid black;border-radius:9px;width:600px">   
+
+1. # @Enumerated
+   
+   |  속성  |  기본값  |
+   |:------:|:------:|
+   | EnumType.ORIDINAL : enum 순서를 데이터베이스에 저장 | 기본값 O |
+   | EnumType.STRING : enum 이르미을 데이터베이스에 저장 | 기본값 X |
+
 1. # 기본 키 매핑
+
+   - 직접 할당 : @Id만 사용   
+
+   - 자동 생성(@)
 
 1. # 실제 예제 - 1.요구사항 분석과 기본 매핑   
 
