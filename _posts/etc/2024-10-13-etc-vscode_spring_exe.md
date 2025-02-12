@@ -63,7 +63,8 @@ author_profile: false
 1. # 프로젝트 생성
    프로젝트로 사용할 폴더 생성 후 열기   
 
-   view -> Command Palette  -> Spring Initializr입력
+   view -> Command Palette  -> Spring Initializr입력   
+   단축키 : shift + ctrl + p   
 
    Spring Initializr:Create a Gradle Project   
 
