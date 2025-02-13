@@ -18,32 +18,40 @@ author_profile: false
    ```
    mysql -uroot -p mysql   
 
-   ```js
+   ```sql
+      //데이터베이스
       show databases;   --데이터베이스 목록
       use sakila;       --데이터베이스 사용
+      create database jsptest;  --jsptest라는 데이터베이스 생성
+      drop database jsptest;   --데이터베이스 삭제
+
+
       show tables;      --테이블 목록
       desc testTable;   --testTable 구성
+      create table member(  --테이블 생성
+         id int(20),
+         name vharchar(30)
+      )
+      drop table memeber   --테이블 삭제
 
-      create database jsptest;    //jsptest라는 데이터베이스 생성
-      create user jspid;
 
-      //5.7이하 버전 
+      create user jspid;  --사용자 생성
+      select user, host from user;   --사용자 목록 조회
+
+      -- 사용자를 생성하고 권한 주기
+      -- 5.7이하 버전 
       grant all privileges on jsptest.* to jspid@'%' identified by 'jsppass' with grant option;
-      //jsptest데이터베이스에 jspid라는 user를 생성하고 jsppass라는 password를 설정하고 권한을 부여
+      --jsptest데이터베이스에 jspid라는 user를 생성하고 jsppass라는 password를 설정하고 권한을 부여
       flush privileges;
-      //재시작없이 설정 변경 적용
+      --재시작없이 설정 변경 적용
 
-
-      //8버전부터
+      --8버전부터
       create user jspid@'%' identified by 'jsppass';
-      //jspid라는 user와 jsppass라는 password를 생성
+      --jspid라는 user와 jsppass라는 password를 생성
       grant all privileges on jsptest.* to jspid@'%' with grant option;
-      //jspid에 권한부여
+      --jspid에 권한부여
       flush privileges;
-      //재시작없이 설정 변경 적용
-
-      //데이터베이스를 따로 생성해 줘야 합니다.!!!!!
-      create database jsptest;
+      --재시작없이 설정 변경 적용
    ```   
 
 1. #  사용자가 존재하지 않는 경우 (새로 생성 필요)

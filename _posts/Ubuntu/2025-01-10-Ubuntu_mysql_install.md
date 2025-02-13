@@ -81,13 +81,13 @@ tag:
       SET GLOBAL validate_password.policy=LOW;  // LOW로 변경
       SET GLOBAL validate_password.length=4;  // 길이를 4자 이상으로 변경
    ```   
-   <img src="../../imgs/ubuntu/mysql_password_policy.png" style="border:3px solid black;border-radius:9px;width:700px">   
+   <!-- <img src="../../imgs/ubuntu/mysql_password_policy.png" style="border:3px solid black;border-radius:9px;width:700px">    -->
 
    비밀번호를 변경   
    ```cs
       ALTER USER 'root'@'localhost' IDENTIFIED BY '새로운 비밀번호';
    ```   
-   <img src="../../imgs/ubuntu/mysql_password_policy_2.png" style="border:3px solid black;border-radius:9px;width:700px">   
+   <!-- <img src="../../imgs/ubuntu/mysql_password_policy_2.png" style="border:3px solid black;border-radius:9px;width:700px">    -->
 
 
 1. # Workbench 설치
