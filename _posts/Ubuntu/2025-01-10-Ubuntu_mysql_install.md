@@ -71,6 +71,11 @@ tag:
 
 1. # 비밀번호 정책 변경 및 재설정   
    
+   현재 정책 확인하기   
+   ```cs
+      show variables like 'validate_password%';
+   ```
+
    정책 변경   
    ```cs
       SET GLOBAL validate_password.policy=LOW;  // LOW로 변경
