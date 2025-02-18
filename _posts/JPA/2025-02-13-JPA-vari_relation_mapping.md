@@ -29,7 +29,7 @@ tab: []
    2.한쪽만 참조하면 단방향   
    3.양쪽이 서로 참조하면 양방향   
 
-1. # 다대일 단방향
+1. # 다대일(Many To One) 단방향
 
    <img src="../../imgs/jpa/manytoone.png" style="border:3px solid black;border-radius:9px;width:600px">    
 
@@ -64,7 +64,7 @@ tab: []
    ```   
    Many부분에 Team의 FK를 포함
 
-1. # 다대일 양방향   
+1. # 다대일(Many To One) 양방향   
    <img src="../../imgs/jpa/manytoone2.png" style="border:3px solid black;border-radius:9px;width:600px">     
 
    ```java
@@ -104,11 +104,11 @@ tab: []
    
    @OneToMany(mappedBy = "team")   
    private List<Member> members = new ArrayList<>()   
-   의미 : Member엔티티의 team필드가 주인이며, 외래키 값을 관리하는 것은 Member엔티티의 team필드이다   
+   의미 : Member엔티티의 __team필드__ 가 주인이며, 외래키 값을 관리하는 것은 Member엔티티의 team필드이다   
 
    이 소스 부분을 통해 Team에서도 member를 조회할 수 있다(조회만 가능)   
 
-1. # 일대일 단방향 
+1. # 일대일(One To One) 단방향 
 
    Member와 Locker가 있을 때 한명의 멤버가 하나의 락커만 사용가능 하다고 가정   
 
@@ -163,7 +163,7 @@ tab: []
       }
    ```
 
-1. # 일대일 양방향 
+1. # 일대일(One To One) 양방향 
 
    ManyToOne 방식과 같이 단방향 방식에서 양방향 List가 필요한 컬럼에 추가하면 됩니다.   
 
@@ -196,6 +196,12 @@ tab: []
       }
    ```
 
-   *일대다와 다대다는 잘 사용하지 않으므로 생략
+1. # 다대다(Many To Many)
+   관계형 데이터 베이스는 정규화된 테이블 2개로 다대다 관계를 표현 할 수 없습니다. 연결 테이블을 추가해서 일대다, 다대일 관계로 풀어내야 합니다.   
+
+   <img src="../../imgs/jpa/manytomany_1.png" style="border:3px solid black;border-radius:9px;width:600px">    
+
+   Member테이블과 Product테이블의 관계는 
+
    
 

@@ -20,10 +20,10 @@ tag:
    | double | Double |
    | boolean | Boolean|
 
-1. # 박싱과 언박싱
+1. # 박싱
    기본형 타입의 값을 포장 객체로 만드는 과정을 박싱이라 하고, 반대로 포장 객체에서 기본 타입의 값을 구하는 과정을 언박싱이라고 합니다.   
 
-   new연산자를 사용해 객체생성을 할 수 있습니다. 다음은 박싱예제 입니다.
+   1.new연산자를 사용해 객체생성을 할 수 있습니다. 다음은 박싱예제 입니다.
    ```java
       Byte b1 = new Byte(10);
       Byte b2 = new Byte("10");
@@ -50,11 +50,21 @@ tag:
    Integer(int)' is deprecated since version 9 and marked for remova.      
    It is rarely appropriate to use this constructor. The static factory valueOf(int) is generally a better choice, as it is likely to yield significantly better space and time performance.   
 
-   new 생성자를 이용해 래퍼 클래스를 생성하기 보단 valueOf 메소드를 사용할 것을 권장하고 있습니다.  
-   ```java
-      
-      //박싱 예제
+   2.new 생성자를 이용해 래퍼 클래스를 생성하기 보단 valueOf 메소드를 사용할 것을 권장하고 있습니다.  
 
+   ```java
+      Byte.valueOf(byte b) / Byte.valueOf(String s)
+      Short.valueOf(short s) / Short.valueOf(String s)
+      Integer.valueOf(int i) / Integer.valueOf(String s)
+      Long.valueOf(long l) / Long.valueOf(String s)
+      Float.valueOf(float f) / Float.valueOf(String s)
+      Double.valueOf(double d) / Double.valueOf(String s)
+      Character (없음) 🚫 Character.valueOf()는 존재하지 않음
+   ```
+
+   예제   
+   ```java
+      //박싱 예제
       Byte b1_fix = 10;  //값을 입력 받아 박싱 - 자동 박싱(오토 박싱)
       Byte b2_fix = Byte.valueOf("10");  //valueOf로 박싱
 
@@ -72,9 +82,6 @@ tag:
 
       Double d1_fix = 1000d;
       Double d2_fix = Double.valueOf("1000d");
-
-      Character c_fix = 'c';
-      Character c2_fix = Character.valueOf('c');
    ```   
    vlueOf메소드는 인자로 문자열을 받습니다.   
    
@@ -85,42 +92,60 @@ tag:
       Integer idx_i6 = Integer.valueOf("100",16); //256
    ```   
 
-   언박싱은 '기본타입+Value()'메소드를 사용하면 됩니다.   
+   __*Integer.valueOf()는 -128 ~ 127 범위 캐싱 최적화 제공__   
    ```java
+      Integer x = Integer.valueOf(100);
+      Integer y = Integer.valueOf(100);
+      System.out.println(x == y); // true (같은 객체)
 
-      //언박싱 예제
-
-      byte b = b2_fix.byteValue();
-
-      short s = s2_fix.shortValue();
-
-      int i = b2_fix.intValue();
-
-      long l = l2_fix.longValue();
-
-      float f = f2_fix.floatValue();
-
-      double d = d2_fix.doubleValue();
-
-      char c = c2_fix.charValue();
+      Integer m = Integer.valueOf(200);
+      Integer n = Integer.valueOf(200);
+      System.out.println(m == n); // false (다른 객체)
    ```   
 
-   문자열을 기본형으로 변경할 땐 parse+기본타입을 사용합니다.   
+1. # 언박싱
+   랩퍼 클래스(Wrapper class)의 객체를 기본 데이터 타입(primitive type)으로 자동 변환하는 과정을 의미합니다.   
+   언박싱을 하기 위해서는 '기본타입+Value()'메소드를 사용하면 됩니다.   
+
+   형태   
+   ```java
+      rapperClass.기본타입+Value(); // ~Value()는 매개변수 없는 메서드
+   ```   
+
+   예제   
+   ```java
+      //언박싱 예제
+      byte b = b2_fix.byteValue();
+      short s = s2_fix.shortValue();
+      int i = b2_fix.intValue();
+      long l = l2_fix.longValue();
+      float f = f2_fix.floatValue();
+      double d = d2_fix.doubleValue();
+      char c = c2_fix.charValue();
+   ```   
+   매개 변수가 없는 메소드입니다. intValue(매개변수 존재하지 않음)
+
+1. # 문자열을 기본형(primitive type)으로 변형
+   
+   문자열을 기본형으로 변경할 땐 parse+기본타입을 사용합니다. 매개변수로 String만 가능합니다.   
+
+   형태   
+   ```java
+      rapperClass.parse+기본타입(String s)
+   ```   
+   매개변수로 __문자열만 가능__ 합니다. Integer.pasreInt(Integer형이나 int형 사용불가)   
+
+   예제   
    ```java
       byte bp = Byte.parseByte("100");
-
       Short sp = Short.parseShort("100");
-
       int ip = Integer.parseInt("100");
-
       long lp = Long.parseLong("100");
-
       float fp = Float.parseFloat("100");
-
       double dp = Double.parseDouble("100");
-    ```
-    
-    pasrse역시 다른 진법의 숫자로 표현할 수 있습니다.
+    ```   
+
+    pasrse역시 다른 진법의 숫자로 표현할 수 있습니다.   
     ```java    
       int idx_i1 = Integer.parseInt("100",2); //4, 2진수로 표현
       int idx_i2 = Integer.parseInt("100",8); //64, 8진수로 표현
