@@ -261,7 +261,9 @@ tab: []
          private Product product;
       }
    ```   
-   
+   Member 와 Order => One To Many   
+   Product 와 Order => One To Many  
+    
 
 
 
