@@ -26,7 +26,7 @@ tab: []
 1. # pom.xml
    java로 생성하면 아무런 값이 없다
 
-   pom.xml에 추가   
+   pom.xml   
    ```XML
       <?xml version="1.0" encoding="UTF-8"?>
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -96,6 +96,16 @@ tab: []
    <img src="../../imgs/jpa/vscode_setting_2.png" style="border:3px solid black;border-radius:9px;width:200px">   
    위치 확인   
 
+   <span style="color:red">xml파일의 최상위 경로는 제일 앞에 위치 시켜야 한다</span>   
+   <img src="../../imgs/jpa/vscode_setting_3.png" style="border:3px solid black;border-radius:9px;width:200px">   
+   다음과 같이 `<?xml ~` 과 `<persistence ~` 의 위치가 가장 앞에 와야한다. 앞에 빈칸이 있으면 안 된다.   
+
+   다음과 같이 앞에 빈칸이 있는 경우 에러가 발생한다.   
+   <img src="../../imgs/jpa/vscode_setting_4.png" style="border:3px solid black;border-radius:9px;width:200px">   
+   
+   에러 내영은 다음과 같다.   
+   <img src="../../imgs/jpa/vscode_setting_5.png" style="border:3px solid black;border-radius:9px;width:200px">   
+
 1. # 샘플 데이터
 
    Member.java   
@@ -128,3 +138,28 @@ tab: []
          private List<Member> members = new ArrayList<>();
       }
    ```
+
+1. # main실행 소스
+
+   ```java
+      public static void main(String[] args) {
+         System.out.println("Hello World!");
+
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+         EntityManager em = emf.createEntityManager();
+         EntityTransaction tx = em.getTransaction();
+
+         tx.begin();
+
+         try{
+
+         }catch (Exception e){
+            e.printStackTrace();
+            tx.rollback();
+         }finally {
+            em.close();
+         }
+         emf.close();
+      }
+   ```   
+   여기까지 하면 h2에 테이블이 생성된다.   
