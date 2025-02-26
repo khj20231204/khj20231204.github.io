@@ -1,6 +1,6 @@
 ---
 layout: single
-title: JPA - 상속관계 매핑핑
+title: JPA - 상속관계 매핑
 categories: JPA
 tab: []
 ---

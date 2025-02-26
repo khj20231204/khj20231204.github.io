@@ -1,6 +1,6 @@
 ---
 layout: single
-title: JPA - 값 타입 분류류
+title: JPA - 값 타입 분류
 categories: JPA
 tab: []
 ---
