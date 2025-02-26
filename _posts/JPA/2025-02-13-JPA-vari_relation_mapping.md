@@ -30,8 +30,8 @@ tab: []
    3.양쪽이 서로 참조하면 양방향   
 
 1. # 다대일(Many To One) 단방향
-
-   <img src="../../imgs/jpa/manytoone.png" style="border:3px solid black;border-radius:9px;width:600px">    
+<img src="../../imgs/jpa/manytoone.png" style="border:3px solid black;border-radius:9px;width:600px">   
+    
 
    ```java
       //Member클래스
