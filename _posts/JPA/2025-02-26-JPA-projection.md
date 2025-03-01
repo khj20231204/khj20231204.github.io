@@ -85,7 +85,7 @@ tab: []
                 System.out.println(a);
             }
       ```   
-      `List<Address>`와  `Address.class` 처럼 가져오는 엔티티로 받는다.   
+      `List<Address>`와  `Address.class`는 가져오는 엔티티로 받는다.   
       m.address 와 o.address에서처럼 속해있는 엔티티를 명시해 줘야한다.      
 
 1. # 스칼라 타입 프로젝션
