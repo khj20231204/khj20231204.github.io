@@ -56,15 +56,17 @@ tag: [github, 폴더]
 
    *로컬에 A, B 파일이 있고, 원격(GitHub)에는 A, C 파일이 존재하는 경우 git push를 하면 원격에 A,B,C파일이 생성됨. __push하면 없는 파일만 추가 됨.__   
 
+   밑에는 2)의 경우에 해당하는 과정   
+
    기존에 있던 작업 commit -> push   
    <img src="../../imgs/git/project_11.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
-   <img src="../../imgs/git/project_12.png" style="border:3px solid black;border-radius:9px;width:500px">   
+   <img src="../../imgs/git/project_12.png" style="border:3px solid black;border-radius:9px;width:300px">   
 
-   puhs를 하면 해당 프로젝트에 Pull requests가 뜬다   
+   puhs를 하면 해당 프로젝트에 Pull requests가 뜹니다.   
    <img src="../../imgs/git/project_13.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
-   해당 request의 내용 안에 Files Changes에 변화된 항목이 나타난다.   
+   해당 request의 내용 안에 Files Changes에 변화된 항목이 나타납니다.   
    <img src="../../imgs/git/project_14.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
    오른쪽에 Review changes버튼 클릭 -> Approve선택 -> Submit review 선택   
@@ -76,12 +78,12 @@ tag: [github, 폴더]
    다시 한번 confim merge 버튼을 눌러준다.   
    <img src="../../imgs/git/project_17.png" style="border:3px solid black;border-radius:9px;width:500px">   
 
-   여기까지가 기존 작업 파일을 develop에 commit한 과정이다. 이제 새로 브랜치를 생성하고 develop로 접속해 pull 한 후 새로 생성한 브랜치로 변경하면 된다.   
+   여기까지가 기존 작업 파일을 develop에 병합하는 과정이였습는다. 이제 project에서 새로 브랜치를 생성하고 develop로 접속해 pull 한 후 새로 생성한 브랜치로 변경하면 됩니다.   
 
-   pull request가 처리되었기 때문에 기존 브랜치는 없는 상태   
-   <img src="../../imgs/git/project_18.png" style="border:3px solid black;border-radius:9px;width:500px">   
+   pull request를 처리하여 병합 되었기 때문에 기존 브랜치는 없는 상태   
+   <img src="../../imgs/git/project_18.png" style="border:3px solid black;border-radius:9px;width:400px">   
 
-   project에서 새로 브랜치 생성 -> 기존 commit한 브랜치는 현재 githuub의 branch목록에서 없어진 상태 -> 브랜치를 __develop로 변경 후 pull__ -> 새로 생성한 브랜치로 변경   
+   project에서 새로 브랜치 생성(기존 commit한 브랜치는 현재 github의 branch목록에서 없어진 상태) -> STS4에서 브랜치를 __develop로 변경 후 pull__ -> 새로 생성한 브랜치로 변경   
 
    develop로 변경   
    <img src="../../imgs/git/project_19.png" style="border:3px solid black;border-radius:9px;width:500px">   
