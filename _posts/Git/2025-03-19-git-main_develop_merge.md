@@ -55,7 +55,7 @@ tag: [github, 폴더]
    <img src="../../imgs/git/develop_main_10.png" style="border:3px solid black;border-radius:9px;width:300px">   
 
    Filed changed 선택   
-   <img src="../../imgs/git/develop_main_10.png" style="border:3px solid black;border-radius:9px;width:300px">   
+   <img src="../../imgs/git/develop_main_11.png" style="border:3px solid black;border-radius:9px;width:300px">   
 
    Approve 선택   
-   <img src="../../imgs/git/develop_main_10.png" style="border:3px solid black;border-radius:9px;width:300px">   
+   <img src="../../imgs/git/develop_main_12.png" style="border:3px solid black;border-radius:9px;width:300px">   
