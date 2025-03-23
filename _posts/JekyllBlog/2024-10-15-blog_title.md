@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 블로그 title 관계
-categories: etc
+categories: JekyllBlog
 tag: []
 ---
 
