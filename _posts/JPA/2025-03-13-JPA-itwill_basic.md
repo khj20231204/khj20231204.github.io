@@ -1,6 +1,6 @@
 ---
 layout: single
-title: JPA - 기본 환경경
+title: JPA - 기본 환경
 categories: JPA
 tab: []
 ---
