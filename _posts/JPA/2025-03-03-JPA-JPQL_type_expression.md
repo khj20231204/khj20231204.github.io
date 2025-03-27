@@ -185,3 +185,36 @@ tab: []
    · ABS, SQRT, MOD   
    · SIZE, INDEX(JPA용도)   
 
+1. # JPQL 사용 예제 설명명
+
+   ```java
+      @Query("""
+	 		SELECT e FROM Employees e
+	 		WHERE e.deptNo = :deptNo
+	 		AND e.positionNo = :positionNo
+	 		""")
+      List<Employees> getEmpName(@Param("deptNo") Long deptNo,
+            @Param("positionNo") Long positionNo);
+      
+      /*
+      SELECT e.empName FROM Employees e
+            WHERE e.deptNo = :deptCode
+            AND e.positionNo = :postCode
+            
+      Employees : entity의 Employees.java
+      empName : Employees entity의 필드명
+      deptNo : Employees entity의 필드명
+      positionNo : Employees entity의 필드명
+      DB의 테이블과 컬럼명이 아님
+      */
+      
+      /*
+      Employees getEmpName(@Param("deptNo") Long deptNo,
+      @Param("positionNo") Long positionNo); 
+      @Param("deptNo") : deptNo는 Employees entity의 필드명
+      @Param("positionNo") : positionNo는 Employees entity의 필드명
+      
+      Long deptNo : deptNo는 Employees entity의 필드명
+      Long positionNo : positionNo는 Employees entity의 필드명
+      */
+   ```
